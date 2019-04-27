@@ -1,0 +1,38 @@
+﻿@model HandleErrorInfo
+@{
+	ViewBag.Title = "Error";
+	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+}
+@* ReSharper disable UnknownCssClass *@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		@Html.Raw(ViewBag.Title)
+	</div>
+	<div class="panel-body">
+		@* https://www.evernote.com/shard/s132/nl/14501366/2ae0f902-4ecc-4792-ae8d-56f19d41bc91 *@
+		@if (Session["ErrMessageStrings"] != null)
+		{
+			var list = (List<string>)Session["ErrMessageStrings"];
+			foreach (var str in list)
+			{
+				<br />
+				<br />
+				@Html.Raw(str)
+			}
+			@* Delete the message. *@
+			Session["ErrMessageStrings"] = null;
+		}
+		else
+			if (Model != null)
+		{
+			<br />
+			@Html.Raw("Action: " + Model.ActionName)
+			<br />
+			@Html.Raw("Controller: " + Model.ControllerName)
+			<br />
+			@Html.Raw("Message: " + Model.Exception.InnerException != null ?
+					 Model.Exception.InnerException.Message : Model.Exception.Message)
+		}
+	</div>
+</div>
+@* ReSharper restore UnknownCssClass *@

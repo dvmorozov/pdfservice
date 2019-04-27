@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Free HTML to PDF convertor</title>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+	@Styles.Render("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+	<!-- Optional theme -->
+	@Styles.Render("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css")
+	@Styles.Render("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
+	<!-- Special styles -->
+	@Styles.Render("~/Content/Site.css")
+	@Styles.Render("~/Content/AppMenu.css")
+
+	@Scripts.Render("https://code.jquery.com/jquery-1.12.4.js")
+	@Scripts.Render("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+	@Scripts.Render("https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js")
+	@Scripts.Render("~/Scripts/jquery.highlight-4.closure.js")
+	@Scripts.Render("~/Scripts/jquery.highlight-4.js")
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML to PDF convertor" />
+</head>
+<body>
+	<div class="page full-height">
+		<div id="main" class="full-height">
+			@RenderBody()
+		</div>
+	</div>
+	@RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,89 @@
+﻿/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.trlist {
+  border-radius: 4px;
+  color: #2A6496;
+}
+
+.trlist:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  display: block;
+  width: inherit;  /* Must be !*/
+}
+
+.carousel-caption {
+  color: #337ab7;
+}
+
+.ellipsisInner {
+  width: 50px;
+  /*
+      Must be equal to the constant in Common.js.
+      https://www.evernote.com/shard/s132/nl/14501366/aed21414-9496-417a-9336-a4f1b35585bf
+  */
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.hintText {
+  font-style: italic; 
+  font-size: small;
+}
+
+.btnCurrency {
+  min-width: 42px; 
+  min-height: 42px;
+}
+
+.btnCode {
+  min-width: 58px; 
+  min-height: 42px;
+}
+
+.btnEditorField {
+  min-height: 50px;
+}
+
+/* https://www.evernote.com/shard/s132/nl/14501366/748e493d-9338-41b0-adfb-a9b40cbdb4dd */
+/* https://www.evernote.com/shard/s132/nl/14501366/38cbc348-7f74-4536-ba4a-9653e751b59e */
+.sorted, .encrypted {
+    visibility: hidden;
+}
+
+.panel-primary {
+    min-width: 278px;
+ }
+
+/* Table style not provided by Bootstrap v3.3.5 was added to get consistency with styles of accordion panels. */
+/* https://github.com/dvmorozov/expenses/issues/20 */
+.table > tbody > tr.primary > td, .table > tbody > tr.primary > th, .table > tbody > tr > td.primary, .table > tbody > tr > th.primary, .table > tfoot > tr.primary > td, .table > tfoot > tr.primary > th, .table > tfoot > tr > td.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > thead > tr.primary > th, .table > thead > tr > td.primary, .table > thead > tr > th.primary {
+    background-color: #337ab7;
+}
+
+/* https://github.com/dvmorozov/expenses/issues/114 */
+.pickmeup-twitter-bootstrap .pmu-instance .pmu-selected {
+    background-color: #5bc0de;
+    border-radius: .4em;
+}
