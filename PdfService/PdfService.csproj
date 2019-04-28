@@ -214,10 +214,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config" />
-    <None Include="Properties\PublishProfiles\rationalcity - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\rationalcity - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\xpnss - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\xpnss - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
+
     <Content Include="Scripts\jquery.highlight-4.closure.js" />
     <Content Include="Scripts\jquery.highlight-4.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
