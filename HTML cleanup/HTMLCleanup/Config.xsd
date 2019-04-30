@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:htmlCleanup="urn:xmlns:HTMLCleanupConfig" elementFormDefault="qualified" targetNamespace="urn:xmlns:HTMLCleanupConfig" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="HTMLCleanupConfig">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ParagraphExtractorConfig" type="htmlCleanup:ParagraphExtractorType"></xs:element>
+        <xs:element name="SpecialHTMLRemoverConfig" type="htmlCleanup:SpecialHTMLRemoverType"></xs:element>
+        <xs:element name="InnerTagRemoverConfig" type="htmlCleanup:InnerTagRemoverType"></xs:element>
+        <xs:element name="TagWithTextRemoverConfig" type="htmlCleanup:TagWithTextRemoverType"></xs:element>
+        <xs:element name="URLFormatterConfig" type="htmlCleanup:URLFormatterType"></xs:element>
+        <xs:element name="TextFormatterConfig" type="htmlCleanup:TextFormatterType"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ParagraphExtractorType">
+    <xs:sequence>
+    </xs:sequence> 
+  </xs:complexType>
+
+  <xs:complexType name="SpecialHTMLRemoverType">
+    <xs:sequence>
+      <xs:element name="SpecialHTML" type="htmlCleanup:SpecialHTMLSymbolListType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SpecialHTMLSymbolListType">
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="SpecialHTMLSymbol" type="htmlCleanup:SpecialHTMLSymbolType" />
+      </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="SpecialHTMLSymbolType">
+    <xs:sequence>
+      <xs:element name="SpecialHTML" type="xs:string" />
+      <xs:element name="Replacement" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InnerTagRemoverType">
+    <xs:sequence>
+      <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TagToRemoveListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Tag" type="htmlCleanup:TagToRemoveType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TagToRemoveType">
+    <xs:sequence>
+      <xs:element name="StartTagWithoutBracket" type="xs:string" />
+      <xs:element name="EndTag" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TagWithTextRemoverType">
+    <xs:sequence>
+      <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="URLFormatterType">
+    <xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TextFormatterType">
+    <xs:sequence>
+      <xs:element name="Delimiters" type="htmlCleanup:DelimiterListType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelimiterListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="DelimiterSymbol" type="htmlCleanup:DelimiterSymbolType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelimiterSymbolType">
+    <xs:sequence>
+      <xs:element name="SymbolCode" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

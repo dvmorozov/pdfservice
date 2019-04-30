@@ -1,0 +1,3993 @@
+
+ <!DOCTYPE html>
+<html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+ 
+
+
+                                                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+  <head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.gazeta.ru/business/2013/04/15/5255809.shtml" >
+ <!--
+article
+-->
+<!-- alien 5255809,(none),,, -->  
+
+ 
+
+
+
+ <title> Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор - Газета.Ru | Бизнес</title>
+ <meta name="description" content="Уголовное дело против экс-главы &laquo;Курортов Северного Кавказа&raquo; Ахмеда Билалова может пополниться обвинениями в мошенничестве. Деньги с кавказских строек выводились на Кипр еще на предпроектном этапе через сеть посредников, утверждает следствие. Ахмед Билалов и его брат Магомед, проходящий по другому уголовному делу, находятся в Германии, говорят источники, а скандал вокруг Билаловых развивается по &laquo;сценарию Сердюкова&raquo;:..."> <meta property="og:description" content="Уголовное дело против экс-главы &laquo;Курортов Северного Кавказа&raquo; Ахмеда Билалова может пополниться обвинениями в мошенничестве. Деньги с кавказских строек выводились на Кипр еще на предпроектном этапе через сеть посредников, утверждает следствие. Ахмед Билалов и его брат Магомед, проходящий по другому уголовному делу, находятся в Германии, говорят источники, а скандал вокруг Билаловых развивается по &laquo;сценарию Сердюкова&raquo;:...">
+<meta property="og:title" content="&laquo;Курорты Северного Кавказа&raquo; пристраивают к Кипру" />
+<meta property="og:type" content="article" />   
+<meta property="fb:app_id" content="406317839387165" />
+<meta property="og:site_name" content="Газета.Ru"/>
+<meta property="og:url" content="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" />
+<meta property="og:image" content="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic668-668x444-96148.jpg" /><link rel="image_src" href="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic668-668x444-96148.jpg" />
+<meta name="keywords" content="Билалов Ахмед Гаджиевич">
+
+
+
+<link rel="shortcut icon" href="http://static.gazeta.ru/nm2012/i/favicon.ico" type="image/x-icon">
+
+<script type="text/javascript">
+var userAgent = navigator.userAgent;
+if( userAgent.match( /ipad|iphone|htc|android|windows\s+phone/i ) ) {
+document.write('<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/new_common_css_pda7.css" />');
+} else {
+document.write('<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/new_common_css34.css" />');
+}
+var isIpad1 = (function() {
+var m = userAgent.match( /ipad.*version\/(\d)/i );
+return m && m[1] < 6;
+})();
+if( isIpad1 ) {
+document.write('<meta name="viewport" content="width=device-width,user-scalable=no">');
+}
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/print3.css" media="print" />
+
+
+<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/calendar.css" />
+<script type="text/javascript">
+var userAgent = navigator.userAgent;
+if( userAgent.match( /YaBrowser/ ) ) {
+document.write('<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/print_yb.css" media="print" />');
+}
+</script>
+<!--[if lt IE 9]><script src="http://static.gazeta.ru/nm2012/js/html5shiv.js"></script><![endif]-->
+<script src="http://static.gazeta.ru/nm2012/js/LAB.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/jquery/jquery-1.8.2.min.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/jquery/jquery.cookie.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/adv/adfox.asyn.code.ver3.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/adv/adfox.asyn.code.scroll.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/carousel_main.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/scroller.js"></script>
+<script src="http://static.gazeta.ru/nm2012/js/mouseweel.js"></script>
+
+
+<!--[if lte IE 9]><script src="http://static.gazeta.ru/nm2012/js/jquery.placeholder.min.2.js"></script><![endif]-->
+<script> window.___gcfg = {lang: 'ru'};
+$LAB
+.script("https://apis.google.com/js/plusone.js").wait()
+.script("http://analytics-api-samples.googlecode.com/svn/trunk/src/tracking/javascript/v5/social/ga_social_tracking.js").wait()
+.script("http://connect.facebook.net/ru_RU/all.js").wait()
+.script("http://platform.twitter.com/widgets.js").wait()
+.script("http://vkontakte.ru/js/api/openapi.js").wait()
+.script("http://static.gazeta.ru/nm2012/js/social_stuff/buttons_init.js").wait()
+//.script("http://gazeta.ru/nm2008/ssi/soc_buttons/init_social_reader_articles.js").wait(function(){ //make_facebook();
+//});
+$(function() {
+$('nav .stripe').each(function() {
+$(this).parent().hover(
+function() {
+$(this).addClass('hover');
+},
+function() {
+$(this).removeClass('hover');
+}
+);
+});
+$('*[data-init]').each(function() {
+var $this = $(this);
+var fun = window[$this.data('init')];
+//if (window.console) console.log(['init', this, fun]);
+if (fun && typeof(fun) == 'function') {
+fun($this);
+//$this.data('init', '');
+}
+});
+$('.common_height').each(function(){
+$this=$(this);
+var maxh = 0; // ищем самую высокую заметку и подставляем ее высоту всем остальным
+$this.find('article').each(function(){
+var h = $(this).height();
+if (h > maxh) maxh = h;
+});
+$this.find('article').each(function(){
+$(this).height(maxh);
+});
+});
+$('#but_dinamic_240_1').click(function() {
+$('#but_dinamic_240_1').css('background-position','0 0').css('cursor','default');
+$('#but_dinamic_240_2,#but_dinamic_240_3').css('background-position','0 10px').css('cursor','pointer');
+$('#page_dinamic_240_1').show();
+$('#page_dinamic_240_2,#page_dinamic_240_3').hide();
+});
+$('#but_dinamic_240_2').click(function() {
+$('#but_dinamic_240_2').css('background-position','0 0').css('cursor','default');
+$('#but_dinamic_240_1,#but_dinamic_240_3').css('background-position','0 10px').css('cursor','pointer');
+$('#page_dinamic_240_2').show();
+$('#page_dinamic_240_1,#page_dinamic_240_3').hide();
+});
+$('#but_dinamic_240_3').click(function() {
+$('#but_dinamic_240_3').css('background-position','0 0').css('cursor','default');
+$('#but_dinamic_240_2,#but_dinamic_240_1').css('background-position','0 10px').css('cursor','pointer');
+$('#page_dinamic_240_3').show();
+$('#page_dinamic_240_2,#page_dinamic_240_1').hide();
+});
+// ---------------------------------- Fancy_box ------------------------------------
+function close_netot_fancy_box(){
+$('.fancy_box').fadeOut(100, function(){$(this).remove()});
+return false;
+}
+$(window).keydown(function(event){
+if(event.keyCode == 27){
+close_netot_fancy_box();
+}
+});
+function open_netot_fancy_box(source) {
+$('<div class="fancy_box" style="display:none">\
+<a href="#" class="close">Закрыть</a>\
+' + source + '\
+</div>\
+')
+.appendTo('body')
+.fadeIn(100)
+.click(function(){
+close_netot_fancy_box();
+return false;
+})
+var $img = $('.fancy_box img');
+$img.load(function(){
+var img_height = $img.height();
+var img_width = $img.width();
+var window_height = $(window).height();
+var window_width = $(window).width();
+if(img_height > window_height){
+img_height = window_height - 20;
+$img.css('max-height', img_height + 'px');
+img_width = $img.width();
+};
+if(img_width > window_width){
+img_width = window_width - 20;
+$img.css('max-width', img_width + 'px');
+img_height = $img.height();
+};
+$img.css({
+'marginTop' : '-' + img_height/2 + 'px',
+'top' : '50%',
+'marginLeft' : '-' + img_width/2 + 'px',
+'left' : '50%'
+});
+});
+return false;
+}
+$('a.zoom_in').click(function(){
+var source = $(this).attr('href');
+if(source.match('#fb')){
+source = $(this).closest('article').find(source).html();
+} else {
+source = '<img src="' + source + '">';
+}
+return open_netot_fancy_box(source);
+})
+window.open_netot_fancy_box = open_netot_fancy_box;
+window.close_netot_fancy_box = close_netot_fancy_box;
+// ---------------------------------- END Fancy_box ------------------------------------
+});
+</script>
+
+<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/livejournal.css" />
+<script type="text/javascript" src="http://livejournal.com/js/partners/ljcomments.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="http://static.gazeta.ru/nm2012/css/vypolzen3.css" />
+
+<script src="http://static.gazeta.ru/nm2012/js/vypolzen14.js"></script>
+
+
+ </head>
+<body>
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<div class="adv adv_720x90" id="adv_720x90" style="background:transparent;box-shadow:none"> <!--AdFox START-->
+<!--sup-com-->
+<!--Площадка: Gazeta.ru / * / *-->
+<!--Тип баннера: Перетяжка 100%-->
+<!--Расположение: <верх страницы>-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<scr' + 'ipt type="text/javascript" src="http://ads.adfox.ru/171817/prepareCode?pp=g&amp;ps=vzq&amp;p2=y&amp;pct=c&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;puid6=BUSINESS&amp;pdw=' + scrwidth + '&amp;pdh=' + scrheight + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END--> </div>
+<script type="text/javascript">
+var userAgent = navigator.userAgent;
+if( !userAgent.match( /ipad|iphone|htc|android|windows\s+phone/i ) ) {
+var solDivId = 'adv_720x90';
+var isiPad = navigator.userAgent.match(/iPad/i) != null;
+if (typeof(document) != 'undefined') {
+if (typeof(document.getElementById) != 'undefined') {
+var solDiv = document.getElementById(solDivId);
+var solIsDefault = solDiv.innerHTML.indexOf('yandsparent.gif') != -1;
+if (solIsDefault&&!isiPad) {
+solDiv.style.display = 'none';
+document.write('<div id="yandex_ad_R-108310-1" align="center"></div>');
+(function(w, d, n, s, t) {
+w[n] = w[n] || [];
+w[n].push(function() {
+Ya.Context.AdvManager.render({
+blockId: "R-108310-1",
+renderTo: "yandex_ad_R-108310-1",
+async: true
+});
+});
+t = d.getElementsByTagName("script")[0];
+s = d.createElement("script");
+s.type = "text/javascript";
+s.src = "//an.yandex.ru/system/context.js";
+s.async = true;
+t.parentNode.insertBefore(s, t);
+})(this, this.document, "yandexContextAsyncCallbacks");
+}
+}
+}
+}
+</script> 
+
+
+
+
+
+
+
+
+<div class="main_frame cf"><header>
+<div class="counters">
+<!--Google Analitics-->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1268585-1']);
+_gaq.push(['_trackPageview']);
+/* Decrease bounce rate on first page */
+if (document.referrer.indexOf(location.hostname) < 0)
+setTimeout('_gaq.push([\'_trackEvent\', \'NoBounce\', \'Over 15 seconds\'])', 15000);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!--Google Analitics end-->
+<!-- Yandex.Metrika counter -->
+<div style="display:none;"><script type="text/javascript">
+(function(w, c) {
+(w[c] = w[c] || []).push(function() {
+try {
+w.yaCounter230672 = new Ya.Metrika({id:230672, enableAll: true, webvisor:true});
+}
+catch(e) { }
+});
+})(window, "yandex_metrika_callbacks");
+</script></div>
+<script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script>
+<noscript><div><img src="//mc.yandex.ru/watch/230672" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<img src="http://counter.rambler.ru/top100.cnt?46589" width=1 height=1 border=0>
+<!--LiveInternet counter--><script type="text/javascript"><!--
+new Image().src = "//counter.yadro.ru/hit;gazeta_all?r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random();//--></script><!--/LiveInternet-->
+<noindex>
+
+
+
+<!-- tns-counter.ru -->
+<script language="JavaScript">
+var img = new Image();
+img.src = 'http://www.tns-counter.ru/V13a***R>' + document.referrer.replace(/\*/g,'%2a') + '*sup_ru/ru/CP1251/tmsec=gazeta_business/';
+</script>
+<noscript>
+<img src="http://www.tns-counter.ru/V13a****sup_ru/ru/CP1251/tmsec=gazeta_business/" width="1" height="1" alt="" />
+</noscript>
+<!--/ tns-counter.ru -->
+</noindex>
+
+
+</div>
+<div class="b-soc_buttons">
+<ul>
+<li class="mobile"><a href="http://m.gazeta.ru/">Мобильная версия</a></li>
+<li class="rss"><a href="/export_news.shtml">RSS</a></li>
+<li class="bookmark"><a title="Добавить в закладки" onmouseover="self.status='Добавить в закладки';return true" onmouseout="self.status=''" href="javascript:void(0);" onclick="return bookmark(this);">В закладки</a></li>
+<li class="search">
+<form name="search" action="/search.shtml">
+<input type="hidden" name="p" value="search">
+<input type="hidden" name="how" value="pt">
+<input type="text" name="text" placeholder="Поиск" class="window">
+<input type="image" class="lupa" alt="Искать" title="Искать" src="http://static.gazeta.ru/nm2012/i/0.png"/>
+</form>
+</li>
+<li class="age"><span>18+</span></li>
+<li class="lj"><a href="http://lj.gazeta.ru" target="_blank"></a></li>
+<li class="youtube"><a href="http://youtube.com/gazetaru" target="_blank"></a></li>
+<li class="google"><a href="https://plus.google.com/b/105541962280031022515/105541962280031022515/posts" target="_blank"></a></li>
+<li class="vk"><a href="http://vk.com/gazeta" target="_blank"></a></li>
+<li class="twitter"><a href="http://www.twitter.com/gazetaru" target="_blank"></a></li>
+<li class="facebook"><a href="http://www.facebook.com/gazeta.ru" target="_blank"></a></li>
+</ul>
+</div>
+<div class="b-main_logo">
+<div class="logo"><a href="/"><img src="http://static.gazeta.ru/nm2012/i/logos/gazeta_logo.png" alt="Газета.Ru"></a></div>
+<div style="text-align:right;width:280px;float:left;">
+<div align="right" style="height: 77px; margin-right: 10px; overflow: hidden; padding: 0 10px;"> <!-- place 4856833,/nm2012/elements/banners/4856833.shtml,covers/right/item_no_wrap, --> 
+                                                                                      
+
+ 
+   
+   
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Без заданных размеров-->
+<!--Расположение: Шапка-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=w&amp;ps=ky&amp;p2=bx&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+   
+
+</div>
+</div> <div class="right_widjet">
+<p class="date">
+
+
+
+
+
+
+
+
+
+
+
+
+
+15 апреля 2013 18:07<br>
+</p>
+<p class="exchange_rate">
+ЦБ USD 30.9308 (+0.0494); EUR 40.5132 (+0.1481)
+</p>
+<p class="weather">
+
+ 
+
+
+<a title="2...4 &deg;C
+Пасмурно, без осадков
+Ветер С-В, 2-5 м/c
+Давление 743-745 мм рт.ст.
+Влажность воздуха 54 - 59%">
+Екатеринбург:
+Пасмурно, без осадков,
+2...4 &deg;С
+</a>
+
+</p>
+</div>
+</div>
+  
+    <div class="b-navbar">
+<nav>
+<ul> <li> <a href="/news/" class="stripe">новости</a> <li> <a href="/politics/" class="stripe">политика</a> <li class="current"> <a href="/business/" class="stripe">бизнес</a> <li> <a href="/social/" class="stripe">общество</a> <li> <a href="/comments/" class="stripe">комментарии</a> <li> <a href="/culture/" class="stripe">культура</a> <li> <a href="/science/" class="stripe">наука</a> <li> <a href="/auto/" class="stripe">авто</a> <li> <a href="/sport/" class="stripe">спорт</a> <li> <span class="stripe">мультимедиа</span> 
+  <div class="b-menu">
+<ul> <li> <a href="/photo/" class="stripe">Фото</a> </li> <li> <a href="/video/" class="stripe">Видео</a> </li> <li> <a href="/infographics/" class="stripe">Инфографика</a> </li> </ul>
+</div>
+
+ <li> <span class="stripe">приложения</span> 
+  <div class="b-menu m-menu_right_side">
+<ul> <li> <a href="/techzone/" class="stripe">Техзона</a> </li> <li> <a href="/realty/" class="stripe">Недвижимость</a> </li> <li> <a href="/money/" class="stripe">Деньги</a> </li> <li> <a href="/lifestyle/" class="stripe">Стиль жизни</a> </li> </ul>
+</div>
+
+ </ul>
+</nav>
+</div> 
+  
+    <div class="b-navbar m-rubric_nav m-thick">
+<nav>
+<ul> <li> <a href="/business/news/" class="stripe">Новости</a> </li> <li class="current"> <a href="/business/themes/r_4857797.shtml" class="stripe">Финансы</a> </li> <li> <a href="/business/quotes/" class="stripe">Котировки</a> </li> <li> <a href="/business/themes/r_4857801.shtml" class="stripe">IT и медиа</a> </li> <li> <a href="/business/themes/r_2040067.shtml" class="stripe">Энергетика</a> </li> <li> <a href="/business/themes/r_2040056.shtml" class="stripe">Экономполитика</a> </li> <li> <a href="/business/themes/r_4857833.shtml" class="stripe">Промышленность</a> </li> <li> <a href="/business/themes/r_2125628.shtml" class="stripe">Недвижимость</a> </li> <li> <a href="/business/themes/r_2040072.shtml" class="stripe">Транспорт</a> </li> <li> <a href="/business/themes/r_2040069.shtml" class="stripe">Потребрынок</a> </li> </ul>
+</nav>
+</div> 
+
+ 
+ 
+
+<div style="clear:both;"></div>
+<!-- place 4856721,/nm2012/elements/banners/4856721.shtml,covers/right/item_no_wrap, --> 
+                                                                                      
+
+ 
+   
+   
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Перетяжка 100%-->
+<!--Расположение: верх страницы 2-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=x&amp;ps=ky&amp;p2=ej&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+   
+
+</header>
+
+<div class="c710 ml0">
+<article class="b-article" data-main="1">
+
+
+
+
+
+
+
+
+
+<h3 class="dh"><a href="/business">Бизнес</a><span class="ml5 mr5">&rarr;</span><a href="/subjects/2796995.shtml">Сочи-2014</a> </h3>
+
+<div class="cf mb10"></div>
+<h2 class="article_name">&laquo;Курорты Северного Кавказа&raquo; пристраивают к Кипру</h2>
+<h1 class="article_subheader">Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор</h1>
+<div id="lj_send" style="display:none">
+<form id="lj_send_form" action="http://www.livejournal.com/update.bml" accept-charset="utf-8" method="post" target="_blank">
+<input type="text" name="subject" value="&amp;laquo;Курорты Северного Кавказа&amp;raquo; пристраивают к Кипру">
+<textarea name="event" id="lj_send_event">
+<div style="background-color:#fff;padding:10px;margin:0;display:table;">
+<div style="border-bottom:1px solid #cccccc;">
+<a href="http://www.gazeta.ru"><img src="http://static.gazeta.ru/nm2012/i/gazetaru_ljsend_logo.png" alt="Газета.Ru" style="width:177px;height:23px;border:0;" /></a>
+<p style="padding:10px 0 5px 0;margin:0;color:#939fa7;font-family:Arial;font-size:12px;">15.04.2013, 17:06</p>
+</div>
+<div style="padding:20px 0 0 0;">
+<a href="http://www.gazeta.ru/business/2013/04/15/5255809.shtml"><img src="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic148-148x98-35334.jpg" alt="&amp;laquo;Курорты Северного Кавказа&amp;raquo; пристраивают к Кипру" style="float:left;border:0;width:148px;height:98px;margin:0px 10px 10px 0;" /></a>
+<div style="width:100%;">
+<h2 style="padding:0;margin:0 0 5px 0;"><a href="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" style="font-family:Arial;font-size:19px;color:#671a1d;text-decoration:none;">&amp;laquo;Курорты Северного Кавказа&amp;raquo; пристраивают к Кипру</a></h2>
+<p style="padding:0;margin:0;"><a href="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" style="font-family:Arial;font-size:13px;color:#000000;text-decoration:none;">Уголовное дело против экс-главы \&amp;laquo;Курортов Северного Кавказа\&amp;raquo; Ахмеда Билалова может пополниться обвинениями...</a></p>
+<p><a href="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" style="font-family:Arial;font-size:13px;color:#cccccc;text-decoration:underline;">http://www.gazeta.ru/business/2013/04/15/5255809.shtml</a></p>
+</div>
+</div>
+</div>
+</textarea>
+</form>
+</div>
+<script>
+$(document).ready(function() {
+$(".lj_new_send").click(function(){
+var text = $("#lj_send_event").val();
+text = text.replace(/[\r\n\t]/g," ");
+$("#lj_send_event").text(text);
+$("#lj_send_form").submit();
+return false;
+});
+});
+</script>
+<form name="lj_send_form" action="http://lj.gazeta.ru/ljthis-window/?docId=5255809" method="POST" target="_blank"></form><style> .b-social_like_buttons li {position:relative;}</style><ul class="b-social_like_buttons cf "><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false" data-action="recommend"></div></li><li><div class="g-plusone" data-size="medium"></div></li><li><div id="vk_like"></div></li><li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-counturl="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" data-via="gazetaru" data-related="">Tweet</a></li><li><a class="lj_new lj_new_send" id="lj_new" href="#" title="Отправить в Livejournal"><img src="http://static.gazeta.ru/nm2012/i/lj_newbutton.png" alt="Livejournal" style="height:20px"/></a></li>  <li class="comments ml10"><a href="#comments"><span class="comments_info_arrowed"> &nbsp;<span class='number'>14</span>&nbsp;отзывов</span></a></li><li><a href="#comments" class="button_give_comments">Написать отзыв</a></li></ul>
+<div class="b-media b-photoreport_inside photoreport">                                                           
+
+
+
+
+<div class="picture">
+<figure class="media_content">
+<a href="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic4_zoom-1000x1000-36364.jpg" class="zoom_in">
+<img src="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic510-510x340-92981.jpg" alt="Ахмед Билалов на заседании Совета Федерации в октябре 2011 года">
+</a>
+
+<figcaption class="signature">
+
+Ахмед Билалов на заседании Совета Федерации в октябре 2011 года
+
+</figcaption>
+
+</figure>
+</div><div class="info">
+<p class="pic_src">Фотография: <span id="photoreport_pic_src">Станислав Красильников/ИТАР-ТАСС</span></p> <time pubdate="2013-04-15T17:06:15+04:00">15.04.2013, 17:06</time> 
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+|&nbsp;<span rel="author"><a href='/gazeta/authors/ekaterina_bryzgalova.shtml'>Екатерина Брызгалова</a>, <a href='/gazeta/authors/ekaterina_tkachenko.shtml'>Екатерина Ткаченко</a></span>
+ </div>  </div>
+<div style="clear:both"></div>
+<div class="text">
+<p><span class="intro">Уголовное дело против экс-главы &laquo;Курортов Северного Кавказа&raquo; Ахмеда Билалова может пополниться обвинениями в мошенничестве. Деньги с кавказских строек выводились на Кипр еще на предпроектном этапе через сеть посредников, утверждает следствие. Ахмед Билалов и его брат Магомед, проходящий по другому уголовному делу, находятся в Германии, говорят источники, а скандал вокруг Билаловых развивается по &laquo;сценарию Сердюкова&raquo;: топ-менеджеров обвиняют в подписании соглашений, которые ранее считались их заслугами.</span></p>
+<p>Генпрокуратура обвинила менеджмент &laquo;Курортов Северного Кавказа&raquo; в выводе денег через кипрский офшор. Поставлен вопрос о возбуждении уголовного дела по 4 части статьи 159 УК (мошенничество, совершенное группой лиц по предварительному сговору в особо крупном размере), сообщило ведомство, не назвав подозреваемых.</p><p>По данным следствия, менеджмент КСК делегировал функции по подготовке строительства фирме с кипрским учредителем. По договору, подрядчик получал около 21 млн рублей в месяц &laquo;независимо от достигнутых результатов&raquo;, затем передал контракт стоимостью более 1 млрд рублей другой компании, а она в тот же день &ndash; третьей организации.</p><p>Вследствие этого за счет средств КСК было оплачено подрядчикам работ на сумму 573,5 млн рублей, одновременно с чем вознаграждение сторонней организации составило более 275 млн рублей, подсчитали в ведомстве.</p><p><span class="idea">Но часть оплаченных работ была выполнена еще до заключения этих договоров &mdash; другой организацией за меньшие деньги, а принятые объемы работ, вероятно, были завышены, отмечают в Генпрокуратуре.</span></p><p>В случае, если виновность менеджеров КСК будет доказана, им грозит лишение свободы сроком до 10 лет и штраф до 1 млн рублей или штраф в размере заработной платы или иного дохода в течение трех лет.</p><p>Прокуроры не объявляют, в отношении кого из действующего или бывшего руководства КСК идет расследование. Но ранее уголовное дело по статье «Злоупотребление полномочиями» было возбуждено против <a class="tag" href="/tags/bilalov_ahmed_gadzhievich.shtml">Ахмеда Билалова</a>, экс-главы КСК. Дело завели после межведомственной проверки, которая выявила, что затраты общества на управленческую деятельность в 2012 году в 1,3 раза превысили расходы на инвестиции. Билалова уличили в необоснованных затратах на командировки «с использованием элементов роскоши», заключении сделок без одобрения совета директоров и непринятии мер по сохранности купленных КСК метеостанций. В Генпрокуратуре также посчитали, что в 2011 году на счетах Национального банка развития бизнеса (НББ, Нацбизнесбанк, связан с братом Ахмеда Билалова Магомеда) без тендера были размещены 2 млрд рублей КСК.</p><p>По данным источника в окружении бизнесменов, Ахмед и Магомед Билаловы находятся в Германии и пока не собираются пока возвращаться в Россию.</p><p>«В ситуации, которая происходит с Билаловым, все предельно просто. Любой договор, который посчитают необоснованным, будет рассмотрен и признан мошенническим, &mdash; считает источник в девелоперском бизнесе. &mdash; С точки зрения мошенничества в особо крупных размерах ему будут инкриминироваться действия компаний, аффилированных с ним или с братом. Но у них почти все были аффилированы: подрядчики, заказчики, банки и т. д. Но он этого не скрывал».</p><p><span class="idea">По мнению участника рынка недвижимости, скандал вокруг Билалова будет идти по такому же сценарию, как и в случае бывшего министра обороны Анатолия Сердюкова. «Теперь ему поставят в вину все договоры, хотя раньше это преподносили как заслугу за то, что он создал эффективно работающую структуру. Вслед за предпринимателем под раздачу попадут все, кто имел какие-то дела с Билаловым», &mdash; беспокоится он.</span></p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+   
+ 
+ 
+
+ 
+
+
+
+  <div class="incut" >
+<article class="article reference"><h3><a href="/business/2013/04/15/5255809.shtml?p=incut&amp;number=1">&laquo;У человека есть столько денег, сколько ему доверяют&raquo;
+</a></h3>
+<!-- ARTICLE_URL --><p class="intro">
+<a href="/business/2013/04/15/5255809.shtml?p=incut&amp;number=1">В интервью «Газете.Ru» Билалов говорил, что «никогда не ставил себе задачу заработать большое количество денег». «Я вообще считаю...&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+</article>
+</div>    <p>Ахмеда Билалова уволили с занимаемых должностей после резкой критики президента России Владимира Путина. Недовольство Путина вызвал срыв сроков сдачи двух олимпийских трамплинов в рамках проекта «Горная карусель». Президент в ходе ревизии олимпийской стройки 6 февраля высказал недовольство задержкой ввода в эксплуатацию комплекса «Русские горки» и удорожанием проекта с 1,2 млрд рублей до 8 млрд рублей. Эту стройку вела компания «Красная Поляна», контрольный пакет акций которой до весны 2012 года принадлежал Магомеду Билалову.</p><p>Спустя месяц ZeelandDevelopment Магомеда Билалова продала долю в компании «Красная Поляна». В ходе сделки совладелец группы БИН и президент «Русснефти» Михаил Гуцериев получил 41% акций, остальное &mdash; у Сбербанка. Сумму сделки компании не разглашали, но источник, знакомый с планами предпринимателя, оценивал долю в проекте в размере 10 млрд рублей. «Избавиться от доли в компании, реализующей проекты в Сочи, Билалов планировал еще летом, но тогда речь шла о меньшей доле. Владелец хотел получить за нее около 8 млрд рублей», &mdash; говорил он.</p><p>Скандал, вызванный стройкой в Сочи, распространился и на брата Ахмеда Билалова &ndash; Магомеда. В конце прошлой недели главное управление экономической безопасности и противодействия коррупции (ГУЭБиПК) МВД завело уголовное дело против менеджмента «Красной Поляны» и Национального банка развития бизнеса.</p><p>Среди владельцев НБРБ банк указывает только одного частного акционера &mdash; это Магомед Билалов, которому принадлежит 11,56%.</p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+   
+ 
+ 
+
+ 
+
+
+
+  <div class="incut" >
+<article class="article reference"><h3><a href="/business/2013/04/15/5255809.shtml?p=incut&amp;number=2">&laquo;Курорты Северного Кавказа&raquo;
+</a></h3>
+<!-- ARTICLE_URL --><p class="intro">
+<a href="/business/2013/04/15/5255809.shtml?p=incut&amp;number=2">КСК были созданы в конце 2010 года для реализации проекта по созданию туристического кластера.<br><br>В 2011 году проект...&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+</article>
+</div>    <p>По данным правоохранительных органов, в июле 2009 года «Красная Поляна» заключила несколько соглашений с госкорпорацией «Олимпстрой» о финансировании строительства спортивно-туристического комплекса «Горная карусель» и трамплинов. «Более 1 млрд рублей, полученные от Сбербанка по договорам долевого участия в строительстве, были размещены на вкладах в НБРБ под 4% годовых, &mdash; следовало из заявления МВД. &mdash; На следующем этапе криминальной схемы банк прокредитовал подконтрольные фирмы, которые выдали займы ОАО «Красная Поляна» уже под 12,5%».</p><p>По данным МВД, более 45,5 млн рублей было выведено в виде выплаты процентов по займам через аффилированные организации. Против бывших руководителей «Красной Поляны» и совладельца ОАО «Национальный банк развития бизнеса» возбуждено уголовное дело по статье 201 УК (злоупотребление полномочиями).</p>
+<!-- 1 -->
+</div>
+
+<div class="tags">
+<a href="/tags/bilalov_ahmed_gadzhievich.shtml" rel="tag">Ахмед Билалов/a> </div>
+ <style> .b-social_like_buttons li {position:relative;}</style><ul class="b-social_like_buttons cf b-social_like_buttons_article_bottom"><li><div class="fb-like" data-send="false" data-layout="button_count" data-width="140" data-show-faces="false" data-action="recommend"></div></li><li><div class="g-plusone" data-size="medium"></div></li><li><div id="vk_like2"></div></li><script> $LAB .script("http://vkontakte.ru/js/api/openapi.js").wait(function(){ VK.init({apiId: 1992442, onlyWidgets: true}); if (document.getElementById('vk_like')) VK.Widgets.Like("vk_like", {type: "mini"}); if (document.getElementById('vk_like2')) VK.Widgets.Like("vk_like2", {type: "mini"}); }); </script><li><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-counturl="http://www.gazeta.ru/business/2013/04/15/5255809.shtml" data-via="gazetaru" data-related="">Tweet</a></li><li><a class="lj_new lj_new_send" id="lj_new" href="#" title="Отправить в Livejournal"><img src="http://static.gazeta.ru/nm2012/i/lj_newbutton.png" alt="Livejournal" style="height:20px"/></a></li>  <li class="comments ml10"><a href="#comments"><span class="comments_info_arrowed"> &nbsp;<span class='number'>14</span>&nbsp;отзывов</span></a></li><li><a href="#comments" class="button_give_comments">Написать отзыв</a></li></ul>
+     
+                          
+
+
+                                        
+
+                                                                                   
+ 
+ 
+ 
+
+    
+
+
+    
+                          
+
+
+                                     
+
+        
+
+                                                                              
+ 
+ 
+ 
+
+    
+
+
+    
+                          
+
+
+                                     
+
+        
+
+                                                                              
+ 
+ 
+ 
+
+    
+
+
+    
+                          
+
+
+                                                                                                    
+ 
+ 
+ 
+
+    
+
+
+    
+                          
+
+
+                                                                                               
+ 
+ 
+ 
+
+    
+
+
+     <section class="b-article_read_also">
+<h5 class="stripe">Читайте также:</h5>
+
+
+                                                   
+                          
+
+
+                                        
+
+                                                                                   
+   
+
+ 
+
+
+
+  <article class="article"><p class="intro">
+<a href="/business/2013/04/12/5253057.shtml"><span>На совладельца Национального банка развития бизнеса и бывших руководителей &laquo;Красной Поляны&raquo; заведено уголовное дело</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p></article> 
+     
+
+                                                              
+                          
+
+
+                                     
+
+        
+
+                                                                              
+   
+
+ 
+
+
+
+  <article class="article"><p class="intro">
+<a href="/business/2013/04/10/5250789.shtml"><span>Против Билалова возбудили уголовное дело о злоупотреблении должностными полномочиями</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p></article> 
+     
+
+                                                              
+                          
+
+
+                                     
+
+        
+
+                                                                              
+   
+
+ 
+
+
+
+  <article class="article"><p class="intro">
+<a href="/business/2013/03/18/5107473.shtml"><span>Расходы «Курортов Северного Кавказа» под руководством Ахмеда Билалова были завышены, подсчитали в Счётной палате</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p></article> 
+     
+
+                                                              
+                          
+
+
+                                                                                                    
+   
+
+ 
+
+
+
+  <article class="article"><p class="intro">
+<a href="/business/2013/03/07/5003789.shtml"><span>Генпрокуратура нашла нарушения в деятельности Ахмеда Билалова: дорогие чартеры, отели и съемки кино без одобрения совета директоров КСК</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p></article> 
+     
+
+                                                              
+                          
+
+
+                                                                                               
+   
+
+ 
+
+
+
+  <article class="article"><p class="intro">
+<a href="/business/2013/02/26/4981613.shtml"><span>&laquo;Курорты Северного Кавказа&raquo; избирают преемника Ахмеда Билалова на фоне проверки Генпрокуратуры</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p></article> 
+     
+ </section>
+ </article>
+<div class="mt10">
+ 
+ 
+<div class="adv_adsmart">
+<div align="center"> <!--AdFox START-->
+<!--adsmart-->
+<!--Площадка: gazeta / * / *-->
+<!--Тип баннера: adsmart-->
+<!--Расположение: <середина страницы>-->
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_Scroll(pr1,'http://ads.adfox.ru/1435/prepareCode?pp=h&amp;ps=bnh&amp;p2=ul&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ --> </div>
+</div>
+
+ 
+
+</div> 
+
+<a name="comments"></a>
+
+<div class="center"><a class="grey_text fs13" href="/livejournal_manual.shtml">Правила комментирования</a></div>
+<div id="lj-comments"></div>
+<script type="text/javascript">
+jQuery('#lj-comments').ljcomments({
+rsk: 'sI9zAC167tWHOlgQuXXk30pZIFyWaB2IUqDcEdKr', // ключ (уникальный для каждого партнёра)
+
+docid: '5255809', // id статьи
+
+hostname:'livejournal.com',
+encoding: 'Windows-1251',
+templates: {
+dates: '<b>{hours}:{minutes}</b>, {day}, {date}.{month}.{year}',
+days: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+css: {
+// common: '<link media="all" rel="stylesheet" href="/nm2012/ssi/lj_css.css?1" type="text/css" />',
+// ie: '<link media="all" rel="stylesheet" href="http://static.gazeta.ru/nm2012/ssi/lj_css.css" type="text/css" />',
+// ie6: '<link media="all" rel="stylesheet" href="http://static.gazeta.ru/nm2012/ssi/lj_css.css" type="text/css" />'
+common: '<link />',
+ie: '<link />',
+ie6: '<link />'
+},
+selectors: {
+commentContainer: '.comment-container',
+deletedCommentContainer: '.deleted-comment-container',
+expandThreadControl: '.expand-thread-control',
+collapseThreadControl: '.collapse-thread-control',
+threadLink: '.thread-link',
+nonThreadControl: '.non-thread-control',
+addCommentControl: '.add-comment-control',
+replyControl: '.reply-control',
+deleteControl: '.delete-control',
+viewAllControl: '.view-all-control',
+LJIframe: '.lj-iframe',
+pagerLink: '.lj3-pagination a'
+},
+pager: {
+top: '<div class="lj3-pagination"><ul>{pages}</ul></div>',
+firstPage: '<li><a href="{link}">{number}</a></li>',
+lastPage: '<li><a href="{link}">{number}</a></li>',
+prevPage: '<li class="lj3-to-home"><a href="{link}">&laquo;</a></li>',
+nextPage: '<li class="lj3-to-end"><a href="{link}">&raquo;</a></li>',
+currentPage: '<li class="lj3-active"><a>{number}</a></li>',
+lacuna: '<li class="lj3-lacuna"><a>&hellip;</a></li>',
+commonPage: '<li><a href="{link}">{number}</a></li>',
+message: '<p>{number}-я страница из {total}</p>',
+bottom: '<div class="lj3-pagination">{message}<ul>{pages}</ul></div>'
+},
+comments: {
+open: '<dl class="lj3-comment comment-container lj3-indent{level} ind" id="t{comment_id}" level="{level}"><dt class="lj3-comment-header"><span class="lj3-comment-header-inner"><span class="lj3-comment-meta collapse-thread-control"><span class="lj3-user lj3-{journal_type_classname} vcard"><a title="Profile" class="non-thread-control" target="_blank" href="{profile_url}"><img class="non-thread-control non-thread-control-pic" alt="" src="http://l-stat.livejournal.com/gadgets/i/0.gif"></a>&nbsp;<a title="Journal" target="_blank" href="{journal_url}" class="fn nickname url non-thread-control">{display_name}</a><span class="lgtime">&nbsp;|&nbsp;&nbsp;{time_and_date}&nbsp;&nbsp;|&nbsp;</span></span><a href="#t{comment_id}" class="lj3-permalink">Ссылка на комментарий</a></span></span></dt><dd class="lj3-dd-img"><img border="0" style="padding:0px;" class="ljcom_arrow" src="http://static.gazeta.ru/nm2012/i/ljcom_arrow2.png" width="10" height="11"></dd><dd class="lj3-comment-content"><p class="lj3-comment-title {empty_subject}">{subject}</p><p>{text}</p></dd><dd class="lj3-comment-footer"><span class="lglinks">{thread_link}{delete_comment_link}</span><p><a href="?replyto={comment_id}" class="lj3-button-link-b lj3-reply-link reply-control">&nbsp;</a></p></dd></dl>',
+collapsed: '<dl class="lj3-comment comment-container lj3-comment-collapsed lj3-indent{level}" id="t{comment_id}" collapsed="collapsed" level="{level}"> <dt class="lj3-comment-header"> <span class="lj3-comment-header-inner"><span class="lj3-comment-meta expand-thread-control"><a class="lj3-comment-title">{subject}</a><span class="lj3-user lj3-{journal_type_classname} vcard non-thread-control"><a title="Profile" target="_blank" href="{profile_url}" class="non-thread-control"><img alt="" src="http://l-stat.livejournal.com/gadgets/i/0.gif" class="non-thread-control"></a>&nbsp;<a title="Journal" target="_blank" href="{journal_url}" class="fn nickname url non-thread-control">{display_name}</a></span><span class="lj3-comment-date">{time_and_date}</span></span></span></dt></dl>',
+deleted: '<dl class="lj3-comment lj3-comment-collapsed lj3-indent{level} deleted-comment-container" level="{level}"><dt class="lj3-comment-header"><span class="lj3-comment-header-inner"><span class="lj3-comment-meta"><a class="lj3-comment-title">(Комментарий был скрыт или удален)</a></span></span></dt></dl>',
+addButton: '<p class="komm lj3-reply-link add-comment-control"><a class="lj3-button-link reply-control" href="javascript:void(0);"><img src="/nm2012/i/add_comment_oid.png" alt="Добавить комментарий" /></a></p>',
+LJIframeContainer: '<div class="lj3-iframe lj-iframe"><iframe src="{iframe_src}" border="0" frameborder="0" /></div>',
+authBlockContainer: '<div class="auth-block"></div>',
+viewAllLink: '<p class="lj3-reply-link"><a class="lj3-button-link view-all-control" href="{url}">Все комментарии</a></p>',
+expandThreadLink: '<a href="#" class="lj3-thread-link thread-link expand-thread-control">Развернуть</a>',
+collapseThreadLink: '<a href="#" class="lj3-thread-link thread-link collapse-thread-control">Свернуть</a>',
+deleteCommentLink: '<a href="#" class="lj3-delete-comment delete-control">Удалить</a>',
+preloaderClassname: 'idle',
+emptySubject: {
+classname: 'empty',
+message: 'Без темы'
+}
+}
+},
+messages: {
+'delete comment confirm': 'Вы действительно хотите удалить комментарий?'
+}
+});
+</script>
+<div style="clear:all"></div>
+
+<div class="c710 ml0 cf">
+<div class="adv adv_exchanger3">
+
+<!--AdFox START-->
+<!--de_profundis-->
+<!--Площадка: gazeta_new / обменка-3 / обменка-3-верхний-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: Горизонтальный 3 тизера-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/1693/prepareCode?p1=ele&amp;p2=mw&amp;pct=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END-->
+
+</div>
+</div>
+<div class="c350 ml0 cf">
+
+<div class="adv adv_exchanger4">
+
+<!--AdFox START-->
+<!--de_profundis-->
+<!--Площадка: gazeta_new / обменка-5 / обменка-5-левый-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: Вертикальный 5 тизеров-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/1693/prepareCode?p1=elb&amp;p2=my&amp;pct=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END-->
+
+</div>
+
+</div>
+<div class="c350 cf">
+
+<!--AdFox START-->
+<!--de_profundis-->
+<!--Площадка: gazeta_new / обменка-5 / обменка-5-правый-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: Вертикальный 5 тизеров-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/1693/prepareCode?p1=elc&amp;p2=my&amp;pct=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END-->
+
+</div>
+<div class="c710 ml0 cf">
+<div class="adv adv_exchanger6">
+<!--AdFox START-->
+<!--de_profundis-->
+<!--Площадка: gazeta_new / обменка-3 / обменка-3-нижний-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: Горизонтальный 3 тизера-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/1693/prepareCode?p1=eld&amp;p2=mw&amp;pct=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END-->
+</div>
+</div>
+
+<div class="cf"></div>
+
+</div>
+<div class="c240">
+
+
+
+
+
+
+
+
+
+
+
+ 
+<div class="adv_240x400"> <!--AdFox START-->
+<!--sup-com-->
+<!--Площадка: Gazeta.ru / * / *-->
+<!--Тип баннера: 240x400js-->
+<!--Расположение: <середина страницы>-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<scr' + 'ipt type="text/javascript" src="http://ads.adfox.ru/171817/prepareCode?pp=h&amp;ps=vzq&amp;p2=emhk&amp;pct=c&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;puid6=BUSINESS&amp;pdw=' + scrwidth + '&amp;pdh=' + scrheight + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END--> </div>
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+
+<div class="b-letters_from_readers_dig">
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+</div>
+
+ <!-- place ,,news/chronicle_day, --> 
+                         
+ 
+
+  
+                         
+                                                                                       
+
+
+
+
+
+
+ <!-- place 4963961,/nm2012/4963961.shtml,new_skins/right_column, --> 
+                                                                             
+
+
+                                        
+
+        
+
+                                                                                     
+  
+
+
+
+
+
+
+
+
+
+  
+   
+ 
+  
+
+ 
+
+ 
+
+
+
+  <aside >
+
+<div class="db p_cmn">
+
+<h3 class="dh">
+
+Мультимедиа
+
+</h3>
+<hr class="separator">
+
+
+
+   <!-- /subjects/2796995.shtml -->
+  
+                                                                                                                                               
+
+
+
+
+
+      
+ 
+ 
+ 
+  
+
+ 
+
+
+<!-- alien 3956093,/photo/sport/Medvedev_posetil_olimpiiskuu_stroiku_v_Soci.shtml,new_skins/other_ears/uho_v_pic200_mm,uho1,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <article class="wb p10" >
+<a href="/photo/sport/Medvedev_posetil_olimpiiskuu_stroiku_v_Soci.shtml" class="pic_href photo">
+<img src="http://img.gazeta.ru/files3/117/3956117/Medsoc-RIAN_01011727.HR.ru-pic210-210x140-29506.jpg" class="pic200">
+</a>
+
+
+
+
+<h3 class="dh2">
+
+
+
+<a href="/subjects/2796995.shtml" class="none">
+Сочи-2014
+</a>
+
+
+
+</h3>
+
+
+<h2 class="h4 mb10"><a href="/photo/sport/Medvedev_posetil_olimpiiskuu_stroiku_v_Soci.shtml">Медведев посетил олимпийскую стройку в Сочи</a></h2>
+</article>     
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho2,articles -->  
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho3,articles -->  
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho4,articles -->  
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho5,articles -->  
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho6,articles -->  
+
+   <!-- /subjects/2796995.shtml -->
+                           
+   
+ 
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho7,articles -->  
+
+                           
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho8,articles -->  
+
+                           
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho9,articles -->  
+
+                           
+
+
+<!-- alien ,,new_skins/other_ears/uho_v_pic200_mm,uho10,articles --> 
+
+</div>
+</aside>    
+ 
+
+
+ <!-- place 2796995,/subjects/2796995.shtml,subject/right_column, --> 
+                         
+                         
+                                                                                       
+
+
+
+
+
+ 
+   
+    <aside >
+
+
+<section class="b-subject_digest2">
+
+<h4 class="digest_header"><a href="/subjects/2796995.shtml">Содержание сюжета</a></h4>
+
+<div class="scroll_wrap">
+<div class="scroll_slider" data-init="init_scroll">
+
+
+  
+                          
+
+
+                                        
+
+        
+
+                                                                                     
+ 
+ 
+ 
+
+
+<!-- alien 5255809,/business/2013/04/15/5255809.shtml,subject/right_column/subject_dig,center,articles --> 
+ 
+   <article class="current" >
+
+<a href="/business/2013/04/15/5255809.shtml"><img src="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic156-156x104-31907.jpg" alt="Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор" class="pic" />
+</a><h2><a href="/business/2013/04/15/5255809.shtml">&laquo;Курорты Северного Кавказа&raquo; пристраивают к Кипру
+</a></h2><p class="intro">
+<a href="/business/2013/04/15/5255809.shtml">Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-04-15T17:06:15+04:00">15.04.2013, 17:06</time>
+</li> 
+<li class="date comments">
+<a href="/business/2013/04/15/5255809.shtml#comments"> &nbsp;<span class='number'>14</span>&nbsp;отзывов</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                        
+
+                                                                                   
+ 
+ 
+ 
+
+
+<!-- alien 5253057,/business/2013/04/12/5253057.shtml,subject/right_column/subject_dig,uho1,articles --> 
+ 
+   <article class="common" >
+
+<a href="/business/2013/04/12/5253057.shtml"><img src="http://img.gazeta.ru/files3/145/5253145/magomet-pic156-156x104-38246.jpg" alt="На совладельца Национального банка развития бизнеса и бывших руководителей &laquo;Красной Поляны&raquo; заведено уголовное дело" class="pic" />
+</a><h2><a href="/business/2013/04/12/5253057.shtml">Магомеду Билалову начислили уголовное дело
+</a></h2><p class="intro">
+<a href="/business/2013/04/12/5253057.shtml">На совладельца Национального банка развития бизнеса и бывших руководителей &laquo;Красной Поляны&raquo; заведено уголовное дело&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-04-12T09:50:58+04:00">12.04.2013, 09:50</time>
+</li> 
+<li class="date comments">
+<a href="/business/2013/04/12/5253057.shtml#comments"> &nbsp;<span class='number'>43</span>&nbsp;отзыва</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+
+
+<!-- alien 4965609,/business/2013/02/13/4965609.shtml,subject/right_column/subject_dig,uho2,articles --> 
+ 
+   <article class="common" >
+
+<a href="/business/2013/02/13/4965609.shtml"><img src="http://img.gazeta.ru/files3/661/4966661/BAT8641-pic156-156x104-42463.jpg" alt="Интервью «Газете.Ru» министра транспорта Максима Соколова о подготовке к Сочи-2014, ЧМ по футболу-2018 и транспортной стратегии" class="pic" />
+</a><h2><a href="/business/2013/02/13/4965609.shtml">«Других сроков у нас просто нет, Олимпиада откроется 7 февраля»
+</a></h2><p class="intro">
+<a href="/business/2013/02/13/4965609.shtml">Интервью «Газете.Ru» министра транспорта Максима Соколова о подготовке к Сочи-2014, ЧМ по футболу-2018 и транспортной стратегии&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-02-14T10:12:39+04:00">14.02.2013, 10:12</time>
+</li> 
+<li class="date comments">
+<a href="/business/2013/02/13/4965609.shtml#comments"> &nbsp;<span class='number'>61</span>&nbsp;отзыв</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                                                                                       
+ 
+ 
+ 
+
+
+<!-- alien 4956625,/business/2013/02/07/4956625.shtml,subject/right_column/subject_dig,uho3,articles --> 
+ 
+   <article class="common" >
+
+<a href="/business/2013/02/07/4956625.shtml"><img src="http://img.gazeta.ru/files3/637/4956637/TASS_1921870-2-pic156-156x104-74933.jpg" alt="Путин отстранил Билалова от работы в ОКР и &laquo;Курортах Северного Кавказа&raquo; из-за срыва сроков сдачи олимпийских объектов" class="pic" />
+</a><h2><a href="/business/2013/02/07/4956625.shtml">Овраг государства
+</a></h2><p class="intro">
+<a href="/business/2013/02/07/4956625.shtml">Путин отстранил Билалова от работы в ОКР и &laquo;Курортах Северного Кавказа&raquo; из-за срыва сроков сдачи олимпийских объектов&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-02-07T15:51:10+04:00">07.02.2013, 15:51</time>
+</li> 
+<li class="date comments">
+<a href="/business/2013/02/07/4956625.shtml#comments"> &nbsp;<span class='number'>83</span>&nbsp;отзыва</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                     
+
+                                                                         
+ 
+ 
+ 
+
+
+<!-- alien 4956605,/sport/2013/02/07/a_4956605.shtml,subject/right_column/subject_dig,uho4,articles --> 
+ 
+   <article class="common" >
+
+<a href="/sport/2013/02/07/a_4956605.shtml"><img src="http://img.gazeta.ru/files3/629/4956629/TASS_4333909-pic156-156x104-28890.jpg" alt="Чернышенко: в Сочи будут одни из самых доступных билетов в истории зимних ОИ" class="pic" />
+</a><h2><a href="/sport/2013/02/07/a_4956605.shtml">&laquo;Сочи-2014&raquo; открыл продажи
+</a></h2><p class="intro">
+<a href="/sport/2013/02/07/a_4956605.shtml">Чернышенко: в Сочи будут одни из самых доступных билетов в истории зимних ОИ&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+
+
+
+<time pubdate="2013-02-07T14:32:05+04:00">07.02.2013, 17:36</time>
+</li> 
+<li class="date comments">
+<a href="/sport/2013/02/07/a_4956605.shtml#comments"> &nbsp;<span class='number'>40</span>&nbsp;отзывов</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                                                                                       
+ 
+ 
+ 
+
+
+<!-- alien 4955585,/business/2013/02/06/4955585.shtml,subject/right_column/subject_dig,uho5,articles --> 
+ 
+   <article class="common" >
+
+<a href="/business/2013/02/06/4955585.shtml"><img src="http://img.gazeta.ru/files3/665/4955665/1TASS_2713402-pic156-156x104-73083.jpg" alt="&laquo;Курорты Северного Кавказа&raquo; сменили гендиректора: Путин раскритиковал главу совета директоров Билалова за подготовку к Олимпиаде" class="pic" />
+</a><h2><a href="/business/2013/02/06/4955585.shtml">&laquo;Ну, товарищ Билалов чем сейчас занимается?&raquo;
+</a></h2><p class="intro">
+<a href="/business/2013/02/06/4955585.shtml">&laquo;Курорты Северного Кавказа&raquo; сменили гендиректора: Путин раскритиковал главу совета директоров Билалова за подготовку к Олимпиаде&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-02-06T22:21:36+04:00">06.02.2013, 22:21</time>
+</li> 
+<li class="date comments">
+<a href="/business/2013/02/06/4955585.shtml#comments"> &nbsp;<span class='number'>54</span>&nbsp;отзыва</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                          
+
+
+                                                                                                       
+ 
+ 
+ 
+
+
+<!-- alien 4928913,/sport/2013/01/16/a_4928913.shtml,subject/right_column/subject_dig,uho6,articles --> 
+ 
+   <article class="common" >
+
+<a href="/sport/2013/01/16/a_4928913.shtml"><img src="http://img.gazeta.ru/files3/945/4928945/RIAN_01341291.HR.ru-pic156-156x104-75015.jpg" alt="Дмитрий Чернышенко рассказал о методах борьбы со спекулянтами и стоимости проживания во время Игр в Сочи" class="pic" />
+</a><h2><a href="/sport/2013/01/16/a_4928913.shtml">&laquo;Расправа со спекулянтами будет мгновенной&raquo;
+</a></h2><p class="intro">
+<a href="/sport/2013/01/16/a_4928913.shtml">Дмитрий Чернышенко рассказал о методах борьбы со спекулянтами и стоимости проживания во время Игр в Сочи&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2013-01-16T18:36:22+04:00">16.01.2013, 18:36</time>
+</li> 
+<li class="date comments">
+<a href="/sport/2013/01/16/a_4928913.shtml#comments"> &nbsp;<span class='number'>3</span>&nbsp;отзыва</a>
+</li>
+
+</ul>
+</article>    
+
+  
+                                                                                                                                      
+ 
+ 
+ 
+
+
+<!-- alien 4857189,/sport/2012/11/17/a_4857189.shtml,subject/right_column/subject_dig,uho7,articles --> 
+ 
+   <article class="common" >
+
+<a href="/sport/2012/11/17/a_4857189.shtml"><img src="http://img.gazeta.ru/files3/193/4857193/skabelkagomel-pic156-156x104-69802.jpg" alt="Андрей Скабелка и Александр Андриевский возглавят сборную Белоруссии по хоккею" class="pic" />
+</a><h2><a href="/sport/2012/11/17/a_4857189.shtml">Олимпийское испытание для Скабелки
+</a></h2><p class="intro">
+<a href="/sport/2012/11/17/a_4857189.shtml">Андрей Скабелка и Александр Андриевский возглавят сборную Белоруссии по хоккею&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+ <ul class="info">
+<li class="date">
+<time pubdate="2012-11-17T02:38:02+04:00">17.11.2012, 02:38</time>
+</li> 
+</ul>
+</article>    
+
+  
+                                                                                                                                        
+ 
+ 
+ 
+
+
+<!-- alien 4848645,/sport/2012/11/12/a_4848645.shtml,subject/right_column/subject_dig,uho8,articles --> 
+ 
+   <article class="common" >
+
+<a href="/sport/2012/11/12/a_4848645.shtml"><img src="http://img.gazeta.ru/files3/653/4848653/byki-pic156-156x104-94351.jpg" alt="Сборная Польши под руководством Игоря Захаркина и Вячеслава Быкова выбыли из олимпийского отбора" class="pic" />
+</a><h2><a href="/sport/2012/11/12/a_4848645.shtml">Быков и Захаркин не попали в Сочи
+</a></h2><p class="intro">
+<a href="/sport/2012/11/12/a_4848645.shtml">Сборная Польши под руководством Игоря Захаркина и Вячеслава Быкова выбыли из олимпийского отбора&nbsp;<span class="arrow_read_more_shadow">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+  <ul class="info">
+<li class="date">
+<time pubdate="2012-11-12T00:45:44+04:00">12.11.2012, 00:45</time>
+</li> 
+<li class="date comments">
+<a href="/sport/2012/11/12/a_4848645.shtml#comments"> &nbsp;<span class='number'>1</span>&nbsp;отзыв</a>
+</li>
+
+</ul>
+</article>    <br clear="all" />
+</div>
+</div>
+<h5 class="read_more"></h5>
+</section>
+</aside>    
+ <div class="mb10"></div>
+
+
+
+<!-- place 4758437,/nm2012/elements/modules/4758437.shtml,first/digest, --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+  
+
+   <section class="b-main_today" >
+
+<h4>Главное сегодня</h4>
+<div class="scroll_wrap">
+<div class="scroll_slider" data-init="init_scroll"> 
+
+    
+                          
+
+
+                                        
+
+        
+
+                                                                                     
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/business/2013/04/15/5255809.shtml">&laquo;Курорты Северного Кавказа&raquo; пристраивают к Кипру
+</a></h3>
+<a href="/business/2013/04/15/5255809.shtml"><img src="http://img.gazeta.ru/files3/169/5256169/1TASS_1921870-pic148-148x98-35334.jpg" alt="Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор" class="pic" />
+</a><p class="intro">
+<a href="/business/2013/04/15/5255809.shtml">Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через кипрский офшор&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+        
+
+                                                                              
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/auto/2013/04/15_a_5255769.shtml">«Показательные увольнения ничего не дадут»
+</a></h3>
+<a href="/auto/2013/04/15_a_5255769.shtml"><img src="http://img.gazeta.ru/files3/837/5255837/1RIAN_00928799.HR-pic148-148x98-96884.jpg" alt="Глава ГИБДД Москвы может уйти в отставку, эксперты называют это решение ошибкой" class="pic" />
+</a><p class="intro">
+<a href="/auto/2013/04/15_a_5255769.shtml">Глава ГИБДД Москвы может уйти в отставку, эксперты называют это решение ошибкой&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                             
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/politics/2013/04/15_a_5255605.shtml">Кустос посажен, Лис руководит
+</a></h3>
+<a href="/politics/2013/04/15_a_5255605.shtml"><img src="http://img.gazeta.ru/files3/165/5256165/1Usolie-Sib-M53-right-pic148-148x98-30965.jpg" alt="Несколько десятков единороссов покинули Иркутское отделение партии" class="pic" />
+</a><p class="intro">
+<a href="/politics/2013/04/15_a_5255605.shtml">Несколько десятков единороссов покинули Иркутское отделение партии&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/politics/2013/04/15_a_5255573.shtml">Путин нашел окошко для списка
+</a></h3>
+<a href="/politics/2013/04/15_a_5255573.shtml"><img src="http://img.gazeta.ru/files3/713/5255713/1166653951-pic148-148x98-5101.jpg" alt="Советник Обамы по нацбезопасности встретился с Владимиром Путиным спустя считаные дни после публикации &laquo;списка Магнитского&raquo;" class="pic" />
+</a><p class="intro">
+<a href="/politics/2013/04/15_a_5255573.shtml">Советник Обамы по нацбезопасности встретился с Владимиром Путиным спустя считаные дни после публикации &laquo;списка Магнитского&raquo;&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/business/2013/04/15/5255765.shtml">&laquo;Мечел&raquo; ищет доктора в Китае
+</a></h3>
+<a href="/business/2013/04/15/5255765.shtml"><img src="http://img.gazeta.ru/files3/197/5256197/1KHA_000622_00001_1h-pic148-148x98-28786.jpg" alt="&laquo;Мечел&raquo; вышел в убыток и получил налоговые претензии" class="pic" />
+</a><p class="intro">
+<a href="/business/2013/04/15/5255765.shtml">&laquo;Мечел&raquo; вышел в убыток и получил налоговые претензии&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/social/2013/04/15/5255841.shtml">На факультете казино устроили день открытых дверей
+</a></h3>
+<a href="/social/2013/04/15/5255841.shtml"><img src="http://img.gazeta.ru/files3/89/5256089/mgupi-pic148-148x98-92505.jpg" alt="В здании столичного университета МГУПИ действовало крупное подпольное казино" class="pic" />
+</a><p class="intro">
+<a href="/social/2013/04/15/5255841.shtml">В здании столичного университета МГУПИ действовало крупное подпольное казино&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/social/2013/04/15/5255629.shtml">Суд чести с угрозой изнасилования
+</a></h3>
+<a href="/social/2013/04/15/5255629.shtml"><img src="http://img.gazeta.ru/files3/869/5255869/1RIAN_01003072.HR-pic148-148x98-79743.jpg" alt="Националисты из движения &laquo;Русские&raquo; арестованы за издевательства над своим соратником" class="pic" />
+</a><p class="intro">
+<a href="/social/2013/04/15/5255629.shtml">Националисты из движения &laquo;Русские&raquo; арестованы за издевательства над своим соратником&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/business/2013/04/15/5255625.shtml">Microsoft поглядывает на часы
+</a></h3>
+<a href="/business/2013/04/15/5255625.shtml"><img src="http://img.gazeta.ru/files3/861/5255861/1microsoft-watch-pic148-148x98-45842.jpg" alt="Microsoft разрабатывает часы-компьютер" class="pic" />
+</a><p class="intro">
+<a href="/business/2013/04/15/5255625.shtml">Microsoft разрабатывает часы-компьютер&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    
+
+    
+                          
+
+
+                                  
+
+                                                                    
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <article >
+<h3><a href="/health/5255497.shtml">Приёмная матка
+</a></h3>
+<a href="/health/5255497.shtml"><img src="http://img.gazeta.ru/files3/753/5255753/1128286419-pic148-148x98-32724.jpg" alt="Зафиксирован первый в истории медицины случай беременности женщины с пересаженной маткой" class="pic" />
+</a><p class="intro">
+<a href="/health/5255497.shtml">Зафиксирован первый в истории медицины случай беременности женщины с пересаженной маткой&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+
+<!--include virtual="/nm2012/ssi/errmsg_clear.shtml" -->
+</article>    <br clear="all" />
+</div>
+</div>
+</section>   
+
+
+
+
+
+
+
+
+
+<!-- place 4858021,/nm2012/elements/modules/4858021.shtml,first/special, --> 
+                                                    
+
+
+
+
+
+
+
+
+
+  
+   
+ 
+  
+
+ 
+
+ 
+
+
+
+  <section class="wb pb10" >
+<h4 class="dh p10 pb0">ПРИЛОЖЕНИЯ</h4>
+ 
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+ 
+
+ 
+
+
+<!-- alien id=4990097,url=/tmp/4990097.shtml,essence=special,place=first/special/title,uho=centr,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/techzone/ ">Развею мифы о недорогих смартфонах </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=4962029,url=/tmp/4962029.shtml,essence=special,place=first/special/title,uho=uho1,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/techzone/ ">Опоздавшая на 20 лет  и прочие новички </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=4871213,url=/tmp/4871213.shtml,essence=special,place=first/special/title,uho=uho2,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/realty/ ">Уровнем выше </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=4871373,url=/tmp/4871373.shtml,essence=special,place=first/special/title,uho=uho3,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/lifestyle/ ">В Берлин за новым светом</a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=5119793,url=/tmp/5119793.shtml,essence=special,place=first/special/title,uho=uho4,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/money/2013/03/29_a_5121613.shtml ">Кредитная экономия </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=5110421,url=/tmp/5110421.shtml,essence=special,place=first/special/title,uho=uho5,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/lifestyle/ ">Мне 30 лет, я одинока и хочу нормального секса</a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=5003017,url=/tmp/5003017.shtml,essence=special,place=first/special/title,uho=uho6,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/lifestyle/ ">Другое детство</a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=3183004,url=/tmp/3183004.shtml,essence=special,place=first/special/title,uho=uho7,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/money/ ">Почему надо увозить своих детей за границу </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=4877109,url=/tmp/4877109.shtml,essence=special,place=first/special/title,uho=uho8,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/realty/ ">Бросайте Москву и не бойтесь России </a></p>
+</div> 
+   
+
+  
+		
+		
+				                        																																																		 																		
+		
+				
+		
+		 
+ 
+  
+ 
+
+
+<!-- alien id=5056945,url=/tmp/5056945.shtml,essence=special,place=first/special/title,uho=uho9,potok=articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div >
+<hr>
+<p class="h5 mb5 pl10 pr10"><a href="/lifestyle/ ">Как стать космонавтом</a></p>
+</div> 
+   
+
+                            
+ 
+
+
+<!-- alien id=,url=,essence=special,place=first/special/title,uho=uho10,potok=articles -->  
+
+                            
+ 
+
+
+<!-- alien id=,url=,essence=special,place=first/special/title,uho=uho11,potok=articles -->  
+
+                            
+ 
+
+
+<!-- alien id=,url=,essence=special,place=first/special/title,uho=uho12,potok=articles --> 
+</section>    
+
+
+
+
+
+ 
+
+<!-- place 4837553,/nm2012/elements/modules/right/default.shtml,covers/right, --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+  
+
+    <div class="" >
+<div class="main_block">
+
+<h5><span></span></h5> 
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4837601,/nm2012/elements/banners/4837601.shtml,covers/right/item,center,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4837601 advright" --><!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Блок Анонс-->
+<!--Расположение: Нестандарт-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=r&amp;ps=ky&amp;p2=ii&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ --></div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4838489,/nm2012/elements/banners/4838489.shtml,covers/right/item,uho1,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4838489 advright" --><!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Блок Анонс-->
+<!--Расположение: право-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=ba&amp;ps=ky&amp;p2=ii&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ --></div>
+</div>     
+
+  
+                                                              
+
+ 
+ 
+ 
+
+
+<!-- alien 4838493,/nm2012/elements/banners/4838493.shtml,covers/right/item,uho2,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4838493 advright" --><!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Блок Анонс-->
+<!--Расположение: центр-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=z&amp;ps=ky&amp;p2=ii&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ --></div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4838589,/nm2012/elements/banners/4838589.shtml,covers/right/item,uho3,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4838589 advright" --><script>
+var is_gazeta_partners = 0;
+</script>
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Партнерский блок-->
+<!--Расположение: право-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=ba&amp;ps=ky&amp;p2=ex&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Партнерский блок-->
+<!--Расположение: центр-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=z&amp;ps=ky&amp;p2=ex&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Партнерский блок-->
+<!--Расположение: Нестандарт-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=r&amp;ps=ky&amp;p2=ex&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+<!-- ________________________AdFox Asynchronous code START__________________________ -->
+<!--Gazeta.RU-->
+<!--Площадка: Gazeta_new / * / *-->
+<!--Тип баннера: Партнерский блок-->
+<!--Расположение: лево-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+var dl = escape(document.location);
+var pr1 = Math.floor(Math.random() * 1000000);
+var scrheight = '', scrwidth = '';
+if (self.screen) {
+scrwidth = screen.width;
+scrheight = screen.height;
+} else if (self.java) {
+var jkit = java.awt.Toolkit.getDefaultToolkit();
+var scrsize = jkit.getScreenSize();
+scrwidth = scrsize.width;
+scrheight = scrsize.height;
+}
+document.write('<div id="AdFox_banner_'+pr1+'"><\/div>');
+document.write('<div style="visibility:hidden; position:absolute;"><iframe id="AdFox_iframe_'+pr1+'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div>');
+AdFox_getCodeScript(1,pr1,'http://gazeta.adfox.ru/prepareCode?pp=y&amp;ps=ky&amp;p2=ex&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '&amp;dl='+dl+'&amp;pr1='+pr1);
+// -->
+</script>
+<!-- _________________________AdFox Asynchronous code END___________________________ -->
+<!-- партнеры --></div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4852897,/nm2012/elements/banners/4852897.shtml,covers/right/item,uho4,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4852897 advright" --><script type="text/javascript" src="//vk.com/js/api/openapi.js?63"></script>
+<!-- VK Widget -->
+<div id="vk_groups"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 0, width: "240", height: "290"}, 20169232);
+</script></div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4838565,/nm2012/elements/banners/4838565.shtml,covers/right/item,uho5,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4838565 advright" -->
+<div class="mb12">
+<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgazeta.ru&amp;width=180&amp;height=180&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:240px;" allowTransparency="true"></iframe>
+</div>
+</div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4852901,/nm2012/elements/banners/4852901.shtml,covers/right/item,uho6,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4852901 advright" --><!--AdFox START-->
+<!--Gazeta.RU-->
+<!--Площадка: gazeta / Все страницы / 240х240-->
+<!--Категория: Все страницы-->
+<!--Тип баннера: 240x400js-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/prepareCode?p1=egz&amp;p2=jg&amp;pct=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END--></div>
+</div>     
+
+  
+                                                             
+
+ 
+ 
+ 
+
+
+<!-- alien 4838561,/nm2012/elements/banners/4838561.shtml,covers/right/item,uho7,articles --> 
+ 
+ 
+
+ 
+
+
+
+  <div class="mb10" >
+<div class="advright_4838561 advright" -->
+<!--AdFox START-->
+<!--Gazeta.RU-->
+<!--Площадка: gazeta / КОНТЕКСТ / 240x400js_Context-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: 240x400js-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+if (typeof(document.referrer) != 'undefined') {
+if (typeof(afReferrer) == 'undefined') {
+afReferrer = escape(document.referrer);
+}
+} else {
+afReferrer = '';
+}
+var addate = new Date();
+document.write('<scr' + 'ipt type="text/javascript" src="http://gazeta.adfox.ru/prepareCode?p1=dmw&amp;p2=jg&amp;pucn=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr +'&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '&amp;py=a&amp;prr=' + afReferrer + '"><\/scr' + 'ipt>');
+// -->
+</script>
+<!--AdFox END-->
+
+</div>
+</div>     
+
+                           
+
+
+
+
+
+<!-- alien ,,covers/right/item,uho8,articles -->  
+
+                            
+
+
+
+
+<!-- alien ,,covers/right/item,uho9,articles --> </div>
+</div>    
+
+
+
+
+
+
+
+<!-- calendar -->
+<div class="calendar-div">
+<table class="calendar calendar-bord">
+<tr>
+<td colspan="7" class="cap"><div>АРХИВ</div></td>
+</tr>
+<tr><td><div class="slct_m0"></div></td>
+<td colspan="5">
+<div class="slct_month">
+<div style="position: relative; padding: 0px 0px 0px 0px;">
+<div class="slct_m" id="c_month">
+<p id="m_0" class="slct_mp"><a onclick="slct_m(0); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.01.2013">Январь</a></p>
+<p id="m_1" class="slct_mp"><a onclick="slct_m(1); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.02.2013">Февраль</a></p>
+<p id="m_2" class="slct_mp"><a onclick="slct_m(2); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.03.2013">Март</a></p>
+<p id="m_3" class="slct_mp slct_mt"><a onclick="slct_m(3); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.04.2013">Апрель</a></p>
+<p id="m_4" class="slct_mp"><a onclick="slct_m(4); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.05.2013">Май</a></p>
+<p id="m_5" class="slct_mp"><a onclick="slct_m(5); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.06.2013">Июнь</a></p>
+<p id="m_6" class="slct_mp"><a onclick="slct_m(6); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.07.2013">Июль</a></p>
+<p id="m_7" class="slct_mp"><a onclick="slct_m(7); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.08.2013">Август</a></p>
+<p id="m_8" class="slct_mp"><a onclick="slct_m(8); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.09.2013">Сентябрь</a></p>
+<p id="m_9" class="slct_mp"><a onclick="slct_m(9); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.10.2013">Октябрь</a></p>
+<p id="m_10" class="slct_mp"><a onclick="slct_m(10); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.11.2013">Ноябрь</a></p>
+<p id="m_11" class="slct_mp"><a onclick="slct_m(11); return false" class="slct_ma" href="/archive.shtml?p=archive&amp;start=15.12.2013">Декабрь</a></p>
+</div>
+</div>
+<div id="start_m">Апрель</div>
+</div>
+<div id="start_m1" class="slct_v"></div>
+<div class="slct_year">
+<div style="position: relative; padding: 0px 0px 0px 0px;">
+<div class="slct_m" id="c_year">
+<p id="y_2002" class="slct_yp"><a onclick="slct_y(2002); return false" href="/archive.shtml?p=archive&amp;start=15.04.2002">2002</a></p>
+<p id="y_2003" class="slct_yp"><a onclick="slct_y(2003); return false" href="/archive.shtml?p=archive&amp;start=15.04.2003">2003</a></p>
+<p id="y_2004" class="slct_yp"><a onclick="slct_y(2004); return false" href="/archive.shtml?p=archive&amp;start=15.04.2004">2004</a></p>
+<p id="y_2005" class="slct_yp"><a onclick="slct_y(2005); return false" href="/archive.shtml?p=archive&amp;start=15.04.2005">2005</a></p>
+<p id="y_2006" class="slct_yp"><a onclick="slct_y(2006); return false" href="/archive.shtml?p=archive&amp;start=15.04.2006">2006</a></p>
+<p id="y_2007" class="slct_yp"><a onclick="slct_y(2007); return false" href="/archive.shtml?p=archive&amp;start=15.04.2007">2007</a></p>
+<p id="y_2008" class="slct_yp"><a onclick="slct_y(2008); return false" href="/archive.shtml?p=archive&amp;start=15.04.2008">2008</a></p>
+<p id="y_2009" class="slct_yp"><a onclick="slct_y(2009); return false" href="/archive.shtml?p=archive&amp;start=15.04.2009">2009</a></p>
+<p id="y_2010" class="slct_yp"><a onclick="slct_y(2010); return false" href="/archive.shtml?p=archive&amp;start=15.04.2010">2010</a></p>
+<p id="y_2011" class="slct_yp"><a onclick="slct_y(2011); return false" href="/archive.shtml?p=archive&amp;start=15.04.2011">2011</a></p>
+<p id="y_2012" class="slct_yp"><a onclick="slct_y(2012); return false" href="/archive.shtml?p=archive&amp;start=15.04.2012">2012</a></p>
+<p id="y_2013" class="slct_yp slct_mt"><a onclick="slct_y(2013); return false" href="/archive.shtml?p=archive&amp;start=15.04.2013">2013</a></p>
+</div>
+</div>
+<div id="start_y">2013</div>
+</div>
+<div id="start_y1" class="slct_v"></div>
+</td>
+<td><div class="slct_m1"></div></td>
+</tr>
+<tr>
+<td id="v1" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=01.04.2013&amp;stripe=business"> 1</a></div></td>
+<td id="v2" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=02.04.2013&amp;stripe=business"> 2</a></div></td>
+<td id="v3" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=03.04.2013&amp;stripe=business"> 3</a></div></td>
+<td id="v4" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=04.04.2013&amp;stripe=business"> 4</a></div></td>
+<td id="v5" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=05.04.2013&amp;stripe=business"> 5</a></div></td>
+<td id="v6" class="calendar-item red"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=06.04.2013&amp;stripe=business"> 6</a></div></td>
+<td id="v7" class="calendar-item red"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=07.04.2013&amp;stripe=business"> 7</a></div></td>
+</tr>
+<tr>
+<td id="v8" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=08.04.2013&amp;stripe=business"> 8</a></div></td>
+<td id="v9" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=09.04.2013&amp;stripe=business"> 9</a></div></td>
+<td id="v10" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=10.04.2013&amp;stripe=business">10</a></div></td>
+<td id="v11" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=11.04.2013&amp;stripe=business">11</a></div></td>
+<td id="v12" class="calendar-item lg"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=12.04.2013&amp;stripe=business">12</a></div></td>
+<td id="v13" class="calendar-item red"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=13.04.2013&amp;stripe=business">13</a></div></td>
+<td id="v14" class="calendar-item red"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=14.04.2013&amp;stripe=business">14</a></div></td>
+</tr>
+<tr>
+<td id="v15" class="calendar-item lg active"><div><a href="/archive.shtml?article=1&amp;p=archive&amp;start=15.04.2013&amp;stripe=business">15</a></div></td>
+<td id="v16" class="calendar-item lg no-h"><div>16</div></td>
+<td id="v17" class="calendar-item lg no-h"><div>17</div></td>
+<td id="v18" class="calendar-item lg no-h"><div>18</div></td>
+<td id="v19" class="calendar-item lg no-h"><div>19</div></td>
+<td id="v20" class="calendar-item red no-h"><div>20</div></td>
+<td id="v21" class="calendar-item red no-h"><div>21</div></td>
+</tr>
+<tr>
+<td id="v22" class="calendar-item lg no-h"><div>22</div></td>
+<td id="v23" class="calendar-item lg no-h"><div>23</div></td>
+<td id="v24" class="calendar-item lg no-h"><div>24</div></td>
+<td id="v25" class="calendar-item lg no-h"><div>25</div></td>
+<td id="v26" class="calendar-item lg no-h"><div>26</div></td>
+<td id="v27" class="calendar-item red no-h"><div>27</div></td>
+<td id="v28" class="calendar-item red no-h"><div>28</div></td>
+</tr>
+<tr>
+<td id="v29" class="calendar-item lg no-h"><div>29</div></td>
+<td id="v30" class="calendar-item lg no-h"><div>30</div></td>
+<td id="v31" class="calendar-item">&nbsp;</td>
+<td id="v32" class="calendar-item">&nbsp;</td>
+<td id="v33" class="calendar-item">&nbsp;</td>
+<td id="v34" class="calendar-item">&nbsp;</td>
+<td id="v35" class="calendar-item">&nbsp;</td>
+</tr>
+<tr>
+<td id="v36" class="calendar-item"></td>
+<td id="v37" class="calendar-item"></td>
+<td id="v38" class="calendar-item"></td>
+<td id="v39" class="calendar-item"></td>
+<td id="v40" class="calendar-item"></td>
+<td id="v41" class="calendar-item red"></td>
+<td id="v42" class="calendar-item red"></td>
+</tr>
+</table>
+</div>
+<script>
+var sccd=15 //активная дата
+var sccm=3
+var sccy=2013
+var ccd=15 //временная дата
+var ccm=3
+var ccy=2013
+var article='1'
+var stripe='business'
+var beg_date = '1.1.2002';
+Bcc = beg_date.split('.')
+var Bccd=Bcc[0]; // начало
+var Bccm=Bcc[1]-1;
+var Bccy=Bcc[2];
+</script>
+<script src="http://static.gazeta.ru/nm2012/js/calendar.js"></script>
+<!-- calendar -->
+
+
+
+</div>
+<div style="clear:both"></div>
+
+
+<footer>
+
+<section class="b-footer_articles"> <!-- place 4787225,first/footer,uho0 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+
+
+    <aside >
+
+<h5 class="block_header"><a href="/politics/">Политика</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                             
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/politics/2013/04/15_a_5255605.shtml"><span>Несколько десятков единороссов покинули Иркутское отделение партии</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/politics/2013/04/15_a_5255593.shtml"><span>Кубанскому правозащитнику Михаилу Савве, который в понедельник должен...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/politics/2013/04/15_a_5255573.shtml"><span>Советник Обамы по нацбезопасности встретился с Владимиром Путиным...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787361,first/footer,uho1 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/business/">Бизнес</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+  
+  
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/business/2013/04/15/5255765.shtml"><span>&laquo;Мечел&raquo; вышел в убыток и получил налоговые претензии</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+  
+  
+                          
+
+
+                                        
+
+        
+
+                                                                                     
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/business/2013/04/15/5255809.shtml"><span>Генпрокуратура обвинила «Курорты Северного Кавказа» в хищениях через...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+  
+  
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/business/2013/04/15/5255625.shtml"><span>Microsoft разрабатывает часы-компьютер</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787749,first/footer,uho2 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/social/">Общество</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/social/2013/04/15/5255841.shtml"><span>В здании столичного университета МГУПИ действовало крупное подпольное...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/social/2013/04/15/5255629.shtml"><span>Националисты из движения &laquo;Русские&raquo; арестованы за...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/social/2013/04/15/5255477.shtml"><span>Понтифик выбрал кардиналов для консультирования по вопросам реформы...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787781,first/footer,uho3 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/comments/">Комментарии</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                             
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/comments/2013/04/15_a_5255437.shtml"><span>В РПЦ не понимают, что такое современный феминизм, но на всякий случай...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/comments/2013/04/12_a_5253037.shtml"><span>Алексей Мельников о том, что курс истории &ndash; овладение...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/comments/2013/04/11_a_5251848.shtml"><span>Георгий Осипов о том, куда указывает российский вектор развития</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787793,first/footer,uho4 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/culture/">Культура</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/culture/2013/04/15/a_5255889.shtml"><span>На фестивале &laquo;Золотая маска&raquo; прошли показы спектаклей...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/culture/2013/04/15/a_5255485.shtml"><span>&laquo;Мстители&raquo; и &laquo;Мой парень &mdash; псих&raquo; стали...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                                  
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/culture/2013/04/12/a_5253233.shtml"><span>В прокате анимационный фильм «Ку! Кин-дза-дза», авторский ремейк...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <div class="news_cut cf"></div> <!-- place 4787797,first/footer,uho5 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/science/">Наука</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                  
+
+                                                                     
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/health/5255501.shtml"><span>Биоинженерная почка, созданная из клеток крысы и человека, показала...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/science/2013/04/15_a_5255777.shtml"><span>Твиттер показал, как счастье людей зависит от расстояния до дома</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                                                                                      
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/health/5254313.shtml"><span>Найдена молекула &mdash; перспективный кандидат на роль возможного...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787821,first/footer,uho6 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/auto/">Авто</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+        
+
+                                                                              
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/auto/2013/04/15_a_5255769.shtml"><span>Глава ГИБДД Москвы может уйти в отставку, эксперты называют это...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                            
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/auto/2013/04/15_a_5255613.shtml"><span>Из-за ремонта эстакады «Аэроэкспресс» до Шереметьево отменяет часть...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                             
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/auto/2013/04/08_a_5248205.shtml"><span>Интервью с главным исполнительным директором ООО «Рольф Импорт»...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4787825,first/footer,uho7 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/sport/">Спорт</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                                  
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/sport/2013/04/15/a_5256213.shtml"><span>В бразильской Форталезе расстреляны два футбольных болельщика</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                                          
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/sport/2013/04/15/a_5255745.shtml"><span>Эксперт &laquo;Газеты.Ru&raquo;, заслуженный тренер России Александр...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                                     
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/sport/2013/04/15/a_5255465.shtml"><span>Две передачи Дацюка помогли &laquo;Детройту&raquo; обыграть...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4788629,first/footer,uho8 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/realty/">Недвижимость</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/realty/2013/04/12_a_5253281.shtml"><span>Сколько стоят двухэтажные квартиры</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                                    
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/realty/2013/04/05_a_5245157.shtml"><span>Разумный подход к ипотеке</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/realty/2013/04/10_a_5250065.shtml"><span>Сколько стоит квартира в малоэтажном доме в Московской области</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+ <!-- place 4788633,first/footer,uho9 --> 
+                                                    
+
+
+
+
+
+
+
+  
+ 
+ 
+ 
+    <aside >
+
+<h5 class="block_header"><a href="/lifestyle/">Стиль жизни</a></h5>
+<ul> <!-- dig_url_4788469,first/footer/place,center,articles -->
+
+
+    
+                          
+
+
+                                                                                                               
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/lifestyle/education/2013/04/07_a_5247313.shtml"><span>Советы тем, кто хочет стать космонавтом</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho1,articles -->
+
+
+    
+                          
+
+
+                                     
+
+                                                                           
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/lifestyle/style/2013/04/a_5251117.shtml"><span>Обзор необычных детских садов в Норвегии, Словении, Колумбии, Франции...</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>    <!-- dig_url_4788469,first/footer/place,uho2,articles -->
+
+
+    
+                          
+
+
+                                                                                                               
+ 
+ 
+ 
+  
+
+
+
+
+
+ 
+   <li >
+<p class="intro">
+<a href="/lifestyle/travel/2013/03/28_a_5120573.shtml"><span>Путевые заметки о Франции: Версаль</span>&nbsp;<span class="arrow_read_more">&rarr;</span></a></p>
+</li>   </ul>
+</aside>   
+</section>
+<div style="clear:both"></div>
+
+<hr class="mt10 mb0">
+  
+   <div class="b-navbar">
+<nav>
+<ul> <li> <a href="/news/" class="stripe">новости</a> <li> <a href="/politics/" class="stripe">политика</a> <li> <a href="/business/" class="stripe">бизнес</a> <li> <a href="/social/" class="stripe">общество</a> <li> <a href="/comments/" class="stripe">комментарии</a> <li> <a href="/culture/" class="stripe">культура</a> <li> <a href="/science/" class="stripe">наука</a> <li> <a href="/auto/" class="stripe">авто</a> <li> <a href="/sport/" class="stripe">спорт</a> <li> <span class="stripe">мультимедиа</span> 
+  <div class="b-menu">
+<ul> <li> <a href="/photo/" class="stripe">Фото</a> </li> <li> <a href="/video/" class="stripe">Видео</a> </li> <li> <a href="/infographics/" class="stripe">Инфографика</a> </li> </ul>
+</div>
+
+ <li> <span class="stripe">приложения</span> 
+  <div class="b-menu m-menu_right_side">
+<ul> <li> <a href="/techzone/" class="stripe">Техзона</a> </li> <li> <a href="/realty/" class="stripe">Недвижимость</a> </li> <li> <a href="/money/" class="stripe">Деньги</a> </li> <li> <a href="/lifestyle/" class="stripe">Стиль жизни</a> </li> </ul>
+</div>
+
+ </ul>
+</nav>
+</div>  
+<div class="b-footer_logo vcard">
+<div class="logo fn org"><a href="/"><img src="http://static.gazeta.ru/nm2012/i/logos/gazeta_logo.png" alt="Газета.Ru"></a></div>
+<div class="note">Свидетельство о регистрации <br/> СМИ Эл № ФС77-28061 <br/> от 27.04.2007 г.</div>
+<div class="adr">
+Адрес учредителя: <span class="postal-code">125080</span>,
+<span class="country-name">Россия</span>,
+<span class="locality">Москва</span>,
+<span class="street-adress">ул. Врубеля, д. 4, стр. 1</span>
+<br/>
+Адрес редакции: <span class="postal-code">127006</span>,
+<span class="country-name">Россия</span>,
+<span class="locality">Москва</span>,
+<span class="street-adress">ул. Малая Дмитровка д.20</span>
+<br/>
+Телефон редакции: <span class="tel">+7 (495) 980 80 28</span> |
+<span class="tel">
+<span class="type">Факс</span>:
+<span class="value">+7 (495) 980 90 73</span>
+</span>
+</div>
+</div>
+<div class="b-footer_nav_bar">
+<nav class="main_navigation">
+<a href="/history.shtml">архив</a>
+<!--a href="/subscribe/login.shtml">подписка на «газету.ru»</a-->
+<a href="/about/">редакция</a>
+<a href="http://temanews.ru/partners/gazeta/">новости на мобильный</a>
+<a href="/adbook/">реклама</a>
+<a href="/conference/">Онлайн-конференции</a>
+<a href="/feedback/">обратная связь</a>
+</nav>
+</div>
+<div class="b-soc_buttons b-soc_buttons_footer_search"> <!-- b-soc_buttons_footer cf -->
+<ul>
+<li class="mobile"><a href="http://m.gazeta.ru/">Мобильная версия</a></li>
+<li class="rss"><a href="/export_news.shtml">RSS</a></li>
+<li class="bookmark"><a title="Добавить в закладки" onmouseover="self.status='Добавить в закладки';return true" onmouseout="self.status=''" href="javascript:void(0);" onclick="return bookmark(this);">В закладки</a></li>
+<li class="search">
+<form name="search" action="/search.shtml">
+<input type="hidden" name="p" value="search">
+<input type="hidden" name="how" value="pt">
+<input type="text" name="text" placeholder="Поиск" class="window">
+<input type="image" class="lupa" alt="Искать" title="Искать" src="http://static.gazeta.ru/nm2012/i/0.png"/>
+</form>
+</li>
+<li class="age"><span>18+</span></li>
+<li class="lj"><a href="http://lj.gazeta.ru" target="_blank"></a></li>
+<li class="youtube"><a href="http://youtube.com/gazetaru" target="_blank"></a></li>
+<li class="google"><a href="https://plus.google.com/b/105541962280031022515/105541962280031022515/posts" target="_blank"></a></li>
+<li class="vk"><a href="http://vk.com/gazeta" target="_blank"></a></li>
+<li class="twitter"><a href="http://www.twitter.com/gazetaru" target="_blank"></a></li>
+<li class="facebook"><a href="http://www.facebook.com/gazeta.ru" target="_blank"></a></li>
+</ul>
+</div>
+ <div class="b-footer_info">
+
+<p>&copy; ЗАО «Газета.Ру». (1999-2013) &#8212; Главные новости дня. <span>|</span> <a href="/credits.shtml">Информация об ограничениях.</a> <span>|</span> <a href="/feedback.shtml">Обратная связь.</a> <span>|</span> Распространяется бесплатно</p>
+<p>Редакция не несет ответственности за достоверность информации, содержащейся в рекламных объявлениях. Редакция не предоставляет справочной информации.</p>
+<p>Рубрики «Техзона», «Недвижимость», «Деньги», «Стиль Жизни», «Сделано в Сколково» являются рекламно-информационными приложениями к «Газете.Ru».</p>
+<p>Дизайн-макет: Сергей Максимов</p>
+</div>
+<div class="b-footer_sup_media">
+
+</div>
+<div class="b-footer_sup_media" style="float:left"> </div>
+<div class="rating_counters" style="float:right">
+<!--LiveInternet logo-->
+<a href="http://www.liveinternet.ru/click;gazeta_all" target="_blank">
+<img src="//counter.yadro.ru/logo;gazeta_all?14.6" title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" alt="" border="0" width="88" height="31"/>
+</a>
+<!--/LiveInternet-->
+<a href="http://top100.rambler.ru/cgi-bin/stats_top100.cgi?id=46589" target="_blank"><img src="http://www.gazeta.ru/nm2008/i/rambler.gif" alt="Rambler's Top 100" border="0"></a>
+<!-- Rating@Mail.ru counter -->
+<script type="text/javascript">//<![CDATA[
+var a='',js=10;try{a+=';r='+escape(document.referrer);}catch(e){}try{a+=';j='+navigator.javaEnabled();js=11;}catch(e){}
+try{s=screen;a+=';s='+s.width+'*'+s.height;a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth);js=12;}catch(e){}
+try{if(typeof((new Array).push('t'))==="number")js=13;}catch(e){}
+try{document.write('<a href="http://top.mail.ru/jump?from=8821">'+
+'<img src="http://d2.c2.b0.a0.top.mail.ru/counter?id=8821;t=109;js='+js+a+';rand='+Math.random()+
+'" alt="Рейтинг@Mail.ru" style="border:0;" height="18" width="88" \/><\/a>');}catch(e){}//]]></script>
+<noscript><p><a href="http://top.mail.ru/jump?from=8821">
+<img src="http://d2.c2.b0.a0.top.mail.ru/counter?js=na;id=8821;t=109"
+style="border:0;" height="18" width="88" alt="Рейтинг@Mail.ru" /></a></p></noscript>
+<!-- //Rating@Mail.ru counter -->
+</div>
+</footer>
+<!-- gemius -->
+<!-- (C)2009 Gemius SA - gemiusAudience / gazeta.ru / Home Page -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = new String('.KE7Y.hn3ENnHJcI28AaZrPojzOKXVshtT8bo2oH62f.t7');
+var pp_gemius_hitcollector = 'garu.hit.gemius.pl';
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://static.gazeta.ru/nm2012/js/xgemius.js"></script>
+<!-- gemius -->
+
+
+<script type="text/javascript"><!--
+sup_service = 23;
+sup_slot_id = 'cnt_gazeta_other';
+sup_ad_width = 1;
+sup_ad_height = 0;
+
+//--></script>
+<script type="text/javascript" src="http://static.gazeta.ru/nm2012/js/ad_show.js"></script>
+
+
+<!-- comScore -->
+<!-- Begin comScore Tag -->
+<script>
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "10463284" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=10463284&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+<!-- comScore -->
+<!-- AdLabs Media Network -->
+<script type="text/javascript">
+document.write('<img src="http://luxup.ru/tr/17110/&r='+escape(document.referrer)+'&t='+(new Date()).getTime()+'" width="1" height="1"/>');
+</script>
+<!-- AdLabs Media Network -->
+<!--AdFox START-->
+<!--adfox-ssp-->
+<!--Площадка: Syncer / all / syncer-->
+<!--Категория: <не задана>-->
+<!--Тип баннера: 1x1-->
+<script type="text/javascript">
+<!--
+if (typeof(pr) == 'undefined') { var pr = Math.floor(Math.random() * 1000000); }
+var addate = new Date();
+document.write('<iframe src="http://ads.adfox.ru/202433/getCode?p1=biozy&amp;p2=v&amp;p3=a&amp;p4=a&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pfc=a&amp;pfb=a&amp;pr=' + pr + '&amp;pt=b&amp;pd=' + addate.getDate() + '&amp;pw=' + addate.getDay() + '&amp;pv=' + addate.getHours() + '" frameBorder="0" width="1" height="1" marginWidth="0" marginHeight="0" scrolling="no" style="border: 0px; margin: 0px; padding: 0px;"><a href="http://ads.adfox.ru/202433/goDefaultLink?p1=biozy&amp;p2=v" target="_top"><img src="http://ads.adfox.ru/202433/getDefaultImage?p1=biozy&amp;p2=v" border="0" alt=""><\/a><\/iframe>');
+//-->
+</script>
+<noscript>
+<iframe src="http://ads.adfox.ru/202433/getCode?p1=biozy&amp;p2=v&amp;p3=a&amp;p4=a&amp;pct=a&amp;plp=a&amp;pli=a&amp;pop=a&amp;pfc=a&amp;pfb=a" frameBorder="0" width="1" height="1" marginWidth="0" marginHeight="0" scrolling="no" style="border: 0px; margin: 0px; padding: 0px;"><a href="http://ads.adfox.ru/202433/goDefaultLink?p1=biozy&amp;p2=v" target="_top"><img src="http://ads.adfox.ru/202433/getDefaultImage?p1=biozy&amp;p2=v" border="0" alt=""></a></iframe>
+</noscript>
+<!--AdFox END-->
+<script language=JavaScript>
+<!--
+var seed=Math.round(Math.random()*65535);
+document.write("<img src=http://awaps.yandex.ru/0/10001/001001.gif?0-0-"+seed+"-0-&" + "timestamp=" + seed + "&awcode=6&" + "subsection=0 width=1 height=1 border=0>");
+//-->
+</script>
+<noscript>
+<img src=http://awaps.yandex.ru/0/10001/001001.gif?subsection=<%=subsectionNmb%> width=1 height=1 border=0>
+</noscript>
+<script type="text/javascript" src="//ad.rambler.ru/static/green2.min.js"></script>
+<script type="text/javascript">
+_green.defineSlot('8984', [1, 1], '<DIV_ID>') </script> <div id="<DIV_ID>">
+<script type="text/javascript">
+_green.display('<DIV_ID>')
+</script>
+</div><!--[if lt IE 9]>
+<script>
+$(function() {
+$('input, textarea').placeholder();
+});
+</script>
+<![endif]-->
+
+
+</div>
+</body>
+</html>

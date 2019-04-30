@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+<html>
+<head><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+
+<title>Lenta.ru</title>
+<link href="http://assets.lenta.ru/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<link href="http://assets.lenta.ru/lenta_touch.png" rel="apple-touch-icon" type="image/png" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Новости, статьи, фотографии, видео. Семь дней в неделю, 24 часа в сутки." name="description">
+<meta content="Новости, статьи, фотографии, видео. Семь дней в неделю, 24 часа в сутки." property="og:description">
+<meta content="article" property="og:type">
+<meta content="http://assets.lenta.ru/assets/lenta_og-437ef9916a9728236991460e693beb46.png" property="og:image">
+<meta content="Lenta.RU" property="og:site_name">
+<meta content="Лента.Ру" property="og:title">
+<meta content="http://lenta.ru" property="og:url">
+
+<link href="/rss" rel="alternate" title="RSS" type="application/rss+xml" />
+
+<link href="http://assets.lenta.ru/assets/lenta-6c9ba87dc9d990e5480f3cbf55d32d19.css" media="all" rel="stylesheet" type="text/css" />
+<link href="http://assets.lenta.ru/assets/main-9c0145fcf529b0c5ce02325852f3aa51.css" media="all" rel="stylesheet" type="text/css" />
+
+<script src="http://assets.lenta.ru/assets/core-3930ae67a8a7d3e2b15be7cd69df9d28.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="g-application" id="root">
+<section class="b-banner-top-decorator hide js-advert">
+<div class="g-layout"><div class="b-banner" id="advert-13660441200834234" style="width: 100%; min-height: 120px;"></div>
+</div>
+</section>
+
+
+<nav class="b-sidebar-menu">
+<div class="mini" id="menu-toggler">
+<div class="toggler icons-sprite icons-menu_toggler"></div>
+</div>
+<div class="origin b-menu-decorator" id="sidebar-menu">
+<div class="b-sidebar-menu__wrap">
+<ul>
+<li class="delimiter">
+<div></div>
+</li>
+<li class="special"><a href="/" style="color: #ffffff">Главное</a></li>
+<li class="special"><a href="/rubrics/russia" style="color: #ffffff">Россия</a></li>
+<li class="special"><a href="/rubrics/world" style="color: #ffffff">Мир</a></li>
+<li class="special"><a href="/rubrics/ussr" style="color: #ffffff">Бывший СССР</a></li>
+<li class="special"><a href="/rubrics/economics" style="color: #ffffff">Экономика</a></li>
+<li class="special"><a href="/rubrics/science" style="color: #ffffff">Наука и техника</a></li>
+<li class="special"><a href="/rubrics/sport" style="color: #ffffff">Спорт</a></li>
+<li class="special"><a href="/rubrics/culture" style="color: #ffffff">Культура</a></li>
+<li class="special"><a href="/rubrics/media" style="color: #ffffff">Медиа</a></li>
+<li class="special"><a href="/rubrics/life" style="color: #ffffff">Из жизни</a></li>
+<li class="delimiter">
+<div></div>
+</li>
+<li><a href="/rubrics/lentadoc" style="color: #ffffff">Lenta.doc</a></li>
+<li class="delimiter">
+<div></div>
+</li>
+<li><a href="http://motor.ru/" style="color: #959595">Мотор</a></li>
+<li><a href="http://realty.lenta.ru/" style="color: #959595">Недвижимость</a></li>
+<li><a href="http://medportal.ru/mednovosti/" style="color: #959595">МедНовости</a></li>
+<li class="delimiter">
+<div></div>
+</li>
+<li><a href="/parts/text" style="color: #959595">Статьи</a></li>
+<li><a href="/parts/photo" style="color: #959595">Галереи</a></li>
+<li class="delimiter">
+<div></div>
+</li>
+</ul>
+<div class="b-sidebar-menu__fuck icons-sprite icons-fuck"></div>
+<div class="b-sidebar-menu__under-fuck icons-sprite icons-under_fuck"></div>
+<form action="/search" class="search" method="GET">
+<input name="query" placeholder="Поиск" type="text">
+<i class="icons-sprite icons-search" onclick="$(this).closest('form').submit()"></i>
+</form>
+</div>
+</div>
+</nav>
+
+<div class="b-up icons-sprite icons-up" id="up" title="наверх"></div>
+<section class="b-header-main">
+<div class="g-layout">
+<div class="row">
+<div class="span4">
+<div class="logo-wrap">
+<a class="b-header-main__logo icons-sprite icons-lenta_big" href="/"></a>
+<span class="date" id="date-time">&nbsp;</span>
+</div>
+</div>
+<div class="span8 b-ears"><div class="row-fluid">
+<div class="span6">
+<div class="b-ears__item">
+<a href="/columns/2013/04/15/rubli/" class="js-dh"><img alt="" class="picture" height="99" src="http://cdn.lenta.ru/images/0000/0265/000002651796/hear_1358858587.jpg" style="max-width: 90px; width: 90px; height: 99px;" width="90" />
+</a><div class="info">
+<author><a href="/columns/2013/04/15/rubli/">Ольга Бакушинская</a></author>
+<h3><a href="/columns/2013/04/15/rubli/" class="js-dh">Пенсия строгого режима</a></h3>
+<div class="rightcol">Как могут страшно оскорбить 300 рублей</div>
+</div>
+</div>
+</div>
+<div class="span6">
+<div class="b-ears__item b-ears__item_no-picture">
+<div class="b-ears__item__wrap">
+<div class="info">
+<div class="type"><a href="/rubrics/russia">Россия</a></div>
+<h3><a href="/photo/2013/04/12/putin/" class="js-dh">Хорош до последней капли</a></h3>
+<div class="rightcol">Владимир Путин в свете софитов</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="b-layout b-layout_main">
+<div class="g-layout">
+<div class="row">
+<div class="span8">
+<section class="row b-top7-for-main">
+<div class="span4">
+<div class="first-item">
+<h2>
+<a href="/news/2013/04/15/dagestan/" class="js-dh"><img alt="Рамазан Абдулатипов" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994666/top7_1366038012." style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a><time class="g-time" datetime=" 19:26, 15 апреля 2013" title="15 апреля 2013">19:26</time>
+
+<a href="/news/2013/04/15/dagestan/">Глава Дагестана устроил разнос подчиненным за разгул бандподполья</a>
+</h2>
+<div class="announce">
+Исполняющий обязанности главы Дагестана Рамазан Абдулатипов потребовал, чтобы руководители муниципалитетов, на территории которых активно действуют представители бандподполья, ушли в отставку. «Если в районе появляется бандгруппа и начинает командовать, значит, глава администрации должен уйти», — сказал Абдулатипов.
+<div class="more"><a href="/news/2013/04/15/dagestan/" class="js-dh">Читать полностью</a></div>
+</div>
+</div>
+</div>
+<div class="span4">
+<div class="items">
+<div class="item">
+<time class="g-time" datetime=" 20:20, 15 апреля 2013" title="15 апреля 2013">20:20</time>
+
+<a href="/news/2013/04/15/kampusch/">Повторное расследование не нашло сообщника у похитителя Наташи Кампуш</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 19:21, 15 апреля 2013" title="15 апреля 2013">19:21</time>
+
+<a href="/news/2013/04/15/loss/">«Интер РАО» отчиталась об убытке в 22 миллиарда рублей</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 20:04, 15 апреля 2013" title="15 апреля 2013">20:04</time>
+
+<a href="/news/2013/04/15/dustyursahubble/">«Хаббл» сфотографировал пыльную галактику в Большой медведице</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 19:53, 15 апреля 2013" title="15 апреля 2013">19:53</time>
+
+<a href="/news/2013/04/15/urgant/">МИДу Украины предложили оценить шутку Урганта</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 20:15, 15 апреля 2013" title="15 апреля 2013">20:15</time>
+
+<a href="/news/2013/04/15/falsebank/">В Рунете обнаружили банк с лицензией за подписью убитого зампреда ЦБ</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 19:54, 15 апреля 2013" title="15 апреля 2013">19:54</time>
+
+<a href="/news/2013/04/15/zod/">Злодей из нового «Супермена» оставил землянам сообщение на YouTube</a>
+</div>
+</div>
+</div>
+</section>
+<section class="row">
+<div class="span8">
+<div class="line"></div>
+</div>
+</section>
+
+
+<div class="row">
+<div class="span4"><section class="b-longgrid-column">
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/russia" class="rubric">Россия</a>
+&mdash;
+<span class="g-date"><span class="time">18:02</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/dohody/" class="js-dh picture"><img alt="Владимир и Людмила Путины" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994572/top7_1366024228.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/dohody/"><span>Золотые скрепы</span>
+</a></h3>
+<div class="rightcol">Российские чиновники рассказали о своих зарплатах и квартирах</div>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/economics" class="rubric">Экономика</a>
+&mdash;
+<span class="g-date"><span class="time">15:13</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/12/railways/" class="js-dh picture"><img alt="Высокоскоростной поезд, Китай" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994497/top7_1366015601.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/12/railways/"><span>Рожденный ползать вдруг ускорился</span>
+</a></h3>
+<div class="rightcol">Поезда начали отвоевывать рынок у автомобилей и самолетов</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">18:13</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/ksk/">Генпрокуратура уличила «Курорты Северного Кавказа» в новой афере</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/sport" class="rubric">Спорт</a>
+&mdash;
+<span class="g-date"><span class="time">15:56</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/ovechkin/" class="js-dh picture"><img alt="Поклонники Александра Овечкина" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994593/top7_1366024894.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/ovechkin/"><span>Талант расправил плечи</span>
+</a></h3>
+<div class="rightcol">Александр Овечкин возглавил снайперскую гонку в НХЛ</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">19:03</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/uslugi/">Запрет на рекламу интим-услуг в СМИ внесли в Госдуму</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/world" class="rubric">Мир</a>
+&mdash;
+<span class="g-date"><span class="time">19:27</span> Сегодня</span>
+</div>
+<a href="/photo/2013/04/15/waterplanes/" class="js-dh b-badge picture"><img alt="" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994607/top7_1366026602.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+<i class="icon-sprite icons-badge_photo"></i>
+</a>
+<div class="titles">
+<h3>
+<a href="/photo/2013/04/15/waterplanes/"><span>Воздухоплавающие</span>
+</a></h3>
+<div class="rightcol">Как приводняются пассажирские авиалайнеры</div>
+</div>
+</div>
+</section>
+</div>
+<div class="span4"><section class="b-longgrid-column">
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">18:44</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/hospital1/">Фигурант «болотного дела» попал в больницу «Матросской тишины»</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/economics" class="rubric">Экономика</a>
+&mdash;
+<span class="g-date"><span class="time">17:14</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/post/" class="js-dh picture"><img alt="" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994570/top7_1366024084.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/post/"><span>«Пока страна ждет свои посылки»</span>
+</a></h3>
+<div class="rightcol">«Почта России» ввязалась в очередной бессмысленный спор с таможенниками</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">16:26</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/tele2/">ВТБ отказался продавать российский бизнес Tele2 по частям</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/culture" class="rubric">Культура</a>
+&mdash;
+<span class="g-date"><span class="time">18:04</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/eifman/" class="js-dh picture"><img alt="Борис Эйфман" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994599/top7_1366028366.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/eifman/"><span>Достоевский дэнс</span>
+</a></h3>
+<div class="rightcol">Хореограф Борис Эйфман о новом прочтении «Братьев Карамазовых»</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">19:51</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/smolensk2/">Под Смоленском нашли похищенную из роддома новорожденную</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/ussr" class="rubric">Бывший СССР</a>
+&mdash;
+<span class="g-date"><span class="time">18:13</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/belmuztv/" class="js-dh picture"><img alt="" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994491/top7_1366014812.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/belmuztv/"><span>«Мы в шоке!»</span>
+</a></h3>
+<div class="rightcol">По белорусскому ТВ показали порно</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">18:03</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/biblio/">Ликвидирована Государственная общественно-политическая библиотека</a>
+</h3>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">18:28</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/aero/">Авария на Каширском шоссе обошлась «Аэроэкспрессу» в 160 тысяч рублей</a>
+</h3>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">18:18</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/abba/">Участники ABBA написали гимн «Евровидения»</a>
+</h3>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<div class="span4">
+<section class="b-yellow-box">
+<div class="b-yellow-box__wrap">
+<h2 class="bordered-title">Главное за сутки</h2>
+<div class="item">
+<time class="g-time" datetime=" 14:10, 15 апреля 2013" title="15 апреля 2013">14:10</time>
+
+<a href="/news/2013/04/15/meet/">Путину передали личное послание от Обамы</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 17:45, 15 апреля 2013" title="15 апреля 2013">17:45</time>
+
+<a href="/news/2013/04/15/cancel/">Госдума отказалась от уголовной статьи за оскорбление верующих</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 13:57, 15 апреля 2013" title="15 апреля 2013">13:57</time>
+
+<a href="/news/2013/04/15/post/">«Почта России» объявила о скорой победе над посылочным затором</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 17:17, 15 апреля 2013" title="15 апреля 2013">17:17</time>
+
+<a href="/news/2013/04/15/beitar/">Чеченские футболисты сбежали из израильского клуба</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 15:35, 15 апреля 2013" title="15 апреля 2013">15:35</time>
+
+<a href="/news/2013/04/15/duma/">Депутаты Госдумы отчитались о доходах</a>
+</div>
+<div class="item">
+<time class="g-time" datetime=" 17:35, 15 апреля 2013" title="15 апреля 2013">17:35</time>
+
+<a href="/news/2013/04/15/theycandoit/">Американцы изучили поднятую из океана северокорейскую ракету</a>
+</div>
+</div>
+</section>
+
+<div class="b-banner-sidebar-decorator js-advert"><div class="b-banner" id="advert-13660441201089642" style="width: 240px; min-height: 400px;"></div>
+</div>
+<div class="b-banner-sidebar-extra-decorator js-advert"></div>
+
+<div class="b-banner-sidebar-extra-decorator hide js-advert"></div>
+
+<section class="b-longgrid-column">
+<div class="article item lenta-doc">
+<div class="info g-date">
+<a href="/rubrics/lentadoc" class="icons-sprite icons-lentadoc_small"></a>
+&mdash;
+<span class="g-date"><span class="time">12:58</span> Сегодня</span>
+</div>
+<a href="/video/2013/04/15/rggu/" class="js-dh b-badge picture"><img alt="" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994426/top7_1365972485.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+<i class="icon-sprite icons-badge_video"></i>
+</a>
+<div class="titles">
+<h3>
+<a href="/video/2013/04/15/rggu/"><span>«Сейчас я приглашу охранников или чекиста!»</span>
+</a></h3>
+<div class="rightcol">Одиночные пикеты в РГГУ в поддержку «болотного» узника Степана Зимина</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">19:15</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/gunforgood/">Сотрудников американской средней школы вооружили пистолетами</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/science" class="rubric">Наука и техника</a>
+&mdash;
+<span class="g-date"><span class="time">16:18</span> Сегодня</span>
+</div>
+<a href="/articles/2013/04/15/tiltrotor/" class="js-dh picture"><img alt="V-22 Osprey" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994484/top7_1366013375.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+</a>
+<div class="titles">
+<h3>
+<a href="/articles/2013/04/15/tiltrotor/"><span>Летающий котопес</span>
+</a></h3>
+<div class="rightcol">США приступили к созданию конвертоплана третьего поколения</div>
+</div>
+</div>
+<div class="item">
+<div class="info g-date">
+<span class="g-date"><span class="time">19:03</span> Сегодня</span>
+</div>
+<div class="titles">
+<h3>
+<a href="/news/2013/04/15/invite/">Польское правительство пригласило на лечение Луценко</a>
+</h3>
+</div>
+</div>
+<div class="article item">
+<div class="info g-date">
+<a href="/rubrics/culture" class="rubric">Культура</a>
+&mdash;
+<span class="g-date"><span class="time">16:38</span> Сегодня</span>
+</div>
+<a href="/photo/2013/04/15/rijksmuseum/" class="js-dh b-badge picture"><img alt="Фейерверк в честь открытия Рейксмюзеум" class="g-picture" height="200" src="http://cdn.lenta.ru/images/0000/0299/000002994594/top7_1366024926.jpg" style="max-width: 300px; width: 300px; height: 200px;" width="300" />
+<i class="icon-sprite icons-badge_photo"></i>
+</a>
+<div class="titles">
+<h3>
+<a href="/photo/2013/04/15/rijksmuseum/"><span>Сдавайся, стройка — «Ночной дозор»</span>
+</a></h3>
+<div class="rightcol">Главный музей Нидерландов открыли после 10-летнего ремонта</div>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="b-tabloid">
+<div class="g-layout">
+<div class="b-tabloid__row row">
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/russia">Россия</a></h2>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/cancel/">Госдума отказалась от уголовной статьи за оскорбление верующих</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/zavod2/">Застреленный в Мурманске бизнесмен оказался однофамильцем директора пивзавода</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/duma/">Депутаты Госдумы отчитались о доходах</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/guide/">Белых написал путеводитель по Кирову к началу суда над Навальным</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/meet/">Путину передали личное послание от Обамы</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/dagestan/">Глава Дагестана устроил разнос подчиненным за разгул бандподполья</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/case/">По факту переливания ребенку ВИЧ-инфицированной крови возбудили дело</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/russia">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/world">Мир</a></h2>
+<div class="b-tabloid__topic">
+<a href="/photo/2013/04/15/waterplanes/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994607/tabloid_1366026611.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/photo/2013/04/15/waterplanes/" class="article js-dh">Воздухоплавающие</a>
+<div class="rightcol">Как приводняются пассажирские авиалайнеры</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/theycandoit/">Американцы изучили поднятую из океана северокорейскую ракету</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/whois/">Победителем выборов в Венесуэле назвали преемника Чавеса</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/courtdelay/">Суд над немецкими неонацистами отложили из-за турецких журналистов</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/kampusch/">Повторное расследование не нашло сообщника у похитителя Наташи Кампуш</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/kozloduy/">На болгарской АЭС обнаружили утечку водорода</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/gunforgood/">Сотрудников американской средней школы вооружили пистолетами</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/world">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/ussr">Бывший СССР</a></h2>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/belmuztv/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994491/tabloid_1366014825.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/belmuztv/" class="article js-dh">«Мы в шоке!»</a>
+<div class="rightcol">По белорусскому ТВ показали порно</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/urgant/">МИДу Украины предложили оценить шутку Урганта</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/ask/">Януковича попросили найти провокаторов в футболках «Бей жидов!»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/invite/">Польское правительство пригласило на лечение Луценко</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/lyashko/">Украину предложили избавить от престарелых депутатов и чиновников   </a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/police/">В Казахстане проверят анонимку с угрозой устроить «второй Жанаозен»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/baku/">В Азербайджане передвинут историческое здание </a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/ussr">Все материалы</a>
+</div>
+</div>
+</div>
+<div class="b-tabloid__row row">
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/economics">Экономика</a></h2>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/post/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994570/tabloid_1366024097.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/post/" class="article js-dh">«Пока страна ждет свои посылки»</a>
+<div class="rightcol">«Почта России» ввязалась в очередной бессмысленный спор с таможенниками</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/falsebank/">В Рунете обнаружили банк с лицензией за подписью убитого зампреда ЦБ</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/loss/">«Интер РАО» отчиталась об убытке в 22 миллиарда рублей</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/moscow/">Москва включила себя в тройку городов с самыми большими бюджетами</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/gold/">Цены на золото впервые за два года упали ниже 1400 долларов</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/12/railways/" class="js-dh"><img alt="Высокоскоростной поезд, Китай" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994497/tabloid_1366015611.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/12/railways/" class="article js-dh">Рожденный ползать вдруг ускорился</a>
+<div class="rightcol">Поезда начали отвоевывать рынок у автомобилей и самолетов</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/candidates/">«Ведомости» назвали кандидатов на должность экономического помощника Путина</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/economics">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/science">Наука и техника</a></h2>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/tiltrotor/" class="js-dh"><img alt="V-22 Osprey" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994484/tabloid_1366013382.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/tiltrotor/" class="article js-dh">Летающий котопес</a>
+<div class="rightcol">США приступили к созданию конвертоплана третьего поколения</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/deny/">Минобороны опровергло сообщения об отказе от номеров на подлодках</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/marte/">Транспортники C-295 вооружат новой противокорабельной ракетой</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/an74/">МВД Казахстана получило украинский транспортник Ан-74</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/nanosponge/">Бактериальные инфекции предложили лечить «наногубками»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/ch47/">Boeing подарит Армии США 30 вертолетов Chinook</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/vhs/">На YouTube появился эмулятор видеомагнитофона</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/science">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/sport">Спорт</a></h2>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/beitar/">Чеченские футболисты сбежали из израильского клуба</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/ovechkin/" class="js-dh"><img alt="Поклонники Александра Овечкина" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994593/tabloid_1366024900.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/ovechkin/" class="article js-dh">Талант расправил плечи</a>
+<div class="rightcol">Александр Овечкин возглавил снайперскую гонку в НХЛ</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/sportsru/">Sports.ru обвинили в дискредитации российского футбола</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/bogomolov/">Российский теннисист поднялся на 23 позиции в рейтинге</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/nhl/">Игрок НХЛ застрял в сетке ворот</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/14/albegov/">Российские тяжелоатлеты выиграли медальный зачет ЧЕ</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/photo/2013/04/11/buzkashi/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002993767/tabloid_1365664892.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/photo/2013/04/11/buzkashi/" class="article js-dh">Жил-был у бабушки жертвенный козлик</a>
+<div class="rightcol">Как играют в козлодрание</div>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/sport">Все материалы</a>
+</div>
+</div>
+</div>
+<div class="b-tabloid__row row">
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/culture">Культура</a></h2>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/eifman/" class="js-dh"><img alt="Борис Эйфман" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994599/tabloid_1366028374.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/eifman/" class="article js-dh">Достоевский дэнс</a>
+<div class="rightcol">Хореограф Борис Эйфман о новом прочтении «Братьев Карамазовых»</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/15/eimic/" class="js-dh"><img alt="Everything is made in China" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994626/tabloid_1366028606.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/15/eimic/" class="article js-dh">Синтезатор в янтаре</a>
+<div class="rightcol">Премьера песен и клипа с нового альбома Everything is made in China</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/abba/">Участники ABBA написали гимн «Евровидения»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/zod/">Злодей из нового «Супермена» оставил землянам сообщение на YouTube</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/bruskin/">«Коллекцию археолога» Гриши Брускина впервые привезут в Москву</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/aki/">Аки Каурисмяки решил снять фильм в Италии</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/photo/2013/04/15/rijksmuseum/" class="js-dh"><img alt="Фейерверк в честь открытия Рейксмюзеум" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994594/tabloid_1366024937.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/photo/2013/04/15/rijksmuseum/" class="article js-dh">Сдавайся, стройка — «Ночной дозор»</a>
+<div class="rightcol">Главный музей Нидерландов открыли после 10-летнего ремонта</div>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/culture">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/media">Медиа</a></h2>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/uslugi/">Запрет на рекламу интим-услуг в СМИ внесли в Госдуму</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/cultsearch/">Минкульт создаст поисковик по познавательным сайтам</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/rabiner/">Журналисты «Спорт-Экспресса» написали книгу о газете</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/nochildren/">Детей до 13 лет предложили оставить без соцсетей</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/bbc/">«Би-Би-Си» обвинили в использовании студентов для съемок в Северной Корее</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/google/">Google изменит механизм работы выдачи под давлением ЕС</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/cispa/">Google и Yahoo! поддержали закон о доступе властей к данным пользователей</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/media">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/life">Из жизни</a></h2>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/knight/">Американскому Отшельнику с Северного пруда сделали предложение</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/cat/">Во время матча голландских футбольных команд на поле выбежал кот </a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/again/">Мэтт Дэймон с супругой сыграли свадьбу во второй раз</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/run/">На Украине впервые прошли кроличьи бега </a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/lobsterbanana/">«Омар» и «банан» украли деревянную скульптуру </a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/news/2013/04/15/toygun/">Вооруженный игрушечным автоматом кемеровчанин украл водку </a>
+</div>
+<div class="b-tabloid__topic">
+<a href="/articles/2013/04/12/knight/" class="js-dh"><img alt="Кристофер Найт" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994233/tabloid_1365772741.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="/articles/2013/04/12/knight/" class="article js-dh">27 лет одиночества</a>
+<div class="rightcol">Полиция штата Мэн задержала лесного отшельника</div>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/life">Все материалы</a>
+</div>
+</div>
+</div>
+<div class="b-tabloid__row row">
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/motor">Мотор</a></h2>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/articles/2013/04/15/chinesegp/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994514/tabloid_1366018032.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="http://motor.ru/articles/2013/04/15/chinesegp/" class="article js-dh">Все правильно сделал</a>
+<div class="rightcol">Тактическая битва на Гран-при Китая, которую выиграл Фернандо Алонсо</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/news/2013/04/15/amnisty/">Депутаты предложили амнистировать «нетрезвых» водителей</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/news/2013/04/15/tenspeed/">Ford и GM создадут 10-ступенчатые «автоматы»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/news/2013/04/15/glonass/">«Тревожная кнопка» в российских машинах сможет работать в Европе</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/articles/2013/04/11/pug208gti/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002993930/tabloid_1365683332.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="http://motor.ru/articles/2013/04/11/pug208gti/" class="article js-dh">И вдруг — друг!</a>
+<div class="rightcol">Первое знакомство с диким, но симпатичным Peugeot 208 GTi</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/news/2013/04/15/almerarus/">В России начались продажи Nissan Almera</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://motor.ru/articles/2013/04/10/c4sedan/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002993628/tabloid_1365594075.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="http://motor.ru/articles/2013/04/10/c4sedan/" class="article js-dh">Проект В73</a>
+<div class="rightcol">Все подробности о седане Citroen, который создавался специально для России</div>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/motor">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/realty">Недвижимость</a></h2>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/news/2013/04/15/kommynarka/">Правительственный квартал в Коммунарке урезали в три раза</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/news/2013/04/15/mfc/">Международный финансовый центр построят в Рублево-Архангельском</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/articles/2013/04/11/potok/" class="js-dh"><img alt="Сергей Полонский" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002994002/tabloid_1365693276." style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><a href="http://realty.lenta.ru/articles/2013/04/11/potok/" class="article js-dh">Банкротства поставили на Potok </a>
+<div class="rightcol">Очередная реинкарнация компании Полонского оказалась на грани краха</div>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/news/2013/04/15/ats/">На месте московских АТС появится жилье и офисы</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/news/2013/04/12/wren/">Выставлена на продажу бывшая резиденция английских королей</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://realty.lenta.ru/news/2013/04/15/alrosa/">Российский производитель алмазов продал гостиничный бизнес</a>
+</div>
+<div class="advertisable b-tabloid__topic">
+<a href="http://realty.lenta.ru/photo/2013/04/10/poluostrov/" class="js-dh"><img alt="" class="g-picture" height="64" src="http://cdn.lenta.ru/images/0000/0299/000002993783/tabloid_1365668652.jpg" style="max-width: 96px; width: 96px; height: 64px;" width="96" />
+</a><div class="advert-label">Реклама</div>
+<a href="http://realty.lenta.ru/photo/2013/04/10/poluostrov/" class="article js-dh">Экопоселок «Полуостров»</a>
+<div class="rightcol">Весенняя акция на участки у большой воды!</div>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/realty">Все материалы</a>
+</div>
+</div>
+<div class="span4">
+<div class="b-tabloid__item">
+<h2 class="bordered-title"><a href="/rubrics/mednovosti">МедНовости</a></h2>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/nanosponge123/">Американцы предложили чистить кровь от ядов «наногубками»</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/train345/">Онищенко подготовил железнодорожный заслон Таджикистану</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/kidney007/">В США вырастили функционирующую крысиную почку</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/law456/">Законопроект об обязательном страховании пациентов оставили на осень</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/smol/">Из смоленского роддома исчез новорожденный</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/chinabirdflu613/">За два дня число заболевших птичьим гриппом китайцев выросло почти вдвое</a>
+</div>
+<div class="b-tabloid__topic">
+<a href="http://medportal.ru/mednovosti/news/2013/04/15/epimerox123/">Бактериофаги помогли создать суперантибиотик против супермикробов</a>
+</div>
+</div>
+<div class="b-tabloid__more">
+<a href="/rubrics/mednovosti">Все материалы</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div id="root_footer"></div>
+</div>
+<footer class="b-footer" id="footer">
+<div class="g-layout">
+<div class="counters">
+<span class="counter counter_top100" id="top100"></span>
+<span class="counter counter_liveinternet" id="liveinternet-counter"></span>
+</div>
+<noscript><img src="http://www.tns-counter.ru/V13a****rambler_ru/ru/UTF-8/tmsec=lenta_other/" width="1" height="1" alt=""></noscript>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18447330-1']);
+  _gaq.push(['_setDomainName', '.lenta.ru']);
+  _gaq.push(['_trackPageview']);
+ 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  (function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+      try {
+        w.yaCounter4308403 = new Ya.Metrika({id:4308403,
+          webvisor:true,
+          clickmap:true,
+          trackLinks:true});
+      } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+      s = d.createElement("script"),
+      f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+      d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+  })(document, window, "yandex_metrika_callbacks");
+
+  var _top100q = _top100q || [];
+
+  _top100q.push(["setAccount", "80674"]);
+  _top100q.push(["trackPageviewByLogo", document.getElementById("top100")]);
+
+
+  (function(){
+   var top100 = document.createElement("script"); top100.type = "text/javascript";
+
+   top100.async = true;
+   top100.src = ("https:" == document.location.protocol ? "https:" : "http:") + "//st.top100.ru/pack/pack.min.js";
+   var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(top100, s);
+  })();
+
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/4308403" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<div class="versions">
+<span class="group mobile">
+<a href="http://m.lenta.ru/"><span class="icons-sprite icons-iphone"></span>
+<span class="label">Мобильная версия</span>
+</a></span>
+<span class="group pda">
+<a href="http://pda.lenta.ru/"><span class="icons-sprite icons-nokia"></span>
+<span class="label">PDA-версия</span>
+</a></span>
+<span class="group orphus">
+<script src="http://assets.lenta.ru/assets/vendors/orphus-9e78f4b87d269df32ee9c8d2c12f0312.js" type="text/javascript"></script>
+<a class="hide" href="http://orphus.ru" id="orphus" target="_blank"><img alt="Orphus" height="31" src="http://assets.lenta.ru/assets/orphus-291ae445dd1450652e00ee30e6561aba.gif" width="88" /></a>
+<a href="http://orphus.ru"><span class="icons-sprite icons-orphus"></span>
+<span>
+<strong>Нашли опечатку? <br/></strong>
+Orphus: Ctrl+Enter
+</span>
+</a></span>
+</div>
+<div class="menu">
+<span class="socials">
+<a href="http://www.facebook.com/lenta.ru" class="icons_socials icons-sprite icons-fb" target="_blank"></a>
+<a href="http://twitter.com/lentaruofficial" class="icons_socials icons-sprite icons-twitter" target="_blank"></a>
+<a href="http://vk.com/lentaru" class="icons_socials icons-sprite icons-vk" target="_blank"></a>
+<a href="/rss" class="icons_socials icons-sprite icons-rss"></a>
+</span>
+<span class="links">
+<a href="/info#1">Редакция</a>
+<a href="http://reklama.rambler.ru/sites/lenta/" target="_blank">Реклама</a>
+<a href="mailto:it@lenta-co.ru">Техподдержка</a>
+</span>
+<span class="copyright">
+&copy; 1999 ООО «Лента.Ру». Дизайн сайта —
+<a href="http://charmerstudio.com" target="_blank">Charmer</a>
+</span>
+</div>
+</div>
+</footer>
+
+<script src="http://assets.lenta.ru/assets/lenta-0d40353ee5752baaa6180e895a3e2662.js" type="text/javascript"></script>
+<script>
+  window.Lenta = {"kind":"main","bloc_slug":false,"tag_slug":false,"part_slug":false,"b310":false};
+</script>
+<script src="http://ad.rambler.ru/static/green2.min.js" type="text/javascript"></script>
+<script>
+  if ( '_green' in window ) {
+    _green.setAllowFloatingBanners(true);
+    _green.defineSlot(8848, ['100%', '120px'], 'advert-13660441200834234', function(){ App.showAdvert('advert-13660441200834234'); },function(){ App.hideAdvert('advert-13660441200834234'); });
+  _green.display('advert-13660441200834234');
+  
+  
+  _green.defineSlot(8845, ['240px', '400px'], 'advert-13660441201089642', function(){ App.showAdvert('advert-13660441201089642'); },function(){ App.hideAdvert('advert-13660441201089642'); });
+  _green.display('advert-13660441201089642');
+  
+  
+  
+  }
+</script>
+
+
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "d1ros97qkrwjf5.cloudfront.net/42/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-1.newrelic.com","66a8d51230","1241738","J19cQUoOWA0ERBoJUA1eHVxWBVEZ",0,67,new Date().getTime(),"","","","",""]);</script></body>
+</html>
