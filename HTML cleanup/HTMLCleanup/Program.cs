@@ -450,8 +450,9 @@ namespace HTMLCleanup
     {
         /// <summary>
         /// Список символов-разделителей (заполняется из конфигурационного файла).
+        /// Should have default value for creating configuration template.
         /// </summary>
-        private char[] _delimiters;
+        private char[] _delimiters = { ' ', ',', '.', ':', ';', '?', '.', '!' };
         //  +1 позволяет обработать случай, когда слово заканчивается точно на границе.
         //  Можно заполнять из конфигурационного файла.
         private const int _max = 81;
@@ -529,6 +530,13 @@ namespace HTMLCleanup
             serializer.Deserialize(pathToConfig, chain);
         }
 
+        private static void WriteConfiguration(TextProcessor chain)
+        {
+            var pathToConfig = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "Config.xml";
+            var serializer = new ConfigSerializer();
+            serializer.Serialize(pathToConfig, chain);
+        }
+
         /// <summary>
         /// Создает структуру каталогов для сохранения текста страницы.
         /// </summary>
@@ -599,8 +607,6 @@ namespace HTMLCleanup
 
         static void Main(string[] args)
         {
-            var url = args[0];
-
             //  Создает последовательность обработки (имеет значение).
             var processChain =
                 new TagWithTextRemover(
@@ -611,23 +617,33 @@ namespace HTMLCleanup
                                     new TextFormatter(null)
                                 )))));
 
-            //  Читает конфигурацию.
-            ReadConfiguration(processChain);
-            
-            //  Выполняет запрос.
-            var s = MakeRequest(url);
+            if (args.Count() != 0)
+            {
+                var url = args[0];
 
-            //  Выполняет обработку.
-            var output = processChain.Process(s);
+                //  Читает конфигурацию.
+                ReadConfiguration(processChain);
 
-            //  Формирует структуру каталогов для сохранения результата.
-            var path = CreateDirectories(url);
+                //  Выполняет запрос.
+                var s = MakeRequest(url);
 
-            //  Формирует имя файла.
-            var fileName = path + "\\" + "content.txt";
+                //  Выполняет обработку.
+                var output = processChain.Process(s);
 
-            //  Сохраняет текст в файл.
-            WriteTextToFile(fileName, output);
+                //  Формирует структуру каталогов для сохранения результата.
+                var path = CreateDirectories(url);
+
+                //  Формирует имя файла.
+                var fileName = path + "\\" + "content.txt";
+
+                //  Сохраняет текст в файл.
+                WriteTextToFile(fileName, output);
+            }
+            else
+            {
+                //  Writes template of configuration file.
+                WriteConfiguration(processChain);
+            }
         }
     }
 }
