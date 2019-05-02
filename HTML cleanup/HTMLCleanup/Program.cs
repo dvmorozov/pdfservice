@@ -324,7 +324,7 @@ namespace HTMLCleanup
     }
 
     /// <summary>
-    /// Удаляет тэги внутри параграфов, сохраняя внтренний текст.
+    /// Удаляет тэги внутри параграфов, сохраняя внутренний текст.
     /// </summary>
     public class InnerTagRemover : TextProcessor
     {
@@ -350,7 +350,7 @@ namespace HTMLCleanup
         {
             foreach (var t in _tags)
             {
-                HTMLElement el = new HTMLElement(t.StartTag, t.EndTag, text);
+                var el = new HTMLElement(t.StartTag, t.EndTag, text);
                 do
                 {
                     var b = el.FindNext();
@@ -370,8 +370,17 @@ namespace HTMLCleanup
     {
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
+        /// Filled by default values.
         /// </summary>
-        private List<TagToRemove> _tags = new List<TagToRemove>(); 
+        private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
+            new TagToRemove( "<script", "</script>" ),
+            new TagToRemove( "<style", "</style>" ),
+            new TagToRemove( "<link", "/>" ),
+            new TagToRemove( "<path", "</path>" ),
+            new TagToRemove( "<meta", "/>" ),
+            new TagToRemove( "<iframe", "</iframe>" ),
+            new TagToRemove( "<svg", "</svg>" )
+        }); 
         /* Пример заполнения.
          * = new List<TagToRemove>()
         {
