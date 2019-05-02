@@ -579,9 +579,9 @@ namespace HTMLCleanup
             var res = req.GetResponse();
             //  Определяет кодировку страницы.
             string charset = String.Empty;
-            if (res.ContentType.IndexOf("1251") != -1) charset = "windows-1251";
+            if (res.ContentType.IndexOf("1251", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "windows-1251";
             else
-                if (res.ContentType.IndexOf("utf-8") != -1) charset = "utf-8";
+                if (res.ContentType.IndexOf("utf-8", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "utf-8";
 
             StreamReader f = null;
             string text = String.Empty;
