@@ -592,8 +592,8 @@ namespace HTMLCleanup
                 text = f.ReadToEnd();
                 //  Меняет кодировку на стандарную.
                 var bIn = Encoding.UTF8.GetBytes(text);
-                var bOut = Encoding.Convert(Encoding.UTF8, Encoding.Default, bIn);
-                text = Encoding.Default.GetString(bOut);
+                var bOut = Encoding.Convert(Encoding.UTF8, Encoding.GetEncoding(1251), bIn);
+                text = Encoding.GetEncoding(1251).GetString(bOut);
             }
 
             if (charset == "windows-1251")
