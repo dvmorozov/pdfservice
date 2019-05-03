@@ -586,20 +586,21 @@ namespace HTMLCleanup
             StreamReader f = null;
             string text = String.Empty;
 
-            if (charset == "utf-8")
+            //  If charset wasn't recognized UTF-8 is used by default.
+            if (charset == "utf-8" || string.IsNullOrEmpty(charset))
             {
                 f = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
                 text = f.ReadToEnd();
-                //  Меняет кодировку на стандарную.
-                var bIn = Encoding.UTF8.GetBytes(text);
-                var bOut = Encoding.Convert(Encoding.UTF8, Encoding.GetEncoding(1251), bIn);
-                text = Encoding.GetEncoding(1251).GetString(bOut);
             }
 
             if (charset == "windows-1251")
             {
                 f = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding(1251));
                 text = f.ReadToEnd();
+                //  Convert to UTF-8.
+                var bIn = Encoding.GetEncoding(1251).GetBytes(text);
+                var bOut = Encoding.Convert(Encoding.GetEncoding(1251), Encoding.UTF8, bIn);
+                text = Encoding.UTF8.GetString(bOut);
             }
 
             return text;
