@@ -331,7 +331,10 @@ namespace HTMLCleanup
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
         /// </summary>
-        private List<TagToRemove> _tags = new List<TagToRemove>();
+        private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
+            new TagToRemove( "<strong", "</strong>" ),
+            new TagToRemove( "<span", "</span>" )
+        });
 
         public List<TagToRemove> Tags
         {
@@ -373,26 +376,29 @@ namespace HTMLCleanup
         /// Filled by default values.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
+            /*
             new TagToRemove( "<script", "</script>" ),
             new TagToRemove( "<style", "</style>" ),
             new TagToRemove( "<link", "/>" ),
             new TagToRemove( "<path", "</path>" ),
             new TagToRemove( "<meta", "/>" ),
             new TagToRemove( "<iframe", "</iframe>" ),
-            new TagToRemove( "<svg", "</svg>" )
-        }); 
-        /* Пример заполнения.
-         * = new List<TagToRemove>()
-        {
-            new TagToRemove("<script", "</script>"),
-            new TagToRemove("<iframe", "</iframe>")
-        };*/
+            new TagToRemove( "<svg", "</svg>" ),
+            */
+            new TagToRemove( "<input", "/>" ),
+            //new TagToRemove( "<label", "</label>" )
+        });
 
         public List<TagToRemove> Tags
         {
             get
             {
                 return _tags;
+            }
+            //  Writeable for unit-testing.
+            set
+            {
+                _tags = value;
             }
         }
 
@@ -620,12 +626,13 @@ namespace HTMLCleanup
             //  Создает последовательность обработки (имеет значение).
             var processChain =
                 new TagWithTextRemover(
-                    new SpecialHTMLRemover(
-                        new ParagraphExtractor(
-                            new URLFormatter(
-                                new InnerTagRemover(
-                                    new TextFormatter(null)
-                                )))));
+                    //new SpecialHTMLRemover(
+                            //new ParagraphExtractor(
+                            //new URLFormatter(
+                                //new InnerTagRemover(
+                                  null //  new TextFormatter(null)
+                                //))))
+                                );
 
             if (args.Count() != 0)
             {

@@ -1,0 +1,1147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://rationalcity.wordpress.com/xmlrpc.php">
+<title>How does the comma operator work in C++? &#8211; RationalCity</title>
+<meta name="google-site-verification" content="ck8FPXyczFpb-O10udXNIa8g6iRsujIPKDEXdNBQIug" />
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="RationalCity &raquo; Feed" href="https://rationalcity.wordpress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="RationalCity &raquo; Comments Feed" href="https://rationalcity.wordpress.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="RationalCity &raquo; How does the comma operator work in&nbsp;C++? Comments Feed" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s2.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1556893897h&ver=5.2-RC1-45278"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='all-css-0-1' href='https://s1.wp.com/_static/??-eJyFUtFuwyAM/KFRNmmp+jLtW4C4i1sMCEOz/P0c0kVb22UvyGfufIeFHpNyMRQIRVNVydcPDKzH5CIpJvQw3aCdY37Sj2VcLbuMqWAUdIzex3GLP8QLZGWrtR5EXSYPKx2D87WXtjR0b3hAGcA7wnBPObEucn+28XMttnwzeFOgVylyuUFbMo/n2QxKMu6sGvojLnLR1sfGstnk6fq4n+kfGJheCMqafF35ihcR6hBLW8NabE1zMYP0KZkyMwh6NOCBhLYlo7T/Vs3lIG/dtFmiWpsyMCs5CSupMojRP/FojrLssa3tV+dOukzUqVqdvAnQJEe5VGYEjtS+zju9vXTdvutenw+H0xdKSBQj?cssminify=yes' type='text/css' media='all' />
+<style id='wpcom-admin-bar-inline-css' type='text/css'>
+
+			.admin-bar {
+				position: inherit !important;
+				top: auto !important;
+			}
+			.admin-bar .goog-te-banner-frame {
+				top: 32px !important
+			}
+			@media screen and (max-width: 782px) {
+				.admin-bar .goog-te-banner-frame {
+					top: 46px !important;
+				}
+			}
+			@media screen and (max-width: 480px) {
+				.admin-bar .goog-te-banner-frame {
+					position: absolute;
+				}
+			}
+		
+</style>
+<link rel='stylesheet' id='plane-fonts-css'  href='https://fonts.googleapis.com/css?family=Raleway%3A400%2C500%2C700%2C900%7CNoto+Serif%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext&#038;ver=5.2-RC1-45278' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s0.wp.com/_static/??-eJx9kEsOwjAMRC+EMeUnNoizpKkJASeOEpeK25OKBZ+i7jzymxnZOCSwEpWiol4oUMHUt5jYRMKiD6alLWWBc5iP9oXCkKyEiSH0kLh3PhYcfOdIC1Jft3LzBGwGVAo1SWvo/8aPAEcCLNaol/gl4MzG5zlrlLHBdMFHaE2G+3qOztSyuDo6rNSHnDOpFMiUJCucJYdfPbGOme/fSO5MV09kaQ2P7Ckcm91msz+sVtvm+gStvp9/?cssminify=yes' type='text/css' media='all' />
+<style id='plane-style-inline-css' type='text/css'>
+.site-header { background-image: url(https://defaultcustomheadersdata.files.wordpress.com/2016/07/design2.jpg?resize=1600,220); }
+</style>
+<link rel='stylesheet' id='print-css-3-1' href='https://s2.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h&cssminify=yes' type='text/css' media='print' />
+<link rel='stylesheet' id='all-css-4-1' href='https://s0.wp.com/_static/??-eJx9TssOwjAM+yFKNkG5Ib4l60oblDZTk8Hvsx0AIcROfsi2DI/JBakWq0GZ3cRzoqqAY6HqBmxQUC22hTm5x9ZojPrx9kF1B38mgpHUdeLNtuKTqLkrIzXQjI1qeuFWSyUQsmNJ8i1+SpZjWa7nIySWAXkNXMq59/7U+UPn+9sTKtljRg==?cssminify=yes' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJx9kOsKwjAMhV/Irsw59kt8lq3LRmpvNqlDn94KE3HUQSCEfJycHLkEgU6ZNAJJneuWID7WVmk6yD1AWJxjz1BZdB9YecfgWNokgkkzOpKUBlIRA6PP0+SN8csWz9LBE1sg6mcobK0f0IBIBDEDjrOrye8cjWCys1G8VTdTQf33b3R3hJLFTTzAoVdXEYHwCaW0KHyD+R/zSl3suW7bU1c3zbHTLxv3mdg='></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s0.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1530132353h&cssminify=yes' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://rationalcity.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='What is SFINAE in&nbsp;C++?' href='https://rationalcity.wordpress.com/2019/04/29/what-is-sfinae-in-c/' />
+<link rel='next' title='How to create self-extracting script for&nbsp;Android?' href='https://rationalcity.wordpress.com/2019/05/01/how-to-create-self-extracting-script-for-android/' />
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/" />
+<link rel='shortlink' href='https://wp.me/pa0QYl-2Us' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How does the comma operator work in C++?" />
+<meta property="og:url" content="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/" />
+<meta property="og:description" content="The comma operator: has the lowest precedence is left-associative A default version of comma operator is defined for all types (built-in and custom), and it works as follows &#8211; given exprA , e…" />
+<meta property="article:published_time" content="2019-04-30T13:46:40+00:00" />
+<meta property="article:modified_time" content="2019-04-30T13:46:55+00:00" />
+<meta property="og:site_name" content="RationalCity" />
+<meta property="og:image" content="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=200" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+<meta name="twitter:text:title" content="How does the comma operator work in&nbsp;C++?" />
+<meta name="twitter:image" content="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=240" />
+<meta name="twitter:card" content="summary" />
+<meta property="fb:app_id" content="249643311490" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="search" type="application/opensearchdescription+xml" href="https://rationalcity.wordpress.com/osd.xml" title="RationalCity" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="application-name" content="RationalCity" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="A diary of software development" /><meta name="msapplication-task" content="name=Edit post;action-uri=https://wordpress.com/post/rationalcity.wordpress.com/11188;icon-uri=https://s2.wp.com/i/icons/post.ico" /><meta name="msapplication-task" content="name=Write a post;action-uri=https://wordpress.com/post/rationalcity.wordpress.com;icon-uri=https://s2.wp.com/i/icons/post.ico" /><meta name="msapplication-task" content="name=Moderate comments;action-uri=https://rationalcity.wordpress.com/wp-admin/edit-comments.php?comment_status=moderated;icon-uri=https://s2.wp.com/i/icons/comment.ico" /><meta name="msapplication-task" content="name=Upload new media;action-uri=https://rationalcity.wordpress.com/wp-admin/media-new.php;icon-uri=https://s2.wp.com/i/icons/media.ico" /><meta name="msapplication-task" content="name=Blog stats;action-uri=https://rationalcity.wordpress.com/wp-admin/index.php?page=stats;icon-uri=https://s1.wp.com/i/icons/stats.ico" /><meta name="description" content="The comma operator: has the lowest precedence is left-associative A default version of comma operator is defined for all types (built-in and custom), and it works as follows - given exprA , exprB: exprA is evaluated the result of exprA is ignored exprB is evaluated the result of exprB is returned as the result of the whole expression With most operators, the&hellip;" />
+<link rel="amphtml" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/amp/"><style type="text/css" media="print">#wpadminbar { display:none; }</style>
+	<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+	<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style type="text/css" id="custom-colors-css">.site-main .post-navigation a:hover{background-color:transparent !important}@media only screen and (min-width:767px){.nav-menu ul ul a{color:#333}}@media only screen and (max-width:767px){.nav-menu ul ul li:hover>a,.nav-menu ul ul li.current_page_item>a,.nav-menu ul ul li.current-menu-item>a,.nav-menu ul ul li.current-menu-ancestor>a,.nav-menu ul ul li.current_page_ancestor>a,.nav-menu ul ul li.current-post-parent>a{opacity:1}}.site-footer,.footer-widget-area .widget-title,.site-footer a:hover{color:#fff}.nav-menu>ul>li>a{color:#fff}.site-title a,.site-title a:hover{color:#3a3a3a}.site-main .post-navigation a:hover,.site-main .post-navigation a:focus{background:#f7f7f7}blockquote p{color:#828a8c}blockquote cite{color:#384750}.site-description{color:#323c42}.site-top,.site-footer,.search-expand{background-color:#59453e}h1,h2,h3,h4,h5,h6,.entry-title a{color:#59453e}.entry-meta a:hover,.entry-meta a:focus,.page-links a{color:#59453e}.site-main .comment-navigation a,.site-main .paging-navigation a,.site-main .post-navigation a,.site-main .post-navigation .meta-nav{color:#59453e}.widget-title a{color:#59453e}a,.site-main .post-navigation a,.entry-meta,.comment-meta{color:#3f7871}.widget_flickr #flickr_badge_uber_wrapper td a:last-child{color:#3b716b}button,input[type=button],input[type=reset],input[type=submit],#infinite-handle span{background-color:#bf3f5b}.more-link a:hover,.more-link a:focus,.page-links a:hover,.page-links a:focus{background-color:#bf3f5b}.site-main .comment-navigation a:hover,.site-main .comment-navigation a:focus,.site-main .paging-navigation a:hover,.site-main .paging-navigation a:focus,.site-main .post-navigation a:hover,.site-main .post-navigation a:focus{background-color:#bf3f5b}a:hover,a:active,.menu ul ul li>a:hover,.nav-menu ul ul li:hover>a,.nav-menu ul ul li.focus a,.nav-menu ul ul li.current_page_item>a,.nav-menu ul ul li.current-menu-item>a,.nav-menu ul ul li.current-menu-ancestor>a,.nav-menu ul ul li.current_page_ancestor>a,.nav-menu ul ul li.current-post-parent>a,.entry-title a:hover,.entry-title a:focus{color:#bf3f5b}.site-main .post-navigation a:hover,.site-main .post-navigation a:focus{color:#b73d57}.widget_flickr #flickr_badge_uber_wrapper td a:last-child:hover{color:#b73d57}.site-header{background-color:#bfac9d}.site-footer a{color:#cec0b4}.footer-widget-area .widget_flickr #flickr_badge_uber_wrapper td a:last-child{color:#cec0b4}</style>
+<link rel="icon" href="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=32" sizes="32x32" />
+<link rel="icon" href="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=192" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=180" />
+<meta name="msapplication-TileImage" content="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=270" />
+</head>
+
+<body class="post-template-default single single-post postid-11188 single-format-standard logged-in admin-bar no-customize-support mp6 customizer-styles-applied highlander-enabled highlander-light">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div class="site-top">
+		<div class="content-wrapper">
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<button class="menu-toggle" aria-controls="menu" aria-expanded="false"><span class="screen-reader-text">Primary Menu</span></button>
+				<div class="nav-menu"><ul id="menu-%d1%81%d0%be%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d1%8b%d0%b5-%d1%81%d0%b5%d1%82%d0%b8" class="menu"><li id="menu-item-16" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-16"><a href="http://facebook.com/">Facebook</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17"><a href="http://twitter.com/wordpressdotcom">Twitter</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-18"><a href="http://dribbble.com/automattic">Dribbble</a></li>
+</ul></div>			</nav><!-- #site-navigation -->
+
+			<div class="site-search">
+				<button class="search-toggle"><span class="screen-reader-text">Search</span></button>
+				<div class="search-expand">
+					<div class="search-expand-inner">
+						<form role="search" method="get" class="search-form" action="https://rationalcity.wordpress.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					
+				</label>
+				
+			</form>					</div>
+				</div>
+			</div><!-- .site-search -->
+    	</div>
+	</div><!-- .site-top -->
+
+	<header class="site-header" role="banner">
+			<div class="site-branding">
+								<h1 class="site-title"><a href="https://rationalcity.wordpress.com/" rel="home">RationalCity</a></h1>
+				<h2 class="site-description">A diary of software development</h2>
+			</div><!-- .site-branding -->
+	</header><!-- .site-header -->
+
+	<div id="content" class="site-content">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+<article id="post-11188" class="post-11188 post type-post status-publish format-standard hentry category-c tag-c">
+	<header class="entry-header">
+
+		<h2 class="entry-title"><a href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/" rel="bookmark">How does the comma operator work in&nbsp;C++?</a></h2>
+					<div class="entry-meta">
+				<span class="posted-on"><a href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/" rel="bookmark"><time class="entry-date published" datetime="2019-04-30T13:46:40+00:00">April 30, 2019</time><time class="updated" datetime="2019-04-30T13:46:55+00:00">April 30, 2019</time></a></span><span class="byline"><span class="author vcard"><a class="url fn n" href="https://rationalcity.wordpress.com/author/dvmorozov/">Dmitry Morozov</a></span></span>			</div><!-- .entry-meta -->
+		
+	</header><!-- .entry-header -->
+
+	
+		<div class="entry-content">
+			<p style="text-align:justify;">The comma operator:</p>
+<ul style="text-align:justify;">
+<li>has the lowest precedence</li>
+<li>is left-associative</li>
+</ul>
+<p style="text-align:justify;">A default version of comma operator is defined for all types (built-in and custom), and it works as follows &#8211; given <code>exprA , exprB</code>:</p>
+<ul style="text-align:justify;">
+<li><code>exprA</code> is evaluated</li>
+<li>the result of <code>exprA</code> is ignored</li>
+<li><code>exprB</code> is evaluated</li>
+<li>the result of <code>exprB</code> is returned as the result of the whole expression</li>
+</ul>
+<p style="text-align:justify;">With most operators, the compiler is allowed to choose the order of execution and it is even required to skip the execution whatsoever if it does not affect the final result (e.g. <code>false &amp;&amp; foo()</code> will skip the call to <code>foo</code>). This is however not the case for comma operator and the above steps will always happen<sup>*</sup>.</p>
+<p style="text-align:justify;">In practice, the default comma operator works almost the same way as a semicolon. The difference is that two expressions separated by a semicolon form two separate statements, while comma-separation keeps all as a single expression. This is why comma operator is sometimes used in the following scenarios:</p>
+<ul style="text-align:justify;">
+<li>C syntax requires an single <em>expression</em>, not a statement. e.g. in <code>if( HERE )</code></li>
+<li>C syntax requires a single statement, not more, e.g. in the initialization of the <code>for</code> loop <code>for ( HERE ; ; )</code></li>
+<li>When you want to skip curly braces and keep a single statement: <code>if (foo) HERE ;</code> (please don&#8217;t do that, it&#8217;s really ugly!)</li>
+</ul>
+<p style="text-align:justify;">When a statement is not an expression, semicolon cannot be replaced by a comma. For example these are disallowed:</p>
+<ul>
+<li style="text-align:justify;"><code>(foo, if (foo) bar)</code> (<code>if</code> is not an expression)</li>
+<li style="text-align:justify;">int x, int y (variable declaration is not an expression)</li>
+</ul>
+<h3>Example</h3>
+<pre>#include &lt;iostream&gt;
+
+int main()
+{
+  int a, b, c;
+  a = 1; b = 2; c = 3;
+
+  a = b, c; // value of b is assigned
+  std::cout &lt;&lt; a &lt;&lt; std::endl;
+
+  a = (b, c); // value of c is assigned
+  std::cout &lt;&lt; a &lt;&lt; std::endl;
+  return 0;
+}</pre>
+<p><a href="https://stackoverflow.com/questions/54142/how-does-the-comma-operator-work" target="_blank" rel="noopener">Read more</a></p>
+		<div id="wordads-preview-parent" class="wpcnt">
+			<div class="wpa">
+				<span class="wpa-about">Advertisements</span>
+				<div class="u">
+					<div class="wpa-notice">
+						<p>Occasionally, some of your visitors may see an advertisement here, <br />as well as a <a href="https://en.support.wordpress.com/cookie-widget/" target="_blank">Privacy & Cookies banner</a> at the bottom of the page.<br/>You can hide ads completely by upgrading to one of our paid plans.</p>
+						<p class="wpa-buttons">
+							<a class="wpa-button is-primary" id="wordads-preview-more" href="https://wordpress.com/plans/147966989/?feature=no-adverts&utm_campaign=removeadsnotive" rel="nofollow" target="_blank">Upgrade now</a>
+							<a class="wpa-button" id="wordads-preview-dismiss" href="#">Dismiss message</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-press-this"><a rel="nofollow noopener noreferrer" data-shared="" class="share-press-this sd-button share-icon" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/?share=press-this" target="_blank" title="Click to Press This!"><span>Press This</span></a></li><li class="share-twitter"><a rel="nofollow noopener noreferrer" data-shared="sharing-twitter-11188" class="share-twitter sd-button share-icon" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow noopener noreferrer" data-shared="sharing-facebook-11188" class="share-facebook sd-button share-icon" href="https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/?share=facebook" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-147966989-11188-5ccd44a73e625' data-src='//widgets.wp.com/likes/index.html?ver=20190321#blog_id=147966989&amp;post_id=11188&amp;origin=rationalcity.wordpress.com&amp;obj_id=147966989-11188-5ccd44a73e625' data-name='like-post-frame-147966989-11188-5ccd44a73e625'><h3 class='sd-title'>Like this:</h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Like</span></span> <span class="loading">Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div></div>					</div><!-- .entry-content -->
+
+	
+	<footer class="entry-meta entry-footer">
+		<span class="cat-links"><a href="https://rationalcity.wordpress.com/tag/c/" rel="category tag">C++</a></span><span class="tags-links"><a href="https://rationalcity.wordpress.com/tag/c/" rel="tag">C++</a></span><span class="edit-link"><a class="post-edit-link" href="https://wordpress.com/post/rationalcity.wordpress.com/11188">Edit</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-11188 -->
+				<nav id="nav-below" class="post-navigation clear" role="navigation">
+	
+		<div class="nav-previous"><a href="https://rationalcity.wordpress.com/2019/04/29/what-is-sfinae-in-c/" rel="prev"><span class="meta-nav">Previous Article</span> What is SFINAE in&nbsp;C++?</a></div>		<div class="nav-next"><a href="https://rationalcity.wordpress.com/2019/05/01/how-to-create-self-extracting-script-for-android/" rel="next"><span class="meta-nav">Next Article</span> How to create self-extracting script for&nbsp;Android?</a></div>
+	
+	</nav><!-- #nav-below -->
+	
+			
+<div id="comments" class="comments-area">
+
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2019/04/30/how-does-the-comma-operator-work-in-c/#respond" style="display:none;">Cancel reply</a></small></h3>			<form action="https://rationalcity.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+				
+
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Enter your comment here...</label>
+	<div id="comment-form-comment"><textarea id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div id="comment-form-identity">
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" class="nascar-signin-link"
+                   title="Login via Guest">
+									</a>
+			</li>
+			<li class="selected">
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" class="nascar-signin-link"
+                   title="Login via WordPress.com">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></g></svg>				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="https://public-api.wordpress.com/connect/?googleplus-sign-in=https%3A%2F%2Frationalcity.wordpress.com&#038;color_scheme=light" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" class="nascar-signin-link"
+                   title="Login via Twitter">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"/></g></svg>				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" class="nascar-signin-link"
+                   title="Login via Facebook">
+					<svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"/></g></svg>				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Gravatar" width="25" class="no-grav" />
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://2.gravatar.com/avatar/50ca2640da2b1f7e8f430ff13e21880d?s=25&amp;d=https%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D25%26amp%3Bd%3Didenticon%26amp%3Bforcedefault%3Dy%26amp%3Br%3DG&amp;r=G" alt="Gravatar" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				
+				
+				
+						<p class="comment-form-posting-as pa-wordpress">
+			<strong>Dmitry Morozov:</strong>
+			You are commenting using your WordPress.com account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#0087be" d="M12.158 12.786l-2.698 7.84c.806.236 1.657.365 2.54.365 1.047 0 2.05-.18 2.986-.51-.024-.037-.046-.078-.065-.123l-2.762-7.57zM3.008 12c0 3.56 2.07 6.634 5.068 8.092L3.788 8.342c-.5 1.117-.78 2.354-.78 3.658zm15.06-.454c0-1.112-.398-1.88-.74-2.48-.456-.74-.883-1.368-.883-2.11 0-.825.627-1.595 1.51-1.595.04 0 .078.006.116.008-1.598-1.464-3.73-2.36-6.07-2.36-3.14 0-5.904 1.613-7.512 4.053.21.008.41.012.58.012.94 0 2.395-.114 2.395-.114.484-.028.54.684.057.74 0 0-.487.058-1.03.086l3.275 9.74 1.968-5.902-1.4-3.838c-.485-.028-.944-.085-.944-.085-.486-.03-.43-.77.056-.742 0 0 1.484.114 2.368.114.94 0 2.397-.114 2.397-.114.486-.028.543.684.058.74 0 0-.488.058-1.03.086l3.25 9.665.897-2.997c.456-1.17.684-2.137.684-2.907zm1.82-3.86c.04.286.06.593.06.924 0 .912-.17 1.938-.683 3.22l-2.746 7.94c2.672-1.558 4.47-4.454 4.47-7.77 0-1.564-.4-3.033-1.1-4.314zM12 22C6.486 22 2 17.514 2 12S6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Google photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				
+				
+				
+						<p class="comment-form-posting-as pa-googleplus">
+			<strong></strong>
+			You are commenting using your Google account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" x="0px" y="0px" viewBox="0 0 60 60" ><path fill="#519bf7" d="M56.3,30c0,-1.6 -0.2,-3.4 -0.6,-5h-3.1H42.2H30v10.6h14.8C44,39.3 42,42 39.1,43.9l8.8,6.8C53,46 56.3,39 56.3,30z" /><path fill="#3db366" d="M30,57.5c6.7,0 13.1,-2.4 17.9,-6.8l-8.8,-6.8c-2.5,1.6 -5.6,2.4 -9.1,2.4c-7.2,0 -13.3,-4.7 -15.4,-11.2l-9.3,7.1C9.8,51.3 19.1,57.5 30,57.5z" /><path fill="#fdc600" d="M5.3,42.2l9.3,-7.1c-0.5,-1.6 -0.8,-3.3 -0.8,-5.1s0.3,-3.5 0.8,-5.1l-9.3,-7.1C3.5,21.5 2.5,25.6 2.5,30S3.5,38.5 5.3,42.2z" /><path fill="#f15b44" d="M40.1,17.4l8,-8C43.3,5.1 37,2.5 30,2.5C19.1,2.5 9.8,8.7 5.3,17.8l9.3,7.1c2.1,-6.5 8.2,-11.1 15.4,-11.1C33.9,13.7 37.4,15.1 40.1,17.4z" /></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Twitter picture" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				
+				
+				
+						<p class="comment-form-posting-as pa-twitter">
+			<strong></strong>
+			You are commenting using your Twitter account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#1DA1F2" d="M22.23 5.924c-.736.326-1.527.547-2.357.646.847-.508 1.498-1.312 1.804-2.27-.793.47-1.67.812-2.606.996C18.325 4.498 17.258 4 16.078 4c-2.266 0-4.103 1.837-4.103 4.103 0 .322.036.635.106.935-3.41-.17-6.433-1.804-8.457-4.287-.353.607-.556 1.312-.556 2.064 0 1.424.724 2.68 1.825 3.415-.673-.022-1.305-.207-1.86-.514v.052c0 1.988 1.415 3.647 3.293 4.023-.344.095-.707.145-1.08.145-.265 0-.522-.026-.773-.074.522 1.63 2.038 2.817 3.833 2.85-1.404 1.1-3.174 1.757-5.096 1.757-.332 0-.66-.02-.98-.057 1.816 1.164 3.973 1.843 6.29 1.843 7.547 0 11.675-6.252 11.675-11.675 0-.178-.004-.355-.012-.53.802-.578 1.497-1.3 2.047-2.124z"/></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Facebook photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				
+				
+				
+						<p class="comment-form-posting-as pa-facebook">
+			<strong></strong>
+			You are commenting using your Facebook account.			<span class="comment-form-log-out">
+				(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;
+				<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)
+			</span>
+			<span class="pa-icon"><svg xmlns="http://www.w3.org/2000/svg" role="presentation" viewBox="0 0 24 24" ><rect x="0" fill="none" width="24" height="24"/><g><path fill="#3B5998" d="M20.007 3H3.993C3.445 3 3 3.445 3 3.993v16.013c0 .55.445.994.993.994h8.62v-6.97H10.27V11.31h2.346V9.31c0-2.325 1.42-3.59 3.494-3.59.993 0 1.847.073 2.096.106v2.43h-1.438c-1.128 0-1.346.537-1.346 1.324v1.734h2.69l-.35 2.717h-2.34V21h4.587c.548 0 .993-.445.993-.993V3.993c0-.548-.445-.993-.993-.993z"/></g></svg></span>
+		</p>
+					</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe">
+	<p class="comment-subscription-form"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+<p class="form-submit"> 
+
+</p><p style="display: none;"></p>
+
+<p style="display: none;"></p>			</form>
+			</div><!-- #respond -->
+	<div style="clear: both"></div>
+
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	<div id="secondary" class="widget-area" role="complementary">
+		<aside id="search-1" class="widget widget_search"><h3 class="widget-title">Поиск</h3><form role="search" method="get" class="search-form" action="https://rationalcity.wordpress.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					
+				</label>
+				
+			</form></aside><aside id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h3 class="widget-title">Tags</h3><div style="overflow:hidden"><a href="https://rationalcity.wordpress.com/tag/net/" class="tag-cloud-link tag-link-2427 tag-link-position-1" style="font-size: 8pt;" aria-label=".NET (1 item)">.NET</a>
+<a href="https://rationalcity.wordpress.com/tag/android/" class="tag-cloud-link tag-link-641922 tag-link-position-2" style="font-size: 19.8pt;" aria-label="Android (29 items)">Android</a>
+<a href="https://rationalcity.wordpress.com/tag/asp-net/" class="tag-cloud-link tag-link-94234 tag-link-position-3" style="font-size: 14pt;" aria-label="ASP.NET (7 items)">ASP.NET</a>
+<a href="https://rationalcity.wordpress.com/tag/azure/" class="tag-cloud-link tag-link-335778 tag-link-position-4" style="font-size: 9.8pt;" aria-label="Azure (2 items)">Azure</a>
+<a href="https://rationalcity.wordpress.com/tag/blueoak/" class="tag-cloud-link tag-link-241422905 tag-link-position-5" style="font-size: 11pt;" aria-label="BlueOak (3 items)">BlueOak</a>
+<a href="https://rationalcity.wordpress.com/tag/c/" class="tag-cloud-link tag-link-2426 tag-link-position-6" style="font-size: 19.8pt;" aria-label="C++ (29 items)">C++</a>
+<a href="https://rationalcity.wordpress.com/tag/cron/" class="tag-cloud-link tag-link-109168 tag-link-position-7" style="font-size: 8pt;" aria-label="Cron (1 item)">Cron</a>
+<a href="https://rationalcity.wordpress.com/tag/delphi/" class="tag-cloud-link tag-link-13227 tag-link-position-8" style="font-size: 8pt;" aria-label="Delphi (1 item)">Delphi</a>
+<a href="https://rationalcity.wordpress.com/tag/design-pattern/" class="tag-cloud-link tag-link-36769 tag-link-position-9" style="font-size: 12pt;" aria-label="Design pattern (4 items)">Design pattern</a>
+<a href="https://rationalcity.wordpress.com/tag/docker/" class="tag-cloud-link tag-link-4504191 tag-link-position-10" style="font-size: 14.5pt;" aria-label="Docker (8 items)">Docker</a>
+<a href="https://rationalcity.wordpress.com/tag/doxygen/" class="tag-cloud-link tag-link-555477 tag-link-position-11" style="font-size: 9.8pt;" aria-label="Doxygen (2 items)">Doxygen</a>
+<a href="https://rationalcity.wordpress.com/tag/ecos/" class="tag-cloud-link tag-link-392174 tag-link-position-12" style="font-size: 9.8pt;" aria-label="eCos (2 items)">eCos</a>
+<a href="https://rationalcity.wordpress.com/tag/expense-tracking/" class="tag-cloud-link tag-link-1745313 tag-link-position-13" style="font-size: 12pt;" aria-label="Expense tracking (4 items)">Expense tracking</a>
+<a href="https://rationalcity.wordpress.com/tag/ftp/" class="tag-cloud-link tag-link-10522 tag-link-position-14" style="font-size: 8pt;" aria-label="FTP (1 item)">FTP</a>
+<a href="https://rationalcity.wordpress.com/tag/ftps/" class="tag-cloud-link tag-link-818151 tag-link-position-15" style="font-size: 9.8pt;" aria-label="FTPS (2 items)">FTPS</a>
+<a href="https://rationalcity.wordpress.com/tag/git/" class="tag-cloud-link tag-link-209196 tag-link-position-16" style="font-size: 14.5pt;" aria-label="GIT (8 items)">GIT</a>
+<a href="https://rationalcity.wordpress.com/tag/glacier/" class="tag-cloud-link tag-link-159406 tag-link-position-17" style="font-size: 8pt;" aria-label="Glacier (1 item)">Glacier</a>
+<a href="https://rationalcity.wordpress.com/tag/google/" class="tag-cloud-link tag-link-81 tag-link-position-18" style="font-size: 8pt;" aria-label="Google (1 item)">Google</a>
+<a href="https://rationalcity.wordpress.com/tag/html/" class="tag-cloud-link tag-link-647 tag-link-position-19" style="font-size: 12pt;" aria-label="HTML (4 items)">HTML</a>
+<a href="https://rationalcity.wordpress.com/tag/iis/" class="tag-cloud-link tag-link-14013 tag-link-position-20" style="font-size: 8pt;" aria-label="IIS (1 item)">IIS</a>
+<a href="https://rationalcity.wordpress.com/tag/income-tracking/" class="tag-cloud-link tag-link-85304907 tag-link-position-21" style="font-size: 8pt;" aria-label="Income tracking (1 item)">Income tracking</a>
+<a href="https://rationalcity.wordpress.com/tag/interview-question/" class="tag-cloud-link tag-link-364226 tag-link-position-22" style="font-size: 14.5pt;" aria-label="Interview question (8 items)">Interview question</a>
+<a href="https://rationalcity.wordpress.com/tag/ipv6/" class="tag-cloud-link tag-link-10414 tag-link-position-23" style="font-size: 8pt;" aria-label="IPv6 (1 item)">IPv6</a>
+<a href="https://rationalcity.wordpress.com/tag/java/" class="tag-cloud-link tag-link-1017 tag-link-position-24" style="font-size: 9.8pt;" aria-label="Java (2 items)">Java</a>
+<a href="https://rationalcity.wordpress.com/tag/javascript/" class="tag-cloud-link tag-link-457 tag-link-position-25" style="font-size: 8pt;" aria-label="JavaScript (1 item)">JavaScript</a>
+<a href="https://rationalcity.wordpress.com/tag/lazarus/" class="tag-cloud-link tag-link-559668 tag-link-position-26" style="font-size: 9.8pt;" aria-label="Lazarus (2 items)">Lazarus</a>
+<a href="https://rationalcity.wordpress.com/tag/linkedin-search/" class="tag-cloud-link tag-link-19005764 tag-link-position-27" style="font-size: 9.8pt;" aria-label="LinkedIn search (2 items)">LinkedIn search</a>
+<a href="https://rationalcity.wordpress.com/tag/linq/" class="tag-cloud-link tag-link-114227 tag-link-position-28" style="font-size: 11pt;" aria-label="LINQ (3 items)">LINQ</a>
+<a href="https://rationalcity.wordpress.com/tag/linux/" class="tag-cloud-link tag-link-610 tag-link-position-29" style="font-size: 22pt;" aria-label="Linux (49 items)">Linux</a>
+<a href="https://rationalcity.wordpress.com/tag/mssql/" class="tag-cloud-link tag-link-43808 tag-link-position-30" style="font-size: 15.4pt;" aria-label="MSSQL (10 items)">MSSQL</a>
+<a href="https://rationalcity.wordpress.com/tag/notepad/" class="tag-cloud-link tag-link-41697 tag-link-position-31" style="font-size: 8pt;" aria-label="Notepad++ (1 item)">Notepad++</a>
+<a href="https://rationalcity.wordpress.com/tag/ole/" class="tag-cloud-link tag-link-73073 tag-link-position-32" style="font-size: 11pt;" aria-label="OLE (3 items)">OLE</a>
+<a href="https://rationalcity.wordpress.com/tag/pascal/" class="tag-cloud-link tag-link-17801 tag-link-position-33" style="font-size: 14pt;" aria-label="Pascal (7 items)">Pascal</a>
+<a href="https://rationalcity.wordpress.com/tag/ppp/" class="tag-cloud-link tag-link-122721 tag-link-position-34" style="font-size: 9.8pt;" aria-label="PPP (2 items)">PPP</a>
+<a href="https://rationalcity.wordpress.com/tag/proxy/" class="tag-cloud-link tag-link-9628 tag-link-position-35" style="font-size: 12.8pt;" aria-label="Proxy (5 items)">Proxy</a>
+<a href="https://rationalcity.wordpress.com/tag/putty/" class="tag-cloud-link tag-link-848756 tag-link-position-36" style="font-size: 9.8pt;" aria-label="PuTTY (2 items)">PuTTY</a>
+<a href="https://rationalcity.wordpress.com/tag/python/" class="tag-cloud-link tag-link-832 tag-link-position-37" style="font-size: 8pt;" aria-label="Python (1 item)">Python</a>
+<a href="https://rationalcity.wordpress.com/tag/rdp/" class="tag-cloud-link tag-link-87556 tag-link-position-38" style="font-size: 8pt;" aria-label="RDP (1 item)">RDP</a>
+<a href="https://rationalcity.wordpress.com/tag/registry/" class="tag-cloud-link tag-link-51535 tag-link-position-39" style="font-size: 8pt;" aria-label="Registry (1 item)">Registry</a>
+<a href="https://rationalcity.wordpress.com/tag/remote-debug/" class="tag-cloud-link tag-link-2874809 tag-link-position-40" style="font-size: 13.5pt;" aria-label="Remote debug (6 items)">Remote debug</a>
+<a href="https://rationalcity.wordpress.com/tag/ril/" class="tag-cloud-link tag-link-273714 tag-link-position-41" style="font-size: 15pt;" aria-label="RIL (9 items)">RIL</a>
+<a href="https://rationalcity.wordpress.com/tag/s3/" class="tag-cloud-link tag-link-133339 tag-link-position-42" style="font-size: 11pt;" aria-label="S3 (3 items)">S3</a>
+<a href="https://rationalcity.wordpress.com/tag/shell/" class="tag-cloud-link tag-link-43912 tag-link-position-43" style="font-size: 20.3pt;" aria-label="Shell (33 items)">Shell</a>
+<a href="https://rationalcity.wordpress.com/tag/sql/" class="tag-cloud-link tag-link-10346 tag-link-position-44" style="font-size: 9.8pt;" aria-label="SQL (2 items)">SQL</a>
+<a href="https://rationalcity.wordpress.com/tag/ssms/" class="tag-cloud-link tag-link-4256619 tag-link-position-45" style="font-size: 8pt;" aria-label="SSMS (1 item)">SSMS</a>
+<a href="https://rationalcity.wordpress.com/tag/svg/" class="tag-cloud-link tag-link-112936 tag-link-position-46" style="font-size: 9.8pt;" aria-label="SVG (2 items)">SVG</a>
+<a href="https://rationalcity.wordpress.com/tag/swagger/" class="tag-cloud-link tag-link-655802 tag-link-position-47" style="font-size: 13.5pt;" aria-label="Swagger (6 items)">Swagger</a>
+<a href="https://rationalcity.wordpress.com/tag/tortoisegit/" class="tag-cloud-link tag-link-29990909 tag-link-position-48" style="font-size: 9.8pt;" aria-label="TortoiseGit (2 items)">TortoiseGit</a>
+<a href="https://rationalcity.wordpress.com/tag/tortoisesvn/" class="tag-cloud-link tag-link-796156 tag-link-position-49" style="font-size: 8pt;" aria-label="TortoiseSvn (1 item)">TortoiseSvn</a>
+<a href="https://rationalcity.wordpress.com/tag/unit-testing/" class="tag-cloud-link tag-link-3882 tag-link-position-50" style="font-size: 11pt;" aria-label="Unit testing (3 items)">Unit testing</a>
+<a href="https://rationalcity.wordpress.com/tag/virtualbox/" class="tag-cloud-link tag-link-989685 tag-link-position-51" style="font-size: 13.5pt;" aria-label="VirtualBox (6 items)">VirtualBox</a>
+<a href="https://rationalcity.wordpress.com/tag/visual-studio/" class="tag-cloud-link tag-link-6678 tag-link-position-52" style="font-size: 12.8pt;" aria-label="Visual Studio (5 items)">Visual Studio</a>
+<a href="https://rationalcity.wordpress.com/tag/windows/" class="tag-cloud-link tag-link-800 tag-link-position-53" style="font-size: 12pt;" aria-label="Windows (4 items)">Windows</a>
+<a href="https://rationalcity.wordpress.com/tag/wine/" class="tag-cloud-link tag-link-814 tag-link-position-54" style="font-size: 8pt;" aria-label="Wine (1 item)">Wine</a>
+<a href="https://rationalcity.wordpress.com/tag/xml/" class="tag-cloud-link tag-link-6852 tag-link-position-55" style="font-size: 9.8pt;" aria-label="XML (2 items)">XML</a></div></aside><aside id="nav_menu-3" class="widget widget_nav_menu"><div class="menu-side-menu-container"><ul id="menu-side-menu" class="menu"><li id="menu-item-10382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-10382"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/">Looking for expense tracking app?</a>
+<ul class="sub-menu">
+	<li id="menu-item-5399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-5399"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/start-using-the-application/">Login</a>
+	<ul class="sub-menu">
+		<li id="menu-item-10267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10267"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/social/">Login with your favorite social network account</a></li>
+	</ul>
+</li>
+	<li id="menu-item-10264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10264"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/client-side-data-encrypting/">Encryption</a></li>
+	<li id="menu-item-10265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10265"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/budget/">Budgeting</a></li>
+	<li id="menu-item-10266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10266"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/expense-tracking/">Tracking</a></li>
+	<li id="menu-item-10268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10268"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/reporting/">Expense reporting</a></li>
+</ul>
+</li>
+<li id="menu-item-5400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5400"><a href="https://rationalcity.wordpress.com/about/">Contacts</a></li>
+<li id="menu-item-10271" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10271"><a href="https://rationalcity.wordpress.com/apps/expense-tracking-app/">Home</a></li>
+</ul></div></aside>	</div><!-- .widget-area -->
+
+		</div>
+
+	<footer class="site-footer" role="contentinfo">
+		<div class="content-wrapper">
+
+			
+
+			<div class="site-credit">
+				<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+				
+							</div><!-- .site-credit -->
+
+		</div>
+	</footer><!-- .site-footer -->
+
+<!--  -->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		jQuery(document).ready( function($) {
+			function doFollowingHover() {
+				$('#wp-admin-bar-follow > a').unbind( '.unfollow' );
+
+				$('#wp-admin-bar-follow > a').bind( 'mouseover.unfollow', function() {
+
+					$(this).html( "Unfollow" ).parent( 'li' ).addClass( 'unfollow' );
+				});
+				$('#wp-admin-bar-follow > a').bind( 'mouseout.unfollow', function() {
+					$(this).html( "Following" ).parent( 'li' ).removeClass( 'unfollow' );
+				});
+			}
+							doFollowingHover();
+			
+			$('#wp-admin-bar-follow > a').click( function( e ) {
+				$('#wp-admin-bar-follow > a').unbind( '.unfollow' );
+
+				e.preventDefault();
+
+				var link = $( this ), li = $( '#wp-admin-bar-follow' ), timeout = 0;
+
+				if ( li.hasClass( 'subscribed' ) ) {
+					li.removeClass( 'subscribed' ).removeClass( 'unfollow' );
+					link.html( "Follow" );
+
+					$('body').append( $( 'div.wpcom-bubble' ).removeClass( 'fadein' ) ).off( 'click.bubble' );
+
+					var action = 'ab_unsubscribe_from_blog';
+				} else {
+					li.addClass( 'subscribed' ).removeClass( 'unfollow' );
+					link.html( "Following" );
+
+						var left = 131 - link.width();
+						li.append( $( 'div.wpcom-bubble' ).css( { left: '-' + left + 'px' } ) );
+						$( 'div.bubble-txt', 'div.wpcom-bubble' ).html( "New posts from this blog will now appear in <a target=\"_blank\" href=\"http:\/\/wordpress.com\/\">your reader<\/a>. You can manage email alerts from your <a target=\"_blank\" href=\"http:\/\/wordpress.com\/following\/edit\/\">subscriptions page<\/a>." );
+
+						$( 'div.wpcom-bubble.action-bubble' ).addClass( 'fadein' );
+
+						setTimeout( function() {
+							$('body').on( 'click.bubble touchstart.bubble', function(e) {
+								if ( !$(e.target).hasClass('wpcom-bubble') && !$(e.target).parents( 'div.wpcom-bubble' ).length )
+									hideBubble();
+							});
+							setTimeout( hideBubble, 15000 );
+						}, 500 );
+
+					var action = 'ab_subscribe_to_blog';
+					$('#wp-admin-bar-follow > a').bind( 'mouseout.shift', function() {
+						doFollowingHover();
+						$(this).unbind( '.shift' );
+					});
+				}
+
+				var nonce = link.attr( 'href' ).split( '_wpnonce=' );
+				nonce = nonce[1];
+
+				$.post( "https:\/\/rationalcity.wordpress.com\/wp-admin\/admin-ajax.php", {
+					'action': action,
+					'_wpnonce': nonce,
+					'source': 'admin_bar',
+					'blog_id': 147966989				});
+			});
+		});
+	/* ]]> */
+	</script>
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201918y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":"50ca2640da2b1f7e8f430ff13e21880d"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+
+	<div id="ab-reblog-box">
+		<form action="" name="reblog">
+			<textarea id="reblog-content" name="reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="blogid" id="lblogid">Post to</label>
+
+			<select name="to_blog_id" id="reblog-to-blog-id">
+														<option value="147966989">RationalCity</option>
+							</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="" class="cancel">Cancel</a></span>
+				
+				
+				
+			</div>
+
+					</form>
+
+		<div class="arrow"></div>
+	</div>
+
+	<script type="text/javascript">
+	var wpcom_reblog = {
+		request: false,
+		source: 'toolbar',
+
+		init: function() {
+			// Click reblog button on post
+			jQuery(document).on( 'click', '#wpadminbar .reblog', function(e) {
+				e.preventDefault();
+				wpcom_reblog.source = 'toolbar';
+
+				if ( jQuery( '#wpadminbar #ab-reblog-box' ).is( ':visible' ) ) {
+					wpcom_reblog.cancel_reblog();
+				}
+				else {
+					wpcom_reblog.show_reblog_box();
+				}
+			} );
+
+			// Clicked reblog button on already reblogged post.
+			jQuery(document).on( 'click', '#wpadminbar .reblogged', function(e) {
+				e.preventDefault();
+			});
+
+			// Click cancel reblog button
+			jQuery(document).on( 'click', '#ab-reblog-box a.cancel', function(e) {
+				e.preventDefault();
+				wpcom_reblog.cancel_reblog();
+			});
+
+			// Submit reblog box
+			jQuery(document).on( 'click', '#ab-reblog-box input[type=submit]', function(e) {
+				e.preventDefault();
+				wpcom_reblog.submit_reblog( jQuery(this) );
+			});
+		},
+
+		show_reblog_box: function() {
+			return this.show_reblog_box_here(
+				'#wp-admin-bar-wpr-reblog',
+				'#wpadminbar'
+			);
+		},
+
+		toggle_reblog_box_flair: function( obj_id ) {
+			if ( jQuery( '#jp-post-flair #ab-reblog-box' ).is( ':visible' ) ) {
+				wpcom_reblog.cancel_reblog();
+			}
+			else {
+				wpcom_reblog.show_reblog_box_flair( obj_id );
+			}
+		},
+
+		show_reblog_box_flair: function( obj_id ) {
+			this.source = 'post_flair';
+			this.obj_id = obj_id;
+			return this.show_reblog_box_here(
+				'.post-likes-widget',
+				'body'
+			);
+		},
+
+		show_reblog_box_here: function(anchorId, parentId) {
+			var jq = jQuery,
+			    $anchor = jq( anchorId ),
+			    $parent = jq( parentId ),
+			    $window = jq( window ),
+			    $scroll = jq('html, body'),
+			    $reblog_box = jq( '#ab-reblog-box' ),
+			    offset = $anchor.offset(),
+			    left = offset.left + 'px',
+			    width = '500px',
+			    position,
+			    top;
+
+			if ( $parent.css( 'position' ) === 'fixed' ) {
+				position = 'fixed';
+				top = $parent.position().top + $parent.outerHeight();
+			}
+			else {
+				position = 'absolute';
+				top = offset.top + $anchor.outerHeight() + 'px';
+			}
+			$reblog_box.remove();
+			$parent.append( $reblog_box );
+			$anchor.addClass( 'selected' );
+
+			if ( jq( window ).innerWidth() < offset.left + 500 ) {
+				// Most likely mobile or tablet
+				left = '0px';
+				width = ( jq( window ).innerWidth() - 24 ) + 'px';
+			}
+
+			$reblog_box
+				.find('p.response').remove().end()
+				.find('div.submit, div.submit span.canceltext').show().end()
+				.find('div.submit input[type=submit]').prop('disabled',false).end()
+				.show()
+				.css({
+					top : top,
+					left : left,
+					width : width,
+					position: position,
+					'z-index': 10 // slide under twentyfourteen's fixed-positioned masthead
+				});
+
+			// Ensure we can see the whole reblog box
+			var docViewTop = $window.scrollTop(),
+			    windowHeight = $window.height(),
+			    docViewBottom = docViewTop + windowHeight,
+			    elemTop = $reblog_box.offset().top,
+			    elemHeight = $reblog_box.outerHeight() + 10,
+			    elemBottom = elemTop + elemHeight;
+			if ( docViewTop > elemTop ) {
+				// Need to scroll up
+				// leave 75px for toolbar + Reblog button + margin
+				$scroll.animate({scrollTop: elemTop - 75});
+			}
+			else if ( docViewBottom < elemBottom ) {
+				// Need to scroll down
+				$scroll.animate({scrollTop: elemBottom - windowHeight}, 100);
+			}
+		},
+
+		submit_reblog: function( input ) {
+			var jq = jQuery;
+			var self = this;
+			if ( typeof this.request == 'object' )
+				this.request.abort();
+
+			input.attr( 'value', 'Reblogging...' );
+			input.prop( 'disabled', true );
+
+			jq( '#ab-reblog-box div.submit span.canceltext' ).fadeOut( 150, function() {
+				input.before( '<span class="spinner"></span>' );
+			});
+
+			var note = jq('#ab-reblog-box textarea').val();
+
+			if ( jq('#default-reblog-note').val() == note )
+				note = "";
+
+			this.request = jq.get( '/wp-admin/admin-ajax.php', {
+				'action': 'post_reblog',
+				'original_blog_id': jq('#original-blog-id').val(),
+				'original_post_id': jq('#original-post-id').val(),
+				'blog_id': jq('#ab-reblog-box select').val(),
+				'note': note,
+				'_wpnonce': jq('#ab-reblog-box #_wpnonce').val(),
+				'reblog_source': this.source
+			},
+			function(result, status, jqxhr) {
+				if ( ! ( "type" in result ) ) {
+					alert( "Error: " + jqxhr.responseText );
+				}
+				else if ( "error" == result.type ) {
+					alert( result.message );
+				}
+				else {
+					if ( typeof pm === 'function' ) {
+						console.log(self);
+						pm({
+							target : window.frames['likes-master'],
+							type : 'likesMessage',
+							data : { event: 'didReblog', obj_id: self.obj_id },
+							origin : '*'
+						});
+					}
+
+					jq( '#ab-reblog-box' ).hide();
+					jq( '#wp-admin-bar-wpr-reblog' ).addClass( 'reblogged' ).removeClass( 'reblog' ).find( 'a:first' ).text( 'Reblogged' );
+				}
+			}, 'json' );
+		},
+
+		cancel_reblog: function() {
+			jQuery( '#ab-reblog-box' ).hide();
+			jQuery( '#wp-admin-bar-wpr-reblog' ).removeClass( 'selected' );
+		}
+	};
+
+	wpcom_reblog.init();
+	</script>
+<div id="report-form-window" style="display:none;"></div><script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/rationalcity.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/rationalcity.wordpress.com\/wp-login.php?action=logout&_wpnonce=dc427e208b","homeURL":"https:\/\/rationalcity.wordpress.com\/","postID":"11188","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"1","isJetpack":"","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1551752381j'></script>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/rationalcity.wordpress.com\/2019\/04\/30\/how-does-the-comma-operator-work-in-c\/":11188};
+	</script>
+				<div class="widget widget_eu_cookie_law_widget"><div
+	class="hide-on-button ads-active"
+	data-hide-timeout="30"
+	data-consent-expiration="180"
+	id="eu-cookie-law"
+>
+	<form method="post">
+		
+
+		Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use. <br />
+To find out more, including how to control cookies, see here:
+		<a href="https://automattic.com/cookies" >
+			Cookie Policy		</a>
+ </form>
+</div>
+</div><script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"https:\/\/s2.wp.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var comment_like_text = {"loading":"Loading..."};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpNotesArgs = {"cacheBuster":"desktop\/2.4.0-13279-g67a63e0","iframeUrl":"https:\/\/widgets.wp.com\/notifications\/","iframeAppend":"2","iframeScroll":"no","wide":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcom_tos_report_form = {"ajaxurl":"\/wp-admin\/admin-ajax.php","isLoggedoutUser":"","post_ID":"11188","current_url":"https:\/\/rationalcity.wordpress.com\/2019\/04\/30\/how-does-the-comma-operator-work-in-c","report_this_content":"Report this content"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wordads_preview = {"ajaxurl":"https:\/\/rationalcity.wordpress.com\/wp-admin\/admin-ajax.php","blog_id":"147966989","user":"dvmorozov","nonce":"e18bcf93b9"};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"147966989","siteName":"RationalCity","siteURL":"http:\/\/rationalcity.wordpress.com","icon":"<img alt='' src='https:\/\/rationalcity.files.wordpress.com\/2018\/06\/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=50' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"1","canCustomizeSite":"1","isFollowing":"1","themeSlug":"pub\/plane","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F&signup_flow=account","themeURL":"https:\/\/wordpress.com\/theme\/plane\/","xhrURL":"https:\/\/rationalcity.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"ecc6822378","isSingular":"1","isFolded":"","isLoggedIn":"1","isMobile":"","subscribeNonce":"","referer":"https:\/\/rationalcity.wordpress.com\/2019\/04\/30\/how-does-the-comma-operator-work-in-c\/","canFollow":"1","feedID":"84026900","statusMessage":"","customizeLink":"https:\/\/rationalcity.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F","postID":"11188","shortlink":"https:\/\/wp.me\/pa0QYl-2Us","canEditPost":"1","editLink":"https:\/\/wordpress.com\/post\/rationalcity.wordpress.com\/11188","statsLink":"https:\/\/wordpress.com\/stats\/post\/11188\/rationalcity.wordpress.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get help setting up your theme","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F&signup_flow=account\">Log in now.<\/a>","stats":"Stats"}};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??-eJyVU1tSwzAMvBCuodAZ+sFwFMaxReLGL2Q7KbdHbidpSENKf2JF2tVjLfM+MOldApf4IXIFnZYQjptDfOAU0k6arCCWWGq0bCt/HI0BNPBtZsHkWrvIjW6J9JUhQyOcMoBLGYWy2rFK4IbOlWwjjuLSW3bh/c0hnCUXO3dyKC1VPPY6wD2kX445MTVgCRZyxYMRDgrBiU7XIml/Nc8S+mQsKTPURQjm+4Y6vVY1pMghU9S3GpgRPU9gKXuCmX+pWHYKMEqPMK00RVSiXLiDpU4obHNMQjZryjpfWjl9WRnOO9Ztb+LHi14HJx+LUh4T+/Ro5/9zZmV8fVHPoxKKmjIixvO0gysgvQbo/7WYVsQEWDr1HSDqItzouzNDQpL7atumJFkWrJBGaw3d6mghsefNI/+gW+VLmkzwwUfSzQiNPDYCtauHk0jv9u1pt3vZ7/evu+3hB2eflWQ='></script>
+<script type='text/javascript'>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+</script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>		<iframe src='https://widgets.wp.com/likes/master.html?ver=20190321#ver=20190321' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+		<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+<script src="//stats.wp.com/w.js?60" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['identifyUser', 140670348, 'dvmorozov']);
+_tkq.push(['storeContext', {'blog_id':'147966989','blog_tz':'0','user_lang':'en','blog_lang':'en'}]);
+_stq.push(['view', {'blog':'147966989','v':'wpcom','tz':'0','user':'1','user_id':'140670348','post':'11188','subd':'rationalcity'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1zNDZ8S252Wis9XUQyb3YrcUVIU2R0VH5TcUpqcF9NWi1bMDJfLy90VXNvY2U3ZFZ1RWlDaUY9YU1dQkFEMlpKLS8zRlk0YWVfMGR8Y0dJYyxZL2VlLnR6QkUsMkImNVliX0dIQ25EdGwuNnxFTVp8ZDRTfj10QTQtSnZIWk1xTURmWnBuemhlamZLb0RLZDM5UnpUST9TS1s4VXo5ME1+LTZLNCt3WUR4W0dHJV85OCVOenkxTTkyNG5LW3BiM0VKKy9wWHx4WUorMTB6WDc5akYwWmJiamJtcFo5R1ouTTRDTm5KLUFOREo2PUdDcVpudW5qUi1UNGI5bjFsLD0/b1VQdFpQX2M2eEN6MFVMb2RVVTAvMm0uWCtOaEJBOGZCRDE9OHd2'}]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+		<div id="wpadminbar" class="nojq nojs ltr">
+							<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+						<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+			
+		<li id="wp-admin-bar-blog" class="menupop my-sites mb-trackable"><a class="ab-item"  aria-haspopup="true" href="https://wordpress.com/stats/rationalcity.wordpress.com">My Site</a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-blog-default" class="ab-submenu">
+			
+		<li id="wp-admin-bar-blog-info" class="has-blavatar"><a class="ab-item"  href="https://rationalcity.wordpress.com/"><div class="ab-site-icon"><img class="avatar" src="https://rationalcity.files.wordpress.com/2018/06/cropped-d0bbd0bed0b3d0bed182d0b8d0bf-2.jpg?w=120" alt="Current site avatar" /> </div><span class="ab-site-title">RationalCity</span><span class="ab-site-description">rationalcity.wordpress.com</span></a>		</li>
+		<li id="wp-admin-bar-blog-stats" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/stats/rationalcity.wordpress.com">Stats <img style="width: 95px; margin: 0; float: right;" src="https://rationalcity.wordpress.com/wp-includes/charts/admin-bar-hours-scale-2x.php?masterbar=1" alt="Stats" title="Showing site views per hour for the last 48 hours. Click for full Site Stats." /></a>		</li>
+		<li id="wp-admin-bar-activity" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/activity-log/rationalcity.wordpress.com">Activity</a>		</li>
+		<li id="wp-admin-bar-plan" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/plans/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-plan">Plan</a><a href="https://wordpress.com/plans/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-plan-badge">Free</a></div>		</li>		</ul>
+			<ul id="wp-admin-bar-publish" class="ab-submenu">
+			
+		<li id="wp-admin-bar-publish-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Manage</div>		</li>
+		<li id="wp-admin-bar-new-page" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/pages/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-page">Site Pages</a><a href="https://wordpress.com/page/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-new-page-badge">Add</a></div>		</li>
+		<li id="wp-admin-bar-new-post" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/posts/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-post">Blog Posts</a><a href="https://wordpress.com/post/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-new-post-badge">Add</a></div>		</li>
+		<li id="wp-admin-bar-new-attachment" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/media/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-attachment">Media</a><a href="https://wordpress.com/media/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-new-attachment-badge">Add</a></div>		</li>
+		<li id="wp-admin-bar-new-jetpack-testimonial" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/types/jetpack-testimonial/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-edit-jetpack-testimonial">Testimonials</a><a href="https://rationalcity.wordpress.com/wp-admin/post-new.php?post_type=jetpack-testimonial" class="ab-secondary" id="wp-admin-bar-new-jetpack-testimonial-badge">Add</a></div>		</li>
+		<li id="wp-admin-bar-comments" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/comments/rationalcity.wordpress.com">Comments</a>		</li>		</ul>
+			<ul id="wp-admin-bar-look-and-feel" class="ab-submenu">
+			
+		<li id="wp-admin-bar-look-and-feel-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Personalize</div>		</li>
+		<li id="wp-admin-bar-themes" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://rationalcity.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Frationalcity.wordpress.com%2F2019%2F04%2F30%2Fhow-does-the-comma-operator-work-in-c%2F" class="ab-item ab-primary mb-icon" id="wp-admin-bar-cmz">Customize</a><a href="https://wordpress.com/themes/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-themes">Themes</a></div>		</li>		</ul>
+			<ul id="wp-admin-bar-configuration" class="ab-submenu">
+			
+		<li id="wp-admin-bar-configuration-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Configure</div>		</li>
+		<li id="wp-admin-bar-sharing" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/sharing/rationalcity.wordpress.com">Sharing</a>		</li>
+		<li id="wp-admin-bar-users-toolbar" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/people/team/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-people">People</a><a href="https://wordpress.com/people/new/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-people-add">Add</a></div>		</li>
+		<li id="wp-admin-bar-plugins"><a class="ab-item"  href="https://wordpress.com/plugins/wpcom-masterbar-redirect/rationalcity.wordpress.com">Plugins</a>		</li>
+		<li id="wp-admin-bar-domains" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/domains/rationalcity.wordpress.com" class="ab-item ab-primary mb-icon" id="wp-admin-bar-domains">Domains</a><a href="https://wordpress.com/domains/add/rationalcity.wordpress.com" class="ab-secondary" id="wp-admin-bar-domains-add">Add</a></div>		</li>
+		<li id="wp-admin-bar-blog-settings" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/settings/general/rationalcity.wordpress.com">Settings</a>		</li>
+		<li id="wp-admin-bar-new-site"><a class="ab-item"  href="https://wordpress.com/start?ref=admin-bar-logged-in">+ Add New WordPress</a>		</li>		</ul>
+	</div>		</li>
+		<li id="wp-admin-bar-jumptotop-button-menu"><a class="ab-item"  href="#"><div id="jumptotop"><span class="noticon noticon-top"></span></div></a>		</li>
+		<li id="wp-admin-bar-newdash" class="menupop mb-trackable"><a class="ab-item"  aria-haspopup="true" href="https://wordpress.com/">Reader</a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-newdash-default" class="ab-submenu">
+			
+		<li id="wp-admin-bar-streams-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Streams</div>		</li>
+		<li id="wp-admin-bar-following" class="inline-action">		<div class="ab-item ab-empty-item" ><a href="https://wordpress.com/" class="ab-item ab-primary mb-icon" id="wp-admin-bar-followed-sites">Followed Sites</a><a href="https://wordpress.com/following/edit" class="ab-secondary" id="wp-admin-bar-reader-followed-sites-manage">Manage</a></div>		</li>
+		<li id="wp-admin-bar-conversations" class="mb-icon"><a class="ab-item"  href="http://wordpress.com/read/conversations">Conversations</a>		</li>
+		<li id="wp-admin-bar-discover-discover" class="mb-icon-spacer"><a class="ab-item"  href="https://wordpress.com/discover">Discover</a>		</li>
+		<li id="wp-admin-bar-discover-search" class="mb-icon-spacer"><a class="ab-item"  href="https://wordpress.com/read/search">Search</a>		</li>
+		<li id="wp-admin-bar-my-activity-my-likes" class="mb-icon-spacer"><a class="ab-item"  href="https://wordpress.com/activities/likes">My Likes</a>		</li>		</ul>
+	</div>		</li>		</ul>
+			<ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+			
+		<li id="wp-admin-bar-notes" class="menupop">		<div class="ab-item ab-empty-item" ><span id="wpnt-notes-unread-count" class="wpnt-loading wpn-read"></span><span class="noticon noticon-bell"></span><span class="ab-text">Notifications</span></div><div id="wpnt-notes-panel2" style="display:none" lang="en" dir="ltr"><div class="wpnt-notes-panel-header"><span class="wpnt-notes-header"></span><span class="wpnt-notes-panel-link"></span></div></div>		</li>
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar mb-trackable"><a class="ab-item"  aria-haspopup="true" href="https://wordpress.com/me/"><img alt='' src='https://2.gravatar.com/avatar/50ca2640da2b1f7e8f430ff13e21880d?s=32&#038;d=mm&#038;r=G' class='avatar avatar-32' height='32' width='32' /><span class="ab-text">Me</span></a>			<div class="ab-sub-wrapper">		<ul id="wp-admin-bar-user-actions" class="ab-submenu">
+			
+		<li id="wp-admin-bar-user-info" class="user-info user-info-item">		<div class="ab-item ab-empty-item" tabindex="-1"><img alt='' src='https://2.gravatar.com/avatar/50ca2640da2b1f7e8f430ff13e21880d?s=128&#038;d=mm&#038;r=G' class='avatar avatar-128' height='128' width='128' /><span class="display-name">Dmitry Morozov</span><a class="username" href="http://gravatar.com/dvmorozov">@dvmorozov</a><form action="https://rationalcity.wordpress.com/wp-login.php?action=logout&amp;redirect_to=https%3A%2F%2Fwordpress.com%2F%3Fapppromo&amp;_wpnonce=dc427e208b" method="post"><button class="ab-sign-out" type="submit">Sign Out</button></form></div>		</li>
+		<li id="wp-admin-bar-profile-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Profile</div>		</li>
+		<li id="wp-admin-bar-my-profile" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/me">My Profile</a>		</li>
+		<li id="wp-admin-bar-account-settings" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/me/account">Account Settings</a>		</li>
+		<li id="wp-admin-bar-billing" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/me/purchases">Manage Purchases</a>		</li>
+		<li id="wp-admin-bar-security" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/me/security">Security</a>		</li>
+		<li id="wp-admin-bar-notifications" class="mb-icon mb-trackable"><a class="ab-item"  href="https://wordpress.com/me/notifications">Notifications</a>		</li>
+		<li id="wp-admin-bar-special-header" class="ab-submenu-header">		<div class="ab-item ab-empty-item" >Special</div>		</li>
+		<li id="wp-admin-bar-get-apps" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/me/get-apps">Get Apps</a>		</li>
+		<li id="wp-admin-bar-help" class="mb-icon"><a class="ab-item"  href="https://wordpress.com/help">Help</a>		</li>		</ul>
+	</div>		</li>
+		<li id="wp-admin-bar-ab-new-post" class="mb-trackable"><a class="ab-item"  href="https://wordpress.com/post/rationalcity.wordpress.com"><span>Write</span></a>		</li>		</ul>
+				</div>
+							<a class="screen-reader-shortcut" href="https://rationalcity.wordpress.com/wp-login.php?action=logout&#038;_wpnonce=dc427e208b">Log Out</a>
+					</div>
+
+	
+<script type="text/javascript">
+/* <![CDATA[ */
+var clickDebugLink;
+
+jQuery(document).ready( function($) {
+	var single = true, w = 1000,
+		supe = false;
+
+	$(document.body).load(function(){ $('#wpadminbar img.grav-hashed').removeClass('grav-hashed'); }); // hack to hide the gravatar hovercard
+
+	if ( single && supe )
+		w = 1385;
+	else if ( supe )
+		w = 1200;
+
+	// debug bar extra
+	clickDebugLink = function( parent_id, obj ) {
+
+		$('#'+parent_id).children('div').hide();
+
+		document.getElementById( obj.href.substr( obj.href.indexOf( '#' ) + 1 ) ).style.display = 'block';
+		$( obj.href.substr( obj.href.indexOf( '#' ) ) ).show()
+
+		$(obj).parent().addClass('current').siblings('li').removeClass('current');
+
+		return false;
+	};
+
+	$( '#wpadminbar #wp-admin-bar-shortlink' ).click( function() {
+		$( '#adminbar-shortlink-input' ).select();
+	});
+
+	// skip tap-to-hover on site switcher for mobile
+	if ( 'ontouchstart' in window ) {
+		$('#wp-admin-bar-switch-site').on( 'touchstart', function( event ) {
+			if ( $( window ).width() > 782 ) {
+				return;
+			}
+			event.stopPropagation();
+			$( event.target ).first( 'a' ).click();
+		});
+	}
+
+});
+/* ]]> */
+</script>
+	<div class="wpcom-bubble action-bubble">
+		<div class="bubble-txt"></div>
+	</div>
+	<script type="text/javascript">function hideBubble() { jQuery('body').append( jQuery( 'div.wpcom-bubble' ).removeClass( 'fadein' ) ).off( 'click.bubble touchstart.bubble' ); jQuery(document).off( 'scroll.bubble' ); };</script>
+		<script type="text/javascript">
+	jQuery( '#wp-admin-bar-jumptotop-button-menu a' ).click( function( e ) {
+		e.preventDefault();
+		jQuery( 'html, body' ).animate( { scrollTop: 0 }, 'fast' );
+	} );
+	function hideShowTbJumpToTop() {
+		var total_width = 0;
+		// Calculate total width taken by items minus our button to see if it'll
+		// overlap with other toolbar menus.
+		jQuery( '#wp-admin-bar-root-default > li' ).each( function() {
+			var self = jQuery( this );
+			if ( 'wp-admin-bar-jumptotop-button-menu' != self.attr( 'id' ) )
+				total_width += self.width();
+		});
+		if ( jQuery( '#wp-admin-bar-jumptotop-button-menu' ).position()['left'] - total_width < 10 ) {
+			jQuery( '#jumptotop' ).animate( { 'top': '-50px' }, 'fast' );
+		} else if (  jQuery( window ).scrollTop() >= 350 && parseInt( jQuery( '#jumptotop' ).css( 'top' ) ) < 0 ) {
+			if ( jQuery( '#wp-admin-bar-jumptotop-button-menu' ).position()['left'] - total_width < 10 )
+			   return;
+			jQuery( '#jumptotop' ).animate( { 'top': 0 }, 'fast' );
+		} else if (  jQuery( window ).scrollTop() < 1 && parseInt( jQuery( '#jumptotop' ).css( 'top' ) ) >= 0 ) {
+			jQuery( '#jumptotop' ).animate( { 'top': '-50px' }, 'fast' );
+		}
+	}
+	// handle on page load if auto scrolling to a position
+	hideShowTbJumpToTop();
+	// bind to scrolll event
+	var jumpToTopTimer = null;
+	jQuery( window ).scroll( function() {
+		clearTimeout( jumpToTopTimer );
+		jumpToTopTimer = setTimeout( jumpToTopRefresh, 150 );
+	} );
+	var jumpToTopRefresh = function() {
+		hideShowTbJumpToTop();
+	};
+	</script>
+	<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+</html>

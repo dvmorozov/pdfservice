@@ -1,69 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HTMLCleanupConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:xmlns:HTMLCleanupConfig">
-  <SpecialHTMLRemoverConfig>
-    <SpecialHTML />
-  </SpecialHTMLRemoverConfig>
-  <InnerTagRemoverConfig>
-    <Tags />
-  </InnerTagRemoverConfig>
   <TagWithTextRemoverConfig>
     <Tags>
       <Tag>
-        <StartTagWithoutBracket>&lt;script</StartTagWithoutBracket>
-        <EndTag>&lt;/script&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;style</StartTagWithoutBracket>
-        <EndTag>&lt;/style&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;link</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;input</StartTagWithoutBracket>
         <EndTag>/&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;path</StartTagWithoutBracket>
-        <EndTag>&lt;/path&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;meta</StartTagWithoutBracket>
-        <EndTag>/&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;iframe</StartTagWithoutBracket>
-        <EndTag>&lt;/iframe&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;svg</StartTagWithoutBracket>
-        <EndTag>&lt;/svg&gt;</EndTag>
       </Tag>
     </Tags>
   </TagWithTextRemoverConfig>
-  <TextFormatterConfig>
-    <Delimiters>
-      <DelimiterSymbol>
-        <SymbolCode>32</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>44</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>46</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>58</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>59</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>63</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>46</SymbolCode>
-      </DelimiterSymbol>
-      <DelimiterSymbol>
-        <SymbolCode>33</SymbolCode>
-      </DelimiterSymbol>
-    </Delimiters>
-  </TextFormatterConfig>
 </HTMLCleanupConfig>

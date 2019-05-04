@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="HTMLElementTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TagWithTextRemoverTests.cs" />
     <Compile Include="TextFormatterTest.cs" />
   </ItemGroup>
   <ItemGroup>
