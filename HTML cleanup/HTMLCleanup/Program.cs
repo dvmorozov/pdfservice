@@ -373,20 +373,19 @@ namespace HTMLCleanup
     {
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
-        /// Filled by default values.
+        /// Filled by default values. When tag doesn't have closing counterpart,
+        /// corresponding value should be empty string.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
-            /*
             new TagToRemove( "<script", "</script>" ),
             new TagToRemove( "<style", "</style>" ),
-            new TagToRemove( "<link", "/>" ),
+            new TagToRemove( "<link", "" ),
             new TagToRemove( "<path", "</path>" ),
-            new TagToRemove( "<meta", "/>" ),
+            new TagToRemove( "<meta", "" ),
             new TagToRemove( "<iframe", "</iframe>" ),
             new TagToRemove( "<svg", "</svg>" ),
-            */
-            new TagToRemove( "<input", "/>" ),
-            //new TagToRemove( "<label", "</label>" )
+            new TagToRemove( "<input", "" ),
+            new TagToRemove( "<label", "</label>" )
         });
 
         public List<TagToRemove> Tags

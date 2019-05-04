@@ -24,7 +24,8 @@ namespace HTMLCleanup.Tests
             var remover = new TagWithTextRemover(null)
             {
                 Tags = new List<TagToRemove>(new TagToRemove[] {
-                    new TagToRemove( "<input", "/>" )
+                    //  Closing tag should be empty string.
+                    new TagToRemove( "<input", "" )
                 })
             };
 
