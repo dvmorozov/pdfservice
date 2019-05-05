@@ -338,15 +338,21 @@ namespace HTMLCleanup
         /// not include closing bracket.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
+            new TagToRemove( "<ul", "</ul>" ),
             new TagToRemove( "<strong", "</strong>" ),
             new TagToRemove( "<span", "</span>" ),
             new TagToRemove( "<pre", "</pre>" ),
             new TagToRemove( "<p", "</p>" ),
             new TagToRemove( "<li", "</li>" ),
+            new TagToRemove( "<header", "</header>" ),
+            new TagToRemove( "<h3", "</h3>" ),
             new TagToRemove( "<h3", "</h3>" ),
             new TagToRemove( "<h2", "</h2>" ),
             new TagToRemove( "<h1", "</h1>" ),
-            new TagToRemove( "<div", "</div>" )
+            new TagToRemove( "<footer", "</footer>" ),
+            new TagToRemove( "<em", "</em>" ),
+            new TagToRemove( "<div", "</div>" ),
+            new TagToRemove( "<article", "</article>" )
         });
 
         public List<TagToRemove> Tags
@@ -400,7 +406,12 @@ namespace HTMLCleanup
             new TagToRemove( "<iframe", "</iframe>" ),
             new TagToRemove( "<svg", "</svg>" ),
             new TagToRemove( "<input", "" ),
-            new TagToRemove( "<label", "</label>" )
+            new TagToRemove( "<label", "</label>" ),
+            new TagToRemove( "<form", "</form>" ),
+            new TagToRemove( "<nav", "</nav>" ),
+            new TagToRemove( "<noscript", "</noscript>" ),
+            new TagToRemove( "<aside", "</aside>" ),
+            new TagToRemove( "<!--", "" )
         });
 
         public List<TagToRemove> Tags
@@ -452,7 +463,6 @@ namespace HTMLCleanup
         public override string Process(string text)
         {
             string result = String.Empty;
-            int startPos = 0;
             HTMLElement el = new HTMLElement("<a", "</a>", text);
 
             do
