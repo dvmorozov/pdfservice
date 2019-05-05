@@ -139,11 +139,11 @@ namespace HTMLCleanup
                 var len1 = _pos2 - _pos1 + 1;
                 _text = _text.Remove(_pos1, len1);
                 _pos3 -= len1;
-                _startPos -= len1;
 
                 _text = _text.Remove(_pos3, _endTag.Length);
-                _startPos -= _endTag.Length;
 
+                //  Tags can be nested, proceed from the same position.
+                _startPos = _pos1;
                 //  Защита от повторного применения.
                 _found = false;
             }
