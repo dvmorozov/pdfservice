@@ -119,6 +119,10 @@
         <EndTag>&lt;/aside&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;!--[if</StartTagWithoutBracket>
+        <EndTag>&lt;![endif]--&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;!--</StartTagWithoutBracket>
         <EndTag />
       </Tag>

@@ -395,7 +395,8 @@ namespace HTMLCleanup
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
         /// Filled by default values. When tag doesn't have closing counterpart,
-        /// corresponding value should be empty string.
+        /// corresponding value should be empty string. Tags must be in the 
+        /// reverse lexigraphical order.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
             new TagToRemove( "<script", "</script>" ),
@@ -411,6 +412,7 @@ namespace HTMLCleanup
             new TagToRemove( "<nav", "</nav>" ),
             new TagToRemove( "<noscript", "</noscript>" ),
             new TagToRemove( "<aside", "</aside>" ),
+            new TagToRemove( "<!--[if", "<![endif]-->" ),
             new TagToRemove( "<!--", "" )
         });
 
