@@ -34,6 +34,10 @@
         <StartTagWithoutBracket>&lt;h1</StartTagWithoutBracket>
         <EndTag>&lt;/h1&gt;</EndTag>
       </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
     </Tags>
   </InnerTagRemoverConfig>
   <TagWithTextRemoverConfig>

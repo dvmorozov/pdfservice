@@ -345,7 +345,8 @@ namespace HTMLCleanup
             new TagToRemove( "<li", "</li>" ),
             new TagToRemove( "<h3", "</h3>" ),
             new TagToRemove( "<h2", "</h2>" ),
-            new TagToRemove( "<h1", "</h1>" )
+            new TagToRemove( "<h1", "</h1>" ),
+            new TagToRemove( "<div", "</div>" )
         });
 
         public List<TagToRemove> Tags
