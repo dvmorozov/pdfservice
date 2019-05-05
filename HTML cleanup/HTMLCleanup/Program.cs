@@ -223,13 +223,15 @@ namespace HTMLCleanup
     /// </summary>
     public class ParagraphExtractor : TextProcessor 
     {
+
+
         public ParagraphExtractor(TextProcessor next) : base(next) { }
 
         public override string Process(string text)
         {
             string result = String.Empty;
+            //  Can extract only paragraphs.
             HTMLElement el = new HTMLElement("<p", "</p>", text);
-
             do
             {
                 var b = el.FindNext();
@@ -241,7 +243,8 @@ namespace HTMLCleanup
                 result += "    ";
                 //  Текст тэга.
                 result += el.GetText();
-            } while (true);
+            }
+            while (true);
 
             return base.Process(result);
         }
@@ -330,10 +333,18 @@ namespace HTMLCleanup
     {
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
+        /// All tags representig text data which should be presaved. Tags must
+        /// be arranged in the reverse lexigraphical order.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
             new TagToRemove( "<strong", "</strong>" ),
-            new TagToRemove( "<span", "</span>" )
+            new TagToRemove( "<span", "</span>" ),
+            new TagToRemove( "<pre>", "</pre>" ),
+            new TagToRemove( "<p", "</p>" ),
+            new TagToRemove( "<li>", "</li>" ),
+            new TagToRemove( "<h3>", "</h3>" ),
+            new TagToRemove( "<h2>", "</h2>" ),
+            new TagToRemove( "<h1>", "</h1>" )
         });
 
         public List<TagToRemove> Tags
@@ -351,15 +362,17 @@ namespace HTMLCleanup
 
         public override string Process(string text)
         {
-            foreach (var t in _tags)
+            for (var i = 0; i < _tags.Count; i++)
             {
+                var t = _tags[i];
                 var el = new HTMLElement(t.StartTag, t.EndTag, text);
                 do
                 {
                     var b = el.FindNext();
                     if (!b) break;
                     el.RemoveTags();
-                } while (true);
+                }
+                while (true);
                 text = el.Text;
             }
             return base.Process(text);
@@ -416,7 +429,8 @@ namespace HTMLCleanup
                     var b = el.FindNext();
                     if (!b) break;
                     el.RemoveTagsWithText();
-                } while (true);
+                }
+                while (true);
                 text = el.Text;
             }
             return base.Process(text);
@@ -530,7 +544,8 @@ namespace HTMLCleanup
                     result += text.Substring(pos, text.Length - pos) + Environment.NewLine;
                     break;
                 }
-            } while (true);
+            }
+            while (true);
             return base.Process(result);
         }
     }
@@ -580,7 +595,7 @@ namespace HTMLCleanup
         private static string MakeRequest(string url)
         {
             //  Требуется определить кодировку страницы и преобразовать к стандартной.
-            var req = (HttpWebRequest)WebRequest.Create(url);
+            var req = WebRequest.Create(url);
             var res = req.GetResponse();
             //  Определяет кодировку страницы.
             string charset = String.Empty;
@@ -625,13 +640,12 @@ namespace HTMLCleanup
             //  Создает последовательность обработки (имеет значение).
             var processChain =
                 new TagWithTextRemover(
-                    //new SpecialHTMLRemover(
-                            //new ParagraphExtractor(
-                            //new URLFormatter(
-                                //new InnerTagRemover(
-                                  null //  new TextFormatter(null)
-                                //))))
-                                );
+                                //new SpecialHTMLRemover(
+                                //new ParagraphExtractor(
+                                // new URLFormatter(
+                                new InnerTagRemover(
+                                    null //new TextFormatter(null)
+                                ));//));//);
 
             if (args.Count() != 0)
             {
