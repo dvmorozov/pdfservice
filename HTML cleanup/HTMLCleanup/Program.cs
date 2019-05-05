@@ -334,17 +334,18 @@ namespace HTMLCleanup
         /// <summary>
         /// Список тэгов для удаления (заполняется из конфигурационного файла).
         /// All tags representig text data which should be presaved. Tags must
-        /// be arranged in the reverse lexigraphical order.
+        /// be arranged in the reverse lexigraphical order. The first tag must
+        /// not include closing bracket.
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
             new TagToRemove( "<strong", "</strong>" ),
             new TagToRemove( "<span", "</span>" ),
-            new TagToRemove( "<pre>", "</pre>" ),
+            new TagToRemove( "<pre", "</pre>" ),
             new TagToRemove( "<p", "</p>" ),
-            new TagToRemove( "<li>", "</li>" ),
-            new TagToRemove( "<h3>", "</h3>" ),
-            new TagToRemove( "<h2>", "</h2>" ),
-            new TagToRemove( "<h1>", "</h1>" )
+            new TagToRemove( "<li", "</li>" ),
+            new TagToRemove( "<h3", "</h3>" ),
+            new TagToRemove( "<h2", "</h2>" ),
+            new TagToRemove( "<h1", "</h1>" )
         });
 
         public List<TagToRemove> Tags

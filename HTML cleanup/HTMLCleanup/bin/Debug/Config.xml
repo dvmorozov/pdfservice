@@ -11,7 +11,7 @@
         <EndTag>&lt;/span&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;pre&gt;</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;pre</StartTagWithoutBracket>
         <EndTag>&lt;/pre&gt;</EndTag>
       </Tag>
       <Tag>
@@ -19,19 +19,19 @@
         <EndTag>&lt;/p&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;li&gt;</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;li</StartTagWithoutBracket>
         <EndTag>&lt;/li&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;h3&gt;</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;h3</StartTagWithoutBracket>
         <EndTag>&lt;/h3&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;h2&gt;</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;h2</StartTagWithoutBracket>
         <EndTag>&lt;/h2&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;h1&gt;</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;h1</StartTagWithoutBracket>
         <EndTag>&lt;/h1&gt;</EndTag>
       </Tag>
     </Tags>
