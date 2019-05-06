@@ -7,12 +7,20 @@
         <EndTag>&lt;/ul&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;title</StartTagWithoutBracket>
+        <EndTag>&lt;/title&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;strong</StartTagWithoutBracket>
         <EndTag>&lt;/strong&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;span</StartTagWithoutBracket>
         <EndTag>&lt;/span&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;small</StartTagWithoutBracket>
+        <EndTag>&lt;/small&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;pre</StartTagWithoutBracket>
@@ -23,12 +31,24 @@
         <EndTag>&lt;/p&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;main</StartTagWithoutBracket>
+        <EndTag>&lt;/main&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;li</StartTagWithoutBracket>
         <EndTag>&lt;/li&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;html</StartTagWithoutBracket>
+        <EndTag>&lt;/html&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;header</StartTagWithoutBracket>
         <EndTag>&lt;/header&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;head</StartTagWithoutBracket>
+        <EndTag>&lt;/head&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;h3</StartTagWithoutBracket>
@@ -57,6 +77,14 @@
       <Tag>
         <StartTagWithoutBracket>&lt;div</StartTagWithoutBracket>
         <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;code</StartTagWithoutBracket>
+        <EndTag>&lt;/code&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;body</StartTagWithoutBracket>
+        <EndTag>&lt;/body&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;article</StartTagWithoutBracket>
@@ -107,12 +135,20 @@
         <EndTag>&lt;/form&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;noscript</StartTagWithoutBracket>
+        <EndTag>&lt;/noscript&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;nav</StartTagWithoutBracket>
         <EndTag>&lt;/nav&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;noscript</StartTagWithoutBracket>
-        <EndTag>&lt;/noscript&gt;</EndTag>
+        <StartTagWithoutBracket>&lt;!DOCTYPE</StartTagWithoutBracket>
+        <EndTag />
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;button</StartTagWithoutBracket>
+        <EndTag>&lt;/button&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;aside</StartTagWithoutBracket>

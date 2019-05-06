@@ -339,12 +339,17 @@ namespace HTMLCleanup
         /// </summary>
         private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
             new TagToRemove( "<ul", "</ul>" ),
+            new TagToRemove( "<title", "</title>" ),
             new TagToRemove( "<strong", "</strong>" ),
             new TagToRemove( "<span", "</span>" ),
+            new TagToRemove( "<small", "</small>" ),
             new TagToRemove( "<pre", "</pre>" ),
             new TagToRemove( "<p", "</p>" ),
+            new TagToRemove( "<main", "</main>" ),
             new TagToRemove( "<li", "</li>" ),
+            new TagToRemove( "<html", "</html>" ),
             new TagToRemove( "<header", "</header>" ),
+            new TagToRemove( "<head", "</head>" ),
             new TagToRemove( "<h3", "</h3>" ),
             new TagToRemove( "<h3", "</h3>" ),
             new TagToRemove( "<h2", "</h2>" ),
@@ -352,6 +357,8 @@ namespace HTMLCleanup
             new TagToRemove( "<footer", "</footer>" ),
             new TagToRemove( "<em", "</em>" ),
             new TagToRemove( "<div", "</div>" ),
+            new TagToRemove( "<code", "</code>" ),
+            new TagToRemove( "<body", "</body>" ),
             new TagToRemove( "<article", "</article>" )
         });
 
@@ -409,8 +416,10 @@ namespace HTMLCleanup
             new TagToRemove( "<input", "" ),
             new TagToRemove( "<label", "</label>" ),
             new TagToRemove( "<form", "</form>" ),
-            new TagToRemove( "<nav", "</nav>" ),
             new TagToRemove( "<noscript", "</noscript>" ),
+            new TagToRemove( "<nav", "</nav>" ),
+            new TagToRemove( "<!DOCTYPE", "" ),
+            new TagToRemove( "<button", "</button>" ),
             new TagToRemove( "<aside", "</aside>" ),
             new TagToRemove( "<!--[if", "<![endif]-->" ),
             new TagToRemove( "<!--", "" )
