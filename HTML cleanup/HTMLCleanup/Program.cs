@@ -675,11 +675,12 @@ namespace HTMLCleanup
             var processChain =
                 new TagWithTextRemover(
                     new SpecialHTMLRemover(
-                                //new ParagraphExtractor(
-                                // new URLFormatter(
+                            //  Using of paragraph extractor must be configurable.
+                            //new ParagraphExtractor(
+                            new URLFormatter(
                                 new InnerTagRemover(
-                                    null //new TextFormatter(null)
-                                )));//);//);
+                                    new TextFormatter(null)
+                                ))));//);
 
             if (args.Count() != 0)
             {

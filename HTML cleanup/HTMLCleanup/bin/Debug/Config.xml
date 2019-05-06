@@ -184,4 +184,32 @@
       </Tag>
     </Tags>
   </TagWithTextRemoverConfig>
+  <TextFormatterConfig>
+    <Delimiters>
+      <DelimiterSymbol>
+        <SymbolCode>32</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>44</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>46</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>58</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>59</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>63</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>46</SymbolCode>
+      </DelimiterSymbol>
+      <DelimiterSymbol>
+        <SymbolCode>33</SymbolCode>
+      </DelimiterSymbol>
+    </Delimiters>
+  </TextFormatterConfig>
 </HTMLCleanupConfig>
