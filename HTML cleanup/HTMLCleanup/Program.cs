@@ -274,7 +274,12 @@ namespace HTMLCleanup
         //  Согласно этому списку специальные символы заменяются, 
         //  либо отбрасываются (заполняется из конфигурационного файла).
         //  Аналогично обрабатываются десятичные коды.
-        private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>();
+        private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>(new SpecialHTMLSymbol[] {
+            new SpecialHTMLSymbol( "&#8211;", "-" ),
+            new SpecialHTMLSymbol( "&#8217;", "'" ),
+            new SpecialHTMLSymbol( "&lt;", "<" ),
+            new SpecialHTMLSymbol( "&gt;", ">" )
+        });
 
         public List<SpecialHTMLSymbol> SpecialHTML
         {
@@ -284,14 +289,20 @@ namespace HTMLCleanup
             }
         }
 
-        public SpecialHTMLRemover(TextProcessor next) : base(next) { }
+        public SpecialHTMLRemover(TextProcessor next) : base(next) {
+        }
 
         public override string Process(string text)
         {
+            //  This symbol is added bypassing configuration file
+            //  because string consisting only from spaces is read
+            //  from XML as completely empty despite it is stored
+            //  correctly (workaround).
+            _specialHTML.Add(new SpecialHTMLSymbol("&nbsp;", " "));
+
             foreach (var sp in _specialHTML)
             {
                 text = text.Replace(sp.SpecialHTML, sp.Replacement);
-                text = text.Replace("&", "");
             }
 
             return base.Process(text);
@@ -663,12 +674,12 @@ namespace HTMLCleanup
             //  Создает последовательность обработки (имеет значение).
             var processChain =
                 new TagWithTextRemover(
-                                //new SpecialHTMLRemover(
+                    new SpecialHTMLRemover(
                                 //new ParagraphExtractor(
                                 // new URLFormatter(
                                 new InnerTagRemover(
                                     null //new TextFormatter(null)
-                                ));//));//);
+                                )));//);//);
 
             if (args.Count() != 0)
             {

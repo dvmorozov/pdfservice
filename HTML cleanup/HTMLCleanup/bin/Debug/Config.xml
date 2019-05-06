@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HTMLCleanupConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:xmlns:HTMLCleanupConfig">
+  <SpecialHTMLRemoverConfig>
+    <SpecialHTML>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;#8211;</SpecialHTML>
+        <Replacement>-</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;#8217;</SpecialHTML>
+        <Replacement>'</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;lt;</SpecialHTML>
+        <Replacement>&lt;</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;gt;</SpecialHTML>
+        <Replacement>&gt;</Replacement>
+      </SpecialHTMLSymbol>
+    </SpecialHTML>
+  </SpecialHTMLRemoverConfig>
   <InnerTagRemoverConfig>
     <Tags>
       <Tag>
