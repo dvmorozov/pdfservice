@@ -22,7 +22,7 @@ Process(html: string): string</panel_attributes>
       <w>310</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>THTMLCleanerInjector
+    <panel_attributes>HTMLCleanerInjector
 --
 CreateHTMLCleaner(url: string): IHTMLCleaner</panel_attributes>
     <additional_attributes/>
@@ -35,7 +35,7 @@ CreateHTMLCleaner(url: string): IHTMLCleaner</panel_attributes>
       <w>180</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>/TBaseHTMLCleaner/</panel_attributes>
+    <panel_attributes>/BaseHTMLCleaner/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -68,7 +68,7 @@ CreateHTMLCleaner(url: string): IHTMLCleaner</panel_attributes>
       <w>180</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>TWordPressHTMLCleaner</panel_attributes>
+    <panel_attributes>WordPressHTMLCleaner</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -134,7 +134,7 @@ assembly.
       <w>180</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>TUniversalHTMLCleaner</panel_attributes>
+    <panel_attributes>UniversalHTMLCleaner</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -203,7 +203,7 @@ GetCleanerList(): List</panel_attributes>
       <w>180</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>TCleanerConfig</panel_attributes>
+    <panel_attributes>CleanerConfig</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
