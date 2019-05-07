@@ -58,7 +58,7 @@ namespace HTMLCleanupTests
         [TestMethod]
         public void ProcessTest()
         {
-            var target = new TextFormatter(null);
+            var target = new BaseHTMLCleaner.TextFormatter(null);
             string text = "    К концу XX века многие заговорили об упадке железнодорожного сообщения, выте" +
                           "сняемого более популярными видами транспорта, прежде всего авиационным и автомоб" +
                           "ильным. Однако мрачные прогнозы не оправдались: в 2000-х годах интерес к поездам" +
@@ -94,8 +94,10 @@ namespace HTMLCleanupTests
                 "внутреннего спроса. Глобальная экономика также будет замедляться: прогноз по \r\n" +
                 "мировому ВВП понижен до 3,3%. \r\n";
 
-            target = new TextFormatter(null);
-            target.Delimiters = new char[] { ' ', ',', '.', '-', '!', '?', ';' };
+            target = new BaseHTMLCleaner.TextFormatter(null)
+            {
+                Delimiters = new char[] { ' ', ',', '.', '-', '!', '?', ';' }
+            };
             actual = target.Process(text);
             Assert.AreEqual(expected, actual);
         }

@@ -21,11 +21,11 @@ namespace HTMLCleanup.Tests
         {
             var original = System.IO.File.ReadAllText(@"..\..\..\..\HTMLCleanupTests\TestFiles\original.html");
             var inputRemoved = System.IO.File.ReadAllText(@"..\..\..\..\HTMLCleanupTests\TestFiles\input_removed.html");
-            var remover = new TagWithTextRemover(null)
+            var remover = new BaseHTMLCleaner.TagWithTextRemover(null)
             {
-                Tags = new List<TagToRemove>(new TagToRemove[] {
+                Tags = new List<BaseHTMLCleaner.TagToRemove>(new BaseHTMLCleaner.TagToRemove[] {
                     //  Closing tag should be empty string.
-                    new TagToRemove( "<input", "" )
+                    new BaseHTMLCleaner.TagToRemove( "<input", "" )
                 })
             };
 

@@ -11,14 +11,14 @@ namespace HTMLCleanup
     /// Требуется для того, чтобы можно было свободно 
     /// регенерировать класс конфигурации по XSD-файлу.
     /// </summary>
-    public class ConfigSerializer
+    class ConfigSerializer
     {
         /// <summary>
         /// Восстанавливает конфигурацию объектов по данным из файла.
         /// </summary>
         /// <param name="fileName">Имя файла для чтения конфигурации.</param>
         /// <param name="chain">Первый объект в цепочке обработчиков.</param>
-        public void Deserialize(string fileName, TextProcessor chain)
+        public void Deserialize(string fileName, BaseHTMLCleaner.TextProcessor chain)
         {
             var config = new HTMLCleanupConfig();
             using (var reader = new StreamReader(fileName))
@@ -29,44 +29,44 @@ namespace HTMLCleanup
 
             while (chain != null)
             {
-                if (chain.GetType() == typeof(ParagraphExtractor))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.ParagraphExtractor))
                 {
 
                 }
 
-                if (chain.GetType() == typeof(SpecialHTMLRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.SpecialHTMLRemover))
                 {
-                    ((SpecialHTMLRemover)chain).SpecialHTML.Clear();
+                    ((BaseHTMLCleaner.SpecialHTMLRemover)chain).SpecialHTML.Clear();
                     foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
                     {
-                        ((SpecialHTMLRemover)chain).SpecialHTML.Add(new SpecialHTMLSymbol(t.SpecialHTML, t.Replacement));
+                        ((BaseHTMLCleaner.SpecialHTMLRemover)chain).SpecialHTML.Add(new BaseHTMLCleaner.SpecialHTMLSymbol(t.SpecialHTML, t.Replacement));
                     }
                 }
 
-                if (chain.GetType() == typeof(InnerTagRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.InnerTagRemover))
                 {
-                    ((InnerTagRemover)chain).Tags.Clear();
+                    ((BaseHTMLCleaner.InnerTagRemover)chain).Tags.Clear();
                     foreach (var t in config.InnerTagRemoverConfig.Tags)
                     {
-                        ((InnerTagRemover)chain).Tags.Add(new TagToRemove(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHTMLCleaner.InnerTagRemover)chain).Tags.Add(new BaseHTMLCleaner.TagToRemove(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 
-                if (chain.GetType() == typeof(TagWithTextRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.TagWithTextRemover))
                 {
-                    ((TagWithTextRemover)chain).Tags.Clear();
+                    ((BaseHTMLCleaner.TagWithTextRemover)chain).Tags.Clear();
                     foreach (var t in config.TagWithTextRemoverConfig.Tags)
                     {
-                        ((TagWithTextRemover)chain).Tags.Add(new TagToRemove(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHTMLCleaner.TagWithTextRemover)chain).Tags.Add(new BaseHTMLCleaner.TagToRemove(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 
-                if (chain.GetType() == typeof(URLFormatter))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.URLFormatter))
                 {
 
                 }
 
-                if (chain.GetType() == typeof(TextFormatter))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.TextFormatter))
                 {
                     var b = new byte[config.TextFormatterConfig.Delimiters.Length];
                     for (var i = 0; i < config.TextFormatterConfig.Delimiters.Length; i++)
@@ -74,7 +74,7 @@ namespace HTMLCleanup
                         b[i] = config.TextFormatterConfig.Delimiters[i].SymbolCode;
                     }
 
-                    ((TextFormatter)chain).Delimiters = Encoding.ASCII.GetChars(b);
+                    ((BaseHTMLCleaner.TextFormatter)chain).Delimiters = Encoding.ASCII.GetChars(b);
                 }
 
                 chain = chain.Next;
@@ -87,82 +87,82 @@ namespace HTMLCleanup
         /// </summary>
         /// <param name="fileName">Имя файла для сохранения конфигурации.</param>
         /// <param name="chain">Первый объект в цепочке обработчиков.</param>
-        public void Serialize(string fileName, TextProcessor chain)
+        public void Serialize(string fileName, BaseHTMLCleaner.TextProcessor chain)
         {
             var config = new HTMLCleanupConfig();
             while (chain != null)
             {
-                if (chain.GetType() == typeof(ParagraphExtractor))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.ParagraphExtractor))
                 {
 
                 }
 
-                if (chain.GetType() == typeof(SpecialHTMLRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.SpecialHTMLRemover))
                 {
                     config.SpecialHTMLRemoverConfig = new SpecialHTMLRemoverType
                     {
-                        SpecialHTML = new SpecialHTMLSymbolType[((SpecialHTMLRemover) chain).SpecialHTML.Count]
+                        SpecialHTML = new SpecialHTMLSymbolType[((BaseHTMLCleaner.SpecialHTMLRemover) chain).SpecialHTML.Count]
                     };
 
-                    for (var i = 0; i < ((SpecialHTMLRemover) chain).SpecialHTML.Count; i++)
+                    for (var i = 0; i < ((BaseHTMLCleaner.SpecialHTMLRemover) chain).SpecialHTML.Count; i++)
                     {
                         config.SpecialHTMLRemoverConfig.SpecialHTML[i] = new SpecialHTMLSymbolType
                         {
-                            SpecialHTML = ((SpecialHTMLRemover) chain).SpecialHTML[i].SpecialHTML, 
-                            Replacement = ((SpecialHTMLRemover) chain).SpecialHTML[i].Replacement
+                            SpecialHTML = ((BaseHTMLCleaner.SpecialHTMLRemover) chain).SpecialHTML[i].SpecialHTML, 
+                            Replacement = ((BaseHTMLCleaner.SpecialHTMLRemover) chain).SpecialHTML[i].Replacement
                         };
                     }
                 }
 
-                if (chain.GetType() == typeof(InnerTagRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.InnerTagRemover))
                 {
                     config.InnerTagRemoverConfig = new InnerTagRemoverType()
                     {
-                        Tags = new TagToRemoveType[((InnerTagRemover) chain).Tags.Count]
+                        Tags = new TagToRemoveType[((BaseHTMLCleaner.InnerTagRemover) chain).Tags.Count]
                     };
 
-                    for (var i = 0; i < ((InnerTagRemover) chain).Tags.Count; i++)
+                    for (var i = 0; i < ((BaseHTMLCleaner.InnerTagRemover) chain).Tags.Count; i++)
                     {
                         config.InnerTagRemoverConfig.Tags[i] = new TagToRemoveType
                         {
-                            StartTagWithoutBracket = ((InnerTagRemover) chain).Tags[i].StartTag, 
-                            EndTag = ((InnerTagRemover) chain).Tags[i].EndTag
+                            StartTagWithoutBracket = ((BaseHTMLCleaner.InnerTagRemover) chain).Tags[i].StartTag, 
+                            EndTag = ((BaseHTMLCleaner.InnerTagRemover) chain).Tags[i].EndTag
                         };
                     }
                 }
 
-                if (chain.GetType() == typeof(TagWithTextRemover))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.TagWithTextRemover))
                 {
                     config.TagWithTextRemoverConfig = new TagWithTextRemoverType()
                     {
-                        Tags = new TagToRemoveType[((TagWithTextRemover) chain).Tags.Count]
+                        Tags = new TagToRemoveType[((BaseHTMLCleaner.TagWithTextRemover) chain).Tags.Count]
                     };
 
-                    for (var i = 0; i < ((TagWithTextRemover) chain).Tags.Count; i++)
+                    for (var i = 0; i < ((BaseHTMLCleaner.TagWithTextRemover) chain).Tags.Count; i++)
                     {
                         config.TagWithTextRemoverConfig.Tags[i] = new TagToRemoveType()
                         {
-                            StartTagWithoutBracket = ((TagWithTextRemover) chain).Tags[i].StartTag,
-                            EndTag = ((TagWithTextRemover) chain).Tags[i].EndTag
+                            StartTagWithoutBracket = ((BaseHTMLCleaner.TagWithTextRemover) chain).Tags[i].StartTag,
+                            EndTag = ((BaseHTMLCleaner.TagWithTextRemover) chain).Tags[i].EndTag
                         };
                     }
                 }
 
-                if (chain.GetType() == typeof(URLFormatter))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.URLFormatter))
                 {
 
                 }
 
-                if (chain.GetType() == typeof(TextFormatter))
+                if (chain.GetType() == typeof(BaseHTMLCleaner.TextFormatter))
                 {
                     config.TextFormatterConfig = new TextFormatterType()
                     {
-                        Delimiters = new DelimiterSymbolType[((TextFormatter) chain).Delimiters.Length]
+                        Delimiters = new DelimiterSymbolType[((BaseHTMLCleaner.TextFormatter) chain).Delimiters.Length]
                     };
 
-                    for (var i = 0; i < ((TextFormatter) chain).Delimiters.Length; i++)
+                    for (var i = 0; i < ((BaseHTMLCleaner.TextFormatter) chain).Delimiters.Length; i++)
                     {
-                        var b = Encoding.ASCII.GetBytes(((TextFormatter) chain).Delimiters);
+                        var b = Encoding.ASCII.GetBytes(((BaseHTMLCleaner.TextFormatter) chain).Delimiters);
                         config.TextFormatterConfig.Delimiters[i] = new DelimiterSymbolType()
                         {
                             SymbolCode = b[i]
