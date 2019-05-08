@@ -11,7 +11,7 @@ namespace HTMLCleanup
     /// Требуется для того, чтобы можно было свободно 
     /// регенерировать класс конфигурации по XSD-файлу.
     /// </summary>
-    class ConfigSerializer
+    class CleanerConfigSerializer : ICleanerConfigSerializer
     {
         /// <summary>
         /// Восстанавливает конфигурацию объектов по данным из файла.

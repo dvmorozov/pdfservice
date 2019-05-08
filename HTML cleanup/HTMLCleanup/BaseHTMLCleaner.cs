@@ -604,7 +604,7 @@ namespace HTMLCleanup
         private static void ReadConfiguration(TextProcessor chain)
         {
             var pathToConfig = GetConfigurationFileName();
-            var serializer = new ConfigSerializer();
+            var serializer = new CleanerConfigSerializer();
             serializer.Deserialize(pathToConfig, chain);
         }
 
@@ -613,7 +613,7 @@ namespace HTMLCleanup
             TextProcessor processingChain = CreateProcessingChain();
 
             var pathToConfig = GetConfigurationFileName();
-            var serializer = new ConfigSerializer();
+            var serializer = new CleanerConfigSerializer();
             serializer.Serialize(pathToConfig, processingChain);
         }
 

@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs
+/HTML cleanup/HTMLCleanup/bin/Debug
+/HTML cleanup/HTMLCleanup/obj/x86
+/HTML cleanup/HTMLCleanup/packages
+/HTML cleanup/HTMLCleanup/.vs
+/HTML cleanup/HTMLCleanupTests/bin/Debug
+/HTML cleanup/HTMLCleanupTests/obj/Debug
+/packages
+/PdfService/bin
+/PdfService/obj
