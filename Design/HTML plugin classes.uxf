@@ -174,14 +174,16 @@ configuration.</panel_attributes>
   <element>
     <id>UMLInterface</id>
     <coordinates>
-      <x>377</x>
+      <x>338</x>
       <y>741</y>
-      <w>208</w>
-      <h>117</h>
+      <w>286</w>
+      <h>156</h>
     </coordinates>
-    <panel_attributes>ICleanerConfig
+    <panel_attributes>IInjectorConfigSerializer
 --
-GetCleanerList(): List</panel_attributes>
+GetCleanerList(): List
+Deserialize(string fileName, ...)
+Serialize(string fileName, ...)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -203,7 +205,7 @@ GetCleanerList(): List</panel_attributes>
       <w>234</w>
       <h>65</h>
     </coordinates>
-    <panel_attributes>CleanerConfig</panel_attributes>
+    <panel_attributes>InjectorConfigSerializer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -249,7 +251,7 @@ from Web.config.</panel_attributes>
       <w>286</w>
       <h>130</h>
     </coordinates>
-    <panel_attributes>IConfigSerializer
+    <panel_attributes>ICleanerConfigSerializer
 --
 Deserialize(string fileName, ...)
 Serialize(string fileName, ...)</panel_attributes>
@@ -263,7 +265,7 @@ Serialize(string fileName, ...)</panel_attributes>
       <w>234</w>
       <h>65</h>
     </coordinates>
-    <panel_attributes>ConfigSerializer</panel_attributes>
+    <panel_attributes>CleanerConfigSerializer</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -325,9 +327,9 @@ inversion.</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1573</x>
+      <x>1560</x>
       <y>598</y>
-      <w>208</w>
+      <w>234</w>
       <h>117</h>
     </coordinates>
     <panel_attributes>According to single 
