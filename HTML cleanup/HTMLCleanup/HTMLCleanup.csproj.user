@@ -4,4 +4,7 @@
     <StartArguments>"https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/"</StartArguments>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>"https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/"</StartArguments>
+  </PropertyGroup>
 </Project>

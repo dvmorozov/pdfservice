@@ -16,3 +16,5 @@
 /PdfService/Properties/PublishProfiles/pdfsrvc - Web Deploy.pubxml
 /PdfService/Properties/PublishProfiles/pdfsrvc - FTP.pubxml.user
 /PdfService/Properties/PublishProfiles/pdfsrvc - FTP.pubxml
+/HTML cleanup/HTMLCleanup/obj
+/HTML cleanup/HTMLCleanupTests/obj/Release
