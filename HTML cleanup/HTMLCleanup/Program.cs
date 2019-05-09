@@ -85,7 +85,6 @@ namespace HTMLCleanup
             {
                 var url = args[0];
 
-
                 //  Выполняет запрос.
                 var s = MakeRequest(url);
 

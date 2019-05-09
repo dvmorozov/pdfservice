@@ -24,6 +24,8 @@ namespace HTMLCleanup.Config {
     [System.Xml.Serialization.XmlRootAttribute(Namespace="urn:xmlns:HTMLCleanupConfig", IsNullable=false)]
     public partial class HTMLCleanupConfig {
         
+        private TextProcessorType textProcessorConfigField;
+        
         private ParagraphExtractorType paragraphExtractorConfigField;
         
         private SpecialHTMLRemoverType specialHTMLRemoverConfigField;
@@ -35,6 +37,16 @@ namespace HTMLCleanup.Config {
         private URLFormatterType uRLFormatterConfigField;
         
         private TextFormatterType textFormatterConfigField;
+        
+        /// <remarks/>
+        public TextProcessorType TextProcessorConfig {
+            get {
+                return this.textProcessorConfigField;
+            }
+            set {
+                this.textProcessorConfigField = value;
+            }
+        }
         
         /// <remarks/>
         public ParagraphExtractorType ParagraphExtractorConfig {
@@ -98,12 +110,30 @@ namespace HTMLCleanup.Config {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextFormatterType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(URLFormatterType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TagWithTextRemoverType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InnerTagRemoverType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialHTMLRemoverType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParagraphExtractorType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class ParagraphExtractorType {
+    public partial class TextProcessorType {
+        
+        private bool skippedField;
+        
+        /// <remarks/>
+        public bool Skipped {
+            get {
+                return this.skippedField;
+            }
+            set {
+                this.skippedField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -123,59 +153,6 @@ namespace HTMLCleanup.Config {
             }
             set {
                 this.symbolCodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class TextFormatterType {
-        
-        private DelimiterSymbolType[] delimitersField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("DelimiterSymbol", IsNullable=false)]
-        public DelimiterSymbolType[] Delimiters {
-            get {
-                return this.delimitersField;
-            }
-            set {
-                this.delimitersField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class URLFormatterType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class TagWithTextRemoverType {
-        
-        private TagToRemoveType[] tagsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Tag", IsNullable=false)]
-        public TagToRemoveType[] Tags {
-            get {
-                return this.tagsField;
-            }
-            set {
-                this.tagsField = value;
             }
         }
     }
@@ -219,28 +196,6 @@ namespace HTMLCleanup.Config {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class InnerTagRemoverType {
-        
-        private TagToRemoveType[] tagsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Tag", IsNullable=false)]
-        public TagToRemoveType[] Tags {
-            get {
-                return this.tagsField;
-            }
-            set {
-                this.tagsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
     public partial class SpecialHTMLSymbolType {
         
         private string specialHTMLField;
@@ -274,7 +229,82 @@ namespace HTMLCleanup.Config {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
-    public partial class SpecialHTMLRemoverType {
+    public partial class TextFormatterType : TextProcessorType {
+        
+        private DelimiterSymbolType[] delimitersField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("DelimiterSymbol", IsNullable=false)]
+        public DelimiterSymbolType[] Delimiters {
+            get {
+                return this.delimitersField;
+            }
+            set {
+                this.delimitersField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class URLFormatterType : TextProcessorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class TagWithTextRemoverType : TextProcessorType {
+        
+        private TagToRemoveType[] tagsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Tag", IsNullable=false)]
+        public TagToRemoveType[] Tags {
+            get {
+                return this.tagsField;
+            }
+            set {
+                this.tagsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class InnerTagRemoverType : TextProcessorType {
+        
+        private TagToRemoveType[] tagsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Tag", IsNullable=false)]
+        public TagToRemoveType[] Tags {
+            get {
+                return this.tagsField;
+            }
+            set {
+                this.tagsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class SpecialHTMLRemoverType : TextProcessorType {
         
         private SpecialHTMLSymbolType[] specialHTMLField;
         
@@ -288,5 +318,14 @@ namespace HTMLCleanup.Config {
                 this.specialHTMLField = value;
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class ParagraphExtractorType : TextProcessorType {
     }
 }

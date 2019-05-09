@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HTMLCleanupConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:xmlns:HTMLCleanupConfig">
+<HTMLCleanupConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:xmlns:HTMLCleanupConfig">
   <SpecialHTMLRemoverConfig>
+    <Skipped>false</Skipped>
     <SpecialHTML>
       <SpecialHTMLSymbol>
         <SpecialHTML>&amp;#8211;</SpecialHTML>
@@ -21,6 +22,7 @@
     </SpecialHTML>
   </SpecialHTMLRemoverConfig>
   <InnerTagRemoverConfig>
+    <Skipped>false</Skipped>
     <Tags>
       <Tag>
         <StartTagWithoutBracket>&lt;ul</StartTagWithoutBracket>
@@ -113,6 +115,7 @@
     </Tags>
   </InnerTagRemoverConfig>
   <TagWithTextRemoverConfig>
+    <Skipped>false</Skipped>
     <Tags>
       <Tag>
         <StartTagWithoutBracket>&lt;script</StartTagWithoutBracket>
@@ -185,6 +188,7 @@
     </Tags>
   </TagWithTextRemoverConfig>
   <TextFormatterConfig>
+    <Skipped>false</Skipped>
     <Delimiters>
       <DelimiterSymbol>
         <SymbolCode>32</SymbolCode>

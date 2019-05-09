@@ -3,6 +3,7 @@
   <xs:element name="HTMLCleanupConfig">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="TextProcessorConfig" type="htmlCleanup:TextProcessorType"></xs:element>
         <xs:element name="ParagraphExtractorConfig" type="htmlCleanup:ParagraphExtractorType"></xs:element>
         <xs:element name="SpecialHTMLRemoverConfig" type="htmlCleanup:SpecialHTMLRemoverType"></xs:element>
         <xs:element name="InnerTagRemoverConfig" type="htmlCleanup:InnerTagRemoverType"></xs:element>
@@ -13,15 +14,29 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:complexType name="ParagraphExtractorType">
+  <xs:complexType name="TextProcessorType">
     <xs:sequence>
-    </xs:sequence> 
+      <xs:element name="Skipped" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ParagraphExtractorType">
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="SpecialHTMLRemoverType">
-    <xs:sequence>
-      <xs:element name="SpecialHTML" type="htmlCleanup:SpecialHTMLSymbolListType" />
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+          <xs:element name="SpecialHTML" type="htmlCleanup:SpecialHTMLSymbolListType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="SpecialHTMLSymbolListType">
@@ -38,9 +53,13 @@
   </xs:complexType>
 
   <xs:complexType name="InnerTagRemoverType">
-    <xs:sequence>
-      <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+          <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="TagToRemoveListType">
@@ -57,20 +76,32 @@
   </xs:complexType>
 
   <xs:complexType name="TagWithTextRemoverType">
-    <xs:sequence>
-      <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+          <xs:element name="Tags" type="htmlCleanup:TagToRemoveListType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="URLFormatterType">
-    <xs:sequence>
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="TextFormatterType">
-    <xs:sequence>
-      <xs:element name="Delimiters" type="htmlCleanup:DelimiterListType" />
-    </xs:sequence>
+    <xs:complexContent>
+      <xs:extension base="htmlCleanup:TextProcessorType">
+        <xs:sequence>
+          <xs:element name="Delimiters" type="htmlCleanup:DelimiterListType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="DelimiterListType">

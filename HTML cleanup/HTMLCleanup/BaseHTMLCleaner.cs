@@ -188,6 +188,10 @@ namespace HTMLCleanup
         public abstract class TextProcessor
         {
             private readonly TextProcessor _next;
+            /// <summary>
+            /// Controls if object of inherited class is actually used in the processing chain.
+            /// </summary>
+            private bool _skipped;
 
             /// <summary>
             /// Возвращает следующий обработчик.
@@ -198,6 +202,18 @@ namespace HTMLCleanup
                 get
                 {
                     return _next;
+                }
+            }
+
+            public bool Skipped
+            {
+                get
+                {
+                    return _skipped;
+                }
+                set
+                {
+                    _skipped = value;
                 }
             }
 
