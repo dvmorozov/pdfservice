@@ -12,3 +12,7 @@
 /packages
 /PdfService/bin
 /PdfService/obj
+/PdfService/Properties/PublishProfiles/pdfsrvc - Web Deploy.pubxml.user
+/PdfService/Properties/PublishProfiles/pdfsrvc - Web Deploy.pubxml
+/PdfService/Properties/PublishProfiles/pdfsrvc - FTP.pubxml.user
+/PdfService/Properties/PublishProfiles/pdfsrvc - FTP.pubxml
