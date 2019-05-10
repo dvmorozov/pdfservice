@@ -19,6 +19,10 @@
         <SpecialHTML>&amp;gt;</SpecialHTML>
         <Replacement>&gt;</Replacement>
       </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;amp;</SpecialHTML>
+        <Replacement>&amp;</Replacement>
+      </SpecialHTMLSymbol>
     </SpecialHTML>
   </SpecialHTMLRemoverConfig>
   <InnerTagRemoverConfig>
@@ -144,6 +148,10 @@
       <Tag>
         <StartTagWithoutBracket>&lt;svg</StartTagWithoutBracket>
         <EndTag>&lt;/svg&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;sup</StartTagWithoutBracket>
+        <EndTag>&lt;/sup&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;input</StartTagWithoutBracket>

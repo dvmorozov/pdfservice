@@ -292,7 +292,8 @@ namespace HTMLCleanup
             new SpecialHTMLSymbol( "&#8211;", "-" ),
             new SpecialHTMLSymbol( "&#8217;", "'" ),
             new SpecialHTMLSymbol( "&lt;", "<" ),
-            new SpecialHTMLSymbol( "&gt;", ">" )
+            new SpecialHTMLSymbol( "&gt;", ">" ),
+            new SpecialHTMLSymbol( "&amp;", "&" )
         });
 
             public List<SpecialHTMLSymbol> SpecialHTML
@@ -439,6 +440,7 @@ namespace HTMLCleanup
             new TagToRemove( "<meta", "" ),
             new TagToRemove( "<iframe", "</iframe>" ),
             new TagToRemove( "<svg", "</svg>" ),
+            new TagToRemove( "<sup", "</sup>" ),
             new TagToRemove( "<input", "" ),
             new TagToRemove( "<label", "</label>" ),
             new TagToRemove( "<form", "</form>" ),
