@@ -31,11 +31,12 @@ namespace HTMLCleanup
             {
                 if (chain.GetType() == typeof(BaseHTMLCleaner.ParagraphExtractor))
                 {
-
+                    ((BaseHTMLCleaner.ParagraphExtractor)chain).Skipped = config.ParagraphExtractorConfig.Skipped;
                 }
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.SpecialHTMLRemover))
                 {
+                    ((BaseHTMLCleaner.SpecialHTMLRemover)chain).Skipped = config.SpecialHTMLRemoverConfig.Skipped;
                     ((BaseHTMLCleaner.SpecialHTMLRemover)chain).SpecialHTML.Clear();
                     foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
                     {
@@ -45,6 +46,7 @@ namespace HTMLCleanup
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.InnerTagRemover))
                 {
+                    ((BaseHTMLCleaner.InnerTagRemover)chain).Skipped = config.InnerTagRemoverConfig.Skipped;
                     ((BaseHTMLCleaner.InnerTagRemover)chain).Tags.Clear();
                     foreach (var t in config.InnerTagRemoverConfig.Tags)
                     {
@@ -54,6 +56,7 @@ namespace HTMLCleanup
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.TagWithTextRemover))
                 {
+                    ((BaseHTMLCleaner.TagWithTextRemover)chain).Skipped = config.TagWithTextRemoverConfig.Skipped;
                     ((BaseHTMLCleaner.TagWithTextRemover)chain).Tags.Clear();
                     foreach (var t in config.TagWithTextRemoverConfig.Tags)
                     {
@@ -63,11 +66,12 @@ namespace HTMLCleanup
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.URLFormatter))
                 {
-
+                    ((BaseHTMLCleaner.URLFormatter)chain).Skipped = config.URLFormatterConfig.Skipped;
                 }
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.TextFormatter))
                 {
+                    ((BaseHTMLCleaner.TextFormatter)chain).Skipped = config.TextFormatterConfig.Skipped;
                     var b = new byte[config.TextFormatterConfig.Delimiters.Length];
                     for (var i = 0; i < config.TextFormatterConfig.Delimiters.Length; i++)
                     {
@@ -94,13 +98,17 @@ namespace HTMLCleanup
             {
                 if (chain.GetType() == typeof(BaseHTMLCleaner.ParagraphExtractor))
                 {
-
+                    config.ParagraphExtractorConfig = new ParagraphExtractorType
+                    {
+                        Skipped = ((BaseHTMLCleaner.ParagraphExtractor)chain).Skipped
+                    };
                 }
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.SpecialHTMLRemover))
                 {
                     config.SpecialHTMLRemoverConfig = new SpecialHTMLRemoverType
                     {
+                        Skipped = ((BaseHTMLCleaner.SpecialHTMLRemover)chain).Skipped,
                         SpecialHTML = new SpecialHTMLSymbolType[((BaseHTMLCleaner.SpecialHTMLRemover) chain).SpecialHTML.Count]
                     };
 
@@ -118,6 +126,7 @@ namespace HTMLCleanup
                 {
                     config.InnerTagRemoverConfig = new InnerTagRemoverType()
                     {
+                        Skipped = ((BaseHTMLCleaner.InnerTagRemover)chain).Skipped,
                         Tags = new TagToRemoveType[((BaseHTMLCleaner.InnerTagRemover) chain).Tags.Count]
                     };
 
@@ -135,6 +144,7 @@ namespace HTMLCleanup
                 {
                     config.TagWithTextRemoverConfig = new TagWithTextRemoverType()
                     {
+                        Skipped = ((BaseHTMLCleaner.TagWithTextRemover)chain).Skipped,
                         Tags = new TagToRemoveType[((BaseHTMLCleaner.TagWithTextRemover) chain).Tags.Count]
                     };
 
@@ -150,13 +160,17 @@ namespace HTMLCleanup
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.URLFormatter))
                 {
-
+                    config.URLFormatterConfig = new URLFormatterType
+                    {
+                        Skipped = ((BaseHTMLCleaner.URLFormatter)chain).Skipped
+                    };
                 }
 
                 if (chain.GetType() == typeof(BaseHTMLCleaner.TextFormatter))
                 {
                     config.TextFormatterConfig = new TextFormatterType()
                     {
+                        Skipped = ((BaseHTMLCleaner.TextFormatter)chain).Skipped,
                         Delimiters = new DelimiterSymbolType[((BaseHTMLCleaner.TextFormatter) chain).Delimiters.Length]
                     };
 

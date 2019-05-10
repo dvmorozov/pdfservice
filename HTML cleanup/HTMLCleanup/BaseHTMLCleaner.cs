@@ -253,7 +253,13 @@ namespace HTMLCleanup
         /// </summary>
         public class ParagraphExtractor : TextProcessor
         {
-            public ParagraphExtractor(TextProcessor next) : base(next) { }
+            public ParagraphExtractor(TextProcessor next) : base(next)
+            {
+                //  By default isn't used in processing chain.
+                //  Can be enabled by configuration file, using
+                //  should be consistent with using other parts.
+                Skipped = true;
+            }
 
             protected override string ActualProcessing(string text)
             {
@@ -619,12 +625,11 @@ namespace HTMLCleanup
             return  //  Создает последовательность обработки (имеет значение).
                 new TagWithTextRemover(
                     new SpecialHTMLRemover(
-                            //  Using of paragraph extractor must be configurable.
-                            //new ParagraphExtractor(
+                        new ParagraphExtractor(
                             new URLFormatter(
                                 new InnerTagRemover(
                                     new TextFormatter(null)
-                                ))));//);
+                                )))));
 
         }
 

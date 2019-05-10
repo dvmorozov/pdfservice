@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HTMLCleanupConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:xmlns:HTMLCleanupConfig">
+  <ParagraphExtractorConfig>
+    <Skipped>true</Skipped>
+  </ParagraphExtractorConfig>
   <SpecialHTMLRemoverConfig>
     <Skipped>false</Skipped>
     <SpecialHTML>
@@ -195,6 +198,9 @@
       </Tag>
     </Tags>
   </TagWithTextRemoverConfig>
+  <URLFormatterConfig>
+    <Skipped>false</Skipped>
+  </URLFormatterConfig>
   <TextFormatterConfig>
     <Skipped>false</Skipped>
     <Delimiters>
