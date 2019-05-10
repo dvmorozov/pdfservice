@@ -223,14 +223,28 @@ namespace HTMLCleanup
             }
 
             /// <summary>
+            /// Does actual text processing. Should be implemented in 
+            /// descendant classes.
+            /// </summary>
+            /// <param name="original">HTML text partially processed at previous stages.</param>
+            /// <returns>Processed HTML text.</returns>
+            protected abstract string ActualProcessing(string original);
+
+            /// <summary>
             /// Обрабатывает текст и вызывает следующий метод обработки в цепочке.
             /// </summary>
-            /// <param name="text">Исходный текст.</param>
+            /// <param name="original">Исходный текст.</param>
             /// <returns>Обработанный текст.</returns>
-            public virtual string Process(string text)
+            public string Process(string original)
             {
-                if (_next != null) return _next.Process(text);
-                else return text;
+                //  Does processing, if enabled and then calls
+                //  next processing algorithm in the chain.
+                var processed = original;
+                if (!Skipped)
+                    processed = ActualProcessing(original);
+
+                if (_next != null) return _next.Process(processed);
+                else return processed;
             }
         }
 
@@ -241,7 +255,7 @@ namespace HTMLCleanup
         {
             public ParagraphExtractor(TextProcessor next) : base(next) { }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
@@ -260,7 +274,7 @@ namespace HTMLCleanup
                 }
                 while (true);
 
-                return base.Process(result);
+                return result;
             }
         }
 
@@ -308,7 +322,7 @@ namespace HTMLCleanup
             {
             }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 //  This symbol is added bypassing configuration file
                 //  because string consisting only from spaces is read
@@ -321,7 +335,7 @@ namespace HTMLCleanup
                     text = text.Replace(sp.SpecialHTML, sp.Replacement);
                 }
 
-                return base.Process(text);
+                return text;
             }
         }
 
@@ -402,7 +416,7 @@ namespace HTMLCleanup
             {
             }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 for (var i = 0; i < _tags.Count; i++)
                 {
@@ -417,7 +431,7 @@ namespace HTMLCleanup
                     while (true);
                     text = el.Text;
                 }
-                return base.Process(text);
+                return text;
             }
         }
 
@@ -471,7 +485,7 @@ namespace HTMLCleanup
             {
             }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 foreach (var t in _tags)
                 {
@@ -485,7 +499,7 @@ namespace HTMLCleanup
                     while (true);
                     text = el.Text;
                 }
-                return base.Process(text);
+                return text;
             }
         }
 
@@ -499,7 +513,7 @@ namespace HTMLCleanup
             {
             }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 HTMLElement el = new HTMLElement("<a", "</a>", text);
@@ -518,7 +532,7 @@ namespace HTMLCleanup
 
                 text = el.Text;
 
-                return base.Process(text);
+                return text;
             }
         }
 
@@ -554,7 +568,7 @@ namespace HTMLCleanup
             {
             }
 
-            public override string Process(string text)
+            protected override string ActualProcessing(string text)
             {
                 var pos = 0;
                 var result = String.Empty;
@@ -597,7 +611,7 @@ namespace HTMLCleanup
                     }
                 }
                 while (true);
-                return base.Process(result);
+                return result;
             }
         }
 
