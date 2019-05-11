@@ -372,6 +372,8 @@ namespace HTMLCleanup
             }
         }
 
+        protected abstract InnerTagRemover GetInnerTagRemover(TextProcessor next);
+
         /// <summary>
         /// Удаляет тэги внутри параграфов, сохраняя внутренний текст.
         /// </summary>
@@ -383,36 +385,18 @@ namespace HTMLCleanup
             /// be arranged in the reverse lexigraphical order. The first tag must
             /// not include closing bracket.
             /// </summary>
-            private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
-            new TagToRemove( "<ul", "</ul>" ),
-            new TagToRemove( "<title", "</title>" ),
-            new TagToRemove( "<strong", "</strong>" ),
-            new TagToRemove( "<span", "</span>" ),
-            new TagToRemove( "<small", "</small>" ),
-            new TagToRemove( "<pre", "</pre>" ),
-            new TagToRemove( "<p", "</p>" ),
-            new TagToRemove( "<main", "</main>" ),
-            new TagToRemove( "<li", "</li>" ),
-            new TagToRemove( "<html", "</html>" ),
-            new TagToRemove( "<header", "</header>" ),
-            new TagToRemove( "<head", "</head>" ),
-            new TagToRemove( "<h3", "</h3>" ),
-            new TagToRemove( "<h3", "</h3>" ),
-            new TagToRemove( "<h2", "</h2>" ),
-            new TagToRemove( "<h1", "</h1>" ),
-            new TagToRemove( "<footer", "</footer>" ),
-            new TagToRemove( "<em", "</em>" ),
-            new TagToRemove( "<div", "</div>" ),
-            new TagToRemove( "<code", "</code>" ),
-            new TagToRemove( "<body", "</body>" ),
-            new TagToRemove( "<article", "</article>" )
-        });
+            private List<TagToRemove> _tags;
 
             public List<TagToRemove> Tags
             {
                 get
                 {
                     return _tags;
+                }
+                //  Writeable for external initialization.
+                set
+                {
+                    _tags = value;
                 }
             }
 
@@ -441,6 +425,14 @@ namespace HTMLCleanup
         }
 
         /// <summary>
+        /// Creates and initializes domain-specific instance of TagWithTextRemover.
+        /// </summary>
+        /// <param name="next">Next processing object in the chain.</param>
+        /// <returns>Instance of TagWithTextRemover specific for the domain supported
+        /// by inherited class.</returns>
+        protected abstract TagWithTextRemover GetTagWithTextRemover(TextProcessor next);
+
+        /// <summary>
         /// Удаляет тэги вместе со внутренним текстом.
         /// </summary>
         public class TagWithTextRemover : TextProcessor
@@ -451,26 +443,7 @@ namespace HTMLCleanup
             /// corresponding value should be empty string. Tags must be in the 
             /// reverse lexigraphical order.
             /// </summary>
-            private List<TagToRemove> _tags = new List<TagToRemove>(new TagToRemove[] {
-            new TagToRemove( "<script", "</script>" ),
-            new TagToRemove( "<style", "</style>" ),
-            new TagToRemove( "<link", "" ),
-            new TagToRemove( "<path", "</path>" ),
-            new TagToRemove( "<meta", "" ),
-            new TagToRemove( "<iframe", "</iframe>" ),
-            new TagToRemove( "<svg", "</svg>" ),
-            new TagToRemove( "<sup", "</sup>" ),
-            new TagToRemove( "<input", "" ),
-            new TagToRemove( "<label", "</label>" ),
-            new TagToRemove( "<form", "</form>" ),
-            new TagToRemove( "<noscript", "</noscript>" ),
-            new TagToRemove( "<nav", "</nav>" ),
-            new TagToRemove( "<!DOCTYPE", "" ),
-            new TagToRemove( "<button", "</button>" ),
-            new TagToRemove( "<aside", "</aside>" ),
-            new TagToRemove( "<!--[if", "<![endif]-->" ),
-            new TagToRemove( "<!--", "" )
-        });
+            private List<TagToRemove> _tags;
 
             public List<TagToRemove> Tags
             {
@@ -478,7 +451,7 @@ namespace HTMLCleanup
                 {
                     return _tags;
                 }
-                //  Writeable for unit-testing.
+                //  Writeable for external initialization.
                 set
                 {
                     _tags = value;
@@ -622,11 +595,12 @@ namespace HTMLCleanup
 
         protected virtual TextProcessor CreateProcessingChain() {
             return  //  Создает последовательность обработки (имеет значение).
-                new TagWithTextRemover(
+                GetTagWithTextRemover(
                     new SpecialHTMLRemover(
+                        //  By default ParagraphExtractor is disabled (see constructor).
                         new ParagraphExtractor(
                             new URLFormatter(
-                                new InnerTagRemover(
+                                GetInnerTagRemover(
                                     new TextFormatter(null)
                                 )))));
 
