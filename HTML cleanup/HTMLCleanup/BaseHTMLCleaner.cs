@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace HTMLCleanup
 {
     //  Must be public to be accessible from unit-tests.
-    public class BaseHTMLCleaner : IHTMLCleaner
+    public abstract class BaseHTMLCleaner : IHTMLCleaner
     {
         public class HTMLElement
         {
@@ -621,7 +620,7 @@ namespace HTMLCleanup
             }
         }
 
-        private static TextProcessor CreateProcessingChain() {
+        protected virtual TextProcessor CreateProcessingChain() {
             return  //  Создает последовательность обработки (имеет значение).
                 new TagWithTextRemover(
                     new SpecialHTMLRemover(
@@ -633,19 +632,16 @@ namespace HTMLCleanup
 
         }
 
-        private static string GetConfigurationFileName()
-        {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "Config.xml";
-        }
+        protected abstract string GetConfigurationFileName();
 
-        private static void ReadConfiguration(TextProcessor chain)
+        protected void ReadConfiguration(TextProcessor chain)
         {
             var pathToConfig = GetConfigurationFileName();
             var serializer = new CleanerConfigSerializer();
             serializer.Deserialize(pathToConfig, chain);
         }
 
-        public static void WriteConfiguration()
+        public void WriteConfiguration()
         {
             TextProcessor processingChain = CreateProcessingChain();
 

@@ -79,7 +79,7 @@ namespace HTMLCleanup
 
         static void Main(string[] args)
         {
-            var processChain = new BaseHTMLCleaner();
+            var processChain = new UniversalHTMLCleaner();
 
             if (args.Count() != 0)
             {
@@ -102,7 +102,7 @@ namespace HTMLCleanup
             else
             {
                 //  Writes template of configuration file.
-                BaseHTMLCleaner.WriteConfiguration();
+                processChain.WriteConfiguration();
             }
         }
     }
