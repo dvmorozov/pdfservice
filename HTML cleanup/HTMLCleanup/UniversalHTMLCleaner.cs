@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
-    class UniversalHTMLCleaner : BaseHTMLCleaner
+    class UniversalHtmlCleaner : BaseHtmlCleaner
     {
         protected override TagWithTextRemover GetTagWithTextRemover(TextProcessor next)
         {

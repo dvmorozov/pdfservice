@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
     //  Must be public to be accessible from unit-tests.
-    public abstract class BaseHTMLCleaner : IHTMLCleaner
+    public abstract class BaseHtmlCleaner : IHtmlCleaner
     {
-        public class HTMLTag
+        public class HtmlTag
         {
             private string _startTag;
             private string _endTag;
 
-            public HTMLTag(string startTag, string endTag)
+            public HtmlTag(string startTag, string endTag)
             {
                 _startTag = startTag;
                 _endTag = endTag;
@@ -34,7 +34,7 @@ namespace HTMLCleanup
             }
         }
 
-        public class HTMLElement
+        public class HtmlElement
         {
             private string _text;
             private int _startPos = 0;
@@ -53,7 +53,7 @@ namespace HTMLCleanup
                 }
             }
 
-            public HTMLElement(string startTag /*Без закрывающей >.*/, string endTag, string text)
+            public HtmlElement(string startTag /*Без закрывающей >.*/, string endTag, string text)
             {
                 _text = text;
                 _startTag = startTag;
@@ -291,9 +291,9 @@ namespace HTMLCleanup
             /// <summary>
             /// Paragraph tag.
             /// </summary>
-            private HTMLTag _tag;
+            private HtmlTag _tag;
 
-            public HTMLTag Tag
+            public HtmlTag Tag
             {
                 get
                 {
@@ -312,14 +312,14 @@ namespace HTMLCleanup
                 //  should be consistent with using other parts.
                 Skipped = true;
                 //  Default paragraph tag.
-                _tag = new HTMLTag("<p", "</p>");
+                _tag = new HtmlTag("<p", "</p>");
             }
 
             protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
-                HTMLElement el = new HTMLElement(_tag.StartTag, _tag.EndTag, text);
+                HtmlElement el = new HtmlElement(_tag.StartTag, _tag.EndTag, text);
                 do
                 {
                     var b = el.FindNext();
@@ -465,7 +465,7 @@ namespace HTMLCleanup
                 for (var i = 0; i < _tags.Count; i++)
                 {
                     var t = _tags[i];
-                    var el = new HTMLElement(t.StartTag, t.EndTag, text);
+                    var el = new HtmlElement(t.StartTag, t.EndTag, text);
                     do
                     {
                         var b = el.FindNext();
@@ -522,7 +522,7 @@ namespace HTMLCleanup
             {
                 foreach (var t in _tags)
                 {
-                    HTMLElement el = new HTMLElement(t.StartTag, t.EndTag, text);
+                    HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text);
                     do
                     {
                         var b = el.FindNext();
@@ -539,9 +539,9 @@ namespace HTMLCleanup
         /// <summary>
         /// Помещает URL в квадратные скобки.
         /// </summary>
-        public class URLFormatter : TextProcessor
+        public class UrlFormatter : TextProcessor
         {
-            public URLFormatter(TextProcessor next)
+            public UrlFormatter(TextProcessor next)
                 : base(next)
             {
             }
@@ -549,7 +549,7 @@ namespace HTMLCleanup
             protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
-                HTMLElement el = new HTMLElement("<a", "</a>", text);
+                HtmlElement el = new HtmlElement("<a", "</a>", text);
 
                 do
                 {
@@ -654,7 +654,7 @@ namespace HTMLCleanup
                     new SpecialHTMLRemover(
                         //  By default ParagraphExtractor is disabled (see constructor).
                         GetParagraphExtractor(
-                            new URLFormatter(
+                            new UrlFormatter(
                                 GetInnerTagRemover(
                                     new TextFormatter(null)
                                 )))));

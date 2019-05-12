@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
-    class WordPressHTMLCleaner : BaseHTMLCleaner
+    class WordPressHtmlCleaner : BaseHtmlCleaner
     {
         protected override TagWithTextRemover GetTagWithTextRemover(TextProcessor next)
         {
@@ -70,7 +70,7 @@ namespace HTMLCleanup
             return new ParagraphExtractor(next)
             {
                 Skipped = false,
-                Tag = new HTMLTag("<p", "</p>")
+                Tag = new HtmlTag("<p", "</p>")
             };
         }
 

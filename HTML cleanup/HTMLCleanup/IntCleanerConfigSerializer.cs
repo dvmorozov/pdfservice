@@ -1,4 +1,4 @@
-﻿namespace HTMLCleanup
+﻿namespace HtmlCleanup
 {
     /// <summary>
     /// Defines operations with HTML-cleaner configuration.
@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="fileName">Имя файла для чтения конфигурации.</param>
         /// <param name="chain">Первый объект в цепочке обработчиков.</param>
-        void Deserialize(string fileName, BaseHTMLCleaner.TextProcessor chain);
+        void Deserialize(string fileName, BaseHtmlCleaner.TextProcessor chain);
 
         /// <summary>
         /// Сканирует цепочку обработчиков и копирует их данные.
@@ -18,6 +18,6 @@
         /// </summary>
         /// <param name="fileName">Имя файла для сохранения конфигурации.</param>
         /// <param name="chain">Первый объект в цепочке обработчиков.</param>
-        void Serialize(string fileName, BaseHTMLCleaner.TextProcessor chain);
+        void Serialize(string fileName, BaseHtmlCleaner.TextProcessor chain);
     }
 }

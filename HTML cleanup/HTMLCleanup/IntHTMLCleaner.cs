@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
-    interface IHTMLCleaner
+    interface IHtmlCleaner
     {
         string Process(string html);
     }

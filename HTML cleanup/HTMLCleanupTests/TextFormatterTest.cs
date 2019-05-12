@@ -1,7 +1,7 @@
-﻿using HTMLCleanup;
+﻿using HtmlCleanup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HTMLCleanupTests
+namespace HtmlCleanupTests
 {
     /// <summary>
     ///     This is a test class for TextFormatterTest and is intended
@@ -58,7 +58,7 @@ namespace HTMLCleanupTests
         [TestMethod]
         public void ProcessTest()
         {
-            var target = new BaseHTMLCleaner.TextFormatter(null);
+            var target = new BaseHtmlCleaner.TextFormatter(null);
             string text = "    К концу XX века многие заговорили об упадке железнодорожного сообщения, выте" +
                           "сняемого более популярными видами транспорта, прежде всего авиационным и автомоб" +
                           "ильным. Однако мрачные прогнозы не оправдались: в 2000-х годах интерес к поездам" +
@@ -94,7 +94,7 @@ namespace HTMLCleanupTests
                 "внутреннего спроса. Глобальная экономика также будет замедляться: прогноз по \r\n" +
                 "мировому ВВП понижен до 3,3%. \r\n";
 
-            target = new BaseHTMLCleaner.TextFormatter(null)
+            target = new BaseHtmlCleaner.TextFormatter(null)
             {
                 Delimiters = new char[] { ' ', ',', '.', '-', '!', '?', ';' }
             };

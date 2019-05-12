@@ -1,17 +1,17 @@
-﻿using HTMLCleanup;
+﻿using HtmlCleanup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace HTMLCleanupTests
+namespace HtmlCleanupTests
 {
     
     
     /// <summary>
-    ///This is a test class for HTMLElementTest and is intended
-    ///to contain all HTMLElementTest Unit Tests
+    ///This is a test class for HtmlElementTest and is intended
+    ///to contain all HtmlElementTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class HTMLElementTest
+    public class HtmlElementTest
     {
 
 
@@ -65,16 +65,16 @@ namespace HTMLCleanupTests
 
 
         /// <summary>
-        ///A test for HTMLElement Constructor
+        ///A test for HtmlElement Constructor
         ///</summary>
         [TestMethod()]
-        public void HTMLElementConstructorTest()
+        public void HtmlElementConstructorTest()
         {
             /*
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text);
+            HtmlElement target = new HtmlElement(startTag, endTag, text);
             Assert.Inconclusive("TODO: Implement code to verify target");
              */
         }
@@ -89,7 +89,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
             actual = target.FindNext();
@@ -108,7 +108,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             string attrName = string.Empty; // TODO: Initialize to an appropriate value
             string expected = string.Empty; // TODO: Initialize to an appropriate value
             string actual;
@@ -128,7 +128,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             string expected = string.Empty; // TODO: Initialize to an appropriate value
             string actual;
             actual = target.GetText();
@@ -147,7 +147,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             target.RemoveTags();
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
              */
@@ -162,7 +162,7 @@ namespace HTMLCleanupTests
             string startTag = "<a";
             string endTag = "</a>";
             string text = "<a href=\"http://top.mail.ru/jump?from=8821\"><img src=\"http://d2.c2.b0.a0.top.mail.ru/counter?js=na;id=8821;t=109\" style=\"border:0;\" height=\"18\" width=\"88\" alt=\"Рейтинг@Mail.ru\" /></a>";
-            var target = new BaseHTMLCleaner.HTMLElement(startTag, endTag, text);
+            var target = new BaseHtmlCleaner.HtmlElement(startTag, endTag, text);
             target.FindNext();
             target.RemoveTagsWithText();
             Assert.AreEqual(target.Text, String.Empty);
@@ -178,7 +178,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             string text1 = string.Empty; // TODO: Initialize to an appropriate value
             target.ReplaceTagsWithText(text1);
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
@@ -195,7 +195,7 @@ namespace HTMLCleanupTests
             string startTag = string.Empty; // TODO: Initialize to an appropriate value
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
-            HTMLElement target = new HTMLElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
+            HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
             string actual;
             actual = target.Text;
             Assert.Inconclusive("Verify the correctness of this test method.");

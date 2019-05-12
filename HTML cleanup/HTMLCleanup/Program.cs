@@ -4,7 +4,7 @@ using System.Net;
 using System.Text;
 using System.IO;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
     class Program
     {
@@ -79,7 +79,7 @@ namespace HTMLCleanup
 
         static void Main(string[] args)
         {
-            var processChain = new WordPressHTMLCleaner();
+            var processChain = new WordPressHtmlCleaner();
 
             if (args.Count() != 0)
             {

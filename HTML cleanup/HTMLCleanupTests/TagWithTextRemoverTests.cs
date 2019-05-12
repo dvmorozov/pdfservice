@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HTMLCleanup;
+using HtmlCleanup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HTMLCleanup.Tests
+namespace HtmlCleanup.Tests
 {
     [TestClass()]
     public class TagWithTextRemoverTests
@@ -19,13 +19,13 @@ namespace HTMLCleanup.Tests
         [TestMethod()]
         public void ProcessTest()
         {
-            var original = System.IO.File.ReadAllText(@"..\..\..\..\HTMLCleanupTests\TestFiles\original.html");
-            var inputRemoved = System.IO.File.ReadAllText(@"..\..\..\..\HTMLCleanupTests\TestFiles\input_removed.html");
-            var remover = new BaseHTMLCleaner.TagWithTextRemover(null)
+            var original = System.IO.File.ReadAllText(@"..\..\..\..\HtmlCleanupTests\TestFiles\original.html");
+            var inputRemoved = System.IO.File.ReadAllText(@"..\..\..\..\HtmlCleanupTests\TestFiles\input_removed.html");
+            var remover = new BaseHtmlCleaner.TagWithTextRemover(null)
             {
-                Tags = new List<BaseHTMLCleaner.TagToRemove>(new BaseHTMLCleaner.TagToRemove[] {
+                Tags = new List<BaseHtmlCleaner.TagToRemove>(new BaseHtmlCleaner.TagToRemove[] {
                     //  Closing tag should be empty string.
-                    new BaseHTMLCleaner.TagToRemove( "<input", "" )
+                    new BaseHtmlCleaner.TagToRemove( "<input", "" )
                 })
             };
 
@@ -33,7 +33,7 @@ namespace HTMLCleanup.Tests
             var removerResultLen = removerResult.Length;
             var inputRemovedLen = inputRemoved.Length;
             
-            var writer = new System.IO.StreamWriter(@"..\..\..\..\HTMLCleanupTests\TestFiles\remover_result.html");
+            var writer = new System.IO.StreamWriter(@"..\..\..\..\HtmlCleanupTests\TestFiles\remover_result.html");
             writer.WriteLine(removerResult);
 
             Assert.IsTrue(removerResult == inputRemoved);
