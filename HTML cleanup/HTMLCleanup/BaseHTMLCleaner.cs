@@ -6,6 +6,34 @@ namespace HTMLCleanup
     //  Must be public to be accessible from unit-tests.
     public abstract class BaseHTMLCleaner : IHTMLCleaner
     {
+        public class HTMLTag
+        {
+            private string _startTag;
+            private string _endTag;
+
+            public HTMLTag(string startTag, string endTag)
+            {
+                _startTag = startTag;
+                _endTag = endTag;
+            }
+
+            public string StartTag
+            {
+                get
+                {
+                    return _startTag;
+                }
+            }
+
+            public string EndTag
+            {
+                get
+                {
+                    return _endTag;
+                }
+            }
+        }
+
         public class HTMLElement
         {
             private string _text;
@@ -260,19 +288,38 @@ namespace HTMLCleanup
         /// </summary>
         public class ParagraphExtractor : TextProcessor
         {
+            /// <summary>
+            /// Paragraph tag.
+            /// </summary>
+            private HTMLTag _tag;
+
+            public HTMLTag Tag
+            {
+                get
+                {
+                    return _tag;
+                }
+                set
+                {
+                    _tag = value;
+                }
+            }
+
             public ParagraphExtractor(TextProcessor next) : base(next)
             {
                 //  By default isn't used in processing chain.
                 //  Can be enabled by configuration file, using
                 //  should be consistent with using other parts.
                 Skipped = true;
+                //  Default paragraph tag.
+                _tag = new HTMLTag("<p", "</p>");
             }
 
             protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
-                HTMLElement el = new HTMLElement("<p", "</p>", text);
+                HTMLElement el = new HTMLElement(_tag.StartTag, _tag.EndTag, text);
                 do
                 {
                     var b = el.FindNext();

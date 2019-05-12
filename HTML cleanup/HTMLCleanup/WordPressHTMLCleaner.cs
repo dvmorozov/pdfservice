@@ -69,7 +69,8 @@ namespace HTMLCleanup
         {
             return new ParagraphExtractor(next)
             {
-                Skipped = false
+                Skipped = false,
+                Tag = new HTMLTag("<p", "</p>")
             };
         }
 
