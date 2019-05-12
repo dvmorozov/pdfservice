@@ -79,7 +79,7 @@ namespace HTMLCleanup
 
         static void Main(string[] args)
         {
-            var processChain = new UniversalHTMLCleaner();
+            var processChain = new WordPressHTMLCleaner();
 
             if (args.Count() != 0)
             {
