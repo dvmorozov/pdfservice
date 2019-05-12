@@ -7,8 +7,9 @@ namespace HTMLCleanup
     {
         protected override TagWithTextRemover GetTagWithTextRemover(TextProcessor next)
         {
-            var result = new TagWithTextRemover(next);
-            result.Tags = new List<TagToRemove>(new TagToRemove[] {
+            var result = new TagWithTextRemover(next)
+            {
+                Tags = new List<TagToRemove>(new TagToRemove[] {
                 new TagToRemove( "<script", "</script>" ),
                 new TagToRemove( "<style", "</style>" ),
                 new TagToRemove( "<link", "" ),
@@ -27,14 +28,16 @@ namespace HTMLCleanup
                 new TagToRemove( "<aside", "</aside>" ),
                 new TagToRemove( "<!--[if", "<![endif]-->" ),
                 new TagToRemove( "<!--", "" )
-            });
+            })
+            };
             return result;
         }
 
         protected override InnerTagRemover GetInnerTagRemover(TextProcessor next)
         {
-            var result = new InnerTagRemover(next);
-            result.Tags = new List<TagToRemove>(new TagToRemove[] {
+            var result = new InnerTagRemover(next)
+            {
+                Tags = new List<TagToRemove>(new TagToRemove[] {
                 new TagToRemove( "<ul", "</ul>" ),
                 new TagToRemove( "<title", "</title>" ),
                 new TagToRemove( "<strong", "</strong>" ),
@@ -57,7 +60,8 @@ namespace HTMLCleanup
                 new TagToRemove( "<code", "</code>" ),
                 new TagToRemove( "<body", "</body>" ),
                 new TagToRemove( "<article", "</article>" )
-            });
+            })
+            };
             return result;
         }
 
