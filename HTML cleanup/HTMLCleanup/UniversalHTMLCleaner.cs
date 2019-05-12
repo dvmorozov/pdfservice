@@ -61,6 +61,11 @@ namespace HTMLCleanup
             return result;
         }
 
+        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next)
+        {
+            return new ParagraphExtractor(next);
+        }
+
         protected override string GetConfigurationFileName()
         {
             return Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "UniversalHTMLCleanerConfig.xml";

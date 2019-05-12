@@ -61,6 +61,14 @@ namespace HTMLCleanup
             return result;
         }
 
+        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next)
+        {
+            return new ParagraphExtractor(next)
+            {
+                Skipped = false
+            };
+        }
+
         protected override string GetConfigurationFileName()
         {
             return Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "WordPressHTMLCleanerConfig.xml";

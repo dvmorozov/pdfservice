@@ -248,6 +248,14 @@ namespace HTMLCleanup
         }
 
         /// <summary>
+        /// Creates and initializes domain-specific instance of ParagraphExtractor.
+        /// </summary>
+        /// <param name="next">Next processing object in the chain.</param>
+        /// <returns>Instance of ParagraphExtractor specific for the domain supported
+        /// by inherited class.</returns>
+        protected abstract ParagraphExtractor GetParagraphExtractor(TextProcessor next);
+
+        /// <summary>
         /// Извлекает параграфы текста.
         /// </summary>
         public class ParagraphExtractor : TextProcessor
@@ -598,12 +606,11 @@ namespace HTMLCleanup
                 GetTagWithTextRemover(
                     new SpecialHTMLRemover(
                         //  By default ParagraphExtractor is disabled (see constructor).
-                        new ParagraphExtractor(
+                        GetParagraphExtractor(
                             new URLFormatter(
                                 GetInnerTagRemover(
                                     new TextFormatter(null)
                                 )))));
-
         }
 
         protected abstract string GetConfigurationFileName();
