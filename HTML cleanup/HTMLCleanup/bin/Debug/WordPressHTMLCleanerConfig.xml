@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <HTMLCleanupConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:xmlns:HTMLCleanupConfig">
   <ParagraphExtractorConfig>
-    <Skipped>true</Skipped>
+    <Skipped>false</Skipped>
   </ParagraphExtractorConfig>
   <SpecialHTMLRemoverConfig>
     <Skipped>false</Skipped>
@@ -114,10 +114,6 @@
       <Tag>
         <StartTagWithoutBracket>&lt;body</StartTagWithoutBracket>
         <EndTag>&lt;/body&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;article</StartTagWithoutBracket>
-        <EndTag>&lt;/article&gt;</EndTag>
       </Tag>
     </Tags>
   </InnerTagRemoverConfig>

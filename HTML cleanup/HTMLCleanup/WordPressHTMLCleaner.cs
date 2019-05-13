@@ -58,8 +58,7 @@ namespace HtmlCleanup
                 new TagToRemove( "<em", "</em>" ),
                 new TagToRemove( "<div", "</div>" ),
                 new TagToRemove( "<code", "</code>" ),
-                new TagToRemove( "<body", "</body>" ),
-                new TagToRemove( "<article", "</article>" )
+                new TagToRemove( "<body", "</body>" )
             })
             };
             return result;
@@ -70,7 +69,7 @@ namespace HtmlCleanup
             return new ParagraphExtractor(next)
             {
                 Skipped = false,
-                Tag = new HtmlTag("<p", "</p>")
+                Tag = new HtmlTag("<article", "</article>")
             };
         }
 
