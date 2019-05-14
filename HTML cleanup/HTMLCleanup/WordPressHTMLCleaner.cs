@@ -20,10 +20,27 @@ namespace HtmlCleanup
                 new TagToRemove( "<sup", "</sup>" ),
                 new TagToRemove( "<input", "" ),
                 new TagToRemove( "<label", "</label>" ),
+                new TagToRemove( "<footer", "</footer>" ),
                 new TagToRemove( "<form", "</form>" ),
                 new TagToRemove( "<noscript", "</noscript>" ),
                 new TagToRemove( "<nav", "</nav>" ),
                 new TagToRemove( "<!DOCTYPE", "" ),
+                //  Advertising block and internal divs.
+                //  Items should be in the order reverse
+                //  to the nesting of divs (best possible
+                //  option for this primitive parser).
+                new TagToRemove( "<div class=\"wpa-notice", "</div>"),
+                new TagToRemove( "<div class=\"u", "</div>"),
+                new TagToRemove( "<div class=\"wpa", "</div>"),
+                new TagToRemove( "<div class=\"wpcnt", "</div>"),
+                //  Sharing buttons.
+                new TagToRemove( "<div class=\"robots-nocontent", "</div>"),
+                new TagToRemove( "<div class=\"sd-content", "</div>"),
+                new TagToRemove( "<div class=\"likes-", "</div>"),
+                new TagToRemove( "<div id=\"jp-relatedposts", "</div>"),
+                new TagToRemove( "<div class=\"sharedaddy", "</div>"),
+                new TagToRemove( "<div id=\"jp-post-flair", "</div>"),
+                //  Other tags.
                 new TagToRemove( "<button", "</button>" ),
                 new TagToRemove( "<aside", "</aside>" ),
                 new TagToRemove( "<!--[if", "<![endif]-->" ),

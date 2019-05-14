@@ -161,6 +161,10 @@
         <EndTag>&lt;/label&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;footer</StartTagWithoutBracket>
+        <EndTag>&lt;/footer&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;form</StartTagWithoutBracket>
         <EndTag>&lt;/form&gt;</EndTag>
       </Tag>
@@ -175,6 +179,46 @@
       <Tag>
         <StartTagWithoutBracket>&lt;!DOCTYPE</StartTagWithoutBracket>
         <EndTag />
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="wpa-notice</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="u</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="wpa</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="wpcnt</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="robots-nocontent</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="sd-content</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="likes-</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div id="jp-relatedposts</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="sharedaddy</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div id="jp-post-flair</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;button</StartTagWithoutBracket>
