@@ -181,6 +181,14 @@
         <EndTag />
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;div id="atatags</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div style="</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;div class="wpa-notice</StartTagWithoutBracket>
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
@@ -193,7 +201,7 @@
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;div class="wpcnt</StartTagWithoutBracket>
+        <StartTagWithoutBracket>&lt;div class="sd-content</StartTagWithoutBracket>
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>
@@ -201,23 +209,27 @@
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;div class="sd-content</StartTagWithoutBracket>
-        <EndTag>&lt;/div&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;div class="likes-</StartTagWithoutBracket>
-        <EndTag>&lt;/div&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;div id="jp-relatedposts</StartTagWithoutBracket>
-        <EndTag>&lt;/div&gt;</EndTag>
-      </Tag>
-      <Tag>
         <StartTagWithoutBracket>&lt;div class="sharedaddy</StartTagWithoutBracket>
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;div class='likes-</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class='sharedaddy</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div id='jp-relatedposts</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;div id="jp-post-flair</StartTagWithoutBracket>
+        <EndTag>&lt;/div&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;div class="wpcnt</StartTagWithoutBracket>
         <EndTag>&lt;/div&gt;</EndTag>
       </Tag>
       <Tag>

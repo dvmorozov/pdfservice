@@ -10,42 +10,48 @@ namespace HtmlCleanup
             var result = new TagWithTextRemover(next)
             {
                 Tags = new List<TagToRemove>(new TagToRemove[] {
-                new TagToRemove( "<script", "</script>" ),
-                new TagToRemove( "<style", "</style>" ),
-                new TagToRemove( "<link", "" ),
-                new TagToRemove( "<path", "</path>" ),
-                new TagToRemove( "<meta", "" ),
-                new TagToRemove( "<iframe", "</iframe>" ),
-                new TagToRemove( "<svg", "</svg>" ),
-                new TagToRemove( "<sup", "</sup>" ),
-                new TagToRemove( "<input", "" ),
-                new TagToRemove( "<label", "</label>" ),
-                new TagToRemove( "<footer", "</footer>" ),
-                new TagToRemove( "<form", "</form>" ),
-                new TagToRemove( "<noscript", "</noscript>" ),
-                new TagToRemove( "<nav", "</nav>" ),
-                new TagToRemove( "<!DOCTYPE", "" ),
-                //  Advertising block and internal divs.
-                //  Items should be in the order reverse
-                //  to the nesting of divs (best possible
-                //  option for this primitive parser).
-                new TagToRemove( "<div class=\"wpa-notice", "</div>"),
-                new TagToRemove( "<div class=\"u", "</div>"),
-                new TagToRemove( "<div class=\"wpa", "</div>"),
-                new TagToRemove( "<div class=\"wpcnt", "</div>"),
-                //  Sharing buttons.
-                new TagToRemove( "<div class=\"robots-nocontent", "</div>"),
-                new TagToRemove( "<div class=\"sd-content", "</div>"),
-                new TagToRemove( "<div class=\"likes-", "</div>"),
-                new TagToRemove( "<div id=\"jp-relatedposts", "</div>"),
-                new TagToRemove( "<div class=\"sharedaddy", "</div>"),
-                new TagToRemove( "<div id=\"jp-post-flair", "</div>"),
-                //  Other tags.
-                new TagToRemove( "<button", "</button>" ),
-                new TagToRemove( "<aside", "</aside>" ),
-                new TagToRemove( "<!--[if", "<![endif]-->" ),
-                new TagToRemove( "<!--", "" )
-            })
+                    new TagToRemove( "<script", "</script>" ),
+                    new TagToRemove( "<style", "</style>" ),
+                    new TagToRemove( "<link", "" ),
+                    new TagToRemove( "<path", "</path>" ),
+                    new TagToRemove( "<meta", "" ),
+                    new TagToRemove( "<iframe", "</iframe>" ),
+                    new TagToRemove( "<svg", "</svg>" ),
+                    new TagToRemove( "<sup", "</sup>" ),
+                    new TagToRemove( "<input", "" ),
+                    new TagToRemove( "<label", "</label>" ),
+                    new TagToRemove( "<footer", "</footer>" ),
+                    new TagToRemove( "<form", "</form>" ),
+                    new TagToRemove( "<noscript", "</noscript>" ),
+                    new TagToRemove( "<nav", "</nav>" ),
+                    new TagToRemove( "<!DOCTYPE", "" ),
+                    //  Advertising block and internal divs.
+                    //  Items should be in the order reverse
+                    //  to the nesting of divs (best possible
+                    //  option for this primitive parser).
+                    new TagToRemove( "<div id=\"atatags", "</div>"),
+                    new TagToRemove( "<div style=\"", "</div>"),
+                    new TagToRemove( "<div class=\"wpa-notice", "</div>"),
+                    new TagToRemove( "<div class=\"u", "</div>"),
+                    new TagToRemove( "<div class=\"wpa", "</div>"),
+                    //  Sharing buttons (by groups of tags).
+                    new TagToRemove( "<div class=\"sd-content", "</div>"),
+                    new TagToRemove( "<div class=\"robots-nocontent", "</div>"),
+                    new TagToRemove( "<div class=\"sharedaddy", "</div>"),
+
+                    new TagToRemove( "<div class=\'likes-", "</div>"),
+                    new TagToRemove( "<div class=\'sharedaddy", "</div>"),
+
+                    new TagToRemove( "<div id=\'jp-relatedposts", "</div>"),
+                    new TagToRemove( "<div id=\"jp-post-flair", "</div>"),
+
+                    new TagToRemove( "<div class=\"wpcnt", "</div>"),
+                    //  Other tags.
+                    new TagToRemove( "<button", "</button>" ),
+                    new TagToRemove( "<aside", "</aside>" ),
+                    new TagToRemove( "<!--[if", "<![endif]-->" ),
+                    new TagToRemove( "<!--", "" )
+                })
             };
             return result;
         }
@@ -79,6 +85,20 @@ namespace HtmlCleanup
             })
             };
             return result;
+        }
+
+        protected override TextProcessor CreateProcessingChain()
+        {
+            return  
+                //  Создает последовательность обработки (имеет значение).
+                //  At first extracts content of the <article> tag.
+                GetParagraphExtractor(
+                    GetTagWithTextRemover(
+                        new SpecialHTMLRemover(
+                            new UrlFormatter(
+                                GetInnerTagRemover(
+                                    new TextFormatter(null)
+                                )))));
         }
 
         protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next)

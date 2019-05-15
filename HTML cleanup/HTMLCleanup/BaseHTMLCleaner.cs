@@ -4,6 +4,8 @@ using System.Collections.Generic;
 namespace HtmlCleanup
 {
     //  Must be public to be accessible from unit-tests.
+    //  After any changes in nested class configuration
+    //  regenerate configuration files.
     public abstract class BaseHtmlCleaner : IHtmlCleaner
     {
         public class HtmlTag
