@@ -115,6 +115,10 @@
         <StartTagWithoutBracket>&lt;body</StartTagWithoutBracket>
         <EndTag>&lt;/body&gt;</EndTag>
       </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;blockquote</StartTagWithoutBracket>
+        <EndTag>&lt;/blockquote&gt;</EndTag>
+      </Tag>
     </Tags>
   </InnerTagRemoverConfig>
   <TagWithTextRemoverConfig>

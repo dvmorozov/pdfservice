@@ -81,7 +81,8 @@ namespace HtmlCleanup
                 new TagToRemove( "<em", "</em>" ),
                 new TagToRemove( "<div", "</div>" ),
                 new TagToRemove( "<code", "</code>" ),
-                new TagToRemove( "<body", "</body>" )
+                new TagToRemove( "<body", "</body>" ),
+                new TagToRemove( "<blockquote", "</blockquote>")
             })
             };
             return result;
