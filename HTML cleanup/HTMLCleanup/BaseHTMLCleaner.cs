@@ -606,7 +606,7 @@ namespace HtmlCleanup
             protected override string ActualProcessing(string text)
             {
                 var pos = 0;
-                var result = String.Empty;
+                var processed = String.Empty;
                 do
                 {
                     if (text.Length - pos > _max - 1)
@@ -618,7 +618,7 @@ namespace HtmlCleanup
                         if (pos1 != -1)
                         {
                             //  Попал конец строки - обрезает по нему.
-                            result += substring.Substring(0, pos1 + 1);
+                            processed += substring.Substring(0, pos1) + Environment.NewLine;
                             pos += pos1 + 1;
                         }
                         else
@@ -628,25 +628,37 @@ namespace HtmlCleanup
 
                             if (pos1 == -1)
                             {
-                                result += substring + Environment.NewLine;
+                                processed += substring + Environment.NewLine;
                                 pos += _max;
                             }
                             else
                             {
                                 //  Обрезает строку по последнему разделителю.
-                                result += substring.Substring(0, pos1 + 1) + Environment.NewLine;
+                                processed += substring.Substring(0, pos1 + 1) + Environment.NewLine;
                                 pos += pos1 + 1;
                             }
                         }
                     }
                     else
                     {
-                        result += text.Substring(pos, text.Length - pos) + Environment.NewLine;
+                        processed += text.Substring(pos, text.Length - pos) + Environment.NewLine;
                         break;
                     }
                 }
                 while (true);
-                return result;
+
+                //  Removes lines containing only white spaces.
+                var strings = new List<string>(processed.Split('\n'));
+                var index = 0;
+                while (index < strings.Count)
+                {
+                    var s = strings[index];
+                    var m = s.Trim(' ', '\t', '\r');
+                    if (m == "")
+                        strings.Remove(s);
+                    else index++;
+                }
+                return string.Join("\n", strings);
             }
         }
 
