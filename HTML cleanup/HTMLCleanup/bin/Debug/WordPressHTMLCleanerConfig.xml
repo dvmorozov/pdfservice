@@ -245,6 +245,10 @@
         <EndTag>&lt;/aside&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;a</StartTagWithoutBracket>
+        <EndTag>&lt;/a&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;!--[if</StartTagWithoutBracket>
         <EndTag>&lt;![endif]--&gt;</EndTag>
       </Tag>

@@ -49,6 +49,8 @@ namespace HtmlCleanup
                     //  Other tags.
                     new TagToRemove( "<button", "</button>" ),
                     new TagToRemove( "<aside", "</aside>" ),
+                    //  Hyperlinks are removed.
+                    new TagToRemove( "<a", "</a>" ),
                     new TagToRemove( "<!--[if", "<![endif]-->" ),
                     new TagToRemove( "<!--", "" )
                 })
