@@ -656,7 +656,15 @@ namespace HtmlCleanup
                     var m = s.Trim(' ', '\t', '\r');
                     if (m == "")
                         strings.Remove(s);
-                    else index++;
+                    else
+                    {
+                        //  Replaces original string with
+                        //  string without white spaces.
+                        //  Leading spaces are left to 
+                        //  safe formatting.
+                        strings[index] = s.Trim('\t', '\r').TrimEnd();
+                        index++;
+                    }
                 }
                 return string.Join("\n", strings);
             }
