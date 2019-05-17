@@ -62,12 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseHTMLCleaner.cs" />
+    <Compile Include="BaseInjectorConfig.cs" />
     <Compile Include="config.cs">
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
     <Compile Include="CleanerConfigSerializer.cs" />
     <Compile Include="IntCleanerConfigSerializer.cs" />
     <Compile Include="IntHTMLCleaner.cs" />
+    <Compile Include="IntInjectorConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniversalHTMLCleaner.cs" />
