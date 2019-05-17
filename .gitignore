@@ -18,3 +18,5 @@
 /PdfService/Properties/PublishProfiles/pdfsrvc - FTP.pubxml
 /HTML cleanup/HTMLCleanup/obj
 /HTML cleanup/HTMLCleanupTests/obj/Release
+/HTML cleanup/HTMLCleanup/TestResults
+/HTML cleanup/HTMLCleanupTests/TestFiles/remover_result.html
