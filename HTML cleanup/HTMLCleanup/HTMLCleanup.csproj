@@ -67,6 +67,7 @@
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
     <Compile Include="CleanerConfigSerializer.cs" />
+    <Compile Include="HTMLCleanerInjector.cs" />
     <Compile Include="IntCleanerConfigSerializer.cs" />
     <Compile Include="IntHTMLCleaner.cs" />
     <Compile Include="IntInjectorConfig.cs" />

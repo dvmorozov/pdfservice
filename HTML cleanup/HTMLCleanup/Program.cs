@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.IO;
+using HTMLCleanup;
 
 namespace HtmlCleanup
 {
@@ -79,11 +80,13 @@ namespace HtmlCleanup
 
         static void Main(string[] args)
         {
-            var processChain = new WordPressHtmlCleaner();
-
             if (args.Count() != 0)
             {
                 var url = args[0];
+
+                var injector = new HTMLCleanerInjector(new BaseInjectorConfig());
+                //  Creating cleaner instance based on URL.
+                var processChain = injector.CreateHTMLCleaner(url);
 
                 //  Выполняет запрос.
                 var s = MakeRequest(url);
@@ -101,6 +104,8 @@ namespace HtmlCleanup
             }
             else
             {
+                //  Default HTML cleaner for writing configutaion.
+                var processChain = new WordPressHtmlCleaner();
                 //  Writes template of configuration file.
                 processChain.WriteConfiguration();
             }
