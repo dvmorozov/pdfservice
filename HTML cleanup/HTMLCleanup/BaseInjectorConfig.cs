@@ -9,7 +9,7 @@ namespace HTMLCleanup
             return new List<HtmlCleanerConfigItem>() {
                 new HtmlCleanerConfigItem() {
                     urlPrefix = "https://rationalcity.wordpress.com/",
-                    htmlCleanerType = "HTMLCleanup.WordPressHtmlCleaner"
+                    htmlCleanerType = "HtmlCleanup.WordPressHtmlCleaner"
                 }
             };
         }
