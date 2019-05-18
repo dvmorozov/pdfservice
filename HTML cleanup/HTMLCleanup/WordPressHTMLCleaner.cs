@@ -64,6 +64,12 @@ namespace HtmlCleanup
             {
                 Tags = new List<TagToRemove>(new TagToRemove[] {
                 new TagToRemove( "<ul", "</ul>" ),
+                //  Removing tables.
+                new TagToRemove( "<td", "</td>" ),
+                new TagToRemove( "<tr", "</tr>" ),
+                new TagToRemove( "<tbody", "</tbody>" ),
+                new TagToRemove( "<table", "</table>" ),
+                //  Other tags.
                 new TagToRemove( "<title", "</title>" ),
                 new TagToRemove( "<strong", "</strong>" ),
                 new TagToRemove( "<span", "</span>" ),

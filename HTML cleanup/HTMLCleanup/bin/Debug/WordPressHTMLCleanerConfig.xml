@@ -36,6 +36,22 @@
         <EndTag>&lt;/ul&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;td</StartTagWithoutBracket>
+        <EndTag>&lt;/td&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;tr</StartTagWithoutBracket>
+        <EndTag>&lt;/tr&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;tbody</StartTagWithoutBracket>
+        <EndTag>&lt;/tbody&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;table</StartTagWithoutBracket>
+        <EndTag>&lt;/table&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;title</StartTagWithoutBracket>
         <EndTag>&lt;/title&gt;</EndTag>
       </Tag>
