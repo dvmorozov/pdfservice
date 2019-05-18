@@ -15,11 +15,12 @@ namespace HtmlCleanup
                     new TagToRemove( "<link", "" ),
                     new TagToRemove( "<path", "</path>" ),
                     new TagToRemove( "<meta", "" ),
-                    new TagToRemove( "<iframe", "</iframe>" ),
                     new TagToRemove( "<svg", "</svg>" ),
                     new TagToRemove( "<sup", "</sup>" ),
-                    new TagToRemove( "<input", "" ),
                     new TagToRemove( "<label", "</label>" ),
+                    new TagToRemove( "<input", "" ),
+                    new TagToRemove( "<img", "" ),
+                    new TagToRemove( "<iframe", "</iframe>" ),
                     new TagToRemove( "<footer", "</footer>" ),
                     new TagToRemove( "<form", "</form>" ),
                     new TagToRemove( "<noscript", "</noscript>" ),
@@ -48,6 +49,7 @@ namespace HtmlCleanup
                     new TagToRemove( "<div class=\"wpcnt", "</div>"),
                     //  Other tags.
                     new TagToRemove( "<button", "</button>" ),
+                    new TagToRemove( "<br", "" ),
                     new TagToRemove( "<aside", "</aside>" ),
                     //  Hyperlinks are removed.
                     new TagToRemove( "<a", "</a>" ),

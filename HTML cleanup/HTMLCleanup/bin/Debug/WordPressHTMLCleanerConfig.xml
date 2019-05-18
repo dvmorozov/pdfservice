@@ -161,10 +161,6 @@
         <EndTag />
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;iframe</StartTagWithoutBracket>
-        <EndTag>&lt;/iframe&gt;</EndTag>
-      </Tag>
-      <Tag>
         <StartTagWithoutBracket>&lt;svg</StartTagWithoutBracket>
         <EndTag>&lt;/svg&gt;</EndTag>
       </Tag>
@@ -173,12 +169,20 @@
         <EndTag>&lt;/sup&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;label</StartTagWithoutBracket>
+        <EndTag>&lt;/label&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;input</StartTagWithoutBracket>
         <EndTag />
       </Tag>
       <Tag>
-        <StartTagWithoutBracket>&lt;label</StartTagWithoutBracket>
-        <EndTag>&lt;/label&gt;</EndTag>
+        <StartTagWithoutBracket>&lt;img</StartTagWithoutBracket>
+        <EndTag />
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;iframe</StartTagWithoutBracket>
+        <EndTag>&lt;/iframe&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;footer</StartTagWithoutBracket>
@@ -255,6 +259,10 @@
       <Tag>
         <StartTagWithoutBracket>&lt;button</StartTagWithoutBracket>
         <EndTag>&lt;/button&gt;</EndTag>
+      </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;br</StartTagWithoutBracket>
+        <EndTag />
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;aside</StartTagWithoutBracket>
