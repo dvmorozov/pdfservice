@@ -3,7 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.IO;
-using HTMLCleanup;
+using HtmlCleanup;
 
 namespace HtmlCleanup
 {

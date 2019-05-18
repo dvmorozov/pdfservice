@@ -1,7 +1,7 @@
 ﻿using HtmlCleanup;
 using System;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
     class HTMLCleanerInjector
     {

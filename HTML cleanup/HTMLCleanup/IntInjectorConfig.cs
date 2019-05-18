@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HTMLCleanup
+namespace HtmlCleanup
 {
     public class HtmlCleanerConfigItem
     {
