@@ -66,6 +66,7 @@ namespace HtmlCleanup
             {
                 Tags = new List<TagToRemove>(new TagToRemove[] {
                 new TagToRemove( "<ul", "</ul>" ),
+                new TagToRemove( "<u", "</u>" ),
                 //  Removing tables.
                 new TagToRemove( "<td", "</td>" ),
                 new TagToRemove( "<tr", "</tr>" ),
@@ -105,9 +106,11 @@ namespace HtmlCleanup
                 //  At first extracts content of the <article> tag.
                 GetParagraphExtractor(
                     GetTagWithTextRemover(
-                        new SpecialHTMLRemover(
+                        //  Replacing tags with text is done before replacing
+                        //  special characters to avoid interpreting text as HTML tags.
+                        GetInnerTagRemover(
                             new UrlFormatter(
-                                GetInnerTagRemover(
+                                new SpecialHTMLRemover(
                                     new TextFormatter(null)
                                 )))));
         }

@@ -673,11 +673,13 @@ namespace HtmlCleanup
         protected virtual TextProcessor CreateProcessingChain() {
             return  //  Создает последовательность обработки (имеет значение).
                 GetTagWithTextRemover(
-                    new SpecialHTMLRemover(
+                    //  Replacing tags with text is done before replacing
+                    //  special characters to avoid interpreting text as HTML tags.
+                    GetInnerTagRemover(
                         //  By default ParagraphExtractor is disabled (see constructor).
                         GetParagraphExtractor(
                             new UrlFormatter(
-                                GetInnerTagRemover(
+                                new SpecialHTMLRemover(
                                     new TextFormatter(null)
                                 )))));
         }

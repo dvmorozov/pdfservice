@@ -36,6 +36,10 @@
         <EndTag>&lt;/ul&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;u</StartTagWithoutBracket>
+        <EndTag>&lt;/u&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;td</StartTagWithoutBracket>
         <EndTag>&lt;/td&gt;</EndTag>
       </Tag>
