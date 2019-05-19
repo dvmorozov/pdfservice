@@ -43,9 +43,9 @@ namespace HtmlCleanup
             private string _startTag;
             private string _endTag;
             private bool _found;
-            private int _pos1;      //  Положение стартового тэга.
-            private int _pos2;      //  Положение закрывающей скобки стартового тэга.
-            private int _pos3;      //  Положение закрывающего тэга.
+            private int _pos1;      //  Start tag position.
+            private int _pos2;      //  Start tag closing bracket position.
+            private int _pos3;      //  End tag position.
 
             public string Text
             {
@@ -55,7 +55,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public HtmlElement(string startTag /*Без закрывающей >.*/, string endTag, string text)
+            public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text)
             {
                 _text = text;
                 _startTag = startTag;
@@ -63,7 +63,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Ищет следующий элемент заданного типа.
+            /// Searches for text tag of given type.
             /// </summary>
             public bool FindNext()
             {
@@ -71,24 +71,24 @@ namespace HtmlCleanup
                 _pos1 = _text.IndexOf(_startTag, _startPos, StringComparison.OrdinalIgnoreCase);
                 if (_pos1 != -1)
                 {
-                    //  Нашли открывающий тэг.
-                    //  Пропускаем атрибуты.
+                    //  Start tag was found.
+                    //  Skips attributes.
                     _pos2 = _text.IndexOf(">", _pos1 + _startTag.Length);
 
-                    //  Допускается пустой закрывающий тэг.
+                    //  Empty closing tag is permitted.
                     if (_endTag != String.Empty)
                     {
                         _pos3 = _text.IndexOf(_endTag, _pos2 + 1, StringComparison.OrdinalIgnoreCase);
                         if (_pos3 != -1)
                         {
-                            //  Нашли закрывающий тэг.
+                            //  End tag was found.
                             _found = true;
-                            //  Переходим к следующему.
+                            //  Go to next tag.
                             _startPos = _pos3 + _endTag.Length;
                         }
                         else
                         {
-                            //  Ошибка - требуется вывод сообщения.
+                            //  Error (TODO: add message).
                         }
                     }
                     else
@@ -102,9 +102,9 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Возвращает текст тэга.
+            /// Returns tag internal text.
             /// </summary>
-            /// <returns>Текст тэга.</returns>
+            /// <returns>Tag internal text.</returns>
             public string GetText()
             {
                 if (_found)
@@ -118,20 +118,20 @@ namespace HtmlCleanup
             {
                 if (_found)
                 {
-                    //  Ищет закрывающую скобку.
+                    //  Searches for closing bracket.
                     var endBracketPos = _text.IndexOf(">", _pos1);
                     var attrPos = _text.IndexOf(attrName, _pos1, StringComparison.OrdinalIgnoreCase);
                     if (attrPos != -1 && attrPos < endBracketPos)
                     {
-                        //  Копирует содержимое тэга.
+                        //  Copies tag text.
                         var tagCopy = _text.Substring(_pos1, endBracketPos - _pos1 + 1);
-                        //  Заменяет кавычки на пробелы.
+                        //  Replaces quotation marks by spaces.
                         tagCopy = tagCopy.Replace('"', ' ');
                         tagCopy = tagCopy.Replace('\'', ' ');
                         var attrValStartPos = tagCopy.IndexOf("=", attrPos - _pos1);
                         if (attrValStartPos != -1)
                         {
-                            //  Пропускает все возможные пробелы.
+                            //  Skips all spaces.
                             do
                             {
                                 attrValStartPos++;
@@ -141,18 +141,18 @@ namespace HtmlCleanup
                             var attrValEndPos = tagCopy.IndexOfAny(new char[] { ' ', '>' }, attrValStartPos + 1);
                             if (attrValEndPos != -1)
                             {
-                                //  Копирует значение атрибута.
+                                //  Copies attribute value.
                                 return tagCopy.Substring(attrValStartPos, attrValEndPos - attrValStartPos).Trim();
                             }
                             else
                             {
-                                //  Сообщение об ошибке (вставить в текст).
+                                //  Error. TODO: add error message to text.
                             }
                         }
                     }
                     else
                     {
-                        //  Сообщение об ошибке (вставить в текст).
+                        //  Error. TODO: add error message to text.
                     }
                 }
                 return String.Empty;
