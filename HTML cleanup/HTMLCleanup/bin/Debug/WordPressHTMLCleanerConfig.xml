@@ -108,6 +108,10 @@
         <EndTag>&lt;/head&gt;</EndTag>
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;h4</StartTagWithoutBracket>
+        <EndTag>&lt;/h4&gt;</EndTag>
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;h3</StartTagWithoutBracket>
         <EndTag>&lt;/h3&gt;</EndTag>
       </Tag>

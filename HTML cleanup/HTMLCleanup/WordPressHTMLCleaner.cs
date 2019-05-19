@@ -84,6 +84,7 @@ namespace HtmlCleanup
                 new TagToRemove( "<html", "</html>" ),
                 new TagToRemove( "<header", "</header>" ),
                 new TagToRemove( "<head", "</head>" ),
+                new TagToRemove( "<h4", "</h4>" ),
                 new TagToRemove( "<h3", "</h3>" ),
                 new TagToRemove( "<h3", "</h3>" ),
                 new TagToRemove( "<h2", "</h2>" ),
