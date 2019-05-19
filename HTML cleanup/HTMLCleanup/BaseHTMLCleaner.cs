@@ -367,6 +367,8 @@ namespace HtmlCleanup
             private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>(new SpecialHTMLSymbol[] {
             new SpecialHTMLSymbol( "&#8211;", "-" ),
             new SpecialHTMLSymbol( "&#8217;", "'" ),
+            new SpecialHTMLSymbol( "&#8220;", "\"" ),
+            new SpecialHTMLSymbol( "&#8221;", "\"" ),
             new SpecialHTMLSymbol( "&lt;", "<" ),
             new SpecialHTMLSymbol( "&gt;", ">" ),
             new SpecialHTMLSymbol( "&amp;", "&" )

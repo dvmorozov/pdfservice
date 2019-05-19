@@ -15,6 +15,14 @@
         <Replacement>'</Replacement>
       </SpecialHTMLSymbol>
       <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;#8220;</SpecialHTML>
+        <Replacement>"</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;#8221;</SpecialHTML>
+        <Replacement>"</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
         <SpecialHTML>&amp;lt;</SpecialHTML>
         <Replacement>&lt;</Replacement>
       </SpecialHTMLSymbol>
