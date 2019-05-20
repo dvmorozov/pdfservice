@@ -7,17 +7,17 @@ using HtmlCleanup.Config;
 namespace HtmlCleanup
 {
     /// <summary>
-    /// Читает конфигурацию из XML-файла и создает объекты.
-    /// Требуется для того, чтобы можно было свободно 
-    /// регенерировать класс конфигурации по XSD-файлу.
+    /// Reads configuration from XML-file and creates objects.
+    /// Decouples serialization/deserialization from definitions
+    /// of data classes automatically generated from XSD-description.
     /// </summary>
     class CleanerConfigSerializer : ICleanerConfigSerializer
     {
         /// <summary>
-        /// Восстанавливает конфигурацию объектов по данным из файла.
+        /// Reads configuration objects from file.
         /// </summary>
-        /// <param name="fileName">Имя файла для чтения конфигурации.</param>
-        /// <param name="chain">Первый объект в цепочке обработчиков.</param>
+        /// <param name="fileName">Configuration file name.</param>
+        /// <param name="chain">The first member of processing chain.</param>
         public void Deserialize(string fileName, BaseHtmlCleaner.TextProcessor chain)
         {
             var config = new HTMLCleanupConfig();
@@ -86,11 +86,10 @@ namespace HtmlCleanup
         }
 
         /// <summary>
-        /// Сканирует цепочку обработчиков и копирует их данные.
-        /// Затем сериализует их в XML-файл.
+        /// Scans processing chain and copies object data into file.
         /// </summary>
-        /// <param name="fileName">Имя файла для сохранения конфигурации.</param>
-        /// <param name="chain">Первый объект в цепочке обработчиков.</param>
+        /// <param name="fileName">Configuration file name.</param>
+        /// <param name="chain">The first member of processing chain.</param>
         public void Serialize(string fileName, BaseHtmlCleaner.TextProcessor chain)
         {
             var config = new HTMLCleanupConfig();

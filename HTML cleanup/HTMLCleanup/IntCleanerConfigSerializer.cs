@@ -6,18 +6,17 @@
     interface ICleanerConfigSerializer
     {
         /// <summary>
-        /// Восстанавливает конфигурацию объектов по данным из файла.
+        /// Reads configuration objects from file.
         /// </summary>
-        /// <param name="fileName">Имя файла для чтения конфигурации.</param>
-        /// <param name="chain">Первый объект в цепочке обработчиков.</param>
+        /// <param name="fileName">Configuration file name.</param>
+        /// <param name="chain">The first member of processing chain.</param>
         void Deserialize(string fileName, BaseHtmlCleaner.TextProcessor chain);
 
         /// <summary>
-        /// Сканирует цепочку обработчиков и копирует их данные.
-        /// Затем сериализует их в XML-файл.
+        /// Scans processing chain and copies object data into file.
         /// </summary>
-        /// <param name="fileName">Имя файла для сохранения конфигурации.</param>
-        /// <param name="chain">Первый объект в цепочке обработчиков.</param>
+        /// <param name="fileName">Configuration file name.</param>
+        /// <param name="chain">The first member of processing chain.</param>
         void Serialize(string fileName, BaseHtmlCleaner.TextProcessor chain);
     }
 }
