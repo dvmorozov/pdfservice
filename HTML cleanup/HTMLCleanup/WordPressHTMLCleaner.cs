@@ -102,8 +102,8 @@ namespace HtmlCleanup
 
         protected override TextProcessor CreateProcessingChain()
         {
-            return  
-                //  Создает последовательность обработки (имеет значение).
+            return
+                //  Creates processing chain (nesting is important).
                 //  At first extracts content of the <article> tag.
                 GetParagraphExtractor(
                     GetTagWithTextRemover(
