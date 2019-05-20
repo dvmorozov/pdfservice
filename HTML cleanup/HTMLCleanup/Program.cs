@@ -10,26 +10,26 @@ namespace HtmlCleanup
     class Program
     {
         /// <summary>
-        /// Создает структуру каталогов для сохранения текста страницы.
+        /// Creates folder structure to save content of page.
         /// </summary>
         /// <param name="url">URL.</param>
-        /// <returns>Путь к каталогу.</returns>
+        /// <returns>Path to folder.</returns>
         private static string CreateDirectories(string url)
         {
-            //  Оставляет только часть URL - "путь", параметры и имя файла отбрасывает.
-            //  URL может не иметь части, соответствующей имени файла, поэтому удобнее 
-            //  отбросить все от последнего разделителя и добавить стандартное имя файла.
+            //  Leaves only "path" part of URL, file name and parameters are removed.
+            //  URL could have no part corresponding to file name, therefore it is convenient
+            //  to remove everything from the last separator and add standard file name.
             var baseURL = url.LastIndexOf('/') == -1 ? url : url.Substring(0, url.LastIndexOf('/'));
             var path = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\";
 
             var l = baseURL.Split(new char[] { '/' });
-            //  Формируется структура каталогов (пропускаем "http://").
+            //  Path is formed ("http://" is skipped).
             for (int i = 2; i < l.Length; i++)
             {
                 path = Path.Combine(path, l[i]);
             }
 
-            //  Создает каталоги.
+            //  Created folder.
             Directory.CreateDirectory(path);
 
             return path;
@@ -37,10 +37,10 @@ namespace HtmlCleanup
 
         private static string MakeRequest(string url)
         {
-            //  Требуется определить кодировку страницы и преобразовать к стандартной.
+            //  Defines code page and convert it to UTF-8.
             var req = WebRequest.Create(url);
             var res = req.GetResponse();
-            //  Определяет кодировку страницы.
+            //  Searches for code page name.
             string charset = String.Empty;
             if (res.ContentType.IndexOf("1251", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "windows-1251";
             else
@@ -88,18 +88,18 @@ namespace HtmlCleanup
                 //  Creating cleaner instance based on URL.
                 var processChain = injector.CreateHTMLCleaner(url);
 
-                //  Выполняет запрос.
+                //  Performs request.
                 var s = MakeRequest(url);
 
                 var output = processChain.Process(s);
 
-                //  Формирует структуру каталогов для сохранения результата.
+                //  Creates directories for storing page content.
                 var path = CreateDirectories(url);
 
-                //  Формирует имя файла.
+                //  Forms content file name.
                 var fileName = path + "\\" + "content.txt";
 
-                //  Сохраняет текст в файл.
+                //  Savs text to file.
                 WriteTextToFile(fileName, output);
             }
             else
