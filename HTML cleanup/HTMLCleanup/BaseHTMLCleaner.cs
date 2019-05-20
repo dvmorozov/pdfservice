@@ -159,7 +159,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Удаляет тэги, сохраняя текст.
+            /// Removes tags saving text.
             /// </summary>
             public void RemoveTags()
             {
@@ -173,13 +173,13 @@ namespace HtmlCleanup
 
                     //  Tags can be nested, proceed from the same position.
                     _startPos = _pos1;
-                    //  Защита от повторного применения.
+                    //  Blocks repeated execution.
                     _found = false;
                 }
             }
 
             /// <summary>
-            /// Удаляет тэги вместе со внутренним текстом.
+            /// Removes tags together with internal text.
             /// </summary>
             public void RemoveTagsWithText()
             {
@@ -191,13 +191,13 @@ namespace HtmlCleanup
                     _pos3 = _pos1;
                     _startPos = _pos1;
 
-                    //  Защита от повторного применения.
+                    //  Blocks repeated execution.
                     _found = false;
                 }
             }
 
             /// <summary>
-            /// Заменяет тэги вместе со внутренним текстом на заданный текст.
+            /// Replaces tags together with internal text by given text.
             /// </summary>
             public void ReplaceTagsWithText(string text)
             {
@@ -205,14 +205,14 @@ namespace HtmlCleanup
                 {
                     RemoveTagsWithText();
                     _text = _text.Insert(_startPos, text);
-                    //  Вставленный текст не сканируем.
+                    //  Skips inserted text.
                     _startPos += text.Length;
                 }
             }
         }
 
         /// <summary>
-        /// Базовый класс обработчика текста.
+        /// Base class of text processors.
         /// </summary>
         public abstract class TextProcessor
         {
@@ -223,8 +223,7 @@ namespace HtmlCleanup
             private bool _skipped;
 
             /// <summary>
-            /// Возвращает следующий обработчик.
-            /// Используется при конфигурировании объектов.
+            /// Returns next processing object.
             /// </summary>
             public TextProcessor Next
             {
@@ -260,10 +259,10 @@ namespace HtmlCleanup
             protected abstract string ActualProcessing(string original);
 
             /// <summary>
-            /// Обрабатывает текст и вызывает следующий метод обработки в цепочке.
+            /// Processes text and executes next text processor in the chain.
             /// </summary>
-            /// <param name="original">Исходный текст.</param>
-            /// <returns>Обработанный текст.</returns>
+            /// <param name="original">Original text.</param>
+            /// <returns>Processed text.</returns>
             public string Process(string original)
             {
                 //  Does processing, if enabled and then calls
@@ -286,7 +285,7 @@ namespace HtmlCleanup
         protected abstract ParagraphExtractor GetParagraphExtractor(TextProcessor next);
 
         /// <summary>
-        /// Извлекает параграфы текста.
+        /// Extracts text paragraph.
         /// </summary>
         public class ParagraphExtractor : TextProcessor
         {
@@ -327,11 +326,11 @@ namespace HtmlCleanup
                     var b = el.FindNext();
                     if (!b) break;
 
-                    //  Разделяет параграфы.
+                    //  Separates paragraphs.
                     result += Environment.NewLine + Environment.NewLine;
-                    //  Отступ в начале следующего параграфа.
+                    //  Adds indent at the beginning of next paragraph.
                     result += "    ";
-                    //  Текст тэга.
+                    //  Tag text.
                     result += el.GetText();
                 }
                 while (true);
@@ -346,7 +345,7 @@ namespace HtmlCleanup
             private readonly string _replacement;
 
             public string SpecialHTML { get { return _specialHTML; } }
-            //  Включить десятичный код.
+            //  TODO: include decimal code.
             public string Replacement { get { return _replacement; } }
 
             public SpecialHTMLSymbol(string specialHTML, string replacement)
@@ -357,13 +356,13 @@ namespace HtmlCleanup
         }
 
         /// <summary>
-        /// Заменяет спецсимволы HTML.
+        /// Replaces special HTML characters.
         /// </summary>
         public class SpecialHTMLRemover : TextProcessor
         {
-            //  Согласно этому списку специальные символы заменяются, 
-            //  либо отбрасываются (заполняется из конфигурационного файла).
-            //  Аналогично обрабатываются десятичные коды.
+            //  According to this list special HTML characters are replaced
+            //  or removed (depending on configuration). Similarly decimal
+            //  codes are processed.
             private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>(new SpecialHTMLSymbol[] {
             new SpecialHTMLSymbol( "&#8211;", "-" ),
             new SpecialHTMLSymbol( "&#8217;", "'" ),
@@ -405,7 +404,8 @@ namespace HtmlCleanup
 
         public class TagToRemove
         {
-            private readonly string _startTag;   //  Без закрывающей >, чтобы игнорировать атрибуты.
+            private readonly string _startTag;   // Should not contain closing ">",
+                                                 // to skip attributes.
             private readonly string _endTag;
 
             public string StartTag
@@ -434,12 +434,12 @@ namespace HtmlCleanup
         protected abstract InnerTagRemover GetInnerTagRemover(TextProcessor next);
 
         /// <summary>
-        /// Удаляет тэги внутри параграфов, сохраняя внутренний текст.
+        /// Removes tags inside paragraphs saving internal text.
         /// </summary>
         public class InnerTagRemover : TextProcessor
         {
             /// <summary>
-            /// Список тэгов для удаления (заполняется из конфигурационного файла).
+            /// List of tags for removing (it is filled from configuration file).
             /// All tags representig text data which should be presaved. Tags must
             /// be arranged in the reverse lexigraphical order. The first tag must
             /// not include closing bracket.
@@ -492,12 +492,12 @@ namespace HtmlCleanup
         protected abstract TagWithTextRemover GetTagWithTextRemover(TextProcessor next);
 
         /// <summary>
-        /// Удаляет тэги вместе со внутренним текстом.
+        /// Removes tags together with internal text.
         /// </summary>
         public class TagWithTextRemover : TextProcessor
         {
             /// <summary>
-            /// Список тэгов для удаления (заполняется из конфигурационного файла).
+            /// List of tags for removing (it is filled from configuration file).
             /// Filled by default values. When tag doesn't have closing counterpart,
             /// corresponding value should be empty string. Tags must be in the 
             /// reverse lexigraphical order.
@@ -541,7 +541,7 @@ namespace HtmlCleanup
         }
 
         /// <summary>
-        /// Помещает URL в квадратные скобки.
+        /// Encloses URL into square brackets.
         /// </summary>
         public class UrlFormatter : TextProcessor
         {
@@ -574,17 +574,17 @@ namespace HtmlCleanup
         }
 
         /// <summary>
-        /// Разбивает текст на строки шириной не более _max символов.
+        /// Splits text into lines with width not more than _max characters.
         /// </summary>
         public class TextFormatter : TextProcessor
         {
             /// <summary>
-            /// Список символов-разделителей (заполняется из конфигурационного файла).
+            /// List of separating characters (it is filled from configuration file).
             /// Should have default value for creating configuration template.
             /// </summary>
             private char[] _delimiters = { ' ', ',', '.', ':', ';', '?', '.', '!' };
-            //  +1 позволяет обработать случай, когда слово заканчивается точно на границе.
-            //  Можно заполнять из конфигурационного файла.
+            //  +1 allows to handle the case when word ends exactly at the boundary.
+            //  TODO: make configurable.
             private const int _max = 81;
 
             public char[] Delimiters
@@ -615,17 +615,17 @@ namespace HtmlCleanup
                     {
                         var substring = text.Substring(pos, _max);
 
-                        //  Проверяет на конец строки.
+                        //  Checks for end of line.
                         var pos1 = substring.LastIndexOfAny(new char[] { '\x0a', '\x0d' });
                         if (pos1 != -1)
                         {
-                            //  Попал конец строки - обрезает по нему.
+                            //  End of line was found, cuts the line by its position.
                             processed += substring.Substring(0, pos1) + Environment.NewLine;
                             pos += pos1 + 1;
                         }
                         else
                         {
-                            //  Ищет другие разделители.
+                            //  Searches for other separators.
                             pos1 = substring.LastIndexOfAny(_delimiters);
 
                             if (pos1 == -1)
@@ -635,7 +635,7 @@ namespace HtmlCleanup
                             }
                             else
                             {
-                                //  Обрезает строку по последнему разделителю.
+                                //  Cuts the line by the last separator.
                                 processed += substring.Substring(0, pos1 + 1) + Environment.NewLine;
                                 pos += pos1 + 1;
                             }
@@ -660,10 +660,8 @@ namespace HtmlCleanup
                         strings.Remove(s);
                     else
                     {
-                        //  Replaces original string with
-                        //  string without white spaces.
-                        //  Leading spaces are left to 
-                        //  safe formatting.
+                        //  Replaces original string with string without white spaces.
+                        //  Leading spaces are left to safe formatting.
                         strings[index] = s.Trim('\t', '\r').TrimEnd();
                         index++;
                     }
@@ -673,7 +671,7 @@ namespace HtmlCleanup
         }
 
         protected virtual TextProcessor CreateProcessingChain() {
-            return  //  Создает последовательность обработки (имеет значение).
+            return  //  Creates processing chain (nesting is important).
                 GetTagWithTextRemover(
                     //  Replacing tags with text is done before replacing
                     //  special characters to avoid interpreting text as HTML tags.
@@ -706,13 +704,13 @@ namespace HtmlCleanup
 
         public string Process(string html)
         {
-            //  Создает последовательность обработки (имеет значение).
+            //  Creates processing chain.
             var processingChain = CreateProcessingChain();
 
-            //  Читает конфигурацию.
+            //  Reads configuration.
             ReadConfiguration(processingChain);
 
-            //  Выполняет обработку.
+            //  Processes HTML.
             return processingChain.Process(html);
         }
     }
