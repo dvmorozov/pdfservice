@@ -50,7 +50,7 @@ namespace HtmlCleanup
                     ((BaseHtmlCleaner.InnerTagRemover)chain).Tags.Clear();
                     foreach (var t in config.InnerTagRemoverConfig.Tags)
                     {
-                        ((BaseHtmlCleaner.InnerTagRemover)chain).Tags.Add(new BaseHtmlCleaner.TagToRemove(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHtmlCleaner.InnerTagRemover)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 
@@ -60,7 +60,7 @@ namespace HtmlCleanup
                     ((BaseHtmlCleaner.TagWithTextRemover)chain).Tags.Clear();
                     foreach (var t in config.TagWithTextRemoverConfig.Tags)
                     {
-                        ((BaseHtmlCleaner.TagWithTextRemover)chain).Tags.Add(new BaseHtmlCleaner.TagToRemove(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHtmlCleaner.TagWithTextRemover)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 

@@ -402,7 +402,7 @@ namespace HtmlCleanup
             }
         }
 
-        public class TagToRemove
+        public class Tag
         {
             private readonly string _startTag;   // Should not contain closing ">",
                                                  // to skip attributes.
@@ -424,7 +424,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public TagToRemove(string startTag, string endTag)
+            public Tag(string startTag, string endTag)
             {
                 _startTag = startTag;
                 _endTag = endTag;
@@ -444,9 +444,9 @@ namespace HtmlCleanup
             /// be arranged in the reverse lexigraphical order. The first tag must
             /// not include closing bracket.
             /// </summary>
-            private List<TagToRemove> _tags;
+            private List<Tag> _tags;
 
-            public List<TagToRemove> Tags
+            public List<Tag> Tags
             {
                 get
                 {
@@ -502,9 +502,9 @@ namespace HtmlCleanup
             /// corresponding value should be empty string. Tags must be in the 
             /// reverse lexigraphical order.
             /// </summary>
-            private List<TagToRemove> _tags;
+            private List<Tag> _tags;
 
-            public List<TagToRemove> Tags
+            public List<Tag> Tags
             {
                 get
                 {

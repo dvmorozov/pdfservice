@@ -9,52 +9,52 @@ namespace HtmlCleanup
         {
             var result = new TagWithTextRemover(next)
             {
-                Tags = new List<TagToRemove>(new TagToRemove[] {
-                    new TagToRemove( "<script", "</script>" ),
-                    new TagToRemove( "<style", "</style>" ),
-                    new TagToRemove( "<link", "" ),
-                    new TagToRemove( "<path", "</path>" ),
-                    new TagToRemove( "<meta", "" ),
-                    new TagToRemove( "<svg", "</svg>" ),
-                    new TagToRemove( "<sup", "</sup>" ),
-                    new TagToRemove( "<label", "</label>" ),
-                    new TagToRemove( "<input", "" ),
-                    new TagToRemove( "<img", "" ),
-                    new TagToRemove( "<iframe", "</iframe>" ),
-                    new TagToRemove( "<footer", "</footer>" ),
-                    new TagToRemove( "<form", "</form>" ),
-                    new TagToRemove( "<noscript", "</noscript>" ),
-                    new TagToRemove( "<nav", "</nav>" ),
-                    new TagToRemove( "<!DOCTYPE", "" ),
+                Tags = new List<Tag>(new Tag[] {
+                    new Tag( "<script", "</script>" ),
+                    new Tag( "<style", "</style>" ),
+                    new Tag( "<link", "" ),
+                    new Tag( "<path", "</path>" ),
+                    new Tag( "<meta", "" ),
+                    new Tag( "<svg", "</svg>" ),
+                    new Tag( "<sup", "</sup>" ),
+                    new Tag( "<label", "</label>" ),
+                    new Tag( "<input", "" ),
+                    new Tag( "<img", "" ),
+                    new Tag( "<iframe", "</iframe>" ),
+                    new Tag( "<footer", "</footer>" ),
+                    new Tag( "<form", "</form>" ),
+                    new Tag( "<noscript", "</noscript>" ),
+                    new Tag( "<nav", "</nav>" ),
+                    new Tag( "<!DOCTYPE", "" ),
                     //  Advertising block and internal divs.
                     //  Items should be in the order reverse
                     //  to the nesting of divs (best possible
                     //  option for this primitive parser).
-                    new TagToRemove( "<div id=\"atatags", "</div>"),
-                    new TagToRemove( "<div style=\"", "</div>"),
-                    new TagToRemove( "<div class=\"wpa-notice", "</div>"),
-                    new TagToRemove( "<div class=\"u", "</div>"),
-                    new TagToRemove( "<div class=\"wpa", "</div>"),
+                    new Tag( "<div id=\"atatags", "</div>"),
+                    new Tag( "<div style=\"", "</div>"),
+                    new Tag( "<div class=\"wpa-notice", "</div>"),
+                    new Tag( "<div class=\"u", "</div>"),
+                    new Tag( "<div class=\"wpa", "</div>"),
                     //  Sharing buttons (by groups of tags).
-                    new TagToRemove( "<div class=\"sd-content", "</div>"),
-                    new TagToRemove( "<div class=\"robots-nocontent", "</div>"),
-                    new TagToRemove( "<div class=\"sharedaddy", "</div>"),
+                    new Tag( "<div class=\"sd-content", "</div>"),
+                    new Tag( "<div class=\"robots-nocontent", "</div>"),
+                    new Tag( "<div class=\"sharedaddy", "</div>"),
 
-                    new TagToRemove( "<div class=\'likes-", "</div>"),
-                    new TagToRemove( "<div class=\'sharedaddy", "</div>"),
+                    new Tag( "<div class=\'likes-", "</div>"),
+                    new Tag( "<div class=\'sharedaddy", "</div>"),
 
-                    new TagToRemove( "<div id=\'jp-relatedposts", "</div>"),
-                    new TagToRemove( "<div id=\"jp-post-flair", "</div>"),
+                    new Tag( "<div id=\'jp-relatedposts", "</div>"),
+                    new Tag( "<div id=\"jp-post-flair", "</div>"),
 
-                    new TagToRemove( "<div class=\"wpcnt", "</div>"),
+                    new Tag( "<div class=\"wpcnt", "</div>"),
                     //  Other tags.
-                    new TagToRemove( "<button", "</button>" ),
-                    new TagToRemove( "<br", "" ),
-                    new TagToRemove( "<aside", "</aside>" ),
+                    new Tag( "<button", "</button>" ),
+                    new Tag( "<br", "" ),
+                    new Tag( "<aside", "</aside>" ),
                     //  Hyperlinks are removed.
-                    new TagToRemove( "<a", "</a>" ),
-                    new TagToRemove( "<!--[if", "<![endif]-->" ),
-                    new TagToRemove( "<!--", "" )
+                    new Tag( "<a", "</a>" ),
+                    new Tag( "<!--[if", "<![endif]-->" ),
+                    new Tag( "<!--", "" )
                 })
             };
             return result;
@@ -64,37 +64,37 @@ namespace HtmlCleanup
         {
             var result = new InnerTagRemover(next)
             {
-                Tags = new List<TagToRemove>(new TagToRemove[] {
-                new TagToRemove( "<ul", "</ul>" ),
-                new TagToRemove( "<u", "</u>" ),
+                Tags = new List<Tag>(new Tag[] {
+                new Tag( "<ul", "</ul>" ),
+                new Tag( "<u", "</u>" ),
                 //  Removing tables.
-                new TagToRemove( "<td", "</td>" ),
-                new TagToRemove( "<tr", "</tr>" ),
-                new TagToRemove( "<tbody", "</tbody>" ),
-                new TagToRemove( "<table", "</table>" ),
+                new Tag( "<td", "</td>" ),
+                new Tag( "<tr", "</tr>" ),
+                new Tag( "<tbody", "</tbody>" ),
+                new Tag( "<table", "</table>" ),
                 //  Other tags.
-                new TagToRemove( "<title", "</title>" ),
-                new TagToRemove( "<strong", "</strong>" ),
-                new TagToRemove( "<span", "</span>" ),
-                new TagToRemove( "<small", "</small>" ),
-                new TagToRemove( "<pre", "</pre>" ),
-                new TagToRemove( "<p", "</p>" ),
-                new TagToRemove( "<main", "</main>" ),
-                new TagToRemove( "<li", "</li>" ),
-                new TagToRemove( "<html", "</html>" ),
-                new TagToRemove( "<header", "</header>" ),
-                new TagToRemove( "<head", "</head>" ),
-                new TagToRemove( "<h4", "</h4>" ),
-                new TagToRemove( "<h3", "</h3>" ),
-                new TagToRemove( "<h3", "</h3>" ),
-                new TagToRemove( "<h2", "</h2>" ),
-                new TagToRemove( "<h1", "</h1>" ),
-                new TagToRemove( "<footer", "</footer>" ),
-                new TagToRemove( "<em", "</em>" ),
-                new TagToRemove( "<div", "</div>" ),
-                new TagToRemove( "<code", "</code>" ),
-                new TagToRemove( "<body", "</body>" ),
-                new TagToRemove( "<blockquote", "</blockquote>")
+                new Tag( "<title", "</title>" ),
+                new Tag( "<strong", "</strong>" ),
+                new Tag( "<span", "</span>" ),
+                new Tag( "<small", "</small>" ),
+                new Tag( "<pre", "</pre>" ),
+                new Tag( "<p", "</p>" ),
+                new Tag( "<main", "</main>" ),
+                new Tag( "<li", "</li>" ),
+                new Tag( "<html", "</html>" ),
+                new Tag( "<header", "</header>" ),
+                new Tag( "<head", "</head>" ),
+                new Tag( "<h4", "</h4>" ),
+                new Tag( "<h3", "</h3>" ),
+                new Tag( "<h3", "</h3>" ),
+                new Tag( "<h2", "</h2>" ),
+                new Tag( "<h1", "</h1>" ),
+                new Tag( "<footer", "</footer>" ),
+                new Tag( "<em", "</em>" ),
+                new Tag( "<div", "</div>" ),
+                new Tag( "<code", "</code>" ),
+                new Tag( "<body", "</body>" ),
+                new Tag( "<blockquote", "</blockquote>")
             })
             };
             return result;
