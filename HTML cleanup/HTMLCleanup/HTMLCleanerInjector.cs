@@ -11,7 +11,7 @@ namespace HtmlCleanup
             _config = config;
         }
 
-        public IHtmlCleaner CreateHTMLCleaner(string url)
+        public IHtmlCleaner CreateHtmlCleaner(string url)
         {
             var list = _config.GetCleanerList();
             foreach (var item in list)

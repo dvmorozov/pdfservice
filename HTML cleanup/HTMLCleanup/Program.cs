@@ -86,7 +86,7 @@ namespace HtmlCleanup
 
                 var injector = new HtmlCleanerInjector(new BaseInjectorConfig());
                 //  Creating cleaner instance based on URL.
-                var processChain = injector.CreateHTMLCleaner(url);
+                var processChain = injector.CreateHtmlCleaner(url);
 
                 //  Performs request.
                 var s = MakeRequest(url);
