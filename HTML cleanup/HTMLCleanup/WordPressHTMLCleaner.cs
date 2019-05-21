@@ -5,9 +5,9 @@ namespace HtmlCleanup
 {
     class WordPressHtmlCleaner : BaseHtmlCleaner
     {
-        protected override TagWithTextRemover GetTagWithTextRemover(TextProcessor next)
+        protected override TagRemover GetTagRemover(TextProcessor next)
         {
-            var result = new TagWithTextRemover(next)
+            var result = new TagRemover(next)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<script", "</script>" ),
@@ -60,9 +60,9 @@ namespace HtmlCleanup
             return result;
         }
 
-        protected override InnerTagRemover GetInnerTagRemover(TextProcessor next)
+        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next)
         {
-            var result = new InnerTagRemover(next)
+            var result = new InnerTextProcessor(next)
             {
                 Tags = new List<Tag>(new Tag[] {
                 new Tag( "<ul", "</ul>" ),
@@ -106,10 +106,10 @@ namespace HtmlCleanup
                 //  Creates processing chain (nesting is important).
                 //  At first extracts content of the <article> tag.
                 GetParagraphExtractor(
-                    GetTagWithTextRemover(
+                    GetTagRemover(
                         //  Replacing tags with text is done before replacing
                         //  special characters to avoid interpreting text as HTML tags.
-                        GetInnerTagRemover(
+                        GetInnerTextProcessor(
                             new UrlFormatter(
                                 new SpecialHTMLRemover(
                                     new TextFormatter(null)

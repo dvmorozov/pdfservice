@@ -21,7 +21,7 @@ namespace HtmlCleanup.Tests
         {
             var original = System.IO.File.ReadAllText(@"..\..\..\..\HtmlCleanupTests\TestFiles\original.html");
             var inputRemoved = System.IO.File.ReadAllText(@"..\..\..\..\HtmlCleanupTests\TestFiles\input_removed.html");
-            var remover = new BaseHtmlCleaner.TagWithTextRemover(null)
+            var remover = new BaseHtmlCleaner.TagRemover(null)
             {
                 Tags = new List<BaseHtmlCleaner.Tag>(new BaseHtmlCleaner.Tag[] {
                     //  Closing tag should be empty string.

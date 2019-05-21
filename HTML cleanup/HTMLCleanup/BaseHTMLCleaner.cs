@@ -431,12 +431,12 @@ namespace HtmlCleanup
             }
         }
 
-        protected abstract InnerTagRemover GetInnerTagRemover(TextProcessor next);
+        protected abstract InnerTextProcessor GetInnerTextProcessor(TextProcessor next);
 
         /// <summary>
         /// Removes tags inside paragraphs saving internal text.
         /// </summary>
-        public class InnerTagRemover : TextProcessor
+        public class InnerTextProcessor : TextProcessor
         {
             /// <summary>
             /// List of tags for removing (it is filled from configuration file).
@@ -459,7 +459,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public InnerTagRemover(TextProcessor next)
+            public InnerTextProcessor(TextProcessor next)
                 : base(next)
             {
             }
@@ -484,17 +484,17 @@ namespace HtmlCleanup
         }
 
         /// <summary>
-        /// Creates and initializes domain-specific instance of TagWithTextRemover.
+        /// Creates and initializes domain-specific instance of TagRemover.
         /// </summary>
         /// <param name="next">Next processing object in the chain.</param>
-        /// <returns>Instance of TagWithTextRemover specific for the domain supported
+        /// <returns>Instance of TagRemover specific for the domain supported
         /// by inherited class.</returns>
-        protected abstract TagWithTextRemover GetTagWithTextRemover(TextProcessor next);
+        protected abstract TagRemover GetTagRemover(TextProcessor next);
 
         /// <summary>
         /// Removes tags together with internal text.
         /// </summary>
-        public class TagWithTextRemover : TextProcessor
+        public class TagRemover : TextProcessor
         {
             /// <summary>
             /// List of tags for removing (it is filled from configuration file).
@@ -517,7 +517,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public TagWithTextRemover(TextProcessor next)
+            public TagRemover(TextProcessor next)
                 : base(next)
             {
             }
@@ -672,10 +672,10 @@ namespace HtmlCleanup
 
         protected virtual TextProcessor CreateProcessingChain() {
             return  //  Creates processing chain (nesting is important).
-                GetTagWithTextRemover(
+                GetTagRemover(
                     //  Replacing tags with text is done before replacing
                     //  special characters to avoid interpreting text as HTML tags.
-                    GetInnerTagRemover(
+                    GetInnerTextProcessor(
                         //  By default ParagraphExtractor is disabled (see constructor).
                         GetParagraphExtractor(
                             new UrlFormatter(

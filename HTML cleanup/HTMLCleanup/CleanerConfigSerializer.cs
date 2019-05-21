@@ -44,23 +44,23 @@ namespace HtmlCleanup
                     }
                 }
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTagRemover))
+                if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTextProcessor))
                 {
-                    ((BaseHtmlCleaner.InnerTagRemover)chain).Skipped = config.InnerTagRemoverConfig.Skipped;
-                    ((BaseHtmlCleaner.InnerTagRemover)chain).Tags.Clear();
+                    ((BaseHtmlCleaner.InnerTextProcessor)chain).Skipped = config.InnerTagRemoverConfig.Skipped;
+                    ((BaseHtmlCleaner.InnerTextProcessor)chain).Tags.Clear();
                     foreach (var t in config.InnerTagRemoverConfig.Tags)
                     {
-                        ((BaseHtmlCleaner.InnerTagRemover)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHtmlCleaner.InnerTextProcessor)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.TagWithTextRemover))
+                if (chain.GetType() == typeof(BaseHtmlCleaner.TagRemover))
                 {
-                    ((BaseHtmlCleaner.TagWithTextRemover)chain).Skipped = config.TagWithTextRemoverConfig.Skipped;
-                    ((BaseHtmlCleaner.TagWithTextRemover)chain).Tags.Clear();
+                    ((BaseHtmlCleaner.TagRemover)chain).Skipped = config.TagWithTextRemoverConfig.Skipped;
+                    ((BaseHtmlCleaner.TagRemover)chain).Tags.Clear();
                     foreach (var t in config.TagWithTextRemoverConfig.Tags)
                     {
-                        ((BaseHtmlCleaner.TagWithTextRemover)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                        ((BaseHtmlCleaner.TagRemover)chain).Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
                     }
                 }
 
@@ -121,38 +121,38 @@ namespace HtmlCleanup
                     }
                 }
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTagRemover))
+                if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTextProcessor))
                 {
                     config.InnerTagRemoverConfig = new InnerTagRemoverType()
                     {
-                        Skipped = ((BaseHtmlCleaner.InnerTagRemover)chain).Skipped,
-                        Tags = new TagToRemoveType[((BaseHtmlCleaner.InnerTagRemover) chain).Tags.Count]
+                        Skipped = ((BaseHtmlCleaner.InnerTextProcessor)chain).Skipped,
+                        Tags = new TagToRemoveType[((BaseHtmlCleaner.InnerTextProcessor) chain).Tags.Count]
                     };
 
-                    for (var i = 0; i < ((BaseHtmlCleaner.InnerTagRemover) chain).Tags.Count; i++)
+                    for (var i = 0; i < ((BaseHtmlCleaner.InnerTextProcessor) chain).Tags.Count; i++)
                     {
                         config.InnerTagRemoverConfig.Tags[i] = new TagToRemoveType
                         {
-                            StartTagWithoutBracket = ((BaseHtmlCleaner.InnerTagRemover) chain).Tags[i].StartTag, 
-                            EndTag = ((BaseHtmlCleaner.InnerTagRemover) chain).Tags[i].EndTag
+                            StartTagWithoutBracket = ((BaseHtmlCleaner.InnerTextProcessor) chain).Tags[i].StartTag, 
+                            EndTag = ((BaseHtmlCleaner.InnerTextProcessor) chain).Tags[i].EndTag
                         };
                     }
                 }
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.TagWithTextRemover))
+                if (chain.GetType() == typeof(BaseHtmlCleaner.TagRemover))
                 {
                     config.TagWithTextRemoverConfig = new TagWithTextRemoverType()
                     {
-                        Skipped = ((BaseHtmlCleaner.TagWithTextRemover)chain).Skipped,
-                        Tags = new TagToRemoveType[((BaseHtmlCleaner.TagWithTextRemover) chain).Tags.Count]
+                        Skipped = ((BaseHtmlCleaner.TagRemover)chain).Skipped,
+                        Tags = new TagToRemoveType[((BaseHtmlCleaner.TagRemover) chain).Tags.Count]
                     };
 
-                    for (var i = 0; i < ((BaseHtmlCleaner.TagWithTextRemover) chain).Tags.Count; i++)
+                    for (var i = 0; i < ((BaseHtmlCleaner.TagRemover) chain).Tags.Count; i++)
                     {
                         config.TagWithTextRemoverConfig.Tags[i] = new TagToRemoveType()
                         {
-                            StartTagWithoutBracket = ((BaseHtmlCleaner.TagWithTextRemover) chain).Tags[i].StartTag,
-                            EndTag = ((BaseHtmlCleaner.TagWithTextRemover) chain).Tags[i].EndTag
+                            StartTagWithoutBracket = ((BaseHtmlCleaner.TagRemover) chain).Tags[i].StartTag,
+                            EndTag = ((BaseHtmlCleaner.TagRemover) chain).Tags[i].EndTag
                         };
                     }
                 }

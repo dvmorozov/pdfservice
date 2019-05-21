@@ -5,9 +5,9 @@ namespace HtmlCleanup
 {
     class UniversalHtmlCleaner : BaseHtmlCleaner
     {
-        protected override TagWithTextRemover GetTagWithTextRemover(TextProcessor next)
+        protected override TagRemover GetTagRemover(TextProcessor next)
         {
-            var result = new TagWithTextRemover(next)
+            var result = new TagRemover(next)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<script", "</script>" ),
@@ -33,9 +33,9 @@ namespace HtmlCleanup
             return result;
         }
 
-        protected override InnerTagRemover GetInnerTagRemover(TextProcessor next)
+        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next)
         {
-            var result = new InnerTagRemover(next)
+            var result = new InnerTextProcessor(next)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<ul", "</ul>" ),
