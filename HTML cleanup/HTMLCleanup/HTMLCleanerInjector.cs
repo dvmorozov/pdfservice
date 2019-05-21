@@ -1,13 +1,12 @@
-﻿using HtmlCleanup;
-using System;
+﻿using System;
 
 namespace HtmlCleanup
 {
-    class HTMLCleanerInjector
+    class HtmlCleanerInjector
     {
         private IInjectorConfig _config;
 
-        public HTMLCleanerInjector(IInjectorConfig config)
+        public HtmlCleanerInjector(IInjectorConfig config)
         {
             _config = config;
         }
