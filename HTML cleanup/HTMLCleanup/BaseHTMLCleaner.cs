@@ -47,6 +47,13 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
+            private ITagFormatter _formatter;
+
+            public void SetFormatter(ITagFormatter formatter)
+            {
+                _formatter = formatter;
+            }
+
             public string Text
             {
                 get
@@ -60,6 +67,8 @@ namespace HtmlCleanup
                 _text = text;
                 _startTag = startTag;
                 _endTag = endTag;
+                //  Sets default formatter.
+                _formatter = new PlainTextFormatter();
             }
 
             /// <summary>
@@ -166,11 +175,22 @@ namespace HtmlCleanup
                 if (_found)
                 {
                     var len1 = _pos2 - _pos1 + 1;
+                    //  Removes start tag.
                     _text = _text.Remove(_pos1, len1);
                     _pos3 -= len1;
 
+                    //  Removes end tag.
                     _text = _text.Remove(_pos3, _endTag.Length);
 
+                    //  Formats text.
+                    var innerText = _text.Substring(_pos1, _pos3 - _pos1);
+                    //  Removes inner text.
+                    _text = _text.Remove(_pos1, _pos3 - _pos1);
+                    innerText = _formatter.Process(new Tag(_startTag, _endTag), innerText);
+                    //  Inserts formatted text.
+                    _text = _text.Insert(_pos1, innerText);
+                    //  Corrects end position.
+                    _pos3 = _pos1 + innerText.Length;
                     //  Tags can be nested, proceed from the same position.
                     _startPos = _pos1;
                     //  Blocks repeated execution.
@@ -459,9 +479,18 @@ namespace HtmlCleanup
                 }
             }
 
+            private ITagFormatter _formatter;
+
+            public void SetFormatter(ITagFormatter formatter)
+            {
+                _formatter = formatter;
+            }
+
             public InnerTextProcessor(TextProcessor next)
                 : base(next)
             {
+                //  Sets default formatter.
+                _formatter = new PlainTextFormatter();
             }
 
             protected override string ActualProcessing(string text)
