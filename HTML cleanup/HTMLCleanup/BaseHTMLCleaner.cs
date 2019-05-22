@@ -713,5 +713,18 @@ namespace HtmlCleanup
             //  Processes HTML.
             return processingChain.Process(html);
         }
+
+        private ITagFormatter _formatter;
+
+        public void SetFormatter(ITagFormatter formatter)
+        {
+            _formatter = formatter;
+        }
+
+        public BaseHtmlCleaner()
+        {
+            //  Default tag formatter.
+            _formatter = new PlainTextFormatter();
+        }
     }
 }
