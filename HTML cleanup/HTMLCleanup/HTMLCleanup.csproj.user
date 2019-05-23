@@ -5,6 +5,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>"https://rationalcity.wordpress.com/2019/05/17/how-to-remove-empty-strings-from-text-in-c"</StartArguments>
+    <StartArguments>"https://rationalcity.wordpress.com/2019/04/30/how-does-the-comma-operator-work-in-c/"</StartArguments>
   </PropertyGroup>
 </Project>
