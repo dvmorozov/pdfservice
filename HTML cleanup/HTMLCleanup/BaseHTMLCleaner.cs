@@ -54,6 +54,11 @@ namespace HtmlCleanup
                 _formatter = formatter;
             }
 
+            public ITagFormatter GetFormatter()
+            {
+                return _formatter;
+            }
+
             public string Text
             {
                 get
@@ -486,6 +491,11 @@ namespace HtmlCleanup
                 _formatter = formatter;
             }
 
+            public ITagFormatter GetFormatter()
+            {
+                return _formatter;
+            }
+
             public InnerTextProcessor(TextProcessor next)
                 : base(next)
             {
@@ -743,11 +753,21 @@ namespace HtmlCleanup
             return processingChain.Process(html);
         }
 
+        public string GetResultingFileData()
+        {
+            return "";
+        }
+
         private ITagFormatter _formatter;
 
         public void SetFormatter(ITagFormatter formatter)
         {
             _formatter = formatter;
+        }
+
+        public ITagFormatter GetFormatter()
+        {
+            return _formatter;
         }
 
         public BaseHtmlCleaner()

@@ -96,8 +96,10 @@ namespace HtmlCleanup
                 //  Creates directories for storing page content.
                 var path = CreateDirectories(url);
 
+                var formatter = processChain.GetFormatter();
+
                 //  Forms content file name.
-                var fileName = path + "\\" + "content.txt";
+                var fileName = path + "\\" + "content." + formatter.GetResultingFileExtension();
 
                 //  Savs text to file.
                 WriteTextToFile(fileName, output);

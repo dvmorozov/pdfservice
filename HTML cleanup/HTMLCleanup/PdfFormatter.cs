@@ -22,5 +22,10 @@ namespace HtmlCleanup
             }
             return innerText;
         }
+
+        public string GetResultingFileExtension()
+        {
+            return "pdf";
+        }
     }
 }

@@ -24,5 +24,10 @@
             }
             return innerText;
         }
+
+        public string GetResultingFileExtension()
+        {
+            return "txt";
+        }
     }
 }
