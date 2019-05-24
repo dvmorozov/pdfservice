@@ -13,5 +13,10 @@ namespace HtmlCleanup
                 }
             };
         }
+
+        public string GetFormatterType()
+        {
+            return "HtmlCleanup.PlainTextFormatter";
+        }
     }
 }

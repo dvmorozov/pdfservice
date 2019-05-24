@@ -15,5 +15,10 @@ namespace HtmlCleanup
         /// </summary>
         /// <returns>List of cleaner type names.</returns>
         List<HtmlCleanerConfigItem> GetCleanerList();
+        /// <summary>
+        /// Returns name of formatter type.
+        /// </summary>
+        /// <returns>Formatter type name.</returns>
+        string GetFormatterType();
     }
 }
