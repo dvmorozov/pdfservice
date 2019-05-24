@@ -177,14 +177,15 @@ configuration.</panel_attributes>
   <element>
     <id>UMLInterface</id>
     <coordinates>
-      <x>546</x>
+      <x>533</x>
       <y>806</y>
-      <w>208</w>
-      <h>117</h>
+      <w>234</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>IInjectorConfig
 --
-GetCleanerList(): List</panel_attributes>
+GetCleanerList(): List
+GetFormatterType: string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -213,12 +214,12 @@ GetCleanerList(): List</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>637</x>
-      <y>897</y>
+      <y>910</y>
       <w>39</w>
-      <h>169</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -366,12 +367,12 @@ into separate class.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>364</x>
-      <y>897</y>
+      <y>910</y>
       <w>299</w>
-      <h>169</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;70.0;210.0;70.0;210.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;60.0;210.0;60.0;210.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -489,5 +490,16 @@ one.</panel_attributes>
     </coordinates>
     <panel_attributes>PdfFormatter</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>832</x>
+      <y>195</y>
+      <w>442</w>
+      <h>494</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;360.0;160.0;360.0;160.0;10.0;320.0;10.0</additional_attributes>
   </element>
 </diagram>
