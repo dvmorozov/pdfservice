@@ -108,6 +108,7 @@
     <Compile Include="IntHTMLCleaner.cs" />
     <Compile Include="IntInjectorConfig.cs" />
     <Compile Include="IntTagFormatter.cs" />
+    <Compile Include="PdfFormatter.cs" />
     <Compile Include="PlainTextFormatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
