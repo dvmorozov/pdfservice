@@ -7,11 +7,12 @@
       <x>1092</x>
       <y>442</y>
       <w>338</w>
-      <h>130</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>IHtmlCleaner
 --
-Process(html: string): string
+Process(html: string)
+GetResultingFileData: char[]
 SetFormatter(formatter: ITagFormatter)</panel_attributes>
     <additional_attributes/>
   </element>
@@ -44,12 +45,12 @@ HtmlCleanerInjector(reader: IInjectorConfig)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1248</x>
-      <y>546</y>
+      <y>572</y>
       <w>39</w>
-      <h>130</h>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -272,12 +273,12 @@ Serialize(string fileName, ...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1833</x>
-      <y>546</y>
+      <y>559</y>
       <w>39</w>
-      <h>130</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -366,11 +367,11 @@ into separate class.</panel_attributes>
     <coordinates>
       <x>364</x>
       <y>897</y>
-      <w>273</w>
+      <w>299</w>
       <h>169</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;70.0;190.0;70.0;190.0;10.0</additional_attributes>
+    <additional_attributes>10.0;110.0;10.0;70.0;210.0;70.0;210.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -402,23 +403,24 @@ llist of plugins.</panel_attributes>
       <x>1079</x>
       <y>182</y>
       <w>377</w>
-      <h>117</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>ITagFormatter
 --
-Process(tag: Tag, innerText: string): string</panel_attributes>
+Process(tag: Tag, innerText: string): char[]
+GetResultingFileExtension: string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1248</x>
-      <y>273</y>
+      <y>299</y>
       <w>39</w>
-      <h>208</h>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
@@ -436,13 +438,13 @@ one.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1417</x>
+      <x>1443</x>
       <y>260</y>
-      <w>208</w>
+      <w>182</w>
       <h>39</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>140.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
