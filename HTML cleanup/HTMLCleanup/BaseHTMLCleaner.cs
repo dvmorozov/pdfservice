@@ -748,11 +748,5 @@ namespace HtmlCleanup
         {
             return _formatter;
         }
-
-        public BaseHtmlCleaner()
-        {
-            //  Default tag formatter.
-            _formatter = new PlainTextFormatter();
-        }
     }
 }
