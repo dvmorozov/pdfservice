@@ -5,23 +5,22 @@
     <id>UMLInterface</id>
     <coordinates>
       <x>1092</x>
-      <y>507</y>
+      <y>442</y>
       <w>338</w>
-      <h>182</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>IHtmlCleaner
 --
 Process(html: string)
 GetResultingFileData: char[]
-SetFormatter(formatter: ITagFormatter)
-GetFormatter: ITagFormatter</panel_attributes>
+SetFormatter(formatter: ITagFormatter)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>442</x>
-      <y>702</y>
+      <y>637</y>
       <w>403</w>
       <h>91</h>
     </coordinates>
@@ -35,7 +34,7 @@ HtmlCleanerInjector(reader: IInjectorConfig)</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1144</x>
-      <y>728</y>
+      <y>676</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -46,29 +45,29 @@ HtmlCleanerInjector(reader: IInjectorConfig)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1248</x>
-      <y>650</y>
+      <y>585</y>
       <w>39</w>
-      <h>104</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>832</x>
-      <y>520</y>
+      <y>455</y>
       <w>442</w>
       <h>260</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;180.0;140.0;180.0;140.0;10.0;320.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;180.0;150.0;180.0;150.0;10.0;320.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1144</x>
-      <y>884</y>
+      <y>819</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -79,18 +78,18 @@ HtmlCleanerInjector(reader: IInjectorConfig)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1248</x>
-      <y>780</y>
+      <y>728</y>
       <w>39</w>
-      <h>130</h>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>559</x>
-      <y>403</y>
+      <y>338</y>
       <w>182</w>
       <h>247</h>
     </coordinates>
@@ -112,7 +111,7 @@ assembly.
     <id>Relation</id>
     <coordinates>
       <x>637</x>
-      <y>637</y>
+      <y>572</y>
       <w>39</w>
       <h>91</h>
     </coordinates>
@@ -122,19 +121,19 @@ assembly.
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1261</x>
-      <y>780</y>
-      <w>273</w>
-      <h>130</h>
+      <x>1274</x>
+      <y>728</y>
+      <w>260</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0;190.0;50.0;190.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;180.0;40.0;180.0;70.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1391</x>
-      <y>884</y>
+      <y>819</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -145,7 +144,7 @@ assembly.
     <id>UMLNote</id>
     <coordinates>
       <x>169</x>
-      <y>689</y>
+      <y>624</y>
       <w>182</w>
       <h>286</h>
     </coordinates>
@@ -168,7 +167,7 @@ configuration.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>338</x>
-      <y>741</y>
+      <y>676</y>
       <w>130</w>
       <h>39</h>
     </coordinates>
@@ -179,7 +178,7 @@ configuration.</panel_attributes>
     <id>UMLInterface</id>
     <coordinates>
       <x>533</x>
-      <y>884</y>
+      <y>819</y>
       <w>234</w>
       <h>130</h>
     </coordinates>
@@ -193,7 +192,7 @@ GetFormatterType: string</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>637</x>
-      <y>780</y>
+      <y>715</y>
       <w>39</w>
       <h>143</h>
     </coordinates>
@@ -204,7 +203,7 @@ GetFormatterType: string</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>533</x>
-      <y>1118</y>
+      <y>1053</y>
       <w>234</w>
       <h>78</h>
     </coordinates>
@@ -215,7 +214,7 @@ GetFormatterType: string</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>637</x>
-      <y>988</y>
+      <y>923</y>
       <w>39</w>
       <h>156</h>
     </coordinates>
@@ -226,7 +225,7 @@ GetFormatterType: string</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>845</x>
-      <y>1105</y>
+      <y>1040</y>
       <w>182</w>
       <h>104</h>
     </coordinates>
@@ -239,7 +238,7 @@ from Web.config.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>754</x>
-      <y>1144</y>
+      <y>1079</y>
       <w>117</w>
       <h>39</h>
     </coordinates>
@@ -250,7 +249,7 @@ from Web.config.</panel_attributes>
     <id>UMLInterface</id>
     <coordinates>
       <x>1703</x>
-      <y>520</y>
+      <y>455</y>
       <w>286</w>
       <h>130</h>
     </coordinates>
@@ -264,7 +263,7 @@ Serialize(string fileName, ...)</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1729</x>
-      <y>728</y>
+      <y>663</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -275,7 +274,7 @@ Serialize(string fileName, ...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1833</x>
-      <y>637</y>
+      <y>572</y>
       <w>39</w>
       <h>117</h>
     </coordinates>
@@ -286,18 +285,18 @@ Serialize(string fileName, ...)</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1365</x>
-      <y>533</y>
+      <y>468</y>
       <w>494</w>
-      <h>260</h>
+      <h>273</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;180.0;180.0;180.0;180.0;10.0;360.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;180.0;190.0;180.0;10.0;360.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>1599</x>
-      <y>403</y>
+      <y>338</y>
       <w>182</w>
       <h>65</h>
     </coordinates>
@@ -309,7 +308,7 @@ inversion.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1716</x>
-      <y>455</y>
+      <y>390</y>
       <w>39</w>
       <h>117</h>
     </coordinates>
@@ -320,7 +319,7 @@ inversion.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1144</x>
-      <y>455</y>
+      <y>390</y>
       <w>533</w>
       <h>104</h>
     </coordinates>
@@ -331,7 +330,7 @@ inversion.</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>1729</x>
-      <y>884</y>
+      <y>819</y>
       <w>234</w>
       <h>117</h>
     </coordinates>
@@ -346,7 +345,7 @@ into separate class.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1833</x>
-      <y>780</y>
+      <y>715</y>
       <w>39</w>
       <h>130</h>
     </coordinates>
@@ -357,7 +356,7 @@ into separate class.</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>260</x>
-      <y>1118</y>
+      <y>1053</y>
       <w>234</w>
       <h>78</h>
     </coordinates>
@@ -368,7 +367,7 @@ into separate class.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>364</x>
-      <y>988</y>
+      <y>923</y>
       <w>299</w>
       <h>156</h>
     </coordinates>
@@ -379,7 +378,7 @@ into separate class.</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>0</x>
-      <y>1092</y>
+      <y>1027</y>
       <w>182</w>
       <h>117</h>
     </coordinates>
@@ -392,7 +391,7 @@ llist of plugins.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>169</x>
-      <y>1144</y>
+      <y>1079</y>
       <w>117</w>
       <h>39</h>
     </coordinates>
@@ -403,7 +402,7 @@ llist of plugins.</panel_attributes>
     <id>UMLInterface</id>
     <coordinates>
       <x>1079</x>
-      <y>260</y>
+      <y>195</y>
       <w>377</w>
       <h>130</h>
     </coordinates>
@@ -416,19 +415,19 @@ GetResultingFileExtension: string</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>975</x>
-      <y>130</y>
-      <w>195</w>
-      <h>663</h>
+      <x>962</x>
+      <y>221</y>
+      <w>208</w>
+      <h>520</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>130.0;490.0;10.0;490.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;380.0;10.0;380.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
       <x>1599</x>
-      <y>312</y>
+      <y>247</y>
       <w>182</w>
       <h>78</h>
     </coordinates>
@@ -441,7 +440,7 @@ one.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1443</x>
-      <y>338</y>
+      <y>273</y>
       <w>182</w>
       <h>39</h>
     </coordinates>
@@ -452,7 +451,7 @@ one.</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1144</x>
-      <y>78</y>
+      <y>13</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -463,7 +462,7 @@ one.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1248</x>
-      <y>130</y>
+      <y>65</y>
       <w>39</w>
       <h>169</h>
     </coordinates>
@@ -474,7 +473,7 @@ one.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1274</x>
-      <y>130</y>
+      <y>65</y>
       <w>273</w>
       <h>182</h>
     </coordinates>
@@ -485,7 +484,7 @@ one.</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1404</x>
-      <y>78</y>
+      <y>13</y>
       <w>234</w>
       <h>65</h>
     </coordinates>
@@ -496,97 +495,59 @@ one.</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>832</x>
-      <y>338</y>
+      <y>273</y>
       <w>273</w>
-      <h>429</h>
+      <h>416</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;310.0;130.0;310.0;130.0;10.0;190.0;10.0</additional_attributes>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;300.0;130.0;300.0;130.0;10.0;190.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>884</x>
-      <y>78</y>
-      <w>234</w>
+      <x>845</x>
+      <y>13</y>
+      <w>273</w>
       <h>65</h>
     </coordinates>
-    <panel_attributes>HtmlElement</panel_attributes>
+    <panel_attributes>HtmlElement
+--
+HtmlElement(..., ITagFormatter)</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>663</x>
-      <y>65</y>
-      <w>182</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>Must have instance
-of configuration.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>832</x>
-      <y>91</y>
-      <w>78</w>
-      <h>39</h>
-    </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>40.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>988</x>
-      <y>130</y>
-      <w>169</w>
-      <h>195</h>
+      <y>65</y>
+      <w>286</w>
+      <h>182</h>
     </coordinates>
-    <panel_attributes>lt=)-
-m1=require
-</panel_attributes>
-    <additional_attributes>100.0;120.0;10.0;120.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>200.0;120.0;140.0;120.0;140.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
+    <id>UMLClass</id>
     <coordinates>
-      <x>1131</x>
-      <y>260</y>
-      <w>143</w>
+      <x>806</x>
+      <y>169</y>
+      <w>338</w>
       <h>65</h>
     </coordinates>
-    <panel_attributes>lt=-()
-m2=provide
-</panel_attributes>
-    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
+    <panel_attributes>TextProcessor
+--
+SetFormatter(formatter: ITagFormatter)</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1248</x>
-      <y>442</y>
-      <w>91</w>
-      <h>104</h>
+      <x>962</x>
+      <y>65</y>
+      <w>39</w>
+      <h>130</h>
     </coordinates>
-    <panel_attributes>lt=-()
-m2=provide
-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1001</x>
-      <y>130</y>
-      <w>273</w>
-      <h>364</h>
-    </coordinates>
-    <panel_attributes>lt=)-
-m1=require
-</panel_attributes>
-    <additional_attributes>180.0;250.0;10.0;250.0;10.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
