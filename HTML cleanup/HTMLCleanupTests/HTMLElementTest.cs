@@ -162,7 +162,7 @@ namespace HtmlCleanupTests
             string startTag = "<a";
             string endTag = "</a>";
             string text = "<a href=\"http://top.mail.ru/jump?from=8821\"><img src=\"http://d2.c2.b0.a0.top.mail.ru/counter?js=na;id=8821;t=109\" style=\"border:0;\" height=\"18\" width=\"88\" alt=\"Рейтинг@Mail.ru\" /></a>";
-            var target = new BaseHtmlCleaner.HtmlElement(startTag, endTag, text);
+            var target = new BaseHtmlCleaner.HtmlElement(startTag, endTag, text, new PlainTextFormatter());
             target.FindNext();
             target.RemoveTagsWithText();
             Assert.AreEqual(target.Text, String.Empty);

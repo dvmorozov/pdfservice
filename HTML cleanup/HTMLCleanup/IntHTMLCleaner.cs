@@ -1,6 +1,6 @@
 ﻿namespace HtmlCleanup
 {
-    interface IHtmlCleaner
+    public interface IHtmlCleaner
     {
         string Process(string html);
         string GetResultingFileData();

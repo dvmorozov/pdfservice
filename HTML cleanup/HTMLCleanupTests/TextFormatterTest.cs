@@ -58,7 +58,7 @@ namespace HtmlCleanupTests
         [TestMethod]
         public void ProcessTest()
         {
-            var target = new BaseHtmlCleaner.TextFormatter(null);
+            var target = new BaseHtmlCleaner.TextFormatter(null, new PlainTextFormatter());
             string text = "    К концу XX века многие заговорили об упадке железнодорожного сообщения, выте" +
                           "сняемого более популярными видами транспорта, прежде всего авиационным и автомоб" +
                           "ильным. Однако мрачные прогнозы не оправдались: в 2000-х годах интерес к поездам" +
@@ -94,7 +94,7 @@ namespace HtmlCleanupTests
                 "внутреннего спроса. Глобальная экономика также будет замедляться: прогноз по\n" +
                 "мировому ВВП понижен до 3,3%.";
 
-            target = new BaseHtmlCleaner.TextFormatter(null)
+            target = new BaseHtmlCleaner.TextFormatter(null, new PlainTextFormatter())
             {
                 Delimiters = new char[] { ' ', ',', '.', '-', '!', '?', ';' }
             };

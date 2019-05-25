@@ -5,9 +5,9 @@ namespace HtmlCleanup
 {
     class UniversalHtmlCleaner : BaseHtmlCleaner
     {
-        protected override TagRemover GetTagRemover(TextProcessor next)
+        protected override TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new TagRemover(next)
+            var result = new TagRemover(next, formatter)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<script", "</script>" ),
@@ -33,9 +33,9 @@ namespace HtmlCleanup
             return result;
         }
 
-        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next)
+        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new InnerTextProcessor(next)
+            var result = new InnerTextProcessor(next, formatter)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<ul", "</ul>" ),
@@ -66,9 +66,9 @@ namespace HtmlCleanup
             return result;
         }
 
-        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next)
+        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next, ITagFormatter formatter)
         {
-            return new ParagraphExtractor(next);
+            return new ParagraphExtractor(next, formatter);
         }
 
         protected override string GetConfigurationFileName()

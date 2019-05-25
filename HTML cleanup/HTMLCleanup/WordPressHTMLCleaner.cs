@@ -5,9 +5,9 @@ namespace HtmlCleanup
 {
     class WordPressHtmlCleaner : BaseHtmlCleaner
     {
-        protected override TagRemover GetTagRemover(TextProcessor next)
+        protected override TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new TagRemover(next)
+            var result = new TagRemover(next, formatter)
             {
                 Tags = new List<Tag>(new Tag[] {
                     new Tag( "<script", "</script>" ),
@@ -60,42 +60,42 @@ namespace HtmlCleanup
             return result;
         }
 
-        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next)
+        protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new InnerTextProcessor(next)
+            var result = new InnerTextProcessor(next, formatter)
             {
                 Tags = new List<Tag>(new Tag[] {
-                new Tag( "<ul", "</ul>" ),
-                new Tag( "<u", "</u>" ),
-                //  Removing tables.
-                new Tag( "<td", "</td>" ),
-                new Tag( "<tr", "</tr>" ),
-                new Tag( "<tbody", "</tbody>" ),
-                new Tag( "<table", "</table>" ),
-                //  Other tags.
-                new Tag( "<title", "</title>" ),
-                new Tag( "<strong", "</strong>" ),
-                new Tag( "<span", "</span>" ),
-                new Tag( "<small", "</small>" ),
-                new Tag( "<pre", "</pre>" ),
-                new Tag( "<p", "</p>" ),
-                new Tag( "<main", "</main>" ),
-                new Tag( "<li", "</li>" ),
-                new Tag( "<html", "</html>" ),
-                new Tag( "<header", "</header>" ),
-                new Tag( "<head", "</head>" ),
-                new Tag( "<h4", "</h4>" ),
-                new Tag( "<h3", "</h3>" ),
-                new Tag( "<h3", "</h3>" ),
-                new Tag( "<h2", "</h2>" ),
-                new Tag( "<h1", "</h1>" ),
-                new Tag( "<footer", "</footer>" ),
-                new Tag( "<em", "</em>" ),
-                new Tag( "<div", "</div>" ),
-                new Tag( "<code", "</code>" ),
-                new Tag( "<body", "</body>" ),
-                new Tag( "<blockquote", "</blockquote>")
-            })
+                    new Tag( "<ul", "</ul>" ),
+                    new Tag( "<u", "</u>" ),
+                    //  Removing tables.
+                    new Tag( "<td", "</td>" ),
+                    new Tag( "<tr", "</tr>" ),
+                    new Tag( "<tbody", "</tbody>" ),
+                    new Tag( "<table", "</table>" ),
+                    //  Other tags.
+                    new Tag( "<title", "</title>" ),
+                    new Tag( "<strong", "</strong>" ),
+                    new Tag( "<span", "</span>" ),
+                    new Tag( "<small", "</small>" ),
+                    new Tag( "<pre", "</pre>" ),
+                    new Tag( "<p", "</p>" ),
+                    new Tag( "<main", "</main>" ),
+                    new Tag( "<li", "</li>" ),
+                    new Tag( "<html", "</html>" ),
+                    new Tag( "<header", "</header>" ),
+                    new Tag( "<head", "</head>" ),
+                    new Tag( "<h4", "</h4>" ),
+                    new Tag( "<h3", "</h3>" ),
+                    new Tag( "<h3", "</h3>" ),
+                    new Tag( "<h2", "</h2>" ),
+                    new Tag( "<h1", "</h1>" ),
+                    new Tag( "<footer", "</footer>" ),
+                    new Tag( "<em", "</em>" ),
+                    new Tag( "<div", "</div>" ),
+                    new Tag( "<code", "</code>" ),
+                    new Tag( "<body", "</body>" ),
+                    new Tag( "<blockquote", "</blockquote>")
+                })
             };
             return result;
         }
@@ -112,13 +112,18 @@ namespace HtmlCleanup
                         GetInnerTextProcessor(
                             new UrlFormatter(
                                 new SpecialHTMLRemover(
-                                    new TextFormatter(null)
-                                )))));
+                                    new TextFormatter(null,
+                                    _formatter),
+                                _formatter),
+                            _formatter),
+                        _formatter),
+                    _formatter),
+                _formatter);
         }
 
-        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next)
+        protected override ParagraphExtractor GetParagraphExtractor(TextProcessor next, ITagFormatter formatter)
         {
-            return new ParagraphExtractor(next)
+            return new ParagraphExtractor(next, formatter)
             {
                 Skipped = false,
                 Tag = new HtmlTag("<article", "</article>")

@@ -47,18 +47,6 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
-            private ITagFormatter _formatter;
-
-            public void SetFormatter(ITagFormatter formatter)
-            {
-                _formatter = formatter;
-            }
-
-            public ITagFormatter GetFormatter()
-            {
-                return _formatter;
-            }
-
             public string Text
             {
                 get
@@ -67,13 +55,14 @@ namespace HtmlCleanup
                 }
             }
 
-            public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text)
+            private ITagFormatter _formatter;
+
+            public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter)
             {
                 _text = text;
                 _startTag = startTag;
                 _endTag = endTag;
-                //  Sets default formatter.
-                _formatter = new PlainTextFormatter();
+                _formatter = formatter;
             }
 
             /// <summary>
@@ -270,9 +259,12 @@ namespace HtmlCleanup
                 }
             }
 
-            protected TextProcessor(TextProcessor next)
+            protected ITagFormatter _formatter;
+
+            public TextProcessor(TextProcessor next, ITagFormatter formatter)
             {
                 _next = next;
+                _formatter = formatter;
             }
 
             /// <summary>
@@ -307,7 +299,7 @@ namespace HtmlCleanup
         /// <param name="next">Next processing object in the chain.</param>
         /// <returns>Instance of ParagraphExtractor specific for the domain supported
         /// by inherited class.</returns>
-        protected abstract ParagraphExtractor GetParagraphExtractor(TextProcessor next);
+        protected abstract ParagraphExtractor GetParagraphExtractor(TextProcessor next, ITagFormatter formatter);
 
         /// <summary>
         /// Extracts text paragraph.
@@ -331,7 +323,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public ParagraphExtractor(TextProcessor next) : base(next)
+            public ParagraphExtractor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
                 //  By default isn't used in processing chain.
                 //  Can be enabled by configuration file, using
@@ -345,7 +337,7 @@ namespace HtmlCleanup
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
-                HtmlElement el = new HtmlElement(_tag.StartTag, _tag.EndTag, text);
+                HtmlElement el = new HtmlElement(_tag.StartTag, _tag.EndTag, text, _formatter);
                 do
                 {
                     var b = el.FindNext();
@@ -389,14 +381,14 @@ namespace HtmlCleanup
             //  or removed (depending on configuration). Similarly decimal
             //  codes are processed.
             private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>(new SpecialHTMLSymbol[] {
-            new SpecialHTMLSymbol( "&#8211;", "-" ),
-            new SpecialHTMLSymbol( "&#8217;", "'" ),
-            new SpecialHTMLSymbol( "&#8220;", "\"" ),
-            new SpecialHTMLSymbol( "&#8221;", "\"" ),
-            new SpecialHTMLSymbol( "&lt;", "<" ),
-            new SpecialHTMLSymbol( "&gt;", ">" ),
-            new SpecialHTMLSymbol( "&amp;", "&" )
-        });
+                new SpecialHTMLSymbol( "&#8211;", "-" ),
+                new SpecialHTMLSymbol( "&#8217;", "'" ),
+                new SpecialHTMLSymbol( "&#8220;", "\"" ),
+                new SpecialHTMLSymbol( "&#8221;", "\"" ),
+                new SpecialHTMLSymbol( "&lt;", "<" ),
+                new SpecialHTMLSymbol( "&gt;", ">" ),
+                new SpecialHTMLSymbol( "&amp;", "&" )
+            });
 
             public List<SpecialHTMLSymbol> SpecialHTML
             {
@@ -406,7 +398,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public SpecialHTMLRemover(TextProcessor next) : base(next)
+            public SpecialHTMLRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
@@ -456,7 +448,7 @@ namespace HtmlCleanup
             }
         }
 
-        protected abstract InnerTextProcessor GetInnerTextProcessor(TextProcessor next);
+        protected abstract InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter);
 
         /// <summary>
         /// Removes tags inside paragraphs saving internal text.
@@ -484,23 +476,8 @@ namespace HtmlCleanup
                 }
             }
 
-            private ITagFormatter _formatter;
-
-            public void SetFormatter(ITagFormatter formatter)
+            public InnerTextProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
-                _formatter = formatter;
-            }
-
-            public ITagFormatter GetFormatter()
-            {
-                return _formatter;
-            }
-
-            public InnerTextProcessor(TextProcessor next)
-                : base(next)
-            {
-                //  Sets default formatter.
-                _formatter = new PlainTextFormatter();
             }
 
             protected override string ActualProcessing(string text)
@@ -508,7 +485,7 @@ namespace HtmlCleanup
                 for (var i = 0; i < _tags.Count; i++)
                 {
                     var t = _tags[i];
-                    var el = new HtmlElement(t.StartTag, t.EndTag, text);
+                    var el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
                     {
                         var b = el.FindNext();
@@ -528,7 +505,7 @@ namespace HtmlCleanup
         /// <param name="next">Next processing object in the chain.</param>
         /// <returns>Instance of TagRemover specific for the domain supported
         /// by inherited class.</returns>
-        protected abstract TagRemover GetTagRemover(TextProcessor next);
+        protected abstract TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter);
 
         /// <summary>
         /// Removes tags together with internal text.
@@ -556,8 +533,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public TagRemover(TextProcessor next)
-                : base(next)
+            public TagRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
@@ -565,7 +541,7 @@ namespace HtmlCleanup
             {
                 foreach (var t in _tags)
                 {
-                    HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text);
+                    HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
                     {
                         var b = el.FindNext();
@@ -584,15 +560,14 @@ namespace HtmlCleanup
         /// </summary>
         public class UrlFormatter : TextProcessor
         {
-            public UrlFormatter(TextProcessor next)
-                : base(next)
+            public UrlFormatter(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
             protected override string ActualProcessing(string text)
             {
                 string result = String.Empty;
-                HtmlElement el = new HtmlElement("<a", "</a>", text);
+                HtmlElement el = new HtmlElement("<a", "</a>", text, _formatter);
 
                 do
                 {
@@ -639,8 +614,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public TextFormatter(TextProcessor next)
-                : base(next)
+            public TextFormatter(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
@@ -719,8 +693,13 @@ namespace HtmlCleanup
                         GetParagraphExtractor(
                             new UrlFormatter(
                                 new SpecialHTMLRemover(
-                                    new TextFormatter(null)
-                                )))));
+                                    new TextFormatter(null,
+                                    _formatter), 
+                                _formatter),
+                            _formatter),
+                        _formatter),
+                    _formatter),
+                _formatter);
         }
 
         protected abstract string GetConfigurationFileName();
@@ -758,7 +737,7 @@ namespace HtmlCleanup
             return "";
         }
 
-        private ITagFormatter _formatter;
+        protected ITagFormatter _formatter;
 
         public void SetFormatter(ITagFormatter formatter)
         {

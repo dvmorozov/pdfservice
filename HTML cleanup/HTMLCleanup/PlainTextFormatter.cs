@@ -1,6 +1,6 @@
 ﻿namespace HtmlCleanup
 {
-    class PlainTextFormatter : ITagFormatter
+    public class PlainTextFormatter : ITagFormatter
     {
         public PlainTextFormatter()
         {
