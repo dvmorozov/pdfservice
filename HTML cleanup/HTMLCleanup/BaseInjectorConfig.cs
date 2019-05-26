@@ -16,7 +16,7 @@ namespace HtmlCleanup
 
         public string GetFormatterType()
         {
-            return "HtmlCleanup.PlainTextFormatter";
+            return "HtmlCleanup.PdfFormatter";
         }
     }
 }
