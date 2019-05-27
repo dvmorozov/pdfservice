@@ -4,6 +4,12 @@ using System.Net;
 using System.Text;
 using System.IO;
 using HtmlCleanup;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Kernel.Font;
+using iText.Layout.Element;
+using iText.IO.Font;
+using iText.IO.Source;
 
 namespace HtmlCleanup
 {
@@ -101,8 +107,23 @@ namespace HtmlCleanup
                 //  Forms content file name.
                 var fileName = path + "\\" + "content." + formatter.GetResultingFileExtension();
 
-                //  Savs text to file.
-                WriteTextToFile(fileName, output);
+                //  Finishes processing.
+                formatter.CloseDocument();
+                var dataStream = formatter.GetOutputStream();
+
+                if (dataStream != null)
+                {
+                    using (var fileStream = File.Create(fileName))
+                    {
+                        dataStream.Seek(0, SeekOrigin.Begin);
+                        dataStream.CopyTo(fileStream);
+                    }
+                }
+                else
+                {
+                    //  Savs text to file.
+                    WriteTextToFile(fileName, output);
+                }
             }
             else
             {
