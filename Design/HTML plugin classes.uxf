@@ -7,12 +7,11 @@
       <x>1092</x>
       <y>429</y>
       <w>338</w>
-      <h>182</h>
+      <h>156</h>
     </coordinates>
     <panel_attributes>IHtmlCleaner
 --
 Process(html: string)
-GetResultingFileData: char[]
 SetFormatter(formatter: ITagFormatter)
 GetFormatter: ITagFormatter</panel_attributes>
     <additional_attributes/>
@@ -402,15 +401,17 @@ llist of plugins.</panel_attributes>
   <element>
     <id>UMLInterface</id>
     <coordinates>
-      <x>1079</x>
+      <x>1118</x>
       <y>182</y>
-      <w>377</w>
-      <h>130</h>
+      <w>299</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>ITagFormatter
 --
-Process(tag: Tag, innerText: string): char[]
-GetResultingFileExtension: string</panel_attributes>
+Process(tag: Tag, innerText: string)
+GetResultingFileExtension: string
+GetOutputStream: MemoryStream
+CloseDocument</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
