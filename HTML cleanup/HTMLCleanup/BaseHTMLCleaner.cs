@@ -732,11 +732,6 @@ namespace HtmlCleanup
             return processingChain.Process(html);
         }
 
-        public string GetResultingFileData()
-        {
-            return "";
-        }
-
         protected ITagFormatter _formatter;
 
         public void SetFormatter(ITagFormatter formatter)
