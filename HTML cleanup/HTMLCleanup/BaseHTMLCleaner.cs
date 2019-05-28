@@ -162,9 +162,9 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Removes tags saving text.
+            /// Replaces content with formatted text.
             /// </summary>
-            public void RemoveTags()
+            public void ReplaceContent()
             {
                 if (_found)
                 {
@@ -193,9 +193,9 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Removes tags together with internal text.
+            /// Removes content completely.
             /// </summary>
-            public void RemoveTagsWithText()
+            public void RemoveContent()
             {
                 if (_found)
                 {
@@ -217,7 +217,7 @@ namespace HtmlCleanup
             {
                 if (_found)
                 {
-                    RemoveTagsWithText();
+                    RemoveContent();
                     _text = _text.Insert(_startPos, text);
                     //  Skips inserted text.
                     _startPos += text.Length;
@@ -490,7 +490,7 @@ namespace HtmlCleanup
                     {
                         var b = el.FindNext();
                         if (!b) break;
-                        el.RemoveTags();
+                        el.ReplaceContent();
                     }
                     while (true);
                     text = el.Text;
@@ -546,7 +546,7 @@ namespace HtmlCleanup
                     {
                         var b = el.FindNext();
                         if (!b) break;
-                        el.RemoveTagsWithText();
+                        el.RemoveContent();
                     }
                     while (true);
                     text = el.Text;

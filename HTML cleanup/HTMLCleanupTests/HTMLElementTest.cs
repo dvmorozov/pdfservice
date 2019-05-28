@@ -138,7 +138,7 @@ namespace HtmlCleanupTests
         }
 
         /// <summary>
-        ///A test for RemoveTags
+        ///A test for ReplaceContent
         ///</summary>
         [TestMethod()]
         public void RemoveTagsTest()
@@ -148,13 +148,13 @@ namespace HtmlCleanupTests
             string endTag = string.Empty; // TODO: Initialize to an appropriate value
             string text = string.Empty; // TODO: Initialize to an appropriate value
             HtmlElement target = new HtmlElement(startTag, endTag, text); // TODO: Initialize to an appropriate value
-            target.RemoveTags();
+            target.ReplaceContent();
             Assert.Inconclusive("A method that does not return a value cannot be verified.");
              */
         }
 
         /// <summary>
-        ///A test for RemoveTagsWithText
+        ///A test for RemoveContent
         ///</summary>
         [TestMethod()]
         public void RemoveTagsWithTextTest()
@@ -164,7 +164,7 @@ namespace HtmlCleanupTests
             string text = "<a href=\"http://top.mail.ru/jump?from=8821\"><img src=\"http://d2.c2.b0.a0.top.mail.ru/counter?js=na;id=8821;t=109\" style=\"border:0;\" height=\"18\" width=\"88\" alt=\"Рейтинг@Mail.ru\" /></a>";
             var target = new BaseHtmlCleaner.HtmlElement(startTag, endTag, text, new PlainTextFormatter());
             target.FindNext();
-            target.RemoveTagsWithText();
+            target.RemoveContent();
             Assert.AreEqual(target.Text, String.Empty);
         }
 
