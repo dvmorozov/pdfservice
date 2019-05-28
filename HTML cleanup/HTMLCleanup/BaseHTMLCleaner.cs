@@ -162,31 +162,62 @@ namespace HtmlCleanup
             }
 
             /// <summary>
+            /// Removes tag.
+            /// </summary>
+            /// <returns>Internal text.</returns>
+            public string RemoveTag()
+            {
+                var len1 = _pos2 - _pos1 + 1;
+                //  Removes start tag.
+                _text = _text.Remove(_pos1, len1);
+                _pos3 -= len1;
+
+                //  Removes end tag.
+                _text = _text.Remove(_pos3, _endTag.Length);
+
+                var innerText = _text.Substring(_pos1, _pos3 - _pos1);
+
+                //  Removes inner text.
+                _text = _text.Remove(_pos1, _pos3 - _pos1);
+
+                return innerText;
+            }
+
+            /// <summary>
+            /// Formats text by current formatter.
+            /// </summary>
+            /// <returns>Formatted text.</returns>
+            public string FormatText(string text)
+            {
+                return _formatter.Process(new Tag(_startTag, _endTag), text);
+            }
+
+            /// <summary>
+            /// Insert text in current position.
+            /// </summary>
+            /// <param name="innerText">Text to insert.</param>
+            public void InsertText(string innerText)
+            {
+                _text = _text.Insert(_pos1, innerText);
+                //  Corrects end position.
+                _pos3 = _pos1 + innerText.Length;
+                //  Tags can be nested, proceed from the same position.
+                _startPos = _pos1;
+            }
+
+            /// <summary>
             /// Replaces content with formatted text.
             /// </summary>
             public void ReplaceContent()
             {
                 if (_found)
                 {
-                    var len1 = _pos2 - _pos1 + 1;
-                    //  Removes start tag.
-                    _text = _text.Remove(_pos1, len1);
-                    _pos3 -= len1;
-
-                    //  Removes end tag.
-                    _text = _text.Remove(_pos3, _endTag.Length);
-
+                    //  Removes tag and its original content from text.
+                    var innerText = RemoveTag();
                     //  Formats text.
-                    var innerText = _text.Substring(_pos1, _pos3 - _pos1);
-                    //  Removes inner text.
-                    _text = _text.Remove(_pos1, _pos3 - _pos1);
-                    innerText = _formatter.Process(new Tag(_startTag, _endTag), innerText);
-                    //  Inserts formatted text.
-                    _text = _text.Insert(_pos1, innerText);
-                    //  Corrects end position.
-                    _pos3 = _pos1 + innerText.Length;
-                    //  Tags can be nested, proceed from the same position.
-                    _startPos = _pos1;
+                    innerText = FormatText(innerText);
+                    //  Inserts formatted text instead of original content.
+                    InsertText(innerText);
                     //  Blocks repeated execution.
                     _found = false;
                 }
