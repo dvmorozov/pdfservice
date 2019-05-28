@@ -45,6 +45,9 @@ namespace HtmlCleanup
             switch (tag.StartTag)
             {
                 case ("<ul"):
+                    if (_list != null)
+                        //  Finalizes list parsing.
+                        _document.Add(_list);
                     //  Creates list object.
                     _list = new List()
                         .SetSymbolIndent(12)
@@ -63,7 +66,10 @@ namespace HtmlCleanup
                     return innerText;
             }
             if (_list != null)
+            {   //  Finalizes list parsing.
                 _document.Add(_list);
+                _list = null;
+            }
             return innerText;
         }
 
