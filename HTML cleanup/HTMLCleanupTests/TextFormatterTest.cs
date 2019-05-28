@@ -53,7 +53,7 @@ namespace HtmlCleanupTests
         #endregion
 
         /// <summary>
-        ///     A test for Process
+        ///     A test for InitializeTagFormatting
         /// </summary>
         [TestMethod]
         public void ProcessTest()

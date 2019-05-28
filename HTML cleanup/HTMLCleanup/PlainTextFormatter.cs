@@ -4,8 +4,9 @@ namespace HtmlCleanup
 {
     public class PlainTextFormatter : ITagFormatter
     {
-        public string Process(BaseHtmlCleaner.Tag tag, string innerText)
+        public string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize)
         {
+            callFinalize = false;
             switch (tag.StartTag)
             {
                 case ("<ul"):
@@ -21,6 +22,10 @@ namespace HtmlCleanup
                     return indent + innerText.Replace("\n", "\n" + indent);
             }
             return innerText;
+        }
+
+        public void FinalizeTagFormatting()
+        {
         }
 
         public string GetResultingFileExtension()

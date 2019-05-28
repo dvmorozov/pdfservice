@@ -40,19 +40,18 @@ namespace HtmlCleanup
             _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
         }
 
-        public string Process(BaseHtmlCleaner.Tag tag, string innerText)
+        public string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize)
         {
+            callFinalize = false;
             switch (tag.StartTag)
             {
                 case ("<ul"):
-                    if (_list != null)
-                        //  Finalizes list parsing.
-                        _document.Add(_list);
                     //  Creates list object.
                     _list = new List()
                         .SetSymbolIndent(12)
                         .SetListSymbol("*")
                         .SetFont(_font);
+                    callFinalize = true;
                     return innerText;
 
                 case ("<li"):
@@ -65,12 +64,16 @@ namespace HtmlCleanup
                 case ("<pre"):
                     return innerText;
             }
+            return innerText;
+        }
+
+        public void FinalizeTagFormatting()
+        {
             if (_list != null)
             {   //  Finalizes list parsing.
                 _document.Add(_list);
                 _list = null;
             }
-            return innerText;
         }
 
         public string GetResultingFileExtension()

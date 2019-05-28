@@ -184,12 +184,31 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Formats text by current formatter.
+            /// FinalizeTagFormatting must be called.
+            /// </summary>
+            private bool _callFinalizeFormatting;
+
+            /// <summary>
+            /// Initialize state machine of tag formatting.
+            /// It is necessary in processing of lists and should be stored at element level.
             /// </summary>
             /// <returns>Formatted text.</returns>
-            public string FormatText(string text)
+            public string InitializeTagFormatting(string text)
             {
-                return _formatter.Process(new Tag(_startTag, _endTag), text);
+                return _formatter.InitializeTagFormatting(new Tag(_startTag, _endTag), text, out _callFinalizeFormatting);
+            }
+
+            /// <summary>
+            /// Finalize state machine of tag formatting.
+            /// It is necessary in processing of lists and should be stored at element level.
+            /// </summary>
+            public void FinalizeTagFormatting()
+            {
+                if (_callFinalizeFormatting)
+                {
+                    _formatter.FinalizeTagFormatting();
+                    _callFinalizeFormatting = false;
+                }
             }
 
             /// <summary>
@@ -215,7 +234,9 @@ namespace HtmlCleanup
                     //  Removes tag and its original content from text.
                     var innerText = RemoveTag();
                     //  Formats text.
-                    innerText = FormatText(innerText);
+                    innerText = InitializeTagFormatting(innerText);
+                    //  Finializes immediately.
+                    FinalizeTagFormatting();
                     //  Inserts formatted text instead of original content.
                     InsertText(innerText);
                     //  Blocks repeated execution.
@@ -521,7 +542,15 @@ namespace HtmlCleanup
                     {
                         var b = el.FindNext();
                         if (!b) break;
-                        el.ReplaceContent();
+                        //  Removes tag and its original content from text.
+                        var innerText = el.RemoveTag();
+                        //  Formats text.
+                        innerText = el.InitializeTagFormatting(innerText);
+                        //  Makes recursive call.
+                        //  Inserts formatted text instead of original content.
+                        el.InsertText(ActualProcessing(innerText));
+                        //  Finalizes previous state.
+                        el.FinalizeTagFormatting();
                     }
                     while (true);
                     text = el.Text;
