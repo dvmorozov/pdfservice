@@ -13,6 +13,7 @@ namespace HtmlCleanup
         private Document _document;
         private PdfFont _font;
         private List _list;
+        private Paragraph _paragraph;
         private PdfWriter _writer;
 
         public MemoryStream GetOutputStream()
@@ -52,16 +53,28 @@ namespace HtmlCleanup
                         .SetListSymbol("*")
                         .SetFont(_font);
                     callFinalize = true;
-                    return innerText;
+                    break;
 
                 case ("<li"):
                     //  Creates list item.
                     if (_list != null) {
                         _list.Add(new ListItem(innerText));
                     }
-                    return innerText;
+                    break;
+
+                case ("<p"):
+                    _paragraph = new Paragraph(innerText);
+                    callFinalize = true;
+                    break;
+
+                case ("<pre"):
+                case ("<code"):
+                    if (_paragraph != null)
+                        _paragraph.Add(innerText);
+                    break;
             }
-            //_document.Add(new Paragraph(innerText));
+            //  Text is always returned as is for subsequent parsing.
+            //  This type of formatter doesn't touch it!
             return innerText;
         }
 
@@ -71,6 +84,11 @@ namespace HtmlCleanup
             {   //  Finalizes list parsing.
                 _document.Add(_list);
                 _list = null;
+            }
+            if (_paragraph != null)
+            {
+                _document.Add(_paragraph);
+                _paragraph = null;
             }
         }
 
