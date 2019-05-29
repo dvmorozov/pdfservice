@@ -65,6 +65,36 @@ namespace HtmlCleanup
                 _formatter = formatter;
             }
 
+            public static HtmlElement FindNext(List<Tag> tags, string text, ITagFormatter formatter)
+            {
+                var bracketPos = 0;
+                while (true)
+                {
+                    bracketPos = text.IndexOf("<", bracketPos, StringComparison.OrdinalIgnoreCase);
+                    if (bracketPos != -1)
+                    {
+                        var subString = text.Substring(bracketPos);
+                        //  Compares with tag signatures.
+                        for (var i = 0; i < tags.Count; i++)
+                        {
+                            var t = tags[i];
+                            if (subString.StartsWith(t.StartTag))
+                            {
+                                //  Tag has been found in the list.
+                                var htmlElement = new HtmlElement(t.StartTag, t.EndTag, text, formatter);
+                                //  Properly initializes internal state.
+                                htmlElement.FindNext();
+                                return htmlElement;
+                            }
+                        }
+                        bracketPos++;
+                    }
+                    else
+                        break;
+                }
+                return null;
+            }
+
             /// <summary>
             /// Searches for text tag of given type.
             /// </summary>
@@ -84,6 +114,28 @@ namespace HtmlCleanup
                         _pos3 = _text.IndexOf(_endTag, _pos2 + 1, StringComparison.OrdinalIgnoreCase);
                         if (_pos3 != -1)
                         {
+                            //  Calculates number of nested start tags.
+                            if (_pos3 - _pos2 - 1 > 0) {
+                                var subString = _text.Substring(_pos2 + 1, _pos3 - _pos2 - 1);
+                                var startCount = 0;
+                                var pos = 0;
+                                while (true) {
+                                    pos = subString.IndexOf(_startTag, pos, StringComparison.OrdinalIgnoreCase);
+                                    if (pos == -1)
+                                        break;
+                                    else {
+                                        pos++;
+                                        startCount++;
+                                    }
+                                }
+
+                                //  Move position to proper closing tag.
+                                while(startCount != 0) {
+                                    _pos3 = _text.IndexOf(_endTag, _pos3 + 1, StringComparison.OrdinalIgnoreCase);
+                                    startCount--;
+                                }
+                            }
+
                             //  End tag was found.
                             _found = true;
                             //  Go to next tag.
@@ -91,7 +143,8 @@ namespace HtmlCleanup
                         }
                         else
                         {
-                            //  Error (TODO: add message).
+                            //  Error (TODO: throw exception).
+                            _found = false;
                         }
                     }
                     else
@@ -534,28 +587,23 @@ namespace HtmlCleanup
 
             protected override string ActualProcessing(string text)
             {
-                for (var i = 0; i < _tags.Count; i++)
+                while (true)
                 {
-                    var t = _tags[i];
-                    var el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
-                    do
-                    {
-                        var b = el.FindNext();
-                        if (!b) break;
-                        //  Removes tag and its original content from text.
-                        var innerText = el.RemoveTag();
-                        //  Formats text.
-                        innerText = el.InitializeTagFormatting(innerText);
-                        //  Makes recursive call.
-                        //  Inserts formatted text instead of original content.
-                        el.InsertText(ActualProcessing(innerText));
-                        //  Finalizes previous state.
-                        el.FinalizeTagFormatting();
-                    }
-                    while (true);
+                    var el = HtmlElement.FindNext(_tags, text, _formatter);
+                    if (el == null)
+                        return text;
+
+                    //  Removes tag and its original content from text.
+                    var innerText = el.RemoveTag();
+                    //  Formats text.
+                    innerText = el.InitializeTagFormatting(innerText);
+                    //  Makes recursive call.
+                    //  Inserts formatted text instead of original content.
+                    el.InsertText(ActualProcessing(innerText));
+                    //  Finalizes previous state.
+                    el.FinalizeTagFormatting();
                     text = el.Text;
                 }
-                return text;
             }
         }
 

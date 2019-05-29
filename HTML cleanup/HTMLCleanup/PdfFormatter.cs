@@ -60,10 +60,8 @@ namespace HtmlCleanup
                         _list.Add(new ListItem(innerText));
                     }
                     return innerText;
-
-                case ("<pre"):
-                    return innerText;
             }
+            //_document.Add(new Paragraph(innerText));
             return innerText;
         }
 
