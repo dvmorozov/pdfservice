@@ -5,9 +5,9 @@ namespace HtmlCleanup
     public interface ITagFormatter
     {
         //  Initialize state machine of tag formatting.
-        string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize);
+        string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string initialText, out bool callFinalize);
         //  Finalize state machine of tag formatting.
-        void FinalizeTagFormatting();
+        void FinalizeTagFormatting(string finalText);
         string GetResultingFileExtension();
         MemoryStream GetOutputStream();
         void CloseDocument();

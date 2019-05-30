@@ -24,7 +24,7 @@ namespace HtmlCleanup
             return innerText;
         }
 
-        public void FinalizeTagFormatting()
+        public void FinalizeTagFormatting(string finalText)
         {
         }
 

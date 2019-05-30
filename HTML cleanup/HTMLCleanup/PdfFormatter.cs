@@ -13,6 +13,7 @@ namespace HtmlCleanup
         private Document _document;
         private PdfFont _font;
         private List _list;
+        private bool _listItem;
         private Paragraph _paragraph;
         private PdfWriter _writer;
 
@@ -58,19 +59,18 @@ namespace HtmlCleanup
                 case ("<li"):
                     //  Creates list item.
                     if (_list != null) {
-                        _list.Add(new ListItem(innerText));
+                        _listItem = true;
+                        callFinalize = true;
                     }
                     break;
 
                 case ("<p"):
-                    _paragraph = new Paragraph(innerText);
+                    _paragraph = new Paragraph();
                     callFinalize = true;
                     break;
 
                 case ("<pre"):
                 case ("<code"):
-                    if (_paragraph != null)
-                        _paragraph.Add(innerText);
                     break;
             }
             //  Text is always returned as is for subsequent parsing.
@@ -78,15 +78,26 @@ namespace HtmlCleanup
             return innerText;
         }
 
-        public void FinalizeTagFormatting()
+        public void FinalizeTagFormatting(string finalText)
         {
             if (_list != null)
             {   //  Finalizes list parsing.
-                _document.Add(_list);
-                _list = null;
+                if (_listItem)
+                {
+                    //  Adds new list item.
+                    _list.Add(new ListItem(finalText));
+                    _listItem = false;
+                }
+                else
+                {
+                    //  Finalizes the list.
+                    _document.Add(_list);
+                    _list = null;
+                }
             }
             if (_paragraph != null)
             {
+                _paragraph.Add(finalText);
                 _document.Add(_paragraph);
                 _paragraph = null;
             }

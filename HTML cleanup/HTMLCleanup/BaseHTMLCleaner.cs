@@ -255,11 +255,11 @@ namespace HtmlCleanup
             /// Finalize state machine of tag formatting.
             /// It is necessary in processing of lists and should be stored at element level.
             /// </summary>
-            public void FinalizeTagFormatting()
+            public void FinalizeTagFormatting(string finalText)
             {
                 if (_callFinalizeFormatting)
                 {
-                    _formatter.FinalizeTagFormatting();
+                    _formatter.FinalizeTagFormatting(finalText);
                     _callFinalizeFormatting = false;
                 }
             }
@@ -289,7 +289,7 @@ namespace HtmlCleanup
                     //  Formats text.
                     innerText = InitializeTagFormatting(innerText);
                     //  Finializes immediately.
-                    FinalizeTagFormatting();
+                    FinalizeTagFormatting(innerText);
                     //  Inserts formatted text instead of original content.
                     InsertText(innerText);
                     //  Blocks repeated execution.
@@ -595,13 +595,14 @@ namespace HtmlCleanup
 
                     //  Removes tag and its original content from text.
                     var innerText = el.RemoveTag();
-                    //  Formats text.
+                    //  Extracts innter tag text.
                     innerText = el.InitializeTagFormatting(innerText);
                     //  Makes recursive call.
+                    var finalText = ActualProcessing(innerText);
                     //  Inserts formatted text instead of original content.
-                    el.InsertText(ActualProcessing(innerText));
+                    el.InsertText(finalText);
                     //  Finalizes previous state.
-                    el.FinalizeTagFormatting();
+                    el.FinalizeTagFormatting(finalText);
                     text = el.Text;
                 }
             }
