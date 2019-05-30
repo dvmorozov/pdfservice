@@ -14,7 +14,8 @@ namespace HtmlCleanup
         private PdfFont _font;
         private List _list;
         private bool _listItem;
-        private Paragraph _paragraph;
+        private bool _preItem;
+        private bool _paragraph;
         private PdfWriter _writer;
 
         public MemoryStream GetOutputStream()
@@ -65,12 +66,13 @@ namespace HtmlCleanup
                     break;
 
                 case ("<p"):
-                    _paragraph = new Paragraph();
+                    _paragraph = true;
                     callFinalize = true;
                     break;
 
                 case ("<pre"):
-                case ("<code"):
+                    _preItem = true;
+                    callFinalize = true;
                     break;
             }
             //  Text is always returned as is for subsequent parsing.
@@ -95,11 +97,19 @@ namespace HtmlCleanup
                     _list = null;
                 }
             }
-            if (_paragraph != null)
+            if (_preItem)
             {
-                _paragraph.Add(finalText);
-                _document.Add(_paragraph);
-                _paragraph = null;
+                var paragraph = new Paragraph();
+                paragraph.Add(finalText);
+                _document.Add(paragraph);
+                _preItem = false;
+            }
+            if (_paragraph)
+            {
+                var paragraph = new Paragraph();
+                paragraph.Add(finalText);
+                _document.Add(paragraph);
+                _paragraph = false;
             }
         }
 
