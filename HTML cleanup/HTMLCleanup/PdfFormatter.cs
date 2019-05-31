@@ -66,6 +66,10 @@ namespace HtmlCleanup
 
                 case ("<p"):
                 case ("<pre"):
+                case ("<h1"):
+                case ("<h2"):
+                case ("<h3"):
+                case ("<h4"):
                     _paragraph = true;
                     callFinalize = true;
                     break;
