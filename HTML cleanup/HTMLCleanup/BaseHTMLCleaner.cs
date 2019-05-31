@@ -498,7 +498,7 @@ namespace HtmlCleanup
         /// <summary>
         /// Replaces special HTML characters.
         /// </summary>
-        public class SpecialHTMLRemover : TextProcessor
+        public class SpecialHtmlRemover : TextProcessor
         {
             //  According to this list special HTML characters are replaced
             //  or removed (depending on configuration). Similarly decimal
@@ -521,7 +521,7 @@ namespace HtmlCleanup
                 }
             }
 
-            public SpecialHTMLRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
+            public SpecialHtmlRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
@@ -604,7 +604,7 @@ namespace HtmlCleanup
         /// <summary>
         /// Removes tags inside paragraphs saving internal text.
         /// </summary>
-        public class InnerTextProcessor : SpecialHTMLRemover
+        public class InnerTextProcessor : SpecialHtmlRemover
         {
             /// <summary>
             /// List of tags for removing (it is filled from configuration file).

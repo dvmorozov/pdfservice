@@ -31,8 +31,8 @@ namespace HtmlCleanup
                 if (chain.GetType() == typeof(BaseHtmlCleaner.ParagraphExtractor))
                     ((BaseHtmlCleaner.ParagraphExtractor)chain).LoadSettings(config);
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.SpecialHTMLRemover))
-                    ((BaseHtmlCleaner.SpecialHTMLRemover)chain).LoadSettings(config);
+                if (chain.GetType() == typeof(BaseHtmlCleaner.SpecialHtmlRemover))
+                    ((BaseHtmlCleaner.SpecialHtmlRemover)chain).LoadSettings(config);
 
                 if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTextProcessor))
                     ((BaseHtmlCleaner.InnerTextProcessor)chain).LoadSettings(config);
@@ -64,8 +64,8 @@ namespace HtmlCleanup
                 if (chain.GetType() == typeof(BaseHtmlCleaner.ParagraphExtractor))
                     ((BaseHtmlCleaner.ParagraphExtractor)chain).SaveSettings(config);
 
-                if (chain.GetType() == typeof(BaseHtmlCleaner.SpecialHTMLRemover))
-                    ((BaseHtmlCleaner.SpecialHTMLRemover)chain).SaveSettings(config);
+                if (chain.GetType() == typeof(BaseHtmlCleaner.SpecialHtmlRemover))
+                    ((BaseHtmlCleaner.SpecialHtmlRemover)chain).SaveSettings(config);
 
                 if (chain.GetType() == typeof(BaseHtmlCleaner.InnerTextProcessor))
                     ((BaseHtmlCleaner.InnerTextProcessor)chain).SaveSettings(config);
