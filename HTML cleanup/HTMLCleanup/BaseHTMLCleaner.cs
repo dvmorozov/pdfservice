@@ -378,7 +378,7 @@ namespace HtmlCleanup
             /// </summary>
             /// <param name="original">HTML text partially processed at previous stages.</param>
             /// <returns>Processed HTML text.</returns>
-            protected abstract string ActualProcessing(string original);
+            public abstract string ActualProcessing(string original);
 
             /// <summary>
             /// Processes text and executes next text processor in the chain.
@@ -438,7 +438,7 @@ namespace HtmlCleanup
                 _tag = new HtmlTag("<p", "</p>");
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
@@ -507,7 +507,7 @@ namespace HtmlCleanup
             {
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 //  This symbol is added bypassing configuration file
                 //  because string consisting only from spaces is read
@@ -585,7 +585,7 @@ namespace HtmlCleanup
             {
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 while (true)
                 {
@@ -602,6 +602,8 @@ namespace HtmlCleanup
                     //  Inserts formatted text instead of original content.
                     el.InsertText(finalText);
                     //  Finalizes previous state.
+                    var remover = new SpecialHTMLRemover(null, null);
+                    finalText = remover.ActualProcessing(finalText);
                     el.FinalizeTagFormatting(finalText);
                     text = el.Text;
                 }
@@ -646,7 +648,7 @@ namespace HtmlCleanup
             {
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 foreach (var t in _tags)
                 {
@@ -673,7 +675,7 @@ namespace HtmlCleanup
             {
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 string result = String.Empty;
                 HtmlElement el = new HtmlElement("<a", "</a>", text, _formatter);
@@ -727,7 +729,7 @@ namespace HtmlCleanup
             {
             }
 
-            protected override string ActualProcessing(string text)
+            public override string ActualProcessing(string text)
             {
                 var pos = 0;
                 var processed = String.Empty;
