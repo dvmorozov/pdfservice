@@ -111,9 +111,7 @@ namespace HtmlCleanup
                         //  special characters to avoid interpreting text as HTML tags.
                         GetInnerTextProcessor(
                             new UrlFormatter(
-                                new SpecialHTMLRemover(
-                                    new TextFormatter(null,
-                                    _formatter),
+                                new TextFormatter(null,
                                 _formatter),
                             _formatter),
                         _formatter),

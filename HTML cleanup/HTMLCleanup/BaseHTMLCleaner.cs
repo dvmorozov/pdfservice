@@ -604,7 +604,7 @@ namespace HtmlCleanup
         /// <summary>
         /// Removes tags inside paragraphs saving internal text.
         /// </summary>
-        public class InnerTextProcessor : TextProcessor
+        public class InnerTextProcessor : SpecialHTMLRemover
         {
             /// <summary>
             /// List of tags for removing (it is filled from configuration file).
@@ -648,8 +648,7 @@ namespace HtmlCleanup
                     //  Inserts formatted text instead of original content.
                     el.InsertText(finalText);
                     //  Finalizes previous state.
-                    var remover = new SpecialHTMLRemover(null, null);
-                    finalText = remover.DoProcessing(finalText);
+                    finalText = base.DoProcessing(finalText);
                     el.FinalizeTagFormatting(finalText);
                     text = el.Text;
                 }
@@ -657,6 +656,8 @@ namespace HtmlCleanup
 
             public override void LoadSettings(HTMLCleanupConfig config)
             {
+                base.LoadSettings(config);
+                //  Skipped must be read after base settings.
                 Skipped = config.InnerTagRemoverConfig.Skipped;
                 Tags.Clear();
                 foreach (var t in config.InnerTagRemoverConfig.Tags)
@@ -667,6 +668,8 @@ namespace HtmlCleanup
 
             public override void SaveSettings(HTMLCleanupConfig config)
             {
+                base.SaveSettings(config);
+
                 config.InnerTagRemoverConfig = new InnerTagRemoverType()
                 {
                     Skipped = Skipped,
@@ -949,10 +952,8 @@ namespace HtmlCleanup
                         //  By default ParagraphExtractor is disabled (see constructor).
                         GetParagraphExtractor(
                             new UrlFormatter(
-                                new SpecialHTMLRemover(
-                                    new TextFormatter(null,
-                                    _formatter), 
-                                _formatter),
+                                new TextFormatter(null,
+                                _formatter), 
                             _formatter),
                         _formatter),
                     _formatter),
