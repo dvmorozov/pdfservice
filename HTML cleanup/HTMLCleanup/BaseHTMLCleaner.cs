@@ -479,18 +479,18 @@ namespace HtmlCleanup
             }
         }
 
-        public class SpecialHTMLSymbol
+        public class SpecialHtmlSymbol
         {
-            private readonly string _specialHTML;
+            private readonly string _specialHtml;
             private readonly string _replacement;
 
-            public string SpecialHTML { get { return _specialHTML; } }
+            public string SpecialHtml { get { return _specialHtml; } }
             //  TODO: include decimal code.
             public string Replacement { get { return _replacement; } }
 
-            public SpecialHTMLSymbol(string specialHTML, string replacement)
+            public SpecialHtmlSymbol(string specialHtml, string replacement)
             {
-                _specialHTML = specialHTML;
+                _specialHtml = specialHtml;
                 _replacement = replacement;
             }
         }
@@ -503,21 +503,21 @@ namespace HtmlCleanup
             //  According to this list special HTML characters are replaced
             //  or removed (depending on configuration). Similarly decimal
             //  codes are processed.
-            private List<SpecialHTMLSymbol> _specialHTML = new List<SpecialHTMLSymbol>(new SpecialHTMLSymbol[] {
-                new SpecialHTMLSymbol( "&#8211;", "-" ),
-                new SpecialHTMLSymbol( "&#8217;", "'" ),
-                new SpecialHTMLSymbol( "&#8220;", "\"" ),
-                new SpecialHTMLSymbol( "&#8221;", "\"" ),
-                new SpecialHTMLSymbol( "&lt;", "<" ),
-                new SpecialHTMLSymbol( "&gt;", ">" ),
-                new SpecialHTMLSymbol( "&amp;", "&" )
+            private List<SpecialHtmlSymbol> _specialHtml = new List<SpecialHtmlSymbol>(new SpecialHtmlSymbol[] {
+                new SpecialHtmlSymbol( "&#8211;", "-" ),
+                new SpecialHtmlSymbol( "&#8217;", "'" ),
+                new SpecialHtmlSymbol( "&#8220;", "\"" ),
+                new SpecialHtmlSymbol( "&#8221;", "\"" ),
+                new SpecialHtmlSymbol( "&lt;", "<" ),
+                new SpecialHtmlSymbol( "&gt;", ">" ),
+                new SpecialHtmlSymbol( "&amp;", "&" )
             });
 
-            public List<SpecialHTMLSymbol> SpecialHTML
+            public List<SpecialHtmlSymbol> SpecialHtml
             {
                 get
                 {
-                    return _specialHTML;
+                    return _specialHtml;
                 }
             }
 
@@ -527,9 +527,9 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                foreach (var sp in _specialHTML)
+                foreach (var sp in _specialHtml)
                 {
-                    text = text.Replace(sp.SpecialHTML, sp.Replacement);
+                    text = text.Replace(sp.SpecialHtml, sp.Replacement);
                 }
 
                 return text;
@@ -538,17 +538,17 @@ namespace HtmlCleanup
             public override void LoadSettings(HTMLCleanupConfig config)
             {
                 Skipped = config.SpecialHTMLRemoverConfig.Skipped;
-                SpecialHTML.Clear();
+                SpecialHtml.Clear();
                 foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
                 {
-                    SpecialHTML.Add(new BaseHtmlCleaner.SpecialHTMLSymbol(t.SpecialHTML, t.Replacement));
+                    SpecialHtml.Add(new BaseHtmlCleaner.SpecialHtmlSymbol(t.SpecialHTML, t.Replacement));
                 }
 
                 //  This symbol is added bypassing configuration file
                 //  because string consisting only from spaces is read
                 //  from XML as completely empty despite it is stored
                 //  correctly (workaround).
-                _specialHTML.Add(new SpecialHTMLSymbol("&nbsp;", " "));
+                _specialHtml.Add(new SpecialHtmlSymbol("&nbsp;", " "));
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -556,15 +556,15 @@ namespace HtmlCleanup
                 config.SpecialHTMLRemoverConfig = new SpecialHTMLRemoverType
                 {
                     Skipped = Skipped,
-                    SpecialHTML = new SpecialHTMLSymbolType[SpecialHTML.Count]
+                    SpecialHTML = new SpecialHTMLSymbolType[SpecialHtml.Count]
                 };
 
-                for (var i = 0; i < SpecialHTML.Count; i++)
+                for (var i = 0; i < SpecialHtml.Count; i++)
                 {
                     config.SpecialHTMLRemoverConfig.SpecialHTML[i] = new SpecialHTMLSymbolType
                     {
-                        SpecialHTML = SpecialHTML[i].SpecialHTML,
-                        Replacement = SpecialHTML[i].Replacement
+                        SpecialHTML = SpecialHtml[i].SpecialHtml,
+                        Replacement = SpecialHtml[i].Replacement
                     };
                 }
             }
