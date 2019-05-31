@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HtmlCleanup.Config;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace HtmlCleanup
 {
@@ -396,6 +398,9 @@ namespace HtmlCleanup
                 if (_next != null) return _next.Process(processed);
                 else return processed;
             }
+
+            public abstract void LoadSettings(HTMLCleanupConfig config);
+            public abstract void SaveSettings(HTMLCleanupConfig config);
         }
 
         /// <summary>
@@ -459,6 +464,19 @@ namespace HtmlCleanup
 
                 return result;
             }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.ParagraphExtractorConfig.Skipped;
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.ParagraphExtractorConfig = new ParagraphExtractorType
+                {
+                    Skipped = Skipped
+                };
+            }
         }
 
         public class SpecialHTMLSymbol
@@ -509,18 +527,46 @@ namespace HtmlCleanup
 
             public override string ActualProcessing(string text)
             {
-                //  This symbol is added bypassing configuration file
-                //  because string consisting only from spaces is read
-                //  from XML as completely empty despite it is stored
-                //  correctly (workaround).
-                _specialHTML.Add(new SpecialHTMLSymbol("&nbsp;", " "));
-
                 foreach (var sp in _specialHTML)
                 {
                     text = text.Replace(sp.SpecialHTML, sp.Replacement);
                 }
 
                 return text;
+            }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.SpecialHTMLRemoverConfig.Skipped;
+                SpecialHTML.Clear();
+                foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
+                {
+                    SpecialHTML.Add(new BaseHtmlCleaner.SpecialHTMLSymbol(t.SpecialHTML, t.Replacement));
+                }
+
+                //  This symbol is added bypassing configuration file
+                //  because string consisting only from spaces is read
+                //  from XML as completely empty despite it is stored
+                //  correctly (workaround).
+                _specialHTML.Add(new SpecialHTMLSymbol("&nbsp;", " "));
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.SpecialHTMLRemoverConfig = new SpecialHTMLRemoverType
+                {
+                    Skipped = Skipped,
+                    SpecialHTML = new SpecialHTMLSymbolType[SpecialHTML.Count]
+                };
+
+                for (var i = 0; i < SpecialHTML.Count; i++)
+                {
+                    config.SpecialHTMLRemoverConfig.SpecialHTML[i] = new SpecialHTMLSymbolType
+                    {
+                        SpecialHTML = SpecialHTML[i].SpecialHTML,
+                        Replacement = SpecialHTML[i].Replacement
+                    };
+                }
             }
         }
 
@@ -608,6 +654,34 @@ namespace HtmlCleanup
                     text = el.Text;
                 }
             }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.InnerTagRemoverConfig.Skipped;
+                Tags.Clear();
+                foreach (var t in config.InnerTagRemoverConfig.Tags)
+                {
+                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                }
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.InnerTagRemoverConfig = new InnerTagRemoverType()
+                {
+                    Skipped = Skipped,
+                    Tags = new TagToRemoveType[Tags.Count]
+                };
+
+                for (var i = 0; i < Tags.Count; i++)
+                {
+                    config.InnerTagRemoverConfig.Tags[i] = new TagToRemoveType
+                    {
+                        StartTagWithoutBracket = Tags[i].StartTag,
+                        EndTag = Tags[i].EndTag
+                    };
+                }
+            }
         }
 
         /// <summary>
@@ -664,6 +738,34 @@ namespace HtmlCleanup
                 }
                 return text;
             }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.TagWithTextRemoverConfig.Skipped;
+                Tags.Clear();
+                foreach (var t in config.TagWithTextRemoverConfig.Tags)
+                {
+                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                }
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.TagWithTextRemoverConfig = new TagWithTextRemoverType()
+                {
+                    Skipped = Skipped,
+                    Tags = new TagToRemoveType[Tags.Count]
+                };
+
+                for (var i = 0; i < Tags.Count; i++)
+                {
+                    config.TagWithTextRemoverConfig.Tags[i] = new TagToRemoveType()
+                    {
+                        StartTagWithoutBracket = Tags[i].StartTag,
+                        EndTag = Tags[i].EndTag
+                    };
+                }
+            }
         }
 
         /// <summary>
@@ -695,6 +797,19 @@ namespace HtmlCleanup
                 text = el.Text;
 
                 return text;
+            }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.URLFormatterConfig.Skipped;
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.URLFormatterConfig = new URLFormatterType
+                {
+                    Skipped = Skipped
+                };
             }
         }
 
@@ -791,6 +906,37 @@ namespace HtmlCleanup
                     }
                 }
                 return string.Join("\n", strings);
+            }
+
+            public override void LoadSettings(HTMLCleanupConfig config)
+            {
+                Skipped = config.TextFormatterConfig.Skipped;
+
+                var b = new byte[config.TextFormatterConfig.Delimiters.Length];
+                for (var i = 0; i < config.TextFormatterConfig.Delimiters.Length; i++)
+                {
+                    b[i] = config.TextFormatterConfig.Delimiters[i].SymbolCode;
+                }
+
+                Delimiters = Encoding.ASCII.GetChars(b);
+            }
+
+            public override void SaveSettings(HTMLCleanupConfig config)
+            {
+                config.TextFormatterConfig = new TextFormatterType()
+                {
+                    Skipped = Skipped,
+                    Delimiters = new DelimiterSymbolType[Delimiters.Length]
+                };
+
+                for (var i = 0; i < Delimiters.Length; i++)
+                {
+                    var b = Encoding.ASCII.GetBytes(Delimiters);
+                    config.TextFormatterConfig.Delimiters[i] = new DelimiterSymbolType()
+                    {
+                        SymbolCode = b[i]
+                    };
+                }
             }
         }
 
