@@ -14,7 +14,6 @@ namespace HtmlCleanup
         private PdfFont _font;
         private List _list;
         private bool _listItem;
-        private bool _preItem;
         private bool _paragraph;
         private PdfWriter _writer;
 
@@ -66,12 +65,8 @@ namespace HtmlCleanup
                     break;
 
                 case ("<p"):
-                    _paragraph = true;
-                    callFinalize = true;
-                    break;
-
                 case ("<pre"):
-                    _preItem = true;
+                    _paragraph = true;
                     callFinalize = true;
                     break;
             }
@@ -96,13 +91,6 @@ namespace HtmlCleanup
                     _document.Add(_list);
                     _list = null;
                 }
-            }
-            if (_preItem)
-            {
-                var paragraph = new Paragraph();
-                paragraph.Add(finalText);
-                _document.Add(paragraph);
-                _preItem = false;
             }
             if (_paragraph)
             {

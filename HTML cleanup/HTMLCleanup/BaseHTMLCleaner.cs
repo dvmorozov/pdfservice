@@ -603,6 +603,7 @@ namespace HtmlCleanup
 
         /// <summary>
         /// Removes tags inside paragraphs saving internal text.
+        /// It is inherited from SpecialHtmlRemover for final cleaning up text.
         /// </summary>
         public class InnerTextProcessor : SpecialHtmlRemover
         {
