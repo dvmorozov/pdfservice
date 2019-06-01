@@ -1,8 +1,7 @@
 ﻿using System.Linq;
 using System.IO;
-using HtmlCleanup;
 
-namespace HtmlCleanupApp
+namespace HtmlCleanup
 {
     class Program
     {

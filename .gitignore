@@ -20,3 +20,5 @@
 /HTML cleanup/HTMLCleanupTests/obj/Release
 /HTML cleanup/HTMLCleanup/TestResults
 /HTML cleanup/HTMLCleanupTests/TestFiles/remover_result.html
+/HTML cleanup/HTMLCleanupDLL/bin/Debug
+/HTML cleanup/HTMLCleanupDLL/obj/Debug
