@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\HTMLCleanup\packages\Portable.BouncyCastle.1.8.5\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="itext.barcodes, Version=7.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\HTMLCleanup\packages\itext7.7.1.6\lib\net40\itext.barcodes.dll</HintPath>
     </Reference>
@@ -87,6 +90,7 @@
     <Compile Include="WordPressHTMLCleaner.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Config.xsd">
       <SubType>Designer</SubType>
     </None>
