@@ -43,7 +43,7 @@ namespace HtmlCleanupApp
                 }
                 else
                 {
-                    //  Savs text to file.
+                    //  Saves text to file.
                     HtmlCleanerApp.WriteTextToFile(fileName, output);
                 }
             }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfService", "PdfService\PdfService.csproj", "{EC3F9C9E-3BFC-4F68-B0C4-93474B6AC47A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLCleanupDLL", "HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj", "{F9BBFDAC-F625-4F46-8B47-9D99E1776264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EC3F9C9E-3BFC-4F68-B0C4-93474B6AC47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3F9C9E-3BFC-4F68-B0C4-93474B6AC47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC3F9C9E-3BFC-4F68-B0C4-93474B6AC47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

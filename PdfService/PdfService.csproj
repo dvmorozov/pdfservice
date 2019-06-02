@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EnterpriseServices</RootNamespace>
     <AssemblyName>PdfService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44301</IISExpressSSLPort>
@@ -216,7 +216,6 @@
     <Content Include="ApplicationInsights.config" />
     <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
-
     <Content Include="Scripts\jquery.highlight-4.closure.js" />
     <Content Include="Scripts\jquery.highlight-4.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -235,7 +234,12 @@
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">
+      <Project>{f9bbfdac-f625-4f46-8b47-9d99e1776264}</Project>
+      <Name>HTMLCleanupDLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
