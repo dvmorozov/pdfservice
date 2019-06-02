@@ -30,8 +30,8 @@
 			<br />
 			@Html.Raw("Controller: " + Model.ControllerName)
 			<br />
-			@Html.Raw("Message: " + Model.Exception.InnerException != null ?
-					 Model.Exception.InnerException.Message : Model.Exception.Message)
+			@Html.Raw("Message: " + (Model.Exception.InnerException != null ?
+					 Model.Exception.InnerException.Message : Model.Exception.Message))
 		}
 	</div>
 </div>
