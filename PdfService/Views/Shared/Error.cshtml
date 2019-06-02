@@ -15,23 +15,21 @@
 			var list = (List<string>)Session["ErrMessageStrings"];
 			foreach (var str in list)
 			{
-				<br />
-				<br />
 				@Html.Raw(str)
+				<br />
 			}
 			@* Delete the message. *@
 			Session["ErrMessageStrings"] = null;
 		}
 		else
-			if (Model != null)
+		if (Model != null)
 		{
-			<br />
 			@Html.Raw("Action: " + Model.ActionName)
 			<br />
 			@Html.Raw("Controller: " + Model.ControllerName)
 			<br />
 			@Html.Raw("Message: " + (Model.Exception.InnerException != null ?
-					 Model.Exception.InnerException.Message : Model.Exception.Message))
+				Model.Exception.InnerException.Message : Model.Exception.Message))
 		}
 	</div>
 </div>
