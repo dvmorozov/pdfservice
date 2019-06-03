@@ -216,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebCleanerConfigSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AppMenu.css" />

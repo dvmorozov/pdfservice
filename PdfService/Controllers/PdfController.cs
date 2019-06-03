@@ -28,7 +28,7 @@ namespace EnterpriseServices.Controllers
             {
                 if (url != null)
                 {
-                    var injector = new HtmlCleanerInjector(new BaseInjectorConfig());
+                    var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
                     //  Creating cleaner instance based on URL.
                     var processChain = injector.CreateHtmlCleaner(url);
 
