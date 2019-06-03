@@ -223,6 +223,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config" />
+    <Content Include="App_Data\WordPressHTMLCleanerConfig.xml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <Content Include="Scripts\jquery.highlight-4.closure.js" />
@@ -230,6 +231,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="App_Data\UniversalHTMLCleanerConfig.xml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
