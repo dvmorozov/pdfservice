@@ -9,7 +9,7 @@ namespace HtmlCleanup
     /// Decouples serialization/deserialization from definitions
     /// of data classes automatically generated from XSD-description.
     /// </summary>
-    class CleanerConfigSerializer : ICleanerConfigSerializer
+    public abstract class CleanerConfigSerializer : ICleanerConfigSerializer
     {
         /// <summary>
         /// Reads configuration objects from file.
@@ -88,5 +88,7 @@ namespace HtmlCleanup
                 serializer.Serialize(writer, config);
             }
         }
+
+        public abstract string GetConfigurationFilePath();
     }
 }

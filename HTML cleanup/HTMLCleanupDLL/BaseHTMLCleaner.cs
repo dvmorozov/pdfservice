@@ -332,6 +332,13 @@ namespace HtmlCleanup
             }
         }
 
+        protected ICleanerConfigSerializer _configSerializer;
+
+        public BaseHtmlCleaner(ICleanerConfigSerializer configSerializer)
+        {
+            _configSerializer = configSerializer;
+        }
+
         /// <summary>
         /// Base class of text processors.
         /// </summary>
@@ -961,13 +968,16 @@ namespace HtmlCleanup
                 _formatter);
         }
 
+        /// <summary>
+        /// Returns full configuration file name including path provided by configuration serializer.
+        /// </summary>
+        /// <returns>Configuration file name.</returns>
         protected abstract string GetConfigurationFileName();
 
         protected void ReadConfiguration(TextProcessor chain)
         {
             var pathToConfig = GetConfigurationFileName();
-            var serializer = new CleanerConfigSerializer();
-            serializer.Deserialize(pathToConfig, chain);
+            _configSerializer.Deserialize(pathToConfig, chain);
         }
 
         public void WriteConfiguration()
@@ -975,8 +985,7 @@ namespace HtmlCleanup
             TextProcessor processingChain = CreateProcessingChain();
 
             var pathToConfig = GetConfigurationFileName();
-            var serializer = new CleanerConfigSerializer();
-            serializer.Serialize(pathToConfig, processingChain);
+            _configSerializer.Serialize(pathToConfig, processingChain);
         }
 
         public string Process(string html)

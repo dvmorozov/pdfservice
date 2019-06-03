@@ -76,6 +76,7 @@
     <Compile Include="config.cs">
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ConsoleCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleanerApp.cs" />
     <Compile Include="HTMLCleanerInjector.cs" />
     <Compile Include="IntCleanerConfigSerializer.cs" />
@@ -84,7 +85,6 @@
     <Compile Include="IntTagFormatter.cs" />
     <Compile Include="PdfFormatter.cs" />
     <Compile Include="PlainTextFormatter.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UniversalHTMLCleaner.cs" />
     <Compile Include="WordPressHTMLCleaner.cs" />

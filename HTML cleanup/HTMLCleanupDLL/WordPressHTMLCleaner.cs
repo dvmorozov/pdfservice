@@ -5,6 +5,8 @@ namespace HtmlCleanup
 {
     public class WordPressHtmlCleaner : BaseHtmlCleaner
     {
+        public WordPressHtmlCleaner(ICleanerConfigSerializer configSerializer) : base(configSerializer) { }
+
         protected override TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter)
         {
             var result = new TagRemover(next, formatter)
@@ -130,7 +132,7 @@ namespace HtmlCleanup
 
         protected override string GetConfigurationFileName()
         {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "WordPressHTMLCleanerConfig.xml";
+            return _configSerializer.GetConfigurationFilePath() + "\\" + "WordPressHTMLCleanerConfig.xml";
         }
     }
 }

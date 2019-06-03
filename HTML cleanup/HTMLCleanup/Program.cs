@@ -12,7 +12,7 @@ namespace HtmlCleanupApp
             {
                 var url = args[0];
 
-                var injector = new HtmlCleanerInjector(new BaseInjectorConfig());
+                var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new ConsoleCleanerConfigSerializer());
                 //  Creating cleaner instance based on URL.
                 var processChain = injector.CreateHtmlCleaner(url);
 
@@ -50,7 +50,7 @@ namespace HtmlCleanupApp
             else
             {
                 //  Default HTML cleaner for writing configutaion.
-                var processChain = new WordPressHtmlCleaner();
+                var processChain = new WordPressHtmlCleaner(new ConsoleCleanerConfigSerializer());
                 //  Writes template of configuration file.
                 processChain.WriteConfiguration();
             }

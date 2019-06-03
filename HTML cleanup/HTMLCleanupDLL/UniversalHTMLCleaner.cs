@@ -5,6 +5,8 @@ namespace HtmlCleanup
 {
     class UniversalHtmlCleaner : BaseHtmlCleaner
     {
+        public UniversalHtmlCleaner(ICleanerConfigSerializer configSerializer) : base(configSerializer) { }
+
         protected override TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter)
         {
             var result = new TagRemover(next, formatter)
@@ -73,7 +75,7 @@ namespace HtmlCleanup
 
         protected override string GetConfigurationFileName()
         {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\" + "UniversalHTMLCleanerConfig.xml";
+            return _configSerializer.GetConfigurationFilePath() + "\\" + "UniversalHTMLCleanerConfig.xml";
         }
     }
 }
