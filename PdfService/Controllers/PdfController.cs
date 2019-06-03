@@ -37,9 +37,6 @@ namespace EnterpriseServices.Controllers
 
                     var output = processChain.Process(s);
 
-                    //  Creates directories for storing page content.
-                    var path = HtmlCleanerApp.CreateDirectories(url);
-
                     var formatter = processChain.GetFormatter();
 
                     //  Finishes processing.
