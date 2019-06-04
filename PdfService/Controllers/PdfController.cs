@@ -1,5 +1,6 @@
 ﻿using HtmlCleanup;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Web.Mvc;
 
@@ -19,6 +20,12 @@ namespace EnterpriseServices.Controllers
             {
                 return View("Error", new HandleErrorInfo(e, "Pdf", "Index"));
             }
+        }
+
+        public class UrlToPdfData
+        {
+            [Required]
+            public string Url { get; set; }
         }
 
         [AllowAnonymous]

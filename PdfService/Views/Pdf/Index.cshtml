@@ -1,8 +1,37 @@
-﻿@{
+﻿@model EnterpriseServices.Controllers.PdfController.UrlToPdfData
+@{
 	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
 }
 @* ReSharper disable UnknownCssClass *@
-<div class="panel panel-primary full-height">
 
+<div class="panel panel-primary">
+	<div class="panel-heading">
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf" }))
+			{
+				<div style="text-align: left;">
+					<div style="text-align: left; margin-bottom: 16px;">
+						<div class="editor-label" style="padding: 8px;">
+							@Html.LabelFor(model => model.Url, "URL")
+						</div>
+						<div>
+							@Html.TextAreaFor(model => model.Url, new { style = "width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;", maxlength = 200, rows = 1 })
+						</div>
+					</div>
+				</div>
+				<hr />
+				<div>
+					<button type="button" class="btn btn-default" aria-label="Get PDF" onclick="document.forms['UrlToPdf'].submit(); return true;">
+						<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;Add
+					</button>
+				</div>
+			}
+		</div>
+	</div>
+	@* Html.Partial("Tags") *@
+	<div class="panel-footer">
+	</div>
 </div>
 @* ReSharper restore UnknownCssClass *@
