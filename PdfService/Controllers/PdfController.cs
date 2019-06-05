@@ -10,11 +10,11 @@ namespace EnterpriseServices.Controllers
     public partial class PdfController : ErrorHandlingController
     {
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string url)
         {
             try
             {
-                return View("Index");
+                return View("Index", new UrlToPdfData { Url = url });
             }
             catch (Exception e)
             {
@@ -58,7 +58,7 @@ namespace EnterpriseServices.Controllers
                         return File(dataStream.ToArray(), contentType, "content.pdf");
                     }
                 }
-                return View("Index");
+                return View("Index", new UrlToPdfData { Url = url });
             }
             catch (Exception e)
             {
