@@ -54,8 +54,13 @@ namespace EnterpriseServices.Controllers
                     {
                         dataStream.Seek(0, SeekOrigin.Begin);
 
-                        var contentType = System.Net.Mime.MediaTypeNames.Application.Pdf;
-                        return File(dataStream.ToArray(), contentType, "content.pdf");
+                        Response.Clear();
+                        Response.ContentType = "application/pdf";
+                        Response.AddHeader("Content-Disposition", "inline;filename=content.pdf");
+                        Response.BinaryWrite(dataStream.ToArray());
+                        Response.Flush();
+                        Response.End();
+                        return new EmptyResult();
                     }
                 }
                 return View("Index", new UrlToPdfData { Url = url });
