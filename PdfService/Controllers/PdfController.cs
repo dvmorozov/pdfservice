@@ -53,10 +53,21 @@ namespace EnterpriseServices.Controllers
                     if (dataStream != null)
                     {
                         dataStream.Seek(0, SeekOrigin.Begin);
+                        //  Prepares file name from URL.
+                        var fileName = url;
+                        var prefixIndex = fileName.IndexOf("://");
+                        if (prefixIndex != -1)
+                            fileName = fileName.Substring(prefixIndex + 3);
+
+                        fileName = fileName.Replace('/', '_');
+                        fileName = fileName.Replace('.', '_');
+                        fileName = fileName.TrimEnd('_');
+                        //  Adds file extension.
+                        fileName += ".pdf";
 
                         Response.Clear();
                         Response.ContentType = "application/pdf";
-                        Response.AddHeader("Content-Disposition", "inline;filename=content.pdf");
+                        Response.AddHeader("Content-Disposition", "inline;filename=" + fileName);
                         Response.BinaryWrite(dataStream.ToArray());
                         Response.Flush();
                         Response.End();
