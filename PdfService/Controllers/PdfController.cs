@@ -28,6 +28,27 @@ namespace EnterpriseServices.Controllers
             public string Url { get; set; }
         }
 
+        /// <summary>
+        /// Prepares file name from URL.
+        /// </summary>
+        /// <param name="url">URL.</param>
+        /// <param name="fileExtension">File extension including dot.</param>
+        /// <returns></returns>
+        private string UrlToFileName(string url, string fileExtension)
+        {
+            var fileName = url;
+            var prefixIndex = fileName.IndexOf("://");
+            if (prefixIndex != -1)
+                fileName = fileName.Substring(prefixIndex + 3);
+
+            fileName = fileName.Replace('/', '_');
+            fileName = fileName.Replace('.', '_');
+            fileName = fileName.TrimEnd('_');
+            //  Adds file extension.
+            fileName += fileExtension;
+            return fileName;
+        }
+
         [AllowAnonymous]
         public ActionResult UrlToPdf(string url)
         {
@@ -53,21 +74,10 @@ namespace EnterpriseServices.Controllers
                     if (dataStream != null)
                     {
                         dataStream.Seek(0, SeekOrigin.Begin);
-                        //  Prepares file name from URL.
-                        var fileName = url;
-                        var prefixIndex = fileName.IndexOf("://");
-                        if (prefixIndex != -1)
-                            fileName = fileName.Substring(prefixIndex + 3);
-
-                        fileName = fileName.Replace('/', '_');
-                        fileName = fileName.Replace('.', '_');
-                        fileName = fileName.TrimEnd('_');
-                        //  Adds file extension.
-                        fileName += ".pdf";
 
                         Response.Clear();
                         Response.ContentType = "application/pdf";
-                        Response.AddHeader("Content-Disposition", "inline;filename=" + fileName);
+                        Response.AddHeader("Content-Disposition", "inline;filename=" + UrlToFileName(url, ".pdf"));
                         Response.BinaryWrite(dataStream.ToArray());
                         Response.Flush();
                         Response.End();
