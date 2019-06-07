@@ -3,27 +3,18 @@
 	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
 }
 @* ReSharper disable UnknownCssClass *@
-
 <div class="panel panel-primary full-height">
 	<div class="panel-body full-height">
 		<div class="row full-height" style="margin: 16px;">
-			@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf" }))
-			{
-				<div style="text-align: left;">
-					<div class="editor-label">
-						@Html.LabelFor(model => model.Url, "URL")
-					</div>
-					<div>
-						@Html.TextBoxFor(model => model.Url, new { style = "width: 100%;" })
-					</div>
-					<div style="margin-top: 8px;">
-						<button type="button" class="btn btn-default" aria-label="Get PDF"
-								onclick="document.forms['UrlToPdf'].submit(); return true;">
-							<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;Get PDF
-						</button>
-					</div>
-				</div>
-			}
+			<div class="container">
+				@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-signin" }))
+				{
+					<h2 class="form-signin-heading">URL</h2>
+					<label for="url" class="sr-only">URL</label>
+					<input id="Url" name="Url" class="form-control" placeholder="URL" required>
+					<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 16px;">Get PDF</button>
+				}
+			</div> <!-- /container -->
 		</div>
 	</div>
 	@* Html.Partial("Tags") *@

@@ -1,7 +1,8 @@
 ﻿@model HandleErrorInfo
 @{
 	ViewBag.Title = "Error";
-	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+	@* Should not use layout to avoid cycling in the case of layout error. *@
+	@*Layout = "~/Views/Shared/_LayoutMobile.cshtml";*@
 }
 @* ReSharper disable UnknownCssClass *@
 <div class="panel panel-primary">
