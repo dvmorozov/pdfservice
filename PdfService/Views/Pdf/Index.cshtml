@@ -9,7 +9,6 @@
 			<div class="container">
 				@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-signin" }))
 				{
-					<h2 class="form-signin-heading">URL</h2>
 					<label for="url" class="sr-only">URL</label>
 					<input id="Url" name="Url" class="form-control" placeholder="URL" required>
 					<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 16px;">Get PDF</button>
