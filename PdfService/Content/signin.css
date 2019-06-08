@@ -1,6 +1,9 @@
 body {
+  /*
+  The form fills entire page.
   padding-top: 40px;
   padding-bottom: 40px;
+  */
   background-color: #eee;
 }
 .form-signin {
