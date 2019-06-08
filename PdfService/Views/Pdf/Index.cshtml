@@ -7,7 +7,7 @@
 	<div class="panel-body full-height">
 		<div class="row full-height" style="margin: 16px;">
 			<div class="container">
-				@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-signin" }))
+				@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-url-input" }))
 				{
 					<label for="url" class="sr-only">URL</label>
 					@Html.TextBoxFor(model => model.Url, new { id = "Url", name = "Url", @class = "form-control", placeholder = "URL", required = "required" })
