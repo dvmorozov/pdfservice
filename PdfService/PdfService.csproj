@@ -439,7 +439,6 @@
     <Content Include="Content\AppMenu.css" />
     <Content Include="Content\UrlInput.css" />
     <Content Include="favicon.ico" />
-    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="App_Data\WordPressHTMLCleanerConfig.xml" />
