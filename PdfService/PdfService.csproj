@@ -466,6 +466,7 @@
     <Content Include="Views\Shared\_LayoutMobile.cshtml" />
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\Tags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">
