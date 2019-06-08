@@ -437,6 +437,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AppMenu.css" />
+    <Content Include="Content\signin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
