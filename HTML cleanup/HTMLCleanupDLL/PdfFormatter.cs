@@ -15,6 +15,7 @@ namespace HtmlCleanup
         private List _list;
         private bool _listItem;
         private bool _paragraph;
+        private bool _preformatted;     //  Add "preformatted" style.
         private PdfWriter _writer;
 
         public MemoryStream GetOutputStream()
@@ -64,8 +65,13 @@ namespace HtmlCleanup
                     }
                     break;
 
-                case ("<p"):
                 case ("<pre"):
+                    _preformatted = true;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<p"):
                 case ("<h1"):
                 case ("<h2"):
                 case ("<h3"):
@@ -100,6 +106,13 @@ namespace HtmlCleanup
             {
                 var paragraph = new Paragraph();
                 paragraph.Add(finalText);
+                /*
+                if (_preformatted)
+                {
+                    paragraph.SetFontColor(iText.Kernel.Colors.ColorConstants.RED);
+                    paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
+                }
+                */
                 _document.Add(paragraph);
                 _paragraph = false;
             }
