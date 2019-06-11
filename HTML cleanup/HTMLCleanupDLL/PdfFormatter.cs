@@ -107,7 +107,7 @@ namespace HtmlCleanup
             }
             if (_paragraph)
             {
-                var paragraph = new Paragraph();
+                var paragraph = new Paragraph().SetFont(_font);
                 paragraph.Add(finalText);
 
                 if (_preformatted)
