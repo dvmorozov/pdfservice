@@ -1,8 +1,10 @@
 ﻿using iText.IO.Font;
+using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using iText.StyledXmlParser.Resolver.Font;
 using System.IO;
 
 namespace HtmlCleanup
@@ -17,6 +19,8 @@ namespace HtmlCleanup
         private bool _paragraph;
         private bool _preformatted;     //  Add "preformatted" style.
         private PdfWriter _writer;
+        private float _defaultPadding = 10;
+        private float _defaultFontSize = 14;
 
         public MemoryStream GetOutputStream()
         {
@@ -38,6 +42,7 @@ namespace HtmlCleanup
 
             var pdf = new PdfDocument(_writer);
             _document = new Document(pdf);
+            _document.SetFontProvider(new BasicFontProvider());
 
             // Creates font object.
             _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
@@ -52,8 +57,9 @@ namespace HtmlCleanup
                     //  Creates list object.
                     _list = new List()
                         .SetSymbolIndent(12)
-                        .SetListSymbol("*")
-                        .SetFont(_font);
+                        .SetListSymbol("\u2022")
+                        .SetFont(_font)
+                        .SetFontSize(_defaultFontSize);
                     callFinalize = true;
                     break;
 
@@ -98,21 +104,27 @@ namespace HtmlCleanup
                 else
                 {
                     //  Finalizes the list.
+                    _list.SetPadding(_defaultPadding);
                     _document.Add(_list);
                     _list = null;
                 }
             }
             if (_paragraph)
             {
-                var paragraph = new Paragraph();
+                var paragraph = new Paragraph().SetFont(_font);
                 paragraph.Add(finalText);
-                /*
+                paragraph.SetFontSize(_defaultFontSize);
+
                 if (_preformatted)
                 {
-                    paragraph.SetFontColor(iText.Kernel.Colors.ColorConstants.RED);
+                    paragraph.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
                     paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
+                    paragraph.SetFontSize(10);
+                    paragraph.SetPadding(_defaultPadding);
+                    paragraph.SetBorder(new iText.Layout.Borders.SolidBorder(ColorConstants.GRAY, 1));
+                    _preformatted = false;
                 }
-                */
+
                 _document.Add(paragraph);
                 _paragraph = false;
             }
