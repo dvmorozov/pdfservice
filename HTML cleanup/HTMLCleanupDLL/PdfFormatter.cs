@@ -55,7 +55,7 @@ namespace HtmlCleanup
                     //  Creates list object.
                     _list = new List()
                         .SetSymbolIndent(12)
-                        .SetListSymbol("*")
+                        .SetListSymbol("\u2022")
                         .SetFont(_font);
                     callFinalize = true;
                     break;
