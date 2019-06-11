@@ -1,8 +1,10 @@
 ﻿using iText.IO.Font;
+using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
+using iText.StyledXmlParser.Resolver.Font;
 using System.IO;
 
 namespace HtmlCleanup
@@ -38,6 +40,7 @@ namespace HtmlCleanup
 
             var pdf = new PdfDocument(_writer);
             _document = new Document(pdf);
+            _document.SetFontProvider(new BasicFontProvider());
 
             // Creates font object.
             _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
@@ -106,13 +109,16 @@ namespace HtmlCleanup
             {
                 var paragraph = new Paragraph();
                 paragraph.Add(finalText);
-                /*
+
                 if (_preformatted)
                 {
-                    paragraph.SetFontColor(iText.Kernel.Colors.ColorConstants.RED);
+                    paragraph.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
                     paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
+                    paragraph.SetPadding(10);
+                    paragraph.SetBorder(new iText.Layout.Borders.SolidBorder(ColorConstants.GRAY, 1));
+                    _preformatted = false;
                 }
-                */
+
                 _document.Add(paragraph);
                 _paragraph = false;
             }
