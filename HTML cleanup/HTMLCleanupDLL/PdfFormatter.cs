@@ -19,6 +19,7 @@ namespace HtmlCleanup
         private bool _paragraph;
         private bool _preformatted;     //  Add "preformatted" style.
         private PdfWriter _writer;
+        private float _defaultPadding = 10;
 
         public MemoryStream GetOutputStream()
         {
@@ -101,6 +102,7 @@ namespace HtmlCleanup
                 else
                 {
                     //  Finalizes the list.
+                    _list.SetPadding(_defaultPadding);
                     _document.Add(_list);
                     _list = null;
                 }
@@ -114,7 +116,7 @@ namespace HtmlCleanup
                 {
                     paragraph.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
                     paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
-                    paragraph.SetPadding(10);
+                    paragraph.SetPadding(_defaultPadding);
                     paragraph.SetBorder(new iText.Layout.Borders.SolidBorder(ColorConstants.GRAY, 1));
                     _preformatted = false;
                 }
