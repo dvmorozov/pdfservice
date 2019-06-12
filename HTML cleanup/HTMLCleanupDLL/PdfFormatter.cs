@@ -11,6 +11,14 @@ namespace HtmlCleanup
 {
     class PdfFormatter : ITagFormatter
     {
+        enum ParagraphType {
+            Simple,
+            Header1,
+            Header2,
+            Header3,
+            Header4
+        }
+
         private MemoryStream _content;
         private Document _document;
         private PdfFont _font;
@@ -21,6 +29,7 @@ namespace HtmlCleanup
         private PdfWriter _writer;
         private float _defaultPadding = 10;
         private float _defaultFontSize = 14;
+        private ParagraphType _paragraphType = ParagraphType.Simple;
 
         public MemoryStream GetOutputStream()
         {
@@ -77,11 +86,32 @@ namespace HtmlCleanup
                     callFinalize = true;
                     break;
 
-                case ("<p"):
                 case ("<h1"):
+                    _paragraphType = ParagraphType.Header1;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h2"):
+                    _paragraphType = ParagraphType.Header2;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h3"):
+                    _paragraphType = ParagraphType.Header3;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h4"):
+                    _paragraphType = ParagraphType.Header4;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<p"):
+                    _paragraphType = ParagraphType.Simple;
                     _paragraph = true;
                     callFinalize = true;
                     break;
@@ -113,7 +143,28 @@ namespace HtmlCleanup
             {
                 var paragraph = new Paragraph().SetFont(_font);
                 paragraph.Add(finalText);
-                paragraph.SetFontSize(_defaultFontSize);
+                switch (_paragraphType)
+                {
+                    case (ParagraphType.Simple):
+                        paragraph.SetFontSize(_defaultFontSize);
+                        break;
+
+                    case (ParagraphType.Header1):
+                        paragraph.SetFontSize(_defaultFontSize + 8);
+                        break;
+
+                    case (ParagraphType.Header2):
+                        paragraph.SetFontSize(_defaultFontSize + 6);
+                        break;
+
+                    case (ParagraphType.Header3):
+                        paragraph.SetFontSize(_defaultFontSize + 4);
+                        break;
+
+                    case (ParagraphType.Header4):
+                        paragraph.SetFontSize(_defaultFontSize + 2);
+                        break;
+                }
 
                 if (_preformatted)
                 {
