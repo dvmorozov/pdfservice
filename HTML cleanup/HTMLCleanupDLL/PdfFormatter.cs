@@ -117,6 +117,9 @@ namespace HtmlCleanup
                     callFinalize = true;
                     break;
 
+                case ("<a"):
+                    break;
+
                 case ("<header"):
                     _paragraphType = ParagraphType.Header;
                     _paragraph = true;
