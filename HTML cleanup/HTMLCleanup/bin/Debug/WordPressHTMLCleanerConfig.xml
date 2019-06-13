@@ -151,6 +151,10 @@
         <StartTagWithoutBracket>&lt;blockquote</StartTagWithoutBracket>
         <EndTag>&lt;/blockquote&gt;</EndTag>
       </Tag>
+      <Tag>
+        <StartTagWithoutBracket>&lt;a</StartTagWithoutBracket>
+        <EndTag>&lt;/a&gt;</EndTag>
+      </Tag>
     </Tags>
   </InnerTagRemoverConfig>
   <TagWithTextRemoverConfig>
@@ -283,10 +287,6 @@
       <Tag>
         <StartTagWithoutBracket>&lt;aside</StartTagWithoutBracket>
         <EndTag>&lt;/aside&gt;</EndTag>
-      </Tag>
-      <Tag>
-        <StartTagWithoutBracket>&lt;a</StartTagWithoutBracket>
-        <EndTag>&lt;/a&gt;</EndTag>
       </Tag>
       <Tag>
         <StartTagWithoutBracket>&lt;!--[if</StartTagWithoutBracket>

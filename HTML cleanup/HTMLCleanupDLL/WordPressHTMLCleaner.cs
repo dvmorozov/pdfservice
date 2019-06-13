@@ -54,7 +54,6 @@ namespace HtmlCleanup
                     new Tag( "<br", "" ),
                     new Tag( "<aside", "</aside>" ),
                     //  Hyperlinks are removed.
-                    new Tag( "<a", "</a>" ),
                     new Tag( "<!--[if", "<![endif]-->" ),
                     new Tag( "<!--", "" )
                 })
@@ -96,7 +95,8 @@ namespace HtmlCleanup
                     new Tag( "<div", "</div>" ),
                     new Tag( "<code", "</code>" ),
                     new Tag( "<body", "</body>" ),
-                    new Tag( "<blockquote", "</blockquote>")
+                    new Tag( "<blockquote", "</blockquote>"),
+                    new Tag( "<a", "</a>")
                 })
             };
             return result;
