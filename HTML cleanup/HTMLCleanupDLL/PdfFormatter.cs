@@ -13,10 +13,11 @@ namespace HtmlCleanup
     {
         enum ParagraphType {
             Simple,
-            Header1,
-            Header2,
-            Header3,
-            Header4
+            H1,
+            H2,
+            H3,
+            H4,
+            Header
         }
 
         private MemoryStream _content;
@@ -87,31 +88,37 @@ namespace HtmlCleanup
                     break;
 
                 case ("<h1"):
-                    _paragraphType = ParagraphType.Header1;
+                    _paragraphType = ParagraphType.H1;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
                 case ("<h2"):
-                    _paragraphType = ParagraphType.Header2;
+                    _paragraphType = ParagraphType.H2;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
                 case ("<h3"):
-                    _paragraphType = ParagraphType.Header3;
+                    _paragraphType = ParagraphType.H3;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
                 case ("<h4"):
-                    _paragraphType = ParagraphType.Header4;
+                    _paragraphType = ParagraphType.H4;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
                 case ("<p"):
                     _paragraphType = ParagraphType.Simple;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<header"):
+                    _paragraphType = ParagraphType.Header;
                     _paragraph = true;
                     callFinalize = true;
                     break;
@@ -139,6 +146,7 @@ namespace HtmlCleanup
                     _list = null;
                 }
             }
+
             if (_paragraph)
             {
                 var paragraph = new Paragraph().SetFont(_font);
@@ -149,20 +157,20 @@ namespace HtmlCleanup
                         paragraph.SetFontSize(_defaultFontSize);
                         break;
 
-                    case (ParagraphType.Header1):
+                    case (ParagraphType.H1):
                         paragraph.SetFontSize(_defaultFontSize + 8);
                         break;
 
-                    case (ParagraphType.Header2):
+                    case (ParagraphType.H2):
                         paragraph.SetFontSize(_defaultFontSize + 6);
                         break;
 
-                    case (ParagraphType.Header3):
+                    case (ParagraphType.H3):
                         paragraph.SetFontSize(_defaultFontSize + 4);
                         break;
 
-                    case (ParagraphType.Header4):
-                        paragraph.SetFontSize(_defaultFontSize + 2);
+                    case (ParagraphType.Header):
+                        paragraph.SetFontSize(_defaultFontSize + 10);
                         break;
                 }
 
