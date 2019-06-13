@@ -11,6 +11,15 @@ namespace HtmlCleanup
 {
     class PdfFormatter : ITagFormatter
     {
+        enum ParagraphType {
+            Simple,
+            H1,
+            H2,
+            H3,
+            H4,
+            Header
+        }
+
         private MemoryStream _content;
         private Document _document;
         private PdfFont _font;
@@ -21,6 +30,7 @@ namespace HtmlCleanup
         private PdfWriter _writer;
         private float _defaultPadding = 10;
         private float _defaultFontSize = 14;
+        private ParagraphType _paragraphType = ParagraphType.Simple;
 
         public MemoryStream GetOutputStream()
         {
@@ -77,11 +87,38 @@ namespace HtmlCleanup
                     callFinalize = true;
                     break;
 
-                case ("<p"):
                 case ("<h1"):
+                    _paragraphType = ParagraphType.H1;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h2"):
+                    _paragraphType = ParagraphType.H2;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h3"):
+                    _paragraphType = ParagraphType.H3;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
                 case ("<h4"):
+                    _paragraphType = ParagraphType.H4;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<p"):
+                    _paragraphType = ParagraphType.Simple;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<header"):
+                    _paragraphType = ParagraphType.Header;
                     _paragraph = true;
                     callFinalize = true;
                     break;
@@ -109,11 +146,33 @@ namespace HtmlCleanup
                     _list = null;
                 }
             }
+
             if (_paragraph)
             {
                 var paragraph = new Paragraph().SetFont(_font);
                 paragraph.Add(finalText);
-                paragraph.SetFontSize(_defaultFontSize);
+                switch (_paragraphType)
+                {
+                    case (ParagraphType.Simple):
+                        paragraph.SetFontSize(_defaultFontSize);
+                        break;
+
+                    case (ParagraphType.H1):
+                        paragraph.SetFontSize(_defaultFontSize + 8);
+                        break;
+
+                    case (ParagraphType.H2):
+                        paragraph.SetFontSize(_defaultFontSize + 6);
+                        break;
+
+                    case (ParagraphType.H3):
+                        paragraph.SetFontSize(_defaultFontSize + 4);
+                        break;
+
+                    case (ParagraphType.Header):
+                        paragraph.SetFontSize(_defaultFontSize + 10);
+                        break;
+                }
 
                 if (_preformatted)
                 {
