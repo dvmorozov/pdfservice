@@ -1,13 +1,8 @@
 ﻿using iText.IO.Font;
-using iText.IO.Font.Constants;
 using iText.Kernel.Colors;
 using iText.Kernel.Font;
-using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Action;
-using iText.Kernel.Pdf.Annot;
-using iText.Kernel.Pdf.Canvas;
-using iText.Kernel.Pdf.Navigation;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.StyledXmlParser.Resolver.Font;
@@ -193,7 +188,7 @@ namespace HtmlCleanup
                         break;
 
                     case (ParagraphType.Hyperlink):
-                        Link link = new Link(finalText, PdfAction.CreateURI("http://pages.itextpdf.com/ebook-stackoverflow-questions.html"));
+                        var link = new Link(finalText, PdfAction.CreateURI("http://pages.itextpdf.com/ebook-stackoverflow-questions.html"));
                         paragraph.Add(link);
                         break;
                 }
