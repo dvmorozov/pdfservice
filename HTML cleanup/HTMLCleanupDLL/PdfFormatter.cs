@@ -1,7 +1,13 @@
 ﻿using iText.IO.Font;
+using iText.IO.Font.Constants;
 using iText.Kernel.Colors;
 using iText.Kernel.Font;
+using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Action;
+using iText.Kernel.Pdf.Annot;
+using iText.Kernel.Pdf.Canvas;
+using iText.Kernel.Pdf.Navigation;
 using iText.Layout;
 using iText.Layout.Element;
 using iText.StyledXmlParser.Resolver.Font;
@@ -17,7 +23,8 @@ namespace HtmlCleanup
             H2,
             H3,
             H4,
-            Header
+            Header,
+            Hyperlink
         }
 
         private MemoryStream _content;
@@ -31,6 +38,8 @@ namespace HtmlCleanup
         private float _defaultPadding = 10;
         private float _defaultFontSize = 14;
         private ParagraphType _paragraphType = ParagraphType.Simple;
+
+        public object BaseColor { get; private set; }
 
         public MemoryStream GetOutputStream()
         {
@@ -118,6 +127,9 @@ namespace HtmlCleanup
                     break;
 
                 case ("<a"):
+                    _paragraphType = ParagraphType.Hyperlink;
+                    _paragraph = true;
+                    callFinalize = true;
                     break;
 
                 case ("<header"):
@@ -153,27 +165,36 @@ namespace HtmlCleanup
             if (_paragraph)
             {
                 var paragraph = new Paragraph().SetFont(_font);
-                paragraph.Add(finalText);
                 switch (_paragraphType)
                 {
                     case (ParagraphType.Simple):
                         paragraph.SetFontSize(_defaultFontSize);
+                        paragraph.Add(finalText);
                         break;
 
                     case (ParagraphType.H1):
                         paragraph.SetFontSize(_defaultFontSize + 8);
+                        paragraph.Add(finalText);
                         break;
 
                     case (ParagraphType.H2):
                         paragraph.SetFontSize(_defaultFontSize + 6);
+                        paragraph.Add(finalText);
                         break;
 
                     case (ParagraphType.H3):
                         paragraph.SetFontSize(_defaultFontSize + 4);
+                        paragraph.Add(finalText);
                         break;
 
                     case (ParagraphType.Header):
                         paragraph.SetFontSize(_defaultFontSize + 10);
+                        paragraph.Add(finalText);
+                        break;
+
+                    case (ParagraphType.Hyperlink):
+                        Link link = new Link(finalText, PdfAction.CreateURI("http://pages.itextpdf.com/ebook-stackoverflow-questions.html"));
+                        paragraph.Add(link);
                         break;
                 }
 
