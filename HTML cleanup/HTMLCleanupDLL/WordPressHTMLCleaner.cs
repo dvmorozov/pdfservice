@@ -96,7 +96,7 @@ namespace HtmlCleanup
                     new HtmlTag( "<code", "</code>" ),
                     new HtmlTag( "<body", "</body>" ),
                     new HtmlTag( "<blockquote", "</blockquote>"),
-                    new HtmlTag( "<a", "</a>")
+                    new HtmlTag( "<a", "</a>", new string[] { "href" })
                 })
             };
             return result;

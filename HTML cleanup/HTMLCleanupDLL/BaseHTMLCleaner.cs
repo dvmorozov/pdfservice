@@ -49,6 +49,14 @@ namespace HtmlCleanup
                     return _endTag;
                 }
             }
+
+            public string[] AttributeNames
+            {
+                get
+                {
+                    return _attributeNames;
+                }
+            }
         }
 
         public class HtmlElement
@@ -71,6 +79,11 @@ namespace HtmlCleanup
                 {
                     return _text;
                 }
+            }
+
+            public void AddAttribute(string name, string value)
+            {
+                _attributes.Add(name, value);
             }
 
             private ITagFormatter _formatter;
@@ -111,6 +124,10 @@ namespace HtmlCleanup
                                 var htmlElement = new HtmlElement(t.StartTag, t.EndTag, text, formatter);
                                 //  Properly initializes internal state.
                                 htmlElement.FindNext();
+                                //  Parses attributes.
+                                foreach (var attributeName in t.AttributeNames)
+                                    htmlElement.AddAttribute(attributeName, htmlElement.GetAttr(attributeName));
+
                                 return htmlElement;
                             }
                         }
@@ -643,7 +660,6 @@ namespace HtmlCleanup
                     if (el == null)
                         return text;
 
-                    var href = el.GetAttr("href");
                     //  Removes tag and its original content from text.
                     var innerText = el.RemoveTag();
                     //  Extracts innter tag text.
