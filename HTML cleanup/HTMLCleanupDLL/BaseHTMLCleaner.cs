@@ -19,7 +19,7 @@ namespace HtmlCleanup
             private string _endTag;
 
             //  Set of attributeNames whichi should be extracted for HTML elemement.
-            private string[] _attributeNames;
+            private string[] _attributeNames = new string[] { };
 
             public HtmlTag(string startTag, string endTag)
             {
@@ -71,7 +71,7 @@ namespace HtmlCleanup
             private int _pos3;      //  End tag position.
 
             //  Set of attributeNames whichi should be extracted for HTML elemement.
-            private Dictionary<string, string> _attributes;
+            private Dictionary<string, string> _attributes = new Dictionary<string, string>();
 
             public string Text
             {
@@ -84,6 +84,11 @@ namespace HtmlCleanup
             public void AddAttribute(string name, string value)
             {
                 _attributes.Add(name, value);
+            }
+
+            public string GetAttribute(string name)
+            {
+                return _attributes.TryGetValue(name, out string value) ? value : "";
             }
 
             public string StartTag

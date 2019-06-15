@@ -33,6 +33,7 @@ namespace HtmlCleanup
         private float _defaultPadding = 10;
         private float _defaultFontSize = 14;
         private ParagraphType _paragraphType = ParagraphType.Simple;
+        private string _href;
 
         public object BaseColor { get; private set; }
 
@@ -122,6 +123,7 @@ namespace HtmlCleanup
                     break;
 
                 case ("<a"):
+                    _href = htmlElement.GetAttribute("href");
                     _paragraphType = ParagraphType.Hyperlink;
                     _paragraph = true;
                     callFinalize = true;
@@ -188,8 +190,7 @@ namespace HtmlCleanup
                         break;
 
                     case (ParagraphType.Hyperlink):
-                        var link = new Link(finalText, PdfAction.CreateURI("http://pages.itextpdf.com/ebook-stackoverflow-questions.html"));
-                        paragraph.Add(link);
+                        paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
                         break;
                 }
 
