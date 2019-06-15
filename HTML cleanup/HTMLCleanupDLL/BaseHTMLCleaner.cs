@@ -92,7 +92,7 @@ namespace HtmlCleanup
                 _attributes = attributes;
             }
 
-            public static HtmlElement FindNext(List<Tag> tags, string text, ITagFormatter formatter)
+            public static HtmlElement FindNext(List<HtmlTag> tags, string text, ITagFormatter formatter)
             {
                 var bracketPos = 0;
                 while (true)
@@ -275,7 +275,7 @@ namespace HtmlCleanup
             /// <returns>Formatted text.</returns>
             public string InitializeTagFormatting(string text)
             {
-                return _formatter.InitializeTagFormatting(new Tag(_startTag, _endTag), text, out _callFinalizeFormatting);
+                return _formatter.InitializeTagFormatting(new HtmlTag(_startTag, _endTag), text, out _callFinalizeFormatting);
             }
 
             /// <summary>
@@ -602,35 +602,6 @@ namespace HtmlCleanup
             }
         }
 
-        public class Tag
-        {
-            private readonly string _startTag;   // Should not contain closing ">",
-                                                 // to skip attributeNames.
-            private readonly string _endTag;
-
-            public string StartTag
-            {
-                get
-                {
-                    return _startTag;
-                }
-            }
-
-            public string EndTag
-            {
-                get
-                {
-                    return _endTag;
-                }
-            }
-
-            public Tag(string startTag, string endTag)
-            {
-                _startTag = startTag;
-                _endTag = endTag;
-            }
-        }
-
         protected abstract InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter);
 
         /// <summary>
@@ -645,9 +616,9 @@ namespace HtmlCleanup
             /// be arranged in the reverse lexigraphical order. The first tag must
             /// not include closing bracket.
             /// </summary>
-            private List<Tag> _tags;
+            private List<HtmlTag> _tags;
 
-            public List<Tag> Tags
+            public List<HtmlTag> Tags
             {
                 get
                 {
@@ -696,7 +667,7 @@ namespace HtmlCleanup
                 Tags.Clear();
                 foreach (var t in config.InnerTagRemoverConfig.Tags)
                 {
-                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag));
                 }
             }
 
@@ -740,9 +711,9 @@ namespace HtmlCleanup
             /// corresponding value should be empty string. Tags must be in the 
             /// reverse lexigraphical order.
             /// </summary>
-            private List<Tag> _tags;
+            private List<HtmlTag> _tags;
 
-            public List<Tag> Tags
+            public List<HtmlTag> Tags
             {
                 get
                 {
@@ -782,7 +753,7 @@ namespace HtmlCleanup
                 Tags.Clear();
                 foreach (var t in config.TagWithTextRemoverConfig.Tags)
                 {
-                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
+                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag));
                 }
             }
 

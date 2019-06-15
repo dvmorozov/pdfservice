@@ -11,51 +11,51 @@ namespace HtmlCleanup
         {
             var result = new TagRemover(next, formatter)
             {
-                Tags = new List<Tag>(new Tag[] {
-                    new Tag( "<script", "</script>" ),
-                    new Tag( "<style", "</style>" ),
-                    new Tag( "<link", "" ),
-                    new Tag( "<path", "</path>" ),
-                    new Tag( "<meta", "" ),
-                    new Tag( "<svg", "</svg>" ),
-                    new Tag( "<sup", "</sup>" ),
-                    new Tag( "<label", "</label>" ),
-                    new Tag( "<input", "" ),
-                    new Tag( "<img", "" ),
-                    new Tag( "<iframe", "</iframe>" ),
-                    new Tag( "<footer", "</footer>" ),
-                    new Tag( "<form", "</form>" ),
-                    new Tag( "<noscript", "</noscript>" ),
-                    new Tag( "<nav", "</nav>" ),
-                    new Tag( "<!DOCTYPE", "" ),
+                Tags = new List<HtmlTag>(new HtmlTag[] {
+                    new HtmlTag( "<script", "</script>" ),
+                    new HtmlTag( "<style", "</style>" ),
+                    new HtmlTag( "<link", "" ),
+                    new HtmlTag( "<path", "</path>" ),
+                    new HtmlTag( "<meta", "" ),
+                    new HtmlTag( "<svg", "</svg>" ),
+                    new HtmlTag( "<sup", "</sup>" ),
+                    new HtmlTag( "<label", "</label>" ),
+                    new HtmlTag( "<input", "" ),
+                    new HtmlTag( "<img", "" ),
+                    new HtmlTag( "<iframe", "</iframe>" ),
+                    new HtmlTag( "<footer", "</footer>" ),
+                    new HtmlTag( "<form", "</form>" ),
+                    new HtmlTag( "<noscript", "</noscript>" ),
+                    new HtmlTag( "<nav", "</nav>" ),
+                    new HtmlTag( "<!DOCTYPE", "" ),
                     //  Advertising block and internal divs.
                     //  Items should be in the order reverse
                     //  to the nesting of divs (best possible
                     //  option for this primitive parser).
-                    new Tag( "<div id=\"atatags", "</div>"),
-                    new Tag( "<div style=\"", "</div>"),
-                    new Tag( "<div class=\"wpa-notice", "</div>"),
-                    new Tag( "<div class=\"u", "</div>"),
-                    new Tag( "<div class=\"wpa", "</div>"),
+                    new HtmlTag( "<div id=\"atatags", "</div>"),
+                    new HtmlTag( "<div style=\"", "</div>"),
+                    new HtmlTag( "<div class=\"wpa-notice", "</div>"),
+                    new HtmlTag( "<div class=\"u", "</div>"),
+                    new HtmlTag( "<div class=\"wpa", "</div>"),
                     //  Sharing buttons (by groups of tags).
-                    new Tag( "<div class=\"sd-content", "</div>"),
-                    new Tag( "<div class=\"robots-nocontent", "</div>"),
-                    new Tag( "<div class=\"sharedaddy", "</div>"),
+                    new HtmlTag( "<div class=\"sd-content", "</div>"),
+                    new HtmlTag( "<div class=\"robots-nocontent", "</div>"),
+                    new HtmlTag( "<div class=\"sharedaddy", "</div>"),
 
-                    new Tag( "<div class=\'likes-", "</div>"),
-                    new Tag( "<div class=\'sharedaddy", "</div>"),
+                    new HtmlTag( "<div class=\'likes-", "</div>"),
+                    new HtmlTag( "<div class=\'sharedaddy", "</div>"),
 
-                    new Tag( "<div id=\'jp-relatedposts", "</div>"),
-                    new Tag( "<div id=\"jp-post-flair", "</div>"),
+                    new HtmlTag( "<div id=\'jp-relatedposts", "</div>"),
+                    new HtmlTag( "<div id=\"jp-post-flair", "</div>"),
 
-                    new Tag( "<div class=\"wpcnt", "</div>"),
+                    new HtmlTag( "<div class=\"wpcnt", "</div>"),
                     //  Other tags.
-                    new Tag( "<button", "</button>" ),
-                    new Tag( "<br", "" ),
-                    new Tag( "<aside", "</aside>" ),
+                    new HtmlTag( "<button", "</button>" ),
+                    new HtmlTag( "<br", "" ),
+                    new HtmlTag( "<aside", "</aside>" ),
                     //  Hyperlinks are removed.
-                    new Tag( "<!--[if", "<![endif]-->" ),
-                    new Tag( "<!--", "" )
+                    new HtmlTag( "<!--[if", "<![endif]-->" ),
+                    new HtmlTag( "<!--", "" )
                 })
             };
             return result;
@@ -65,38 +65,38 @@ namespace HtmlCleanup
         {
             var result = new InnerTextProcessor(next, formatter)
             {
-                Tags = new List<Tag>(new Tag[] {
-                    new Tag( "<ul", "</ul>" ),
-                    new Tag( "<u", "</u>" ),
+                Tags = new List<HtmlTag>(new HtmlTag[] {
+                    new HtmlTag( "<ul", "</ul>" ),
+                    new HtmlTag( "<u", "</u>" ),
                     //  Removing tables.
-                    new Tag( "<td", "</td>" ),
-                    new Tag( "<tr", "</tr>" ),
-                    new Tag( "<tbody", "</tbody>" ),
-                    new Tag( "<table", "</table>" ),
+                    new HtmlTag( "<td", "</td>" ),
+                    new HtmlTag( "<tr", "</tr>" ),
+                    new HtmlTag( "<tbody", "</tbody>" ),
+                    new HtmlTag( "<table", "</table>" ),
                     //  Other tags.
-                    new Tag( "<title", "</title>" ),
-                    new Tag( "<strong", "</strong>" ),
-                    new Tag( "<span", "</span>" ),
-                    new Tag( "<small", "</small>" ),
-                    new Tag( "<pre", "</pre>" ),
-                    new Tag( "<p", "</p>" ),
-                    new Tag( "<main", "</main>" ),
-                    new Tag( "<li", "</li>" ),
-                    new Tag( "<html", "</html>" ),
-                    new Tag( "<header", "</header>" ),
-                    new Tag( "<head", "</head>" ),
-                    new Tag( "<h4", "</h4>" ),
-                    new Tag( "<h3", "</h3>" ),
-                    new Tag( "<h3", "</h3>" ),
-                    new Tag( "<h2", "</h2>" ),
-                    new Tag( "<h1", "</h1>" ),
-                    new Tag( "<footer", "</footer>" ),
-                    new Tag( "<em", "</em>" ),
-                    new Tag( "<div", "</div>" ),
-                    new Tag( "<code", "</code>" ),
-                    new Tag( "<body", "</body>" ),
-                    new Tag( "<blockquote", "</blockquote>"),
-                    new Tag( "<a", "</a>")
+                    new HtmlTag( "<title", "</title>" ),
+                    new HtmlTag( "<strong", "</strong>" ),
+                    new HtmlTag( "<span", "</span>" ),
+                    new HtmlTag( "<small", "</small>" ),
+                    new HtmlTag( "<pre", "</pre>" ),
+                    new HtmlTag( "<p", "</p>" ),
+                    new HtmlTag( "<main", "</main>" ),
+                    new HtmlTag( "<li", "</li>" ),
+                    new HtmlTag( "<html", "</html>" ),
+                    new HtmlTag( "<header", "</header>" ),
+                    new HtmlTag( "<head", "</head>" ),
+                    new HtmlTag( "<h4", "</h4>" ),
+                    new HtmlTag( "<h3", "</h3>" ),
+                    new HtmlTag( "<h3", "</h3>" ),
+                    new HtmlTag( "<h2", "</h2>" ),
+                    new HtmlTag( "<h1", "</h1>" ),
+                    new HtmlTag( "<footer", "</footer>" ),
+                    new HtmlTag( "<em", "</em>" ),
+                    new HtmlTag( "<div", "</div>" ),
+                    new HtmlTag( "<code", "</code>" ),
+                    new HtmlTag( "<body", "</body>" ),
+                    new HtmlTag( "<blockquote", "</blockquote>"),
+                    new HtmlTag( "<a", "</a>")
                 })
             };
             return result;

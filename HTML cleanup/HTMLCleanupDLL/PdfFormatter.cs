@@ -62,7 +62,7 @@ namespace HtmlCleanup
             _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
         }
 
-        public string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize)
+        public string InitializeTagFormatting(BaseHtmlCleaner.HtmlTag tag, string innerText, out bool callFinalize)
         {
             callFinalize = false;
             switch (tag.StartTag)

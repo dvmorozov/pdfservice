@@ -23,9 +23,9 @@ namespace HtmlCleanup.Tests
             var inputRemoved = System.IO.File.ReadAllText(@"..\..\..\..\HtmlCleanupTests\TestFiles\input_removed.html");
             var remover = new BaseHtmlCleaner.TagRemover(null, new PlainTextFormatter())
             {
-                Tags = new List<BaseHtmlCleaner.Tag>(new BaseHtmlCleaner.Tag[] {
+                Tags = new List<BaseHtmlCleaner.HtmlTag>(new BaseHtmlCleaner.HtmlTag[] {
                     //  Closing tag should be empty string.
-                    new BaseHtmlCleaner.Tag( "<input", "" )
+                    new BaseHtmlCleaner.HtmlTag( "<input", "" )
                 })
             };
 

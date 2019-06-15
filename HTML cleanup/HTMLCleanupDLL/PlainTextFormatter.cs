@@ -4,7 +4,7 @@ namespace HtmlCleanup
 {
     public class PlainTextFormatter : ITagFormatter
     {
-        public string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize)
+        public string InitializeTagFormatting(BaseHtmlCleaner.HtmlTag tag, string innerText, out bool callFinalize)
         {
             callFinalize = false;
             switch (tag.StartTag)
