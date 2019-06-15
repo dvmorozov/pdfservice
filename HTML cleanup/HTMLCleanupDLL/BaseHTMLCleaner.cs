@@ -10,15 +10,28 @@ namespace HtmlCleanup
     //  regenerate configuration files.
     public abstract class BaseHtmlCleaner : IHtmlCleaner
     {
+        /// <summary>
+        /// Container of HTML-tag data.
+        /// </summary>
         public class HtmlTag
         {
             private string _startTag;
             private string _endTag;
 
+            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            private string[] _attributeNames;
+
             public HtmlTag(string startTag, string endTag)
             {
                 _startTag = startTag;
                 _endTag = endTag;
+            }
+
+            public HtmlTag(string startTag, string endTag, string[] attributeNames)
+            {
+                _startTag = startTag;
+                _endTag = endTag;
+                _attributeNames = attributeNames;
             }
 
             public string StartTag
@@ -49,6 +62,9 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
+            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            private Dictionary<string, string> _attributes;
+
             public string Text
             {
                 get
@@ -65,6 +81,15 @@ namespace HtmlCleanup
                 _startTag = startTag;
                 _endTag = endTag;
                 _formatter = formatter;
+            }
+
+            public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter, Dictionary<string, string> attributes)
+            {
+                _text = text;
+                _startTag = startTag;
+                _endTag = endTag;
+                _formatter = formatter;
+                _attributes = attributes;
             }
 
             public static HtmlElement FindNext(List<Tag> tags, string text, ITagFormatter formatter)
@@ -107,7 +132,7 @@ namespace HtmlCleanup
                 if (_pos1 != -1)
                 {
                     //  Start tag was found.
-                    //  Skips attributes.
+                    //  Skips attributeNames.
                     _pos2 = _text.IndexOf(">", _pos1 + _startTag.Length);
 
                     //  Empty closing tag is permitted.
@@ -580,7 +605,7 @@ namespace HtmlCleanup
         public class Tag
         {
             private readonly string _startTag;   // Should not contain closing ">",
-                                                 // to skip attributes.
+                                                 // to skip attributeNames.
             private readonly string _endTag;
 
             public string StartTag
