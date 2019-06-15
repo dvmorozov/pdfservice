@@ -86,6 +86,22 @@ namespace HtmlCleanup
                 _attributes.Add(name, value);
             }
 
+            public string StartTag
+            {
+                get
+                {
+                    return _startTag;
+                }
+            }
+
+            public string EndTag
+            {
+                get
+                {
+                    return _endTag;
+                }
+            }
+
             private ITagFormatter _formatter;
 
             public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter)
@@ -292,7 +308,7 @@ namespace HtmlCleanup
             /// <returns>Formatted text.</returns>
             public string InitializeTagFormatting(string text)
             {
-                return _formatter.InitializeTagFormatting(new HtmlTag(_startTag, _endTag), text, out _callFinalizeFormatting);
+                return _formatter.InitializeTagFormatting(this, text, out _callFinalizeFormatting);
             }
 
             /// <summary>
