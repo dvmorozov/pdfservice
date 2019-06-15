@@ -62,10 +62,10 @@ namespace HtmlCleanup
             _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
         }
 
-        public string InitializeTagFormatting(BaseHtmlCleaner.HtmlElement tag, string innerText, out bool callFinalize)
+        public string InitializeTagFormatting(BaseHtmlCleaner.HtmlElement htmlElement, string innerText, out bool callFinalize)
         {
             callFinalize = false;
-            switch (tag.StartTag)
+            switch (htmlElement.StartTag)
             {
                 case ("<ul"):
                     //  Creates list object.
