@@ -647,6 +647,7 @@ namespace HtmlCleanup
                     if (el == null)
                         return text;
 
+                    var href = el.GetAttr("href");
                     //  Removes tag and its original content from text.
                     var innerText = el.RemoveTag();
                     //  Extracts innter tag text.
