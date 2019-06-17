@@ -790,7 +790,11 @@ namespace HtmlCleanup
                 Tags.Clear();
                 foreach (var t in config.TagWithTextRemoverConfig.Tags)
                 {
-                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag));
+                    var attributeNames = new string[t.Attributes.Length];
+                    for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
+                        attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
+
+                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
                 }
             }
 
@@ -802,12 +806,23 @@ namespace HtmlCleanup
                     Tags = new TagToRemoveType[Tags.Count]
                 };
 
-                for (var i = 0; i < Tags.Count; i++)
+                for (var tagIndex = 0; tagIndex < Tags.Count; tagIndex++)
                 {
-                    config.TagWithTextRemoverConfig.Tags[i] = new TagToRemoveType()
+                    var attributes = new HtmlAttributeType[Tags[tagIndex].AttributeNames.Length];
+                    //  Copies attributes.
+                    for (var attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++)
                     {
-                        StartTagWithoutBracket = Tags[i].StartTag,
-                        EndTag = Tags[i].EndTag
+                        attributes[attributeIndex] = new HtmlAttributeType()
+                        {
+                            Name = Tags[tagIndex].AttributeNames[attributeIndex]
+                        };
+                    }
+
+                    config.TagWithTextRemoverConfig.Tags[tagIndex] = new TagToRemoveType()
+                    {
+                        StartTagWithoutBracket = Tags[tagIndex].StartTag,
+                        EndTag = Tags[tagIndex].EndTag,
+                        Attributes = attributes
                     };
                 }
             }
