@@ -742,11 +742,7 @@ namespace HtmlCleanup
                 base.LoadSettings(config);
                 //  Skipped must be read after base settings.
                 Skipped = config.InnerTagRemoverConfig.Skipped;
-                Tags.Clear();
-                foreach (var t in config.InnerTagRemoverConfig.Tags)
-                {
-                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag));
-                }
+                LoadTags(config.InnerTagRemoverConfig.Tags);
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -758,15 +754,7 @@ namespace HtmlCleanup
                     Skipped = Skipped,
                     Tags = new TagToRemoveType[Tags.Count]
                 };
-
-                for (var i = 0; i < Tags.Count; i++)
-                {
-                    config.InnerTagRemoverConfig.Tags[i] = new TagToRemoveType
-                    {
-                        StartTagWithoutBracket = Tags[i].StartTag,
-                        EndTag = Tags[i].EndTag
-                    };
-                }
+                SaveTags(config.InnerTagRemoverConfig.Tags);
             }
         }
 
