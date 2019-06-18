@@ -163,11 +163,34 @@ namespace HtmlCleanup.Config {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
+    public partial class HtmlAttributeType {
+        
+        private string nameField;
+        
+        /// <remarks/>
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:xmlns:HTMLCleanupConfig")]
     public partial class TagToRemoveType {
         
         private string startTagWithoutBracketField;
         
         private string endTagField;
+        
+        private HtmlAttributeType[] attributesField;
         
         /// <remarks/>
         public string StartTagWithoutBracket {
@@ -186,6 +209,17 @@ namespace HtmlCleanup.Config {
             }
             set {
                 this.endTagField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("Tag", IsNullable=false)]
+        public HtmlAttributeType[] Attributes {
+            get {
+                return this.attributesField;
+            }
+            set {
+                this.attributesField = value;
             }
         }
     }

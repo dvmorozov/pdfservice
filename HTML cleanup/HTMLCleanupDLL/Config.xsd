@@ -62,6 +62,20 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <!-- List of HTML attributes. -->
+  <xs:complexType name="HtmlAttributeListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="Tag" type="htmlCleanup:HtmlAttributeType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- HTML attribute data. -->
+  <xs:complexType name="HtmlAttributeType">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="TagToRemoveListType">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" name="Tag" type="htmlCleanup:TagToRemoveType" />
@@ -72,9 +86,10 @@
     <xs:sequence>
       <xs:element name="StartTagWithoutBracket" type="xs:string" />
       <xs:element name="EndTag" type="xs:string" />
+      <xs:element name="Attributes" type="htmlCleanup:HtmlAttributeListType" />
     </xs:sequence>
   </xs:complexType>
-
+  
   <xs:complexType name="TagWithTextRemoverType">
     <xs:complexContent>
       <xs:extension base="htmlCleanup:TextProcessorType">
