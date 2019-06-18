@@ -630,7 +630,7 @@ namespace HtmlCleanup
         /// <summary>
         /// Replaces special HTML characters.
         /// </summary>
-        public class SpecialHtmlRemover : TextProcessor
+        public class SpecialHtmlRemover : TagProcessor
         {
             //  According to this list special HTML characters are replaced
             //  or removed (depending on configuration). Similarly decimal
@@ -710,27 +710,6 @@ namespace HtmlCleanup
         /// </summary>
         public class InnerTextProcessor : SpecialHtmlRemover
         {
-            /// <summary>
-            /// List of tags for removing (it is filled from configuration file).
-            /// All tags representig text data which should be presaved. Tags must
-            /// be arranged in the reverse lexigraphical order. The first tag must
-            /// not include closing bracket.
-            /// </summary>
-            private List<HtmlTag> _tags;
-
-            public List<HtmlTag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
             public InnerTextProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
@@ -739,7 +718,7 @@ namespace HtmlCleanup
             {
                 while (true)
                 {
-                    var el = HtmlElement.FindNext(_tags, text, _formatter);
+                    var el = HtmlElement.FindNext(Tags, text, _formatter);
                     if (el == null)
                         return text;
 
