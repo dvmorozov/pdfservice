@@ -3,7 +3,7 @@ using System.IO;
 
 namespace HtmlCleanup
 {
-    class UniversalHtmlCleaner : BaseHtmlCleaner
+    public class UniversalHtmlCleaner : BaseHtmlCleaner
     {
         public UniversalHtmlCleaner(ICleanerConfigSerializer configSerializer) : base(configSerializer) { }
 
