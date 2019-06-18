@@ -70,6 +70,11 @@
         <Attributes />
       </Tag>
       <Tag>
+        <StartTagWithoutBracket>&lt;time</StartTagWithoutBracket>
+        <EndTag>&lt;/time&gt;</EndTag>
+        <Attributes />
+      </Tag>
+      <Tag>
         <StartTagWithoutBracket>&lt;title</StartTagWithoutBracket>
         <EndTag>&lt;/title&gt;</EndTag>
         <Attributes />
