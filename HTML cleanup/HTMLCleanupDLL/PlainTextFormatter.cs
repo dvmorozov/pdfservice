@@ -4,10 +4,10 @@ namespace HtmlCleanup
 {
     public class PlainTextFormatter : ITagFormatter
     {
-        public string InitializeTagFormatting(BaseHtmlCleaner.Tag tag, string innerText, out bool callFinalize)
+        public string InitializeTagFormatting(BaseHtmlCleaner.HtmlElement htmlElement, string innerText, out bool callFinalize)
         {
             callFinalize = false;
-            switch (tag.StartTag)
+            switch (htmlElement.StartTag)
             {
                 case ("<ul"):
                     //  Adds line break (line should not contain only white

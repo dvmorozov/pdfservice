@@ -10,15 +10,28 @@ namespace HtmlCleanup
     //  regenerate configuration files.
     public abstract class BaseHtmlCleaner : IHtmlCleaner
     {
+        /// <summary>
+        /// Container of HTML-tag data.
+        /// </summary>
         public class HtmlTag
         {
             private string _startTag;
             private string _endTag;
 
+            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            private string[] _attributeNames = new string[] { };
+
             public HtmlTag(string startTag, string endTag)
             {
                 _startTag = startTag;
                 _endTag = endTag;
+            }
+
+            public HtmlTag(string startTag, string endTag, string[] attributeNames)
+            {
+                _startTag = startTag;
+                _endTag = endTag;
+                _attributeNames = attributeNames;
             }
 
             public string StartTag
@@ -36,6 +49,14 @@ namespace HtmlCleanup
                     return _endTag;
                 }
             }
+
+            public string[] AttributeNames
+            {
+                get
+                {
+                    return _attributeNames;
+                }
+            }
         }
 
         public class HtmlElement
@@ -49,11 +70,40 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
+            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            private Dictionary<string, string> _attributes = new Dictionary<string, string>();
+
             public string Text
             {
                 get
                 {
                     return _text;
+                }
+            }
+
+            public void AddAttribute(string name, string value)
+            {
+                _attributes.Add(name, value);
+            }
+
+            public string GetAttribute(string name)
+            {
+                return _attributes.TryGetValue(name, out string value) ? value : "";
+            }
+
+            public string StartTag
+            {
+                get
+                {
+                    return _startTag;
+                }
+            }
+
+            public string EndTag
+            {
+                get
+                {
+                    return _endTag;
                 }
             }
 
@@ -67,7 +117,16 @@ namespace HtmlCleanup
                 _formatter = formatter;
             }
 
-            public static HtmlElement FindNext(List<Tag> tags, string text, ITagFormatter formatter)
+            public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter, Dictionary<string, string> attributes)
+            {
+                _text = text;
+                _startTag = startTag;
+                _endTag = endTag;
+                _formatter = formatter;
+                _attributes = attributes;
+            }
+
+            public static HtmlElement FindNext(List<HtmlTag> tags, string text, ITagFormatter formatter)
             {
                 var bracketPos = 0;
                 while (true)
@@ -86,6 +145,10 @@ namespace HtmlCleanup
                                 var htmlElement = new HtmlElement(t.StartTag, t.EndTag, text, formatter);
                                 //  Properly initializes internal state.
                                 htmlElement.FindNext();
+                                //  Parses attributes.
+                                foreach (var attributeName in t.AttributeNames)
+                                    htmlElement.AddAttribute(attributeName, htmlElement.GetAttr(attributeName));
+
                                 return htmlElement;
                             }
                         }
@@ -107,7 +170,7 @@ namespace HtmlCleanup
                 if (_pos1 != -1)
                 {
                     //  Start tag was found.
-                    //  Skips attributes.
+                    //  Skips attributeNames.
                     _pos2 = _text.IndexOf(">", _pos1 + _startTag.Length);
 
                     //  Empty closing tag is permitted.
@@ -250,7 +313,7 @@ namespace HtmlCleanup
             /// <returns>Formatted text.</returns>
             public string InitializeTagFormatting(string text)
             {
-                return _formatter.InitializeTagFormatting(new Tag(_startTag, _endTag), text, out _callFinalizeFormatting);
+                return _formatter.InitializeTagFormatting(this, text, out _callFinalizeFormatting);
             }
 
             /// <summary>
@@ -410,6 +473,68 @@ namespace HtmlCleanup
             public abstract void SaveSettings(HTMLCleanupConfig config);
         }
 
+        public abstract class TagProcessor : TextProcessor
+        {
+            /// <summary>
+            /// List of tags for removing (it is filled from configuration file).
+            /// Filled by default values. When tag doesn't have closing counterpart,
+            /// corresponding value should be empty string. Tags must be in the 
+            /// reverse lexigraphical order.
+            /// </summary>
+            private List<HtmlTag> _tags;
+
+            public List<HtmlTag> Tags
+            {
+                get
+                {
+                    return _tags;
+                }
+                //  Writeable for external initialization.
+                set
+                {
+                    _tags = value;
+                }
+            }
+
+
+            public TagProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter) { }
+
+            protected void LoadTags(TagToRemoveType[] tags)
+            {
+                Tags.Clear();
+                foreach (var t in tags)
+                {
+                    var attributeNames = new string[t.Attributes.Length];
+                    for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
+                        attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
+
+                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
+                }
+            }
+            protected void SaveTags(TagToRemoveType[] tags)
+            {
+                for (var tagIndex = 0; tagIndex < Tags.Count; tagIndex++)
+                {
+                    var attributes = new HtmlAttributeType[Tags[tagIndex].AttributeNames.Length];
+                    //  Copies attributes.
+                    for (var attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++)
+                    {
+                        attributes[attributeIndex] = new HtmlAttributeType()
+                        {
+                            Name = Tags[tagIndex].AttributeNames[attributeIndex]
+                        };
+                    }
+
+                    tags[tagIndex] = new TagToRemoveType()
+                    {
+                        StartTagWithoutBracket = Tags[tagIndex].StartTag,
+                        EndTag = Tags[tagIndex].EndTag,
+                        Attributes = attributes
+                    };
+                }
+            }
+        }
+
         /// <summary>
         /// Creates and initializes domain-specific instance of ParagraphExtractor.
         /// </summary>
@@ -505,7 +630,7 @@ namespace HtmlCleanup
         /// <summary>
         /// Replaces special HTML characters.
         /// </summary>
-        public class SpecialHtmlRemover : TextProcessor
+        public class SpecialHtmlRemover : TagProcessor
         {
             //  According to this list special HTML characters are replaced
             //  or removed (depending on configuration). Similarly decimal
@@ -577,35 +702,6 @@ namespace HtmlCleanup
             }
         }
 
-        public class Tag
-        {
-            private readonly string _startTag;   // Should not contain closing ">",
-                                                 // to skip attributes.
-            private readonly string _endTag;
-
-            public string StartTag
-            {
-                get
-                {
-                    return _startTag;
-                }
-            }
-
-            public string EndTag
-            {
-                get
-                {
-                    return _endTag;
-                }
-            }
-
-            public Tag(string startTag, string endTag)
-            {
-                _startTag = startTag;
-                _endTag = endTag;
-            }
-        }
-
         protected abstract InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter);
 
         /// <summary>
@@ -614,27 +710,6 @@ namespace HtmlCleanup
         /// </summary>
         public class InnerTextProcessor : SpecialHtmlRemover
         {
-            /// <summary>
-            /// List of tags for removing (it is filled from configuration file).
-            /// All tags representig text data which should be presaved. Tags must
-            /// be arranged in the reverse lexigraphical order. The first tag must
-            /// not include closing bracket.
-            /// </summary>
-            private List<Tag> _tags;
-
-            public List<Tag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
             public InnerTextProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
@@ -643,7 +718,7 @@ namespace HtmlCleanup
             {
                 while (true)
                 {
-                    var el = HtmlElement.FindNext(_tags, text, _formatter);
+                    var el = HtmlElement.FindNext(Tags, text, _formatter);
                     if (el == null)
                         return text;
 
@@ -667,11 +742,7 @@ namespace HtmlCleanup
                 base.LoadSettings(config);
                 //  Skipped must be read after base settings.
                 Skipped = config.InnerTagRemoverConfig.Skipped;
-                Tags.Clear();
-                foreach (var t in config.InnerTagRemoverConfig.Tags)
-                {
-                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
-                }
+                LoadTags(config.InnerTagRemoverConfig.Tags);
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -683,15 +754,7 @@ namespace HtmlCleanup
                     Skipped = Skipped,
                     Tags = new TagToRemoveType[Tags.Count]
                 };
-
-                for (var i = 0; i < Tags.Count; i++)
-                {
-                    config.InnerTagRemoverConfig.Tags[i] = new TagToRemoveType
-                    {
-                        StartTagWithoutBracket = Tags[i].StartTag,
-                        EndTag = Tags[i].EndTag
-                    };
-                }
+                SaveTags(config.InnerTagRemoverConfig.Tags);
             }
         }
 
@@ -706,36 +769,15 @@ namespace HtmlCleanup
         /// <summary>
         /// Removes tags together with internal text.
         /// </summary>
-        public class TagRemover : TextProcessor
+        public class TagRemover : TagProcessor
         {
-            /// <summary>
-            /// List of tags for removing (it is filled from configuration file).
-            /// Filled by default values. When tag doesn't have closing counterpart,
-            /// corresponding value should be empty string. Tags must be in the 
-            /// reverse lexigraphical order.
-            /// </summary>
-            private List<Tag> _tags;
-
-            public List<Tag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
             public TagRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
             public override string DoProcessing(string text)
             {
-                foreach (var t in _tags)
+                foreach (var t in Tags)
                 {
                     HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
@@ -753,11 +795,7 @@ namespace HtmlCleanup
             public override void LoadSettings(HTMLCleanupConfig config)
             {
                 Skipped = config.TagWithTextRemoverConfig.Skipped;
-                Tags.Clear();
-                foreach (var t in config.TagWithTextRemoverConfig.Tags)
-                {
-                    Tags.Add(new BaseHtmlCleaner.Tag(t.StartTagWithoutBracket, t.EndTag));
-                }
+                LoadTags(config.TagWithTextRemoverConfig.Tags);
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -767,15 +805,7 @@ namespace HtmlCleanup
                     Skipped = Skipped,
                     Tags = new TagToRemoveType[Tags.Count]
                 };
-
-                for (var i = 0; i < Tags.Count; i++)
-                {
-                    config.TagWithTextRemoverConfig.Tags[i] = new TagToRemoveType()
-                    {
-                        StartTagWithoutBracket = Tags[i].StartTag,
-                        EndTag = Tags[i].EndTag
-                    };
-                }
+                SaveTags(config.TagWithTextRemoverConfig.Tags);
             }
         }
 
