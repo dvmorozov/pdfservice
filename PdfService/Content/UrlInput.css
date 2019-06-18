@@ -11,6 +11,10 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+.advertising {
+  max-width: 960px;
+  height: auto;
+}
 .form-url-input .form-control {
   position: relative;
   height: auto;
