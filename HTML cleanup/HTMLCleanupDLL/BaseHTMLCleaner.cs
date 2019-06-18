@@ -473,6 +473,68 @@ namespace HtmlCleanup
             public abstract void SaveSettings(HTMLCleanupConfig config);
         }
 
+        public abstract class TagProcessor : TextProcessor
+        {
+            /// <summary>
+            /// List of tags for removing (it is filled from configuration file).
+            /// Filled by default values. When tag doesn't have closing counterpart,
+            /// corresponding value should be empty string. Tags must be in the 
+            /// reverse lexigraphical order.
+            /// </summary>
+            private List<HtmlTag> _tags;
+
+            public List<HtmlTag> Tags
+            {
+                get
+                {
+                    return _tags;
+                }
+                //  Writeable for external initialization.
+                set
+                {
+                    _tags = value;
+                }
+            }
+
+
+            public TagProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter) { }
+
+            protected void LoadTags(TagToRemoveType[] tags)
+            {
+                Tags.Clear();
+                foreach (var t in tags)
+                {
+                    var attributeNames = new string[t.Attributes.Length];
+                    for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
+                        attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
+
+                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
+                }
+            }
+            protected void SaveTags(TagToRemoveType[] tags)
+            {
+                for (var tagIndex = 0; tagIndex < Tags.Count; tagIndex++)
+                {
+                    var attributes = new HtmlAttributeType[Tags[tagIndex].AttributeNames.Length];
+                    //  Copies attributes.
+                    for (var attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++)
+                    {
+                        attributes[attributeIndex] = new HtmlAttributeType()
+                        {
+                            Name = Tags[tagIndex].AttributeNames[attributeIndex]
+                        };
+                    }
+
+                    tags[tagIndex] = new TagToRemoveType()
+                    {
+                        StartTagWithoutBracket = Tags[tagIndex].StartTag,
+                        EndTag = Tags[tagIndex].EndTag,
+                        Attributes = attributes
+                    };
+                }
+            }
+        }
+
         /// <summary>
         /// Creates and initializes domain-specific instance of ParagraphExtractor.
         /// </summary>
@@ -740,36 +802,15 @@ namespace HtmlCleanup
         /// <summary>
         /// Removes tags together with internal text.
         /// </summary>
-        public class TagRemover : TextProcessor
+        public class TagRemover : TagProcessor
         {
-            /// <summary>
-            /// List of tags for removing (it is filled from configuration file).
-            /// Filled by default values. When tag doesn't have closing counterpart,
-            /// corresponding value should be empty string. Tags must be in the 
-            /// reverse lexigraphical order.
-            /// </summary>
-            private List<HtmlTag> _tags;
-
-            public List<HtmlTag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
             public TagRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
             }
 
             public override string DoProcessing(string text)
             {
-                foreach (var t in _tags)
+                foreach (var t in Tags)
                 {
                     HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
@@ -787,15 +828,7 @@ namespace HtmlCleanup
             public override void LoadSettings(HTMLCleanupConfig config)
             {
                 Skipped = config.TagWithTextRemoverConfig.Skipped;
-                Tags.Clear();
-                foreach (var t in config.TagWithTextRemoverConfig.Tags)
-                {
-                    var attributeNames = new string[t.Attributes.Length];
-                    for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
-                        attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
-
-                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
-                }
+                LoadTags(config.TagWithTextRemoverConfig.Tags);
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -805,26 +838,7 @@ namespace HtmlCleanup
                     Skipped = Skipped,
                     Tags = new TagToRemoveType[Tags.Count]
                 };
-
-                for (var tagIndex = 0; tagIndex < Tags.Count; tagIndex++)
-                {
-                    var attributes = new HtmlAttributeType[Tags[tagIndex].AttributeNames.Length];
-                    //  Copies attributes.
-                    for (var attributeIndex = 0; attributeIndex < attributes.Length; attributeIndex++)
-                    {
-                        attributes[attributeIndex] = new HtmlAttributeType()
-                        {
-                            Name = Tags[tagIndex].AttributeNames[attributeIndex]
-                        };
-                    }
-
-                    config.TagWithTextRemoverConfig.Tags[tagIndex] = new TagToRemoveType()
-                    {
-                        StartTagWithoutBracket = Tags[tagIndex].StartTag,
-                        EndTag = Tags[tagIndex].EndTag,
-                        Attributes = attributes
-                    };
-                }
+                SaveTags(config.TagWithTextRemoverConfig.Tags);
             }
         }
 
