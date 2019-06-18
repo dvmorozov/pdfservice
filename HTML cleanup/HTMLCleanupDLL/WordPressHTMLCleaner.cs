@@ -74,6 +74,7 @@ namespace HtmlCleanup
                     new HtmlTag( "<tbody", "</tbody>" ),
                     new HtmlTag( "<table", "</table>" ),
                     //  Other tags.
+                    new HtmlTag( "<time", "</time>" ),
                     new HtmlTag( "<title", "</title>" ),
                     new HtmlTag( "<strong", "</strong>" ),
                     new HtmlTag( "<span", "</span>" ),
