@@ -205,7 +205,7 @@ namespace HtmlCleanup
 
                     case (ParagraphType.Time):
                         if (_hyperlink)
-                        {
+                        {   //  Finalizes "nested" hyperlinked paragraph. The only single is possible now.
                             paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
                             _hyperlink = false;
                         }
