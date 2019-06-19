@@ -11,6 +11,10 @@
         <Replacement>-</Replacement>
       </SpecialHTMLSymbol>
       <SpecialHTMLSymbol>
+        <SpecialHTML>&amp;#8216;</SpecialHTML>
+        <Replacement>'</Replacement>
+      </SpecialHTMLSymbol>
+      <SpecialHTMLSymbol>
         <SpecialHTML>&amp;#8217;</SpecialHTML>
         <Replacement>'</Replacement>
       </SpecialHTMLSymbol>
