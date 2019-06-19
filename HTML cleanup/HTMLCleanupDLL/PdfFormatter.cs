@@ -19,7 +19,8 @@ namespace HtmlCleanup
             H3,
             H4,
             Header,
-            Hyperlink
+            Hyperlink,
+            Time
         }
 
         private MemoryStream _content;
@@ -28,6 +29,7 @@ namespace HtmlCleanup
         private List _list;
         private bool _listItem;
         private bool _paragraph;
+        private bool _hyperlink;        //  Hyperlink is a "state". All nested paragraph should be hyperlinked.
         private bool _preformatted;     //  Add "preformatted" style.
         private PdfWriter _writer;
         private float _defaultPadding = 10;
@@ -126,11 +128,18 @@ namespace HtmlCleanup
                     _href = htmlElement.GetAttribute("href");
                     _paragraphType = ParagraphType.Hyperlink;
                     _paragraph = true;
+                    _hyperlink = true;
                     callFinalize = true;
                     break;
 
                 case ("<header"):
                     _paragraphType = ParagraphType.Header;
+                    _paragraph = true;
+                    callFinalize = true;
+                    break;
+
+                case ("<time"):
+                    _paragraphType = ParagraphType.Time;
                     _paragraph = true;
                     callFinalize = true;
                     break;
@@ -190,7 +199,18 @@ namespace HtmlCleanup
                         break;
 
                     case (ParagraphType.Hyperlink):
+                        //  Finalizes "simple" hyperlinked paragraph without nested paragraphs.
                         paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
+                        break;
+
+                    case (ParagraphType.Time):
+                        if (_hyperlink)
+                        {
+                            paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
+                            _hyperlink = false;
+                        }
+                        else
+                            paragraph.Add(finalText);
                         break;
                 }
 
