@@ -637,6 +637,7 @@ namespace HtmlCleanup
             //  codes are processed.
             private List<SpecialHtmlSymbol> _specialHtml = new List<SpecialHtmlSymbol>(new SpecialHtmlSymbol[] {
                 new SpecialHtmlSymbol( "&#8211;", "-" ),
+                new SpecialHtmlSymbol( "&#8216;", "'" ),
                 new SpecialHtmlSymbol( "&#8217;", "'" ),
                 new SpecialHtmlSymbol( "&#8220;", "\"" ),
                 new SpecialHtmlSymbol( "&#8221;", "\"" ),
