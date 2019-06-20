@@ -70,28 +70,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseHTMLCleaner.cs" />
-    <Compile Include="BaseInjectorConfig.cs" />
-    <Compile Include="CleanerConfigSerializer.cs" />
-    <Compile Include="config.cs">
+    <Compile Include="HtmlCleaners\BaseHTMLCleaner.cs" />
+    <Compile Include="Injectors\BaseInjectorConfig.cs" />
+    <Compile Include="ConfigSerializers\CleanerConfigSerializer.cs" />
+    <Compile Include="ConfigSerializers\config.cs">
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ConsoleCleanerConfigSerializer.cs" />
+    <Compile Include="ConfigSerializers\ConsoleCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleanerApp.cs" />
-    <Compile Include="HTMLCleanerInjector.cs" />
-    <Compile Include="IntCleanerConfigSerializer.cs" />
-    <Compile Include="IntHTMLCleaner.cs" />
-    <Compile Include="IntInjectorConfig.cs" />
-    <Compile Include="IntTagFormatter.cs" />
-    <Compile Include="PdfFormatter.cs" />
-    <Compile Include="PlainTextFormatter.cs" />
+    <Compile Include="Injectors\HTMLCleanerInjector.cs" />
+    <Compile Include="ConfigSerializers\IntCleanerConfigSerializer.cs" />
+    <Compile Include="HtmlCleaners\IntHTMLCleaner.cs" />
+    <Compile Include="Injectors\IntInjectorConfig.cs" />
+    <Compile Include="Formatters\IntTagFormatter.cs" />
+    <Compile Include="Formatters\PdfFormatter.cs" />
+    <Compile Include="Formatters\PlainTextFormatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UniversalHTMLCleaner.cs" />
-    <Compile Include="WordPressHTMLCleaner.cs" />
+    <Compile Include="HtmlCleaners\UniversalHTMLCleaner.cs" />
+    <Compile Include="HtmlCleaners\WordPressHTMLCleaner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Config.xsd">
+    <None Include="ConfigSerializers\Config.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
