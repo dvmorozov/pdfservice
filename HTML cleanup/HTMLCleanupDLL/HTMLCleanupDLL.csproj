@@ -72,14 +72,14 @@
   <ItemGroup>
     <Compile Include="HtmlCleaners\BaseHTMLCleaner.cs" />
     <Compile Include="BaseInjectorConfig.cs" />
-    <Compile Include="CleanerConfigSerializer.cs" />
-    <Compile Include="config.cs">
+    <Compile Include="ConfigSerializers\CleanerConfigSerializer.cs" />
+    <Compile Include="ConfigSerializers\config.cs">
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ConsoleCleanerConfigSerializer.cs" />
+    <Compile Include="ConfigSerializers\ConsoleCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleanerApp.cs" />
     <Compile Include="HTMLCleanerInjector.cs" />
-    <Compile Include="IntCleanerConfigSerializer.cs" />
+    <Compile Include="ConfigSerializers\IntCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleaners\IntHTMLCleaner.cs" />
     <Compile Include="IntInjectorConfig.cs" />
     <Compile Include="Formatters\IntTagFormatter.cs" />
@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Config.xsd">
+    <None Include="ConfigSerializers\Config.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
