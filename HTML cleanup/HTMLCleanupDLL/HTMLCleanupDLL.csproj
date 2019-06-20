@@ -71,17 +71,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HtmlCleaners\BaseHTMLCleaner.cs" />
-    <Compile Include="BaseInjectorConfig.cs" />
+    <Compile Include="Injectors\BaseInjectorConfig.cs" />
     <Compile Include="ConfigSerializers\CleanerConfigSerializer.cs" />
     <Compile Include="ConfigSerializers\config.cs">
       <DependentUpon>Config.xsd</DependentUpon>
     </Compile>
     <Compile Include="ConfigSerializers\ConsoleCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleanerApp.cs" />
-    <Compile Include="HTMLCleanerInjector.cs" />
+    <Compile Include="Injectors\HTMLCleanerInjector.cs" />
     <Compile Include="ConfigSerializers\IntCleanerConfigSerializer.cs" />
     <Compile Include="HtmlCleaners\IntHTMLCleaner.cs" />
-    <Compile Include="IntInjectorConfig.cs" />
+    <Compile Include="Injectors\IntInjectorConfig.cs" />
     <Compile Include="Formatters\IntTagFormatter.cs" />
     <Compile Include="Formatters\PdfFormatter.cs" />
     <Compile Include="Formatters\PlainTextFormatter.cs" />
