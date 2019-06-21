@@ -499,9 +499,9 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                string result = String.Empty;
+                var result = String.Empty;
                 //  Can extract only paragraphs.
-                HtmlElement el = new HtmlElement(Tag.StartTag, Tag.EndTag, text, _formatter);
+                var el = new HtmlElement(Tag.StartTag, Tag.EndTag, text, _formatter);
                 do
                 {
                     var b = el.FindNext();
@@ -696,7 +696,7 @@ namespace HtmlCleanup
             {
                 foreach (var t in Tags)
                 {
-                    HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
+                    var el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
                     {
                         var b = el.FindNext();
@@ -737,8 +737,8 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                string result = String.Empty;
-                HtmlElement el = new HtmlElement("<a", "</a>", text, _formatter);
+                var result = String.Empty;
+                var el = new HtmlElement("<a", "</a>", text, _formatter);
 
                 do
                 {
