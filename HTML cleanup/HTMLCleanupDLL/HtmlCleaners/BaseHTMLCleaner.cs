@@ -440,7 +440,7 @@ namespace HtmlCleanup
                     for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
                         attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
 
-                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
+                    Tags.Add(new HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
                 }
             }
             protected void SaveTags(TagToRemoveType[] tags)
