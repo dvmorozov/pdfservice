@@ -376,25 +376,9 @@ namespace HtmlCleanup
             /// <summary>
             /// Returns next processing object.
             /// </summary>
-            public TextProcessor Next
-            {
-                get
-                {
-                    return _next;
-                }
-            }
+            public TextProcessor Next => _next;
 
-            public bool Skipped
-            {
-                get
-                {
-                    return _skipped;
-                }
-                set
-                {
-                    _skipped = value;
-                }
-            }
+            public bool Skipped { get => _skipped; set => _skipped = value; }
 
             protected ITagFormatter _formatter;
 
@@ -425,7 +409,7 @@ namespace HtmlCleanup
                 if (!Skipped)
                     processed = DoProcessing(original);
 
-                if (_next != null) return _next.Process(processed);
+                if (Next != null) return Next.Process(processed);
                 else return processed;
             }
 
