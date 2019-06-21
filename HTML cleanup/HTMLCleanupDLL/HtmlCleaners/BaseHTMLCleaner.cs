@@ -567,13 +567,8 @@ namespace HtmlCleanup
                 new SpecialHtmlSymbol( "&amp;", "&" )
             });
 
-            public List<SpecialHtmlSymbol> SpecialHtml
-            {
-                get
-                {
-                    return _specialHtml;
-                }
-            }
+
+            public List<SpecialHtmlSymbol> SpecialHtml { get => _specialHtml; set => _specialHtml = value; }
 
             public SpecialHtmlRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -581,7 +576,7 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                foreach (var sp in _specialHtml)
+                foreach (var sp in SpecialHtml)
                 {
                     text = text.Replace(sp.SpecialHtml, sp.Replacement);
                 }
@@ -602,7 +597,7 @@ namespace HtmlCleanup
                 //  because string consisting only from spaces is read
                 //  from XML as completely empty despite it is stored
                 //  correctly (workaround).
-                _specialHtml.Add(new SpecialHtmlSymbol("&nbsp;", " "));
+                SpecialHtml.Add(new SpecialHtmlSymbol("&nbsp;", " "));
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
