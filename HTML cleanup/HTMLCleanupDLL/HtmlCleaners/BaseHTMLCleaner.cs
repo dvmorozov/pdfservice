@@ -538,9 +538,8 @@ namespace HtmlCleanup
             private readonly string _specialHtml;
             private readonly string _replacement;
 
-            public string SpecialHtml { get { return _specialHtml; } }
-            //  TODO: include decimal code.
-            public string Replacement { get { return _replacement; } }
+            public string SpecialHtml => _specialHtml;
+            public string Replacement => _replacement;
 
             public SpecialHtmlSymbol(string specialHtml, string replacement)
             {
