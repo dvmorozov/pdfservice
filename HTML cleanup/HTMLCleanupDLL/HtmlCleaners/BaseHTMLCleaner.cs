@@ -427,19 +427,7 @@ namespace HtmlCleanup
             /// </summary>
             private List<HtmlTag> _tags;
 
-            public List<HtmlTag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
+            public List<HtmlTag> Tags { get => _tags; set => _tags = value; }
 
             public TagProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter) { }
 
