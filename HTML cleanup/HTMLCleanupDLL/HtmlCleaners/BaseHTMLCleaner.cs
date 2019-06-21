@@ -23,40 +23,20 @@ namespace HtmlCleanup
 
             public HtmlTag(string startTag, string endTag)
             {
-                _startTag = startTag;
-                _endTag = endTag;
+                StartTag = startTag;
+                EndTag = endTag;
             }
 
             public HtmlTag(string startTag, string endTag, string[] attributeNames)
             {
-                _startTag = startTag;
-                _endTag = endTag;
-                _attributeNames = attributeNames;
+                StartTag = startTag;
+                EndTag = endTag;
+                AttributeNames = attributeNames;
             }
 
-            public string StartTag
-            {
-                get
-                {
-                    return _startTag;
-                }
-            }
-
-            public string EndTag
-            {
-                get
-                {
-                    return _endTag;
-                }
-            }
-
-            public string[] AttributeNames
-            {
-                get
-                {
-                    return _attributeNames;
-                }
-            }
+            public string StartTag { get => _startTag; private set => _startTag = value; }
+            public string EndTag { get => _endTag; private set => _endTag = value; }
+            public string[] AttributeNames { get => _attributeNames; private set => _attributeNames = value; }
         }
 
         public class HtmlElement
@@ -73,14 +53,6 @@ namespace HtmlCleanup
             //  Set of attributeNames whichi should be extracted for HTML elemement.
             private Dictionary<string, string> _attributes = new Dictionary<string, string>();
 
-            public string Text
-            {
-                get
-                {
-                    return _text;
-                }
-            }
-
             public void AddAttribute(string name, string value)
             {
                 _attributes.Add(name, value);
@@ -91,37 +63,25 @@ namespace HtmlCleanup
                 return _attributes.TryGetValue(name, out string value) ? value : "";
             }
 
-            public string StartTag
-            {
-                get
-                {
-                    return _startTag;
-                }
-            }
-
-            public string EndTag
-            {
-                get
-                {
-                    return _endTag;
-                }
-            }
+            public string Text { get => _text; private set => _text = value; }
+            public string StartTag { get => _startTag; private set => _startTag = value; }
+            public string EndTag { get => _endTag; private set => _endTag = value; }
 
             private ITagFormatter _formatter;
 
             public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter)
             {
-                _text = text;
-                _startTag = startTag;
-                _endTag = endTag;
+                Text = text;
+                StartTag = startTag;
+                EndTag = endTag;
                 _formatter = formatter;
             }
 
             public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter, Dictionary<string, string> attributes)
             {
-                _text = text;
-                _startTag = startTag;
-                _endTag = endTag;
+                Text = text;
+                StartTag = startTag;
+                EndTag = endTag;
                 _formatter = formatter;
                 _attributes = attributes;
             }
@@ -166,26 +126,26 @@ namespace HtmlCleanup
             public bool FindNext()
             {
                 _found = false;
-                _pos1 = _text.IndexOf(_startTag, _startPos, StringComparison.OrdinalIgnoreCase);
+                _pos1 = Text.IndexOf(StartTag, _startPos, StringComparison.OrdinalIgnoreCase);
                 if (_pos1 != -1)
                 {
                     //  Start tag was found.
                     //  Skips attributeNames.
-                    _pos2 = _text.IndexOf(">", _pos1 + _startTag.Length);
+                    _pos2 = Text.IndexOf(">", _pos1 + StartTag.Length);
 
                     //  Empty closing tag is permitted.
-                    if (_endTag != String.Empty)
+                    if (EndTag != String.Empty)
                     {
-                        _pos3 = _text.IndexOf(_endTag, _pos2 + 1, StringComparison.OrdinalIgnoreCase);
+                        _pos3 = Text.IndexOf(EndTag, _pos2 + 1, StringComparison.OrdinalIgnoreCase);
                         if (_pos3 != -1)
                         {
                             //  Calculates number of nested start tags.
                             if (_pos3 - _pos2 - 1 > 0) {
-                                var subString = _text.Substring(_pos2 + 1, _pos3 - _pos2 - 1);
+                                var subString = Text.Substring(_pos2 + 1, _pos3 - _pos2 - 1);
                                 var startCount = 0;
                                 var pos = 0;
                                 while (true) {
-                                    pos = subString.IndexOf(_startTag, pos, StringComparison.OrdinalIgnoreCase);
+                                    pos = subString.IndexOf(StartTag, pos, StringComparison.OrdinalIgnoreCase);
                                     if (pos == -1)
                                         break;
                                     else {
@@ -196,7 +156,7 @@ namespace HtmlCleanup
 
                                 //  Move position to proper closing tag.
                                 while(startCount != 0) {
-                                    _pos3 = _text.IndexOf(_endTag, _pos3 + 1, StringComparison.OrdinalIgnoreCase);
+                                    _pos3 = Text.IndexOf(EndTag, _pos3 + 1, StringComparison.OrdinalIgnoreCase);
                                     startCount--;
                                 }
                             }
@@ -204,7 +164,7 @@ namespace HtmlCleanup
                             //  End tag was found.
                             _found = true;
                             //  Go to next tag.
-                            _startPos = _pos3 + _endTag.Length;
+                            _startPos = _pos3 + EndTag.Length;
                         }
                         else
                         {
@@ -230,7 +190,7 @@ namespace HtmlCleanup
             {
                 if (_found)
                 {
-                    return _text.Substring(_pos2 + 1, _pos3 - _pos2 - 1);
+                    return Text.Substring(_pos2 + 1, _pos3 - _pos2 - 1);
                 }
                 return String.Empty;
             }
@@ -240,12 +200,12 @@ namespace HtmlCleanup
                 if (_found)
                 {
                     //  Searches for closing bracket.
-                    var endBracketPos = _text.IndexOf(">", _pos1);
-                    var attrPos = _text.IndexOf(attrName, _pos1, StringComparison.OrdinalIgnoreCase);
+                    var endBracketPos = Text.IndexOf(">", _pos1);
+                    var attrPos = Text.IndexOf(attrName, _pos1, StringComparison.OrdinalIgnoreCase);
                     if (attrPos != -1 && attrPos < endBracketPos)
                     {
                         //  Copies tag text.
-                        var tagCopy = _text.Substring(_pos1, endBracketPos - _pos1 + 1);
+                        var tagCopy = Text.Substring(_pos1, endBracketPos - _pos1 + 1);
                         //  Replaces quotation marks by spaces.
                         tagCopy = tagCopy.Replace('"', ' ');
                         tagCopy = tagCopy.Replace('\'', ' ');
@@ -287,16 +247,16 @@ namespace HtmlCleanup
             {
                 var len1 = _pos2 - _pos1 + 1;
                 //  Removes start tag.
-                _text = _text.Remove(_pos1, len1);
+                Text = Text.Remove(_pos1, len1);
                 _pos3 -= len1;
 
                 //  Removes end tag.
-                _text = _text.Remove(_pos3, _endTag.Length);
+                Text = Text.Remove(_pos3, EndTag.Length);
 
-                var innerText = _text.Substring(_pos1, _pos3 - _pos1);
+                var innerText = Text.Substring(_pos1, _pos3 - _pos1);
 
                 //  Removes inner text.
-                _text = _text.Remove(_pos1, _pos3 - _pos1);
+                Text = Text.Remove(_pos1, _pos3 - _pos1);
 
                 return innerText;
             }
@@ -335,7 +295,7 @@ namespace HtmlCleanup
             /// <param name="innerText">Text to insert.</param>
             public void InsertText(string innerText)
             {
-                _text = _text.Insert(_pos1, innerText);
+                Text = Text.Insert(_pos1, innerText);
                 //  Corrects end position.
                 _pos3 = _pos1 + innerText.Length;
                 //  Tags can be nested, proceed from the same position.
@@ -369,8 +329,8 @@ namespace HtmlCleanup
             {
                 if (_found)
                 {
-                    var len1 = _pos3 + _endTag.Length - _pos1;
-                    _text = _text.Remove(_pos1, len1);
+                    var len1 = _pos3 + EndTag.Length - _pos1;
+                    Text = Text.Remove(_pos1, len1);
                     _pos2 = _pos1;
                     _pos3 = _pos1;
                     _startPos = _pos1;
@@ -388,7 +348,7 @@ namespace HtmlCleanup
                 if (_found)
                 {
                     RemoveContent();
-                    _text = _text.Insert(_startPos, text);
+                    Text = Text.Insert(_startPos, text);
                     //  Skips inserted text.
                     _startPos += text.Length;
                 }
@@ -416,25 +376,9 @@ namespace HtmlCleanup
             /// <summary>
             /// Returns next processing object.
             /// </summary>
-            public TextProcessor Next
-            {
-                get
-                {
-                    return _next;
-                }
-            }
+            public TextProcessor Next => _next;
 
-            public bool Skipped
-            {
-                get
-                {
-                    return _skipped;
-                }
-                set
-                {
-                    _skipped = value;
-                }
-            }
+            public bool Skipped { get => _skipped; set => _skipped = value; }
 
             protected ITagFormatter _formatter;
 
@@ -465,7 +409,7 @@ namespace HtmlCleanup
                 if (!Skipped)
                     processed = DoProcessing(original);
 
-                if (_next != null) return _next.Process(processed);
+                if (Next != null) return Next.Process(processed);
                 else return processed;
             }
 
@@ -483,19 +427,7 @@ namespace HtmlCleanup
             /// </summary>
             private List<HtmlTag> _tags;
 
-            public List<HtmlTag> Tags
-            {
-                get
-                {
-                    return _tags;
-                }
-                //  Writeable for external initialization.
-                set
-                {
-                    _tags = value;
-                }
-            }
-
+            public List<HtmlTag> Tags { get => _tags; set => _tags = value; }
 
             public TagProcessor(TextProcessor next, ITagFormatter formatter) : base(next, formatter) { }
 
@@ -508,7 +440,7 @@ namespace HtmlCleanup
                     for (var attributeIndex = 0; attributeIndex < attributeNames.Length; attributeIndex++)
                         attributeNames[attributeIndex] = t.Attributes[attributeIndex].Name;
 
-                    Tags.Add(new BaseHtmlCleaner.HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
+                    Tags.Add(new HtmlTag(t.StartTagWithoutBracket, t.EndTag, attributeNames));
                 }
             }
             protected void SaveTags(TagToRemoveType[] tags)
@@ -553,17 +485,7 @@ namespace HtmlCleanup
             /// </summary>
             private HtmlTag _tag;
 
-            public HtmlTag Tag
-            {
-                get
-                {
-                    return _tag;
-                }
-                set
-                {
-                    _tag = value;
-                }
-            }
+            public HtmlTag Tag { get => _tag; set => _tag = value; }
 
             public ParagraphExtractor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -572,14 +494,14 @@ namespace HtmlCleanup
                 //  should be consistent with using other parts.
                 Skipped = true;
                 //  Default paragraph tag.
-                _tag = new HtmlTag("<p", "</p>");
+                Tag = new HtmlTag("<p", "</p>");
             }
 
             public override string DoProcessing(string text)
             {
-                string result = String.Empty;
+                var result = String.Empty;
                 //  Can extract only paragraphs.
-                HtmlElement el = new HtmlElement(_tag.StartTag, _tag.EndTag, text, _formatter);
+                var el = new HtmlElement(Tag.StartTag, Tag.EndTag, text, _formatter);
                 do
                 {
                     var b = el.FindNext();
@@ -616,9 +538,8 @@ namespace HtmlCleanup
             private readonly string _specialHtml;
             private readonly string _replacement;
 
-            public string SpecialHtml { get { return _specialHtml; } }
-            //  TODO: include decimal code.
-            public string Replacement { get { return _replacement; } }
+            public string SpecialHtml => _specialHtml;
+            public string Replacement => _replacement;
 
             public SpecialHtmlSymbol(string specialHtml, string replacement)
             {
@@ -646,13 +567,8 @@ namespace HtmlCleanup
                 new SpecialHtmlSymbol( "&amp;", "&" )
             });
 
-            public List<SpecialHtmlSymbol> SpecialHtml
-            {
-                get
-                {
-                    return _specialHtml;
-                }
-            }
+
+            public List<SpecialHtmlSymbol> SpecialHtml { get => _specialHtml; set => _specialHtml = value; }
 
             public SpecialHtmlRemover(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -660,7 +576,7 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                foreach (var sp in _specialHtml)
+                foreach (var sp in SpecialHtml)
                 {
                     text = text.Replace(sp.SpecialHtml, sp.Replacement);
                 }
@@ -674,14 +590,14 @@ namespace HtmlCleanup
                 SpecialHtml.Clear();
                 foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
                 {
-                    SpecialHtml.Add(new BaseHtmlCleaner.SpecialHtmlSymbol(t.SpecialHTML, t.Replacement));
+                    SpecialHtml.Add(new SpecialHtmlSymbol(t.SpecialHTML, t.Replacement));
                 }
 
                 //  This symbol is added bypassing configuration file
                 //  because string consisting only from spaces is read
                 //  from XML as completely empty despite it is stored
                 //  correctly (workaround).
-                _specialHtml.Add(new SpecialHtmlSymbol("&nbsp;", " "));
+                SpecialHtml.Add(new SpecialHtmlSymbol("&nbsp;", " "));
             }
 
             public override void SaveSettings(HTMLCleanupConfig config)
@@ -780,7 +696,7 @@ namespace HtmlCleanup
             {
                 foreach (var t in Tags)
                 {
-                    HtmlElement el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
+                    var el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
                     {
                         var b = el.FindNext();
@@ -821,8 +737,8 @@ namespace HtmlCleanup
 
             public override string DoProcessing(string text)
             {
-                string result = String.Empty;
-                HtmlElement el = new HtmlElement("<a", "</a>", text, _formatter);
+                var result = String.Empty;
+                var el = new HtmlElement("<a", "</a>", text, _formatter);
 
                 do
                 {
@@ -869,18 +785,7 @@ namespace HtmlCleanup
             //  TODO: make configurable.
             private const int _max = 81;
 
-            public char[] Delimiters
-            {
-                get
-                {
-                    return _delimiters;
-                }
-
-                set
-                {
-                    _delimiters = value;
-                }
-            }
+            public char[] Delimiters { get => _delimiters; set => _delimiters = value; }
 
             public TextFormatter(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -907,7 +812,7 @@ namespace HtmlCleanup
                         else
                         {
                             //  Searches for other separators.
-                            pos1 = substring.LastIndexOfAny(_delimiters);
+                            pos1 = substring.LastIndexOfAny(Delimiters);
 
                             if (pos1 == -1)
                             {
