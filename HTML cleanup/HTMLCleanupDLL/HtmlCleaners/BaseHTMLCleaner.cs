@@ -785,18 +785,7 @@ namespace HtmlCleanup
             //  TODO: make configurable.
             private const int _max = 81;
 
-            public char[] Delimiters
-            {
-                get
-                {
-                    return _delimiters;
-                }
-
-                set
-                {
-                    _delimiters = value;
-                }
-            }
+            public char[] Delimiters { get => _delimiters; set => _delimiters = value; }
 
             public TextFormatter(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -823,7 +812,7 @@ namespace HtmlCleanup
                         else
                         {
                             //  Searches for other separators.
-                            pos1 = substring.LastIndexOfAny(_delimiters);
+                            pos1 = substring.LastIndexOfAny(Delimiters);
 
                             if (pos1 == -1)
                             {
