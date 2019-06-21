@@ -23,40 +23,20 @@ namespace HtmlCleanup
 
             public HtmlTag(string startTag, string endTag)
             {
-                _startTag = startTag;
-                _endTag = endTag;
+                StartTag = startTag;
+                EndTag = endTag;
             }
 
             public HtmlTag(string startTag, string endTag, string[] attributeNames)
             {
-                _startTag = startTag;
-                _endTag = endTag;
-                _attributeNames = attributeNames;
+                StartTag = startTag;
+                EndTag = endTag;
+                AttributeNames = attributeNames;
             }
 
-            public string StartTag
-            {
-                get
-                {
-                    return _startTag;
-                }
-            }
-
-            public string EndTag
-            {
-                get
-                {
-                    return _endTag;
-                }
-            }
-
-            public string[] AttributeNames
-            {
-                get
-                {
-                    return _attributeNames;
-                }
-            }
+            public string StartTag { get => _startTag; private set => _startTag = value; }
+            public string EndTag { get => _endTag; private set => _endTag = value; }
+            public string[] AttributeNames { get => _attributeNames; private set => _attributeNames = value; }
         }
 
         public class HtmlElement
