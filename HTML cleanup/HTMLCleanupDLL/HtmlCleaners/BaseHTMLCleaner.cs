@@ -590,7 +590,7 @@ namespace HtmlCleanup
                 SpecialHtml.Clear();
                 foreach (var t in config.SpecialHTMLRemoverConfig.SpecialHTML)
                 {
-                    SpecialHtml.Add(new BaseHtmlCleaner.SpecialHtmlSymbol(t.SpecialHTML, t.Replacement));
+                    SpecialHtml.Add(new SpecialHtmlSymbol(t.SpecialHTML, t.Replacement));
                 }
 
                 //  This symbol is added bypassing configuration file
