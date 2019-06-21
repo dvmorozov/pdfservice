@@ -485,17 +485,7 @@ namespace HtmlCleanup
             /// </summary>
             private HtmlTag _tag;
 
-            public HtmlTag Tag
-            {
-                get
-                {
-                    return _tag;
-                }
-                set
-                {
-                    _tag = value;
-                }
-            }
+            public HtmlTag Tag { get => _tag; set => _tag = value; }
 
             public ParagraphExtractor(TextProcessor next, ITagFormatter formatter) : base(next, formatter)
             {
@@ -504,14 +494,14 @@ namespace HtmlCleanup
                 //  should be consistent with using other parts.
                 Skipped = true;
                 //  Default paragraph tag.
-                _tag = new HtmlTag("<p", "</p>");
+                Tag = new HtmlTag("<p", "</p>");
             }
 
             public override string DoProcessing(string text)
             {
                 string result = String.Empty;
                 //  Can extract only paragraphs.
-                HtmlElement el = new HtmlElement(_tag.StartTag, _tag.EndTag, text, _formatter);
+                HtmlElement el = new HtmlElement(Tag.StartTag, Tag.EndTag, text, _formatter);
                 do
                 {
                     var b = el.FindNext();
