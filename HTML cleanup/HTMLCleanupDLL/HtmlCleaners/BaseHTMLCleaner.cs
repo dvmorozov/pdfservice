@@ -86,8 +86,7 @@ namespace HtmlCleanup
                 _attributes = attributes;
             }
 
-            //  Searches for the beginning of next tag from the list.
-            public static HtmlElement Initialize(List<HtmlTag> tags, string text, ITagFormatter formatter)
+            public static HtmlElement FindNext(List<HtmlTag> tags, string text, ITagFormatter formatter)
             {
                 var bracketPos = 0;
                 while (true)
@@ -105,7 +104,7 @@ namespace HtmlCleanup
                                 //  Tag has been found in the list.
                                 var htmlElement = new HtmlElement(t.StartTag, t.EndTag, text, formatter);
                                 //  Properly initializes internal state.
-                                htmlElement.Initialize();
+                                htmlElement.FindNext();
                                 //  Parses attributes.
                                 foreach (var attributeName in t.AttributeNames)
                                     htmlElement.AddAttribute(attributeName, htmlElement.GetAttr(attributeName));
@@ -122,9 +121,9 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Initializes internal state to manipulate with content of element.
+            /// Searches for text tag of given type.
             /// </summary>
-            public bool Initialize()
+            public bool FindNext()
             {
                 _found = false;
                 _pos1 = Text.IndexOf(StartTag, _startPos, StringComparison.OrdinalIgnoreCase);
@@ -505,7 +504,7 @@ namespace HtmlCleanup
                 var el = new HtmlElement(Tag.StartTag, Tag.EndTag, text, _formatter);
                 do
                 {
-                    var b = el.Initialize();
+                    var b = el.FindNext();
                     if (!b) break;
 
                     //  Separates paragraphs.
@@ -636,7 +635,7 @@ namespace HtmlCleanup
             {
                 while (true)
                 {
-                    var el = HtmlElement.Initialize(Tags, text, _formatter);
+                    var el = HtmlElement.FindNext(Tags, text, _formatter);
                     if (el == null)
                         return text;
 
@@ -700,7 +699,7 @@ namespace HtmlCleanup
                     var el = new HtmlElement(t.StartTag, t.EndTag, text, _formatter);
                     do
                     {
-                        var b = el.Initialize();
+                        var b = el.FindNext();
                         if (!b) break;
                         el.RemoveContent();
                     }
@@ -743,7 +742,7 @@ namespace HtmlCleanup
 
                 do
                 {
-                    var b = el.Initialize();
+                    var b = el.FindNext();
                     if (!b) break;
                     var href = el.GetAttr("href");
                     if (href != String.Empty)
