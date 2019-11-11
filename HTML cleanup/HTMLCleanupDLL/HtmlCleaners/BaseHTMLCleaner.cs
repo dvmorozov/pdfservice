@@ -50,7 +50,7 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
-            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            //  Set of attributeNames which should be extracted for HTML elemement.
             private Dictionary<string, string> _attributes = new Dictionary<string, string>();
 
             public void AddAttribute(string name, string value)
@@ -86,7 +86,10 @@ namespace HtmlCleanup
                 _attributes = attributes;
             }
 
-            public static HtmlElement FindNext(List<HtmlTag> tags, string text, ITagFormatter formatter)
+            /// <summary>
+            /// Searches text for any of tags from the list and returns corresponding element.
+            /// </summary>
+            public static HtmlElement FindAny(List<HtmlTag> tags, string text, ITagFormatter formatter)
             {
                 var bracketPos = 0;
                 while (true)
@@ -121,7 +124,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Searches for text tag of given type.
+            /// Searches for next element of given type.
             /// </summary>
             public bool FindNext()
             {
@@ -176,6 +179,7 @@ namespace HtmlCleanup
                     {
                         _pos3 = _pos2 + 1;
                         _found = true;
+                        //  Moves start position for searching of next instance.
                         _startPos = _pos3;
                     }
                 }
@@ -635,7 +639,7 @@ namespace HtmlCleanup
             {
                 while (true)
                 {
-                    var el = HtmlElement.FindNext(Tags, text, _formatter);
+                    var el = HtmlElement.FindAny(Tags, text, _formatter);
                     if (el == null)
                         return text;
 
