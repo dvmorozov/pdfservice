@@ -187,7 +187,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Returns tag internal text.
+            /// Returns tags internal text.
             /// </summary>
             /// <returns>Tag internal text.</returns>
             public string GetText()
@@ -244,10 +244,10 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Removes tag.
+            /// Removes element from text. Returns inner text of removed element.
             /// </summary>
             /// <returns>Internal text.</returns>
-            public string RemoveTag()
+            public string RemoveElement()
             {
                 var len1 = _pos2 - _pos1 + 1;
                 //  Removes start tag.
@@ -314,7 +314,7 @@ namespace HtmlCleanup
                 if (_found)
                 {
                     //  Removes tag and its original content from text.
-                    var innerText = RemoveTag();
+                    var innerText = RemoveElement();
                     //  Formats text.
                     innerText = InitializeTagFormatting(innerText);
                     //  Finializes immediately.
@@ -644,7 +644,7 @@ namespace HtmlCleanup
                         return text;
 
                     //  Removes tag and its original content from text.
-                    var innerText = el.RemoveTag();
+                    var innerText = el.RemoveElement();
                     //  Extracts innter tag text.
                     innerText = el.InitializeTagFormatting(innerText);
                     //  Makes recursive call.
