@@ -25,3 +25,5 @@
 /HTML cleanup/HTMLCleanupDLL/bin/Release
 /HTML cleanup/HTMLCleanupDLL/obj/Release
 *.user
+/PdfCreator/obj
+/PdfCreator/bin/Debug/netcoreapp3.1
