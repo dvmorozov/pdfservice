@@ -13,6 +13,10 @@ using System.IO;
 using log4net.Repository;
 using log4net;
 using log4net.Config;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using System.Text;
 using System.Reflection;
 using Adobe.DocumentCloud.Services;
 using Adobe.DocumentCloud.Services.auth;
@@ -60,6 +64,62 @@ namespace PdfCreator
             outputFileName = args[1];
         }
 
+        private static string MakeRequest(string url)
+        {
+            //  Defines code page and convert it to UTF-8.
+            var req = WebRequest.Create(url);
+            var res = req.GetResponse();
+            //  Searches for code page name.
+            string charset = String.Empty;
+            if (res.ContentType.IndexOf("1251", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "windows-1251";
+            else
+                if (res.ContentType.IndexOf("utf-8", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "utf-8";
+
+            StreamReader streamReader = null;
+            string text = String.Empty;
+
+            //  If charset wasn't recognized UTF-8 is used by default.
+            if (charset == "utf-8" || string.IsNullOrEmpty(charset))
+            {
+                streamReader = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
+                text = streamReader.ReadToEnd();
+            }
+
+            if (charset == "windows-1251")
+            {
+                streamReader = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding(1251));
+                text = streamReader.ReadToEnd();
+                //  Convert to UTF-8.
+                var bIn = Encoding.GetEncoding(1251).GetBytes(text);
+                var bOut = Encoding.Convert(Encoding.GetEncoding(1251), Encoding.UTF8, bIn);
+                text = Encoding.UTF8.GetString(bOut);
+            }
+
+            return text;
+        }
+
+        private static string CreateTemporaryFile(string content)
+        {
+            string tempPath = Path.GetTempPath();
+            string tempDirectoryName = tempPath + "/pdf_creator_page";
+            Directory.CreateDirectory(tempDirectoryName);
+
+            //  File must be named as "index.html".
+            string tempFileName = Path.Combine(tempDirectoryName, "index.html");
+
+            File.WriteAllText(tempFileName, content);
+            Console.WriteLine(tempFileName);
+
+            string zipFileName = Path.Combine(tempPath, "pdf_creator_page.zip");
+            ZipFile.CreateFromDirectory(tempDirectoryName, zipFileName);
+            Console.WriteLine(zipFileName);
+
+            File.Delete(tempFileName);
+            Directory.Delete(tempDirectoryName);
+
+            return zipFileName;
+        }
+
         private static void ConvertHtmlToPdf()
         {
             try
@@ -73,8 +133,22 @@ namespace PdfCreator
                 ExecutionContext executionContext = ExecutionContext.Create(credentials);
                 CreatePDFOperation htmlToPDFOperation = CreatePDFOperation.CreateNew();
 
+                FileRef source;
+                bool urlIsProcessed = inputFileNameOrUrl.Contains("://");
+                string temporaryFileName = "";
+
+                if (urlIsProcessed)
+                {
+                    var content = MakeRequest(inputFileNameOrUrl);
+                    temporaryFileName = CreateTemporaryFile(content);
+                    source = FileRef.CreateFromLocalFile(temporaryFileName);
+                }
+                else
+                {
+                    source = FileRef.CreateFromLocalFile(inputFileNameOrUrl);
+                }
+
                 // Set operation input from a source file.
-                FileRef source = FileRef.CreateFromLocalFile(inputFileNameOrUrl);
                 htmlToPDFOperation.SetInput(source);
 
                 // Provide any custom configuration options for the operation.
@@ -85,6 +159,11 @@ namespace PdfCreator
 
                 // Save the result to the specified location.
                 result.SaveAs(outputFileName);
+
+                if (urlIsProcessed)
+                {
+                    File.Delete(temporaryFileName);
+                }
             }
             catch (ServiceUsageException ex)
             {
