@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfService", "PdfService\Pd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLCleanupDLL", "HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj", "{F9BBFDAC-F625-4F46-8B47-9D99E1776264}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfCreator", "PdfCreator\PdfCreator.csproj", "{78E560BC-B9BD-4063-AE95-D27345A6CF5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfCreator", "PdfCreator\PdfCreator.csproj", "{E57FC657-230C-4240-B1BC-ED3A8FFB7718}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9BBFDAC-F625-4F46-8B47-9D99E1776264}.Release|Any CPU.Build.0 = Release|Any CPU
-		{78E560BC-B9BD-4063-AE95-D27345A6CF5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78E560BC-B9BD-4063-AE95-D27345A6CF5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78E560BC-B9BD-4063-AE95-D27345A6CF5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78E560BC-B9BD-4063-AE95-D27345A6CF5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57FC657-230C-4240-B1BC-ED3A8FFB7718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57FC657-230C-4240-B1BC-ED3A8FFB7718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57FC657-230C-4240-B1BC-ED3A8FFB7718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57FC657-230C-4240-B1BC-ED3A8FFB7718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
