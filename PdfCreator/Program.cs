@@ -39,20 +39,25 @@ namespace PdfCreator
         {
             try
             {
-                //  Reads names of input and output files.
+                //  Read names of input and output files.
                 ParseArguments(args);
 
                 // Configure the logging.
                 ConfigureLogging();
 
                 // Read HTML, convert and write PDF.
-                ConvertHtmlToPdf();
+                ConvertFileToPdf();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Extracts file names from provided arguments.
+        /// </summary>
+        /// <param name="args"></param>
         private static void ParseArguments(string[] args)
         {
             if (args.Count() != 2)
@@ -64,6 +69,11 @@ namespace PdfCreator
             outputFileName = args[1];
         }
 
+        /// <summary>
+        /// Performs HTTP-request.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private static string MakeRequest(string url)
         {
             //  Defines code page and convert it to UTF-8.
@@ -75,9 +85,8 @@ namespace PdfCreator
             else
                 if (res.ContentType.IndexOf("utf-8", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "utf-8";
 
-            StreamReader streamReader = null;
-            string text = String.Empty;
-
+            string text = string.Empty;
+            StreamReader streamReader;
             //  If charset wasn't recognized UTF-8 is used by default.
             if (charset == "utf-8" || string.IsNullOrEmpty(charset))
             {
@@ -87,17 +96,22 @@ namespace PdfCreator
 
             if (charset == "windows-1251")
             {
-                streamReader = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding(1251));
+                streamReader = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
                 text = streamReader.ReadToEnd();
                 //  Convert to UTF-8.
-                var bIn = Encoding.GetEncoding(1251).GetBytes(text);
-                var bOut = Encoding.Convert(Encoding.GetEncoding(1251), Encoding.UTF8, bIn);
+                var bIn = Encoding.GetEncoding("windows-1251").GetBytes(text);
+                var bOut = Encoding.Convert(Encoding.GetEncoding("windows-1251"), Encoding.UTF8, bIn);
                 text = Encoding.UTF8.GetString(bOut);
             }
 
             return text;
         }
 
+        /// <summary>
+        /// Creates temporary zip-archive with content of page.
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
         private static string CreateTemporaryFile(string content)
         {
             string tempPath = Path.GetTempPath();
@@ -111,16 +125,22 @@ namespace PdfCreator
             Console.WriteLine(tempFileName);
 
             string zipFileName = Path.Combine(tempPath, "pdf_creator_page.zip");
+            File.Delete(zipFileName);
+
             ZipFile.CreateFromDirectory(tempDirectoryName, zipFileName);
             Console.WriteLine(zipFileName);
 
             File.Delete(tempFileName);
-            Directory.Delete(tempDirectoryName);
+            Directory.Delete(tempDirectoryName, true);
 
             return zipFileName;
         }
 
-        private static void ConvertHtmlToPdf()
+        
+        /// <summary>
+        /// Converts zip-file or page located by provided URL to PDF.
+        /// </summary>
+        private static void ConvertFileToPdf()
         {
             try
             {
@@ -135,7 +155,7 @@ namespace PdfCreator
 
                 FileRef source;
                 bool urlIsProcessed = inputFileNameOrUrl.Contains("://");
-                string temporaryFileName = "";
+                string temporaryFileName = string.Empty;
 
                 if (urlIsProcessed)
                 {
@@ -148,21 +168,28 @@ namespace PdfCreator
                     source = FileRef.CreateFromLocalFile(inputFileNameOrUrl);
                 }
 
-                // Set operation input from a source file.
-                htmlToPDFOperation.SetInput(source);
-
-                // Provide any custom configuration options for the operation.
-                SetCustomOptions(htmlToPDFOperation);
-
-                // Execute the operation.
-                FileRef result = htmlToPDFOperation.Execute(executionContext);
-
-                // Save the result to the specified location.
-                result.SaveAs(outputFileName);
-
-                if (urlIsProcessed)
+                try
                 {
-                    File.Delete(temporaryFileName);
+                    // Set operation input from a source file.
+                    htmlToPDFOperation.SetInput(source);
+
+                    // Provide any custom configuration options for the operation.
+                    SetCustomOptions(htmlToPDFOperation);
+
+                    // Execute the operation.
+                    FileRef result = htmlToPDFOperation.Execute(executionContext);
+
+                    // Save the result to the specified location.
+                    File.Delete(outputFileName);
+                    result.SaveAs(outputFileName);
+
+                }
+                finally
+                {
+                    if (urlIsProcessed)
+                    {
+                        File.Delete(temporaryFileName);
+                    }
                 }
             }
             catch (ServiceUsageException ex)
