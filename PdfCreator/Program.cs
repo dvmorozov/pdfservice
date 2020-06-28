@@ -20,24 +20,48 @@ using Adobe.DocumentCloud.Services.pdfops;
 using Adobe.DocumentCloud.Services.io;
 using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
-
-/// <summary>
-/// This sample illustrates how to convert an HTML file to PDF. The HTML file and its associated dependencies must be
-/// in a single ZIP file.
-/// <para>
-/// Refer to README.md for instructions on how to run the samples.
-/// </para>
-/// </summary>
+using System.Linq;
 
 namespace PdfCreator
 {
     class Program
     {
         private static readonly ILog log = LogManager.GetLogger(typeof(Program));
-        static void Main()
+        private static string inputFileNameOrUrl;
+        private static string outputFileName;
+        private const string usageMessage = "Usage: pdf_creator <path-to-the-HTML-zip-or-URL> <path-to-the-created-pdf>";
+
+        static void Main(string[] args)
         {
-            //Configure the logging
-            ConfigureLogging();
+            try
+            {
+                //  Reads names of input and output files.
+                ParseArguments(args);
+
+                // Configure the logging.
+                ConfigureLogging();
+
+                // Read HTML, convert and write PDF.
+                ConvertHtmlToPdf();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        private static void ParseArguments(string[] args)
+        {
+            if (args.Count() != 2)
+            {
+                throw new ArgumentException(usageMessage);
+            }
+
+            inputFileNameOrUrl = args[0];
+            outputFileName = args[1];
+        }
+
+        private static void ConvertHtmlToPdf()
+        {
             try
             {
                 // Initial setup, create credentials instance.
@@ -45,12 +69,12 @@ namespace PdfCreator
                                 .FromFile(Directory.GetCurrentDirectory() + "/dc-services-sdk-credentials.json")
                                 .Build();
 
-                //Create an ExecutionContext using credentials and create a new operation instance.
+                // Create an ExecutionContext using credentials and create a new operation instance.
                 ExecutionContext executionContext = ExecutionContext.Create(credentials);
                 CreatePDFOperation htmlToPDFOperation = CreatePDFOperation.CreateNew();
 
                 // Set operation input from a source file.
-                FileRef source = FileRef.CreateFromLocalFile(@"createPDFFromStaticHtmlInput.zip");
+                FileRef source = FileRef.CreateFromLocalFile(inputFileNameOrUrl);
                 htmlToPDFOperation.SetInput(source);
 
                 // Provide any custom configuration options for the operation.
@@ -60,7 +84,7 @@ namespace PdfCreator
                 FileRef result = htmlToPDFOperation.Execute(executionContext);
 
                 // Save the result to the specified location.
-                result.SaveAs(Directory.GetCurrentDirectory() + "/output/createPdfFromStaticHtmlOutput.pdf");
+                result.SaveAs(outputFileName);
             }
             catch (ServiceUsageException ex)
             {
@@ -84,7 +108,6 @@ namespace PdfCreator
             }
         }
 
-
         /// <summary>
         /// Sets any custom options for the operation.
         /// </summary>
@@ -102,7 +125,6 @@ namespace PdfCreator
                     . Build();
             htmlToPDFOperation.SetOptions(htmlToPdfOptions);
         }
-
 
         static void ConfigureLogging()
         {
