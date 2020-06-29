@@ -83,23 +83,22 @@ namespace PdfCreator
         /// Performs HTTP-request.
         /// </summary>
         /// <param name="url"></param>
-        /// <returns></returns>
-        private static string MakeRequest(string url)
+        /// <returns>Content stream.</returns>
+        private static Stream MakeRequest(string url)
         {
             //  Defines code page and convert it to UTF-8.
             var req = WebRequest.Create(url);
             var res = req.GetResponse();
 
-            StreamReader streamReader = new StreamReader(res.GetResponseStream());
-            return streamReader.ReadToEnd();
+            return res.GetResponseStream();
         }
 
         /// <summary>
         /// Creates temporary zip-archive with content of page.
         /// </summary>
         /// <param name="content"></param>
-        /// <returns></returns>
-        private static string CreateTemporaryFile(string content)
+        /// <returns>Filename of zip-archive.</returns>
+        private static string CreateTemporaryFile(Stream content)
         {
             string tempPath = Path.GetTempPath();
             string tempDirectoryName = tempPath + "/pdf_creator_page";
@@ -107,15 +106,14 @@ namespace PdfCreator
 
             //  File must be named as "index.html".
             string tempFileName = Path.Combine(tempDirectoryName, "index.html");
-
-            File.WriteAllText(tempFileName, content);
-            Console.WriteLine(tempFileName);
+            using (var fileStream = File.Create(tempFileName))
+            {
+                content.CopyTo(fileStream);
+            }
 
             string zipFileName = Path.Combine(tempPath, "pdf_creator_page.zip");
             File.Delete(zipFileName);
-
             ZipFile.CreateFromDirectory(tempDirectoryName, zipFileName);
-            Console.WriteLine(zipFileName);
 
             File.Delete(tempFileName);
             Directory.Delete(tempDirectoryName, true);
@@ -137,7 +135,7 @@ namespace PdfCreator
         /// <summary>
         /// Prepares source of content.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>File for conversion to PDF.</returns>
         private static FileRef GetSource()
         {
             if (urlIsProcessed)
