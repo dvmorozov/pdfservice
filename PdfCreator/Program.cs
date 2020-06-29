@@ -89,32 +89,9 @@ namespace PdfCreator
             //  Defines code page and convert it to UTF-8.
             var req = WebRequest.Create(url);
             var res = req.GetResponse();
-            //  Searches for code page name.
-            string charset = String.Empty;
-            if (res.ContentType.IndexOf("1251", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "windows-1251";
-            else
-                if (res.ContentType.IndexOf("utf-8", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "utf-8";
 
-            string text = string.Empty;
-            StreamReader streamReader;
-            //  If charset wasn't recognized UTF-8 is used by default.
-            if (charset == "utf-8" || string.IsNullOrEmpty(charset))
-            {
-                streamReader = new StreamReader(res.GetResponseStream(), Encoding.UTF8);
-                text = streamReader.ReadToEnd();
-            }
-
-            if (charset == "windows-1251")
-            {
-                streamReader = new StreamReader(res.GetResponseStream(), Encoding.GetEncoding("windows-1251"));
-                text = streamReader.ReadToEnd();
-                //  Convert to UTF-8.
-                var bIn = Encoding.GetEncoding("windows-1251").GetBytes(text);
-                var bOut = Encoding.Convert(Encoding.GetEncoding("windows-1251"), Encoding.UTF8, bIn);
-                text = Encoding.UTF8.GetString(bOut);
-            }
-
-            return text;
+            StreamReader streamReader = new StreamReader(res.GetResponseStream());
+            return streamReader.ReadToEnd();
         }
 
         /// <summary>
