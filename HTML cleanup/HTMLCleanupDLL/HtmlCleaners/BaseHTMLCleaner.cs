@@ -50,7 +50,7 @@ namespace HtmlCleanup
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
-            //  Set of attributeNames whichi should be extracted for HTML elemement.
+            //  Set of attributeNames which should be extracted for HTML elemement.
             private Dictionary<string, string> _attributes = new Dictionary<string, string>();
 
             public void AddAttribute(string name, string value)
@@ -86,7 +86,10 @@ namespace HtmlCleanup
                 _attributes = attributes;
             }
 
-            public static HtmlElement FindNext(List<HtmlTag> tags, string text, ITagFormatter formatter)
+            /// <summary>
+            /// Searches text for any of tags from the list and returns corresponding element.
+            /// </summary>
+            public static HtmlElement FindAny(List<HtmlTag> tags, string text, ITagFormatter formatter)
             {
                 var bracketPos = 0;
                 while (true)
@@ -121,7 +124,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Searches for text tag of given type.
+            /// Searches for next element of given type.
             /// </summary>
             public bool FindNext()
             {
@@ -176,6 +179,7 @@ namespace HtmlCleanup
                     {
                         _pos3 = _pos2 + 1;
                         _found = true;
+                        //  Moves start position for searching of next instance.
                         _startPos = _pos3;
                     }
                 }
@@ -183,7 +187,7 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Returns tag internal text.
+            /// Returns tags internal text.
             /// </summary>
             /// <returns>Tag internal text.</returns>
             public string GetText()
@@ -240,10 +244,10 @@ namespace HtmlCleanup
             }
 
             /// <summary>
-            /// Removes tag.
+            /// Removes element from text. Returns inner text of removed element.
             /// </summary>
             /// <returns>Internal text.</returns>
-            public string RemoveTag()
+            public string RemoveElement()
             {
                 var len1 = _pos2 - _pos1 + 1;
                 //  Removes start tag.
@@ -310,7 +314,7 @@ namespace HtmlCleanup
                 if (_found)
                 {
                     //  Removes tag and its original content from text.
-                    var innerText = RemoveTag();
+                    var innerText = RemoveElement();
                     //  Formats text.
                     innerText = InitializeTagFormatting(innerText);
                     //  Finializes immediately.
@@ -635,12 +639,12 @@ namespace HtmlCleanup
             {
                 while (true)
                 {
-                    var el = HtmlElement.FindNext(Tags, text, _formatter);
+                    var el = HtmlElement.FindAny(Tags, text, _formatter);
                     if (el == null)
                         return text;
 
                     //  Removes tag and its original content from text.
-                    var innerText = el.RemoveTag();
+                    var innerText = el.RemoveElement();
                     //  Extracts innter tag text.
                     innerText = el.InitializeTagFormatting(innerText);
                     //  Makes recursive call.

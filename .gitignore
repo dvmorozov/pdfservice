@@ -25,3 +25,12 @@
 /HTML cleanup/HTMLCleanupDLL/bin/Release
 /HTML cleanup/HTMLCleanupDLL/obj/Release
 *.user
+/PdfCreator/obj
+/PdfCreator/bin/Debug/netcoreapp3.1
+/CreatePDFFromStaticHtml/bin/Debug/netcoreapp2.1
+/CreatePDFFromStaticHtml/obj
+/PdfCreator/bin/Debug/netcoreapp2.1
+/PdfCreator/dc-services-sdk-credentials.json
+/PdfCreator/private.key
+/PdfCreator/createPDFFromStaticHtmlInput.zip
+/PdfCreator/bin/Release/netcoreapp2.1
