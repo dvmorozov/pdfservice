@@ -13,7 +13,6 @@ using System.IO;
 using log4net.Repository;
 using log4net;
 using log4net.Config;
-using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Text;
@@ -33,20 +32,29 @@ namespace PdfCreator
         private static readonly ILog log = LogManager.GetLogger(typeof(Program));
         private static string inputFileNameOrUrl;
         private static string outputFileName;
+        private static string temporaryFileName;
+        private static bool urlIsProcessed;
         private const string usageMessage = "Usage: pdf_creator <path-to-the-HTML-zip-or-URL> <path-to-the-created-pdf>";
 
         static void Main(string[] args)
         {
             try
             {
-                //  Read names of input and output files.
-                ParseArguments(args);
+                try
+                {
+                    //  Read names of input and output files.
+                    ParseArguments(args);
 
-                // Configure the logging.
-                ConfigureLogging();
+                    // Configure the logging.
+                    ConfigureLogging();
 
-                // Read HTML, convert and write PDF.
-                ConvertFileToPdf();
+                    // Read HTML, convert and write PDF.
+                    ConvertFileToPdf();
+                }
+                finally
+                {
+                    CleanUp();
+                }
             }
             catch (Exception ex)
             {
@@ -67,6 +75,8 @@ namespace PdfCreator
 
             inputFileNameOrUrl = args[0];
             outputFileName = args[1];
+
+            urlIsProcessed = inputFileNameOrUrl.Contains("://");
         }
 
         /// <summary>
@@ -136,7 +146,35 @@ namespace PdfCreator
             return zipFileName;
         }
 
-        
+        /// <summary>
+        /// Removes temporary files.
+        /// </summary>
+        private static void CleanUp()
+        {
+            if (urlIsProcessed)
+            {
+                File.Delete(temporaryFileName);
+            }
+        }
+
+        /// <summary>
+        /// Prepares source of content.
+        /// </summary>
+        /// <returns></returns>
+        private static FileRef GetSource()
+        {
+            if (urlIsProcessed)
+            {
+                var content = MakeRequest(inputFileNameOrUrl);
+                temporaryFileName = CreateTemporaryFile(content);
+                return FileRef.CreateFromLocalFile(temporaryFileName);
+            }
+            else
+            {
+                return FileRef.CreateFromLocalFile(inputFileNameOrUrl);
+            }
+        }
+
         /// <summary>
         /// Converts zip-file or page located by provided URL to PDF.
         /// </summary>
@@ -153,44 +191,20 @@ namespace PdfCreator
                 ExecutionContext executionContext = ExecutionContext.Create(credentials);
                 CreatePDFOperation htmlToPDFOperation = CreatePDFOperation.CreateNew();
 
-                FileRef source;
-                bool urlIsProcessed = inputFileNameOrUrl.Contains("://");
-                string temporaryFileName = string.Empty;
+                FileRef source = GetSource();
 
-                if (urlIsProcessed)
-                {
-                    var content = MakeRequest(inputFileNameOrUrl);
-                    temporaryFileName = CreateTemporaryFile(content);
-                    source = FileRef.CreateFromLocalFile(temporaryFileName);
-                }
-                else
-                {
-                    source = FileRef.CreateFromLocalFile(inputFileNameOrUrl);
-                }
+                // Set operation input from a source file.
+                htmlToPDFOperation.SetInput(source);
 
-                try
-                {
-                    // Set operation input from a source file.
-                    htmlToPDFOperation.SetInput(source);
+                // Provide any custom configuration options for the operation.
+                SetCustomOptions(htmlToPDFOperation);
 
-                    // Provide any custom configuration options for the operation.
-                    SetCustomOptions(htmlToPDFOperation);
+                // Execute the operation.
+                FileRef result = htmlToPDFOperation.Execute(executionContext);
 
-                    // Execute the operation.
-                    FileRef result = htmlToPDFOperation.Execute(executionContext);
-
-                    // Save the result to the specified location.
-                    File.Delete(outputFileName);
-                    result.SaveAs(outputFileName);
-
-                }
-                finally
-                {
-                    if (urlIsProcessed)
-                    {
-                        File.Delete(temporaryFileName);
-                    }
-                }
+                // Save the result to the specified location.
+                File.Delete(outputFileName);
+                result.SaveAs(outputFileName);
             }
             catch (ServiceUsageException ex)
             {
