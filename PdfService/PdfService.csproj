@@ -466,7 +466,9 @@
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />
-    <Content Include="Views\Shared\_PartialViewSdkFullWindow.cshtml" />
+    <Content Include="Views\Shared\_FullWindow.cshtml" />
+    <Content Include="Views\Shared\_SizedContainer.cshtml" />
+    <Content Include="Views\Shared\_Inline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">
