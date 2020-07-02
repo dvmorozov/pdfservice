@@ -7,8 +7,7 @@ body {
   background-color: #eee;
 }
 .form-url-input {
-  max-width: 990px;
-  padding: 15px;
+  padding-bottom: 15px;
   margin: 0 auto;
 }
 .form-url-input .form-control {

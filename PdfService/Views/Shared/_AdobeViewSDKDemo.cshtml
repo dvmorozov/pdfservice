@@ -1,0 +1,40 @@
+﻿<div class="panel panel-default">
+	<div class="panel-heading">Adobe View SDK Demo</div>
+	<div class="panel-body">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#fullWindow" data-toggle="tab">Full Window</a></li>
+			<li><a href="#sizedContainer" data-toggle="tab">Sized Container</a></li>
+			<li><a href="#inLine" data-toggle="tab">In-Line</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="fullWindow" style="margin-top: 8px;">
+				<div style="text-align: left;">
+					<div style="display: inline-block; margin-top: 8px;">
+						@Html.Partial("_FullWindow")
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-content">
+			<div class="tab-pane fade" id="sizedContainer" style="margin-top: 8px;">
+				<div style="text-align: left;">
+					<div style="display: inline-block; margin-top: 8px;">
+						@Html.Partial("_SizedContainer")
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tab-content">
+			<div class="tab-pane fade" id="inLine" style="margin-top: 8px;">
+				<div style="text-align: left;">
+					<div style="display: inline-block; margin-top: 8px;">
+						@Html.Partial("_Inline")
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
