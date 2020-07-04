@@ -10,11 +10,11 @@ namespace EnterpriseServices.Controllers
     public partial class PdfController : ErrorHandlingController
     {
         [AllowAnonymous]
-        public ActionResult Index(string url)
+        public ActionResult Index(string url, string adobeViewMode)
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url });
+                return View("Index", new UrlToPdfData { Url = url, AdobeViewMode = /*adobeViewMode*/"IN_LINE" });
             }
             catch (Exception e)
             {
@@ -26,6 +26,7 @@ namespace EnterpriseServices.Controllers
         {
             [Required]
             public string Url { get; set; }
+            public string AdobeViewMode { get; set; }
         }
 
         /// <summary>
@@ -66,7 +67,7 @@ namespace EnterpriseServices.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult UrlToPdf(string url)
+        public ActionResult UrlToPdf(string url, string adobeViewMode)
         {
             try
             {
@@ -94,7 +95,7 @@ namespace EnterpriseServices.Controllers
                         return new EmptyResult();
                     }
                 }
-                return View("Index", new UrlToPdfData { Url = url });
+                return View("Index", new UrlToPdfData { Url = url, AdobeViewMode = /*adobeViewMode*/"IN_LINE" });
             }
             catch (Exception e)
             {

@@ -1,28 +1,44 @@
-﻿<div class="panel panel-default">
+﻿@model EnterpriseServices.Controllers.PdfController.UrlToPdfData
+@{
+	bool showFullWindow = Model.AdobeViewMode.IsEmpty() || Model.AdobeViewMode == "FULL_WINDOW";
+	bool showSizedContainer = Model.AdobeViewMode == "SIZED_CONTAINER";
+	bool showInLine = Model.AdobeViewMode == "IN_LINE";
+}
+
+<div class="panel panel-default">
 	<div class="panel-heading">Adobe View SDK Demo</div>
 	<div class="panel-body">
 		<ul class="nav nav-tabs">
-			<li><a href="#fullWindow" data-toggle="tab">Full Window</a></li>
-			<li class="active"><a href="#sizedContainer" data-toggle="tab">Sized Container</a></li>
-			<li><a href="#inLine" data-toggle="tab">In-Line</a></li>
+			<li @Html.Raw(showFullWindow ? "class=\"active\"" : "")><a href="#fullWindow" data-toggle="tab">Full Window</a></li>
+			<li @Html.Raw(showSizedContainer ? "class=\"active\"" : "")><a href="#sizedContainer" data-toggle="tab">Sized Container</a></li>
+			<li @Html.Raw(showInLine ? "class=\"active\"" : "")><a href="#inLine" data-toggle="tab">In-Line</a></li>
 		</ul>
 
 		<div class="tab-content">
-			<div class="tab-pane fade" id="fullWindow" style="margin-top: 8px;">
+			<div class="tab-pane fade @Html.Raw(showFullWindow ? "in active" : "")" id="fullWindow" style="margin-top: 8px;">
 				<div>
-					@Html.Partial("_FullWindow")
+					@if (showFullWindow)
+					{
+						@Html.Partial("_FullWindow", Model)
+					}
 				</div>
 			</div>
 
-			<div class="tab-pane fade in active" id="sizedContainer" style="margin-top: 8px;">
+			<div class="tab-pane fade @Html.Raw(showSizedContainer ? "in active" : "")" id="sizedContainer" style="margin-top: 8px;">
 				<div>
-					@Html.Partial("_SizedContainer")
+					@if (showSizedContainer)
+					{
+						@Html.Partial("_SizedContainer", Model)
+					}
 				</div>
 			</div>
 
-			<div class="tab-pane fade" id="inLine" style="margin-top: 8px;">
+			<div class="tab-pane fade @Html.Raw(showInLine ? "in active" : "")" id="inLine" style="margin-top: 8px;">
 				<div>
-					@Html.Partial("_Inline")
+					@if (showInLine)
+					{
+						@Html.Partial("_Inline", Model)
+					}
 				</div>
 			</div>
 		</div>
