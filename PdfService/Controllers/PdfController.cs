@@ -14,7 +14,7 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url, AdobeViewMode = /*adobeViewMode*/"IN_LINE" });
+                return View("Index", new UrlToPdfData { Url = url, AdobeViewMode = adobeViewMode });
             }
             catch (Exception e)
             {
