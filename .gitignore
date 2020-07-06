@@ -35,3 +35,5 @@
 /PdfCreator/createPDFFromStaticHtmlInput.zip
 /PdfCreator/bin/Release/netcoreapp2.1
 /PdfService/Properties/PublishProfiles
+/PdfService/PdfCreator/private.key
+/PdfService/PdfCreator/dc-services-sdk-credentials.json

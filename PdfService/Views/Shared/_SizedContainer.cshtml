@@ -1,11 +1,13 @@
-﻿<div id="adobe-dc-view" style="width: 100%; height: 500px;"></div>
+﻿@model EnterpriseServices.Controllers.PdfController.UrlToPdfData
+
+<div id="adobe-dc-view" style="width: 100%; height: 500px;"></div>
 <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
 <script type="text/javascript">
-	document.addEventListener("adobe_dc_view_sdk.ready", function(){
-		var adobeDCView = new AdobeDC.View({ clientId: "d7668ddeaa334a8494f5288662170fad", divId: "adobe-dc-view"});
+	document.addEventListener("adobe_dc_view_sdk.ready", function () {
+		var adobeDCView = new AdobeDC.View({ clientId: "d7668ddeaa334a8494f5288662170fad", divId: "adobe-dc-view" });
 		adobeDCView.previewFile({
-			content: { location: { url: "https://pdfsrvc.azurewebsites.net/Content/createPdfFromStaticHtmlOutput.pdf"}},
-			metaData:{fileName: "Bodea Brochure.pdf"}
-		}, {embedMode: "SIZED_CONTAINER"});
+			content: { location: { url: @Model.UrlToPdf } },
+			metaData: { fileName: "Bodea Brochure.pdf" }
+		}, { embedMode: "SIZED_CONTAINER" });
 	});
 </script>

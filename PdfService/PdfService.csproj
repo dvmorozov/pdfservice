@@ -462,7 +462,6 @@
     <Content Include="Views\Pdf\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutMobile.cshtml" />
-    <Content Include="Content\createPdfFromStaticHtmlOutput.pdf" />
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />
@@ -470,6 +469,7 @@
     <Content Include="Views\Shared\_SizedContainer.cshtml" />
     <Content Include="Views\Shared\_Inline.cshtml" />
     <Content Include="Views\Shared\_AdobeViewSDKDemo.cshtml" />
+    <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">
