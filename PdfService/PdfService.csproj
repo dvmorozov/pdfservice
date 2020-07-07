@@ -462,6 +462,8 @@
     <Content Include="Views\Pdf\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutMobile.cshtml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />

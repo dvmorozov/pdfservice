@@ -9,9 +9,9 @@
 	<div class="panel-heading">Adobe View SDK Demo</div>
 	<div class="panel-body">
 		<ul class="nav nav-tabs">
-			<li @Html.Raw(showFullWindow ? "class=\"active\"" : "")><a href="#fullWindow" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, adobeViewMode = "FULL_WINDOW" })';" data-toggle="tab">Full Window</a></li>
-			<li @Html.Raw(showSizedContainer ? "class=\"active\"" : "")><a href="#sizedContainer" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, adobeViewMode = "SIZED_CONTAINER" })';" data-toggle="tab">Sized Container</a></li>
-			<li @Html.Raw(showInLine ? "class=\"active\"" : "")><a href="#inLine" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, adobeViewMode = "IN_LINE" })';" data-toggle="tab">In-Line</a></li>
+			<li @Html.Raw(showFullWindow ? "class=\"active\"" : "")><a href="#fullWindow" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "FULL_WINDOW" })';" data-toggle="tab">Full Window</a></li>
+			<li @Html.Raw(showSizedContainer ? "class=\"active\"" : "")><a href="#sizedContainer" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "SIZED_CONTAINER" })';" data-toggle="tab">Sized Container</a></li>
+			<li @Html.Raw(showInLine ? "class=\"active\"" : "")><a href="#inLine" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "IN_LINE" })';" data-toggle="tab">In-Line</a></li>
 		</ul>
 
 		<div class="tab-content">

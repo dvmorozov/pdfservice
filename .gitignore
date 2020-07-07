@@ -37,3 +37,5 @@
 /PdfService/Properties/PublishProfiles
 /PdfService/PdfCreator/private.key
 /PdfService/PdfCreator/dc-services-sdk-credentials.json
+/HtmlToPdfService/bin/Release/netcoreapp3.1
+/HtmlToPdfService/obj
