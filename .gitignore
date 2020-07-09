@@ -39,3 +39,4 @@
 /PdfService/PdfCreator/dc-services-sdk-credentials.json
 /HtmlToPdfService/bin/Release/netcoreapp3.1
 /HtmlToPdfService/obj
+/HtmlToPdfService/private.key
