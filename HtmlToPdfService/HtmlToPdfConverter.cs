@@ -13,7 +13,7 @@ using Adobe.DocumentCloud.Services.io;
 using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
 
-namespace PdfCreator
+namespace HtmlToPdfService
 {
     class HtmlToPdfConverter
     {
