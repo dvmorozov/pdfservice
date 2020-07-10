@@ -40,3 +40,6 @@
 /HtmlToPdfService/bin/Release/netcoreapp3.1
 /HtmlToPdfService/obj
 /HtmlToPdfService/private.key
+/HtmlToPdfService/bin/Debug/netcoreapp3.1
+/HtmlToPdfService/dc-services-sdk-credentials.json
+/HtmlToPdfService/Content

@@ -41,8 +41,8 @@ namespace HtmlToPdfService.Controllers
         public ConvertHtmlToPdf Get(string url)
         {
             var pdfFileName = UrlToFileName(url, ".pdf");
-            var webRoot = _env.WebRootPath;
-            var pdfFilePath = System.IO.Path.Combine(webRoot, pdfFileName);
+            var contentRoot = System.IO.Path.Combine(_env.ContentRootPath, "Content");
+            var pdfFilePath = System.IO.Path.Combine(contentRoot, pdfFileName);
 
             var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
 
@@ -59,13 +59,7 @@ namespace HtmlToPdfService.Controllers
                 htmlToPdfConverter.CleanUp();
             }
 
-            var urlBuilder = new UriBuilder()
-            {
-                Path = Url.Content("~" + pdfFileName),
-                Query = null,
-            };
-
-            return new ConvertHtmlToPdf { UrlToPdf = urlBuilder.ToString() };
+            return new ConvertHtmlToPdf { UrlToPdf = "Content/" + pdfFileName, FileName = pdfFileName };
         }
     }
 }
