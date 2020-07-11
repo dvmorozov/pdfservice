@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -37,12 +39,25 @@ namespace HtmlToPdfService.Controllers
             return fileName;
         }
 
+        private string GetBaseUrl()
+        {
+            var request = this.Request;
+            var host = request.Host.ToUriComponent();
+            var pathBase = request.PathBase.ToUriComponent();
+
+            return $"{request.Scheme}://{host}{pathBase}";
+        }
+
+        private string GetStaticUrl(string staticFileName, string staticRoot)
+        {
+            return GetBaseUrl() + (new PathString("/" + staticRoot).Add("/" + staticFileName)).ToUriComponent();
+        }
+
         [HttpGet]
         public ConvertHtmlToPdf Get(string url)
         {
             var pdfFileName = UrlToFileName(url, ".pdf");
-            var contentRoot = System.IO.Path.Combine(_env.ContentRootPath, "Content");
-            var pdfFilePath = System.IO.Path.Combine(contentRoot, pdfFileName);
+            var pdfFilePath = Path.Combine(_env.ContentRootPath, "wwwroot", "Content", pdfFileName);
 
             var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
 
@@ -56,10 +71,10 @@ namespace HtmlToPdfService.Controllers
             }
             finally
             {
-                htmlToPdfConverter.CleanUp();
+                //htmlToPdfConverter.CleanUp();
             }
 
-            return new ConvertHtmlToPdf { UrlToPdf = "Content/" + pdfFileName, FileName = pdfFileName };
+            return new ConvertHtmlToPdf { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName };
         }
     }
 }
