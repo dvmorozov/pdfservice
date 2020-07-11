@@ -56,25 +56,39 @@ namespace HtmlToPdfService.Controllers
         [HttpGet]
         public ConvertHtmlToPdf Get(string url)
         {
-            var pdfFileName = UrlToFileName(url, ".pdf");
-            var pdfFilePath = Path.Combine(_env.ContentRootPath, "wwwroot", "Content", pdfFileName);
-
-            var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
-
             try
             {
-                // Configure the logging.
-                htmlToPdfConverter.ConfigureLogging();
+                if (url != null && url != "")
+                {
+                    var pdfFileName = UrlToFileName(url, ".pdf");
+                    var pdfFilePath = Path.Combine(_env.ContentRootPath, "wwwroot", "Content", pdfFileName);
 
-                // Read HTML, convert and write PDF.
-                htmlToPdfConverter.ConvertFileToPdf();
+                    var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
+
+                    try
+                    {
+                        // Configure the logging.
+                        htmlToPdfConverter.ConfigureLogging();
+
+                        // Read HTML, convert and write PDF.
+                        htmlToPdfConverter.ConvertFileToPdf();
+                    }
+                    finally
+                    {
+                        //htmlToPdfConverter.CleanUp();
+                    }
+
+                    return new ConvertHtmlToPdf { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName, Message = "Converted successfully." };
+                }
+                else
+                {
+                    return new ConvertHtmlToPdf { Message = "Provide URL for conversion via \"url\" parameter: https://<host>/converthtmltopdf/?url=<url>." };
+                }
             }
-            finally
+            catch (Exception e)
             {
-                //htmlToPdfConverter.CleanUp();
+                return new ConvertHtmlToPdf { Message = "Exception: " + e.Message };
             }
-
-            return new ConvertHtmlToPdf { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName };
         }
     }
 }
