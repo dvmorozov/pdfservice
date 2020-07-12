@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "HtmlToPdfService": {
+    "AdobeSdkService": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "converthtmltopdf",
