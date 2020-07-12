@@ -3,9 +3,8 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
-namespace HtmlToPdfService.Controllers
+namespace AdobeSdkService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -54,7 +53,7 @@ namespace HtmlToPdfService.Controllers
         }
 
         [HttpGet]
-        public ConvertHtmlToPdf Get(string url)
+        public HtmlToPdfResult Get(string url)
         {
             try
             {
@@ -78,16 +77,16 @@ namespace HtmlToPdfService.Controllers
                         //htmlToPdfConverter.CleanUp();
                     }
 
-                    return new ConvertHtmlToPdf { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName, Message = "Converted successfully." };
+                    return new HtmlToPdfResult { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName, Message = "Converted successfully." };
                 }
                 else
                 {
-                    return new ConvertHtmlToPdf { Message = "Provide URL for conversion via \"url\" parameter: https://<host>/converthtmltopdf/?url=<url>." };
+                    return new HtmlToPdfResult { Message = "Provide URL for conversion via \"url\" parameter: https://<host>/converthtmltopdf/?url=<url>." };
                 }
             }
             catch (Exception e)
             {
-                return new ConvertHtmlToPdf { Message = "Exception: " + e.Message };
+                return new HtmlToPdfResult { Message = "Exception: " + e.Message };
             }
         }
     }

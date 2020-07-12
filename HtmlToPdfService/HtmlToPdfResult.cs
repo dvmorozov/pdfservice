@@ -1,8 +1,8 @@
 using System;
 
-namespace HtmlToPdfService
+namespace AdobeSdkService
 {
-    public class ConvertHtmlToPdf
+    public class HtmlToPdfResult
     {
         public string UrlToPdf { get; set; }
 

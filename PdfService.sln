@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTMLCleanupDLL", "HTML clea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfCreator", "PdfCreator\PdfCreator.csproj", "{E57FC657-230C-4240-B1BC-ED3A8FFB7718}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlToPdfService", "HtmlToPdfService\HtmlToPdfService.csproj", "{468BAB55-8655-424B-9CC4-5A576850F24C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdobeSdkService", "HtmlToPdfService\AdobeSdkService.csproj", "{468BAB55-8655-424B-9CC4-5A576850F24C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
