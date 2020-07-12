@@ -1,9 +1,11 @@
 ﻿using HtmlCleanup;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EnterpriseServices.Controllers
 {
@@ -119,27 +121,23 @@ namespace EnterpriseServices.Controllers
         /// <returns></returns>
         private string GetUrlToPdf(string url)
         {
-            var pdfFileName = UrlToFileName(url, ".pdf");
-            var converterPath = Server.MapPath("~") + "PdfCreator\\create_pdf_from_html.bat";
-            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
-            var arguments = url + " " + pdfFilePath;
-
-            var startInfo = new ProcessStartInfo(converterPath, arguments)
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
-                UseShellExecute = false,
-                CreateNoWindow = true,
-                WorkingDirectory = Server.MapPath("~") + "PdfCreator\\"
+                Scheme = "https",
+                Host = "localhost",
+                Port = 44379,
+                Path = "converthtmltopdf",
+                Query = "url=" + url,
             };
 
-            var process = Process.Start(startInfo);
-            process.WaitForExit();
+            var request = uriBuilder.ToString();
+            var req = WebRequest.Create(request);
+            var res = req.GetResponse();
 
-            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
-            {
-                Path = Url.Content("~/Content/" + pdfFileName),
-                Query = null,
-            };
-            return urlBuilder.ToString();
+            var streamReader = new StreamReader(res.GetResponseStream());
+            var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
+
+            return convertHtmlToPdf["urlToPdf"].ToString();
         }
 
         [AllowAnonymous]
