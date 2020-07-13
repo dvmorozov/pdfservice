@@ -47,9 +47,9 @@ namespace AdobeSdkService.Controllers
             return $"{request.Scheme}://{host}{pathBase}";
         }
 
-        private string GetStaticUrl(string staticFileName, string staticRoot)
+        private string GetStaticUrl(string staticFileName)
         {
-            return GetBaseUrl() + (new PathString("/" + staticRoot).Add("/" + staticFileName)).ToUriComponent();
+            return GetBaseUrl() + (new PathString("/" + staticFileName)).ToUriComponent();
         }
 
         [HttpGet]
@@ -60,7 +60,7 @@ namespace AdobeSdkService.Controllers
                 if (url != null && url != "")
                 {
                     var pdfFileName = UrlToFileName(url, ".pdf");
-                    var pdfFilePath = Path.Combine(_env.ContentRootPath, "wwwroot", "Content", pdfFileName);
+                    var pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
 
                     var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
 
@@ -77,7 +77,7 @@ namespace AdobeSdkService.Controllers
                         //htmlToPdfConverter.CleanUp();
                     }
 
-                    return new HtmlToPdfResult { UrlToPdf = GetStaticUrl(pdfFileName, "Content"), FileName = pdfFileName, Message = "Converted successfully." };
+                    return new HtmlToPdfResult { UrlToPdf = GetStaticUrl(pdfFileName), FileName = pdfFileName, Message = "Converted successfully." };
                 }
                 else
                 {
