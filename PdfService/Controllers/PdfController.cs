@@ -124,8 +124,7 @@ namespace EnterpriseServices.Controllers
             var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
-                Host = "localhost",
-                Port = 44379,
+                Host = "adobesdk.azurewebsites.net",
                 Path = "converthtmltopdf",
                 Query = "url=" + url,
             };
