@@ -6,6 +6,8 @@ using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net.Http.Headers;
+using System.Net.Http;
 
 namespace EnterpriseServices.Controllers
 {
@@ -124,18 +126,34 @@ namespace EnterpriseServices.Controllers
             var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
-                Host = "adobesdk.azurewebsites.net",
+                Host = "adobesdk.azurewebsites.net", //"localhost",
+                Port = 443, //44379,
                 Path = "converthtmltopdf",
-                Query = "url=" + url,
+                Query = "url=" + url
             };
 
             var request = uriBuilder.ToString();
-            var req = WebRequest.Create(request);
-            var res = req.GetResponse();
+            //var req = WebRequest.CreateHttp(request);
+            //req.Timeout = 60000;
+            //req.ContentType = "application/json";
+            //req.Method = "GET";
 
-            var streamReader = new StreamReader(res.GetResponseStream());
-            var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
+            //var res = req.GetResponse();
 
+            //var streamReader = new StreamReader(res.GetResponseStream());
+            //var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
+            //return convertHtmlToPdf["urlToPdf"].ToString();
+
+            var client = new HttpClient();
+            //client.DefaultRequestHeaders.Accept.Clear();
+            //client.DefaultRequestHeaders.Accept.Add(
+            //    new MediaTypeWithQualityHeaderValue("application/json"));
+            client.Timeout = TimeSpan.FromMilliseconds(60000);
+
+            var content = client.GetStringAsync(request);
+            content.Wait();
+
+            var convertHtmlToPdf = JObject.Parse(content.Result);
             return convertHtmlToPdf["urlToPdf"].ToString();
         }
 
