@@ -116,6 +116,8 @@ namespace EnterpriseServices.Controllers
             }
         }
 
+
+
         /// <summary>
         /// Returns URL to PDF file.
         /// </summary>
@@ -126,34 +128,22 @@ namespace EnterpriseServices.Controllers
             var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
-                Host = "adobesdk.azurewebsites.net", //"localhost",
-                Port = 443, //44379,
+                Host = "localhost", //  "adobesdk.azurewebsites.net"
+                Port = 44379,       //  443
                 Path = "converthtmltopdf",
                 Query = "url=" + url
             };
 
             var request = uriBuilder.ToString();
-            //var req = WebRequest.CreateHttp(request);
-            //req.Timeout = 60000;
-            //req.ContentType = "application/json";
-            //req.Method = "GET";
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 60000;
+            req.ContentType = "application/json";
+            req.Method = "GET";
 
-            //var res = req.GetResponse();
+            var res = req.GetResponse();
 
-            //var streamReader = new StreamReader(res.GetResponseStream());
-            //var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
-            //return convertHtmlToPdf["urlToPdf"].ToString();
-
-            var client = new HttpClient();
-            //client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/json"));
-            client.Timeout = TimeSpan.FromMilliseconds(60000);
-
-            var content = client.GetStringAsync(request);
-            content.Wait();
-
-            var convertHtmlToPdf = JObject.Parse(content.Result);
+            var streamReader = new StreamReader(res.GetResponseStream());
+            var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
             return convertHtmlToPdf["urlToPdf"].ToString();
         }
 
