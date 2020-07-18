@@ -6,8 +6,7 @@ using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
-using System.Net.Http;
+using System.Diagnostics;
 
 namespace EnterpriseServices.Controllers
 {
@@ -108,7 +107,7 @@ namespace EnterpriseServices.Controllers
                     urlToPdf = GetUrlToPdf(url);
                     //return SendPdfResponse(url);
                 }
-                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode});
+                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode });
             }
             catch (Exception e)
             {
@@ -116,14 +115,12 @@ namespace EnterpriseServices.Controllers
             }
         }
 
-
-
         /// <summary>
-        /// Returns URL to PDF file.
+        /// Requests external service for conversion original URL to PDF.
         /// </summary>
-        /// <param name="url">Original URL</param>
-        /// <returns></returns>
-        private string GetUrlToPdf(string url)
+        /// <param name="url">Original URL.</param>
+        /// <returns>URL to PDF file.</returns>
+        private string RequestConvertingService(string url)
         {
             var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
@@ -145,6 +142,46 @@ namespace EnterpriseServices.Controllers
             var streamReader = new StreamReader(res.GetResponseStream());
             var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
             return convertHtmlToPdf["urlToPdf"].ToString();
+        }
+
+        /// <summary>
+        /// Executes local converting utility.
+        /// </summary>
+        /// <param name="url">Original URL.</param>
+        /// <returns>URL to PDF file.</returns>
+        private string ExecuteLocalConverter(string url)
+        {
+            var pdfFileName = UrlToFileName(url, ".pdf");
+            var converterPath = Server.MapPath("~") + "PdfCreator\\create_pdf_from_html.bat";
+            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
+            var arguments = url + " " + pdfFilePath;
+
+            var startInfo = new ProcessStartInfo(converterPath, arguments)
+            {
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                WorkingDirectory = Server.MapPath("~") + "PdfCreator\\"
+            };
+
+            var process = Process.Start(startInfo);
+            process.WaitForExit();
+
+            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Path = Url.Content("~/Content/" + pdfFileName),
+                Query = null,
+            };
+            return urlBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Returns URL to PDF file.
+        /// </summary>
+        /// <param name="url">Original URL</param>
+        /// <returns></returns>
+        private string GetUrlToPdf(string url)
+        {
+            return ExecuteLocalConverter(url);
         }
 
         [AllowAnonymous]
