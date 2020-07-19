@@ -159,12 +159,17 @@ namespace EnterpriseServices.Controllers
             var startInfo = new ProcessStartInfo(converterPath, arguments)
             {
                 UseShellExecute = false,
+                RedirectStandardOutput = true,
                 CreateNoWindow = true,
                 WorkingDirectory = Server.MapPath("~") + "PdfCreator\\"
             };
 
             var process = Process.Start(startInfo);
             process.WaitForExit();
+            if (0 != process.ExitCode)
+            {
+                throw new Exception(process.StandardOutput.ReadToEnd());
+            }
 
             var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
