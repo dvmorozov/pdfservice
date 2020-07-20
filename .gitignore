@@ -42,3 +42,4 @@
 /AdobeSdkService/Properties/PublishProfiles
 /AdobeSdkService/private.key
 /AdobeSdkService/dc-services-sdk-credentials.json
+*.pdf

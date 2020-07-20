@@ -18,7 +18,7 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode });
+                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
             }
             catch (Exception e)
             {
@@ -32,6 +32,7 @@ namespace EnterpriseServices.Controllers
             public string Url { get; set; }
             public string AdobeViewMode { get; set; }
             public string UrlToPdf { get; set; }
+            public string FileName { get; set; }
         }
 
         /// <summary>
@@ -42,17 +43,24 @@ namespace EnterpriseServices.Controllers
         /// <returns></returns>
         private string UrlToFileName(string url, string fileExtension)
         {
-            var fileName = url;
-            var prefixIndex = fileName.IndexOf("://");
-            if (prefixIndex != -1)
-                fileName = fileName.Substring(prefixIndex + 3);
+            if (url != null)
+            {
+                var fileName = url;
+                var prefixIndex = fileName.IndexOf("://");
+                if (prefixIndex != -1)
+                    fileName = fileName.Substring(prefixIndex + 3);
 
-            fileName = fileName.Replace('/', '_');
-            fileName = fileName.Replace('.', '_');
-            fileName = fileName.TrimEnd('_');
-            //  Adds file extension.
-            fileName += fileExtension;
-            return fileName;
+                fileName = fileName.Replace('/', '_');
+                fileName = fileName.Replace('.', '_');
+                fileName = fileName.TrimEnd('_');
+                //  Adds file extension.
+                fileName += fileExtension;
+                return fileName;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         /// <summary>
@@ -107,7 +115,7 @@ namespace EnterpriseServices.Controllers
                     urlToPdf = GetUrlToPdf(url);
                     //return SendPdfResponse(url);
                 }
-                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode });
+                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
             }
             catch (Exception e)
             {

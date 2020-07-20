@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "appInsights1": {
+      "type": "appInsights",
+      "suggestion": "false"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "suggestion": "false"
+    },
+    "storage1": {
+      "type": "storage",
+      "suggestion": "false"
+    }
+  }
+}

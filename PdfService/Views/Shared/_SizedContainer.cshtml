@@ -6,8 +6,8 @@
 	document.addEventListener("adobe_dc_view_sdk.ready", function () {
 		var adobeDCView = new AdobeDC.View({ clientId: "d7668ddeaa334a8494f5288662170fad", divId: "adobe-dc-view" });
 		adobeDCView.previewFile({
-			content: { location: { url: @Model.UrlToPdf } },
-			metaData: { fileName: "Bodea Brochure.pdf" }
+			content: { location: { url: "@Model.UrlToPdf" } },
+			metaData: { fileName: "@Model.FileName" }
 		}, { embedMode: "SIZED_CONTAINER" });
 	});
 </script>
