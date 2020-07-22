@@ -16,30 +16,24 @@
 
 		<div class="tab-content">
 			<div class="tab-pane fade @Html.Raw(showFullWindow ? "in active" : "")" id="fullWindow" style="margin-top: 8px;">
-				<div>
-					@if (showFullWindow)
-					{
-						@Html.Partial("_FullWindow", Model)
-					}
-				</div>
+				@if (showFullWindow)
+				{
+					@Html.Partial("_FullWindow", Model)
+				}
 			</div>
 
 			<div class="tab-pane fade @Html.Raw(showSizedContainer ? "in active" : "")" id="sizedContainer" style="margin-top: 8px;">
-				<div>
-					@if (showSizedContainer)
-					{
-						@Html.Partial("_SizedContainer", Model)
-					}
-				</div>
+				@if (showSizedContainer)
+				{
+					@Html.Partial("_SizedContainer", Model)
+				}
 			</div>
 
 			<div class="tab-pane fade @Html.Raw(showInLine ? "in active" : "")" id="inLine" style="margin-top: 8px;">
-				<div>
-					@if (showInLine)
-					{
-						@Html.Partial("_Inline", Model)
-					}
-				</div>
+				@if (showInLine)
+				{
+					@Html.Partial("_Inline", Model)
+				}
 			</div>
 		</div>
 	</div>
