@@ -472,6 +472,8 @@
     <Content Include="Views\Shared\_Inline.cshtml" />
     <Content Include="Views\Shared\_AdobeViewSDKDemo.cshtml" />
     <Content Include="README.md" />
+    <Content Include="Views\Shared\_GoogleTagHead.cshtml" />
+    <Content Include="Views\Shared\_GoogleTagBody.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">

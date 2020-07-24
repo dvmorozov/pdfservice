@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+	@Html.Partial("_GoogleTagHead")
 	<title>Free HTML to PDF convertor</title>
 	<meta charset="UTF-8">
 	<!-- Latest compiled and minified CSS -->
@@ -22,6 +23,7 @@
 	<meta name="description" content="Free HTML to PDF convertor" />
 </head>
 <body>
+	@Html.Partial("_GoogleTagBody")
 	<div class="page full-height">
 		<div id="main" class="full-height">
 			@RenderBody()
