@@ -18,8 +18,52 @@
 			AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
 			/* call back function */
 			function (event) {
-				if (event.type == "DOCUMENT_OPEN" || event.type == "PAGE_VIEW" || event.type == "DOCUMENT_DOWNLOAD" || event.type == "TEXT_COPY") {
+				if (event.type == "DOCUMENT_OPEN") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'DOCUMENT_OPEN',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
 					console.log(event);
+					return;
+				}
+
+				if (event.type == "PAGE_VIEW") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'PAGE_VIEW',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+
+				if (event.type == "DOCUMENT_DOWNLOAD") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'DOCUMENT_DOWNLOAD',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+
+				if (event.type == "TEXT_COPY") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'TEXT_COPY',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
 				}
 			},
 			{
