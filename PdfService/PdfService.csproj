@@ -433,7 +433,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebCleanerConfigSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AppMenu.css" />
@@ -474,12 +473,6 @@
     <Content Include="README.md" />
     <Content Include="Views\Shared\_GoogleTagHead.cshtml" />
     <Content Include="Views\Shared\_GoogleTagBody.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">
-      <Project>{f9bbfdac-f625-4f46-8b47-9d99e1776264}</Project>
-      <Name>HTMLCleanupDLL</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

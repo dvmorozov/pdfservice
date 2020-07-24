@@ -1,5 +1,4 @@
-﻿using HtmlCleanup;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Net;
@@ -79,31 +78,6 @@ namespace EnterpriseServices.Controllers
             Response.End();
         }
 
-        private ActionResult SendPdfResponse(string url)
-        {
-            var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
-            //  Creating cleaner instance based on URL.
-            var processChain = injector.CreateHtmlCleaner(url);
-
-            //  Performs request.
-            var s = HtmlCleanerApp.MakeRequest(url);
-
-            var output = processChain.Process(s);
-
-            var formatter = processChain.GetFormatter();
-
-            //  Finishes processing.
-            formatter.CloseDocument();
-            var dataStream = formatter.GetOutputStream();
-
-            if (dataStream != null)
-            {
-                dataStream.Seek(0, SeekOrigin.Begin);
-                SendFileResponse(dataStream, "application/pdf", UrlToFileName(url, ".pdf"));
-            }
-            return new EmptyResult();
-        }
-
         [AllowAnonymous]
         public ActionResult UrlToPdf(string url, string adobeViewMode)
         {
@@ -113,7 +87,6 @@ namespace EnterpriseServices.Controllers
                 if (url != null)
                 {
                     urlToPdf = GetUrlToPdf(url);
-                    //return SendPdfResponse(url);
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
             }
