@@ -9,7 +9,7 @@ Publish the project by using FolderProfile.
 
 Open the directory containing published binaries ("PdfCreator\bin\Release\netcoreapp2.1\publish") in terminal and execute
 
-> pdf_creator <path-to-HTML-zip-or-URL> <path-to-created-pdf>
+> pdf_creator &lt;path-to-HTML-zip-or-URL&gt; &lt;path-to-created-pdf&gt;
 
 You could use URL or path to ZIP file containing compressed HTML page as the first parameter.
 
