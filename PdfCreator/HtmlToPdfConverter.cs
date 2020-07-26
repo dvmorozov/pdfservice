@@ -38,7 +38,6 @@ namespace PdfCreator
         /// <returns>Content stream.</returns>
         private Stream MakeRequest(string url)
         {
-            //  Defines code page and convert it to UTF-8.
             var req = WebRequest.Create(url);
             var res = req.GetResponse();
 

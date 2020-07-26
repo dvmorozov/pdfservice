@@ -50,9 +50,14 @@ namespace EnterpriseServices.Controllers
                 if (prefixIndex != -1)
                     fileName = fileName.Substring(prefixIndex + 3);
 
-                fileName = fileName.Replace('/', '_');
-                fileName = fileName.Replace('.', '_');
-                fileName = fileName.TrimEnd('_');
+                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
+
+                foreach (char character in forbidden)
+                {
+                    fileName = fileName.Replace(character, '_');
+                }
+
+                fileName = fileName.Trim('_');
                 //  Adds file extension.
                 fileName += fileExtension;
                 return fileName;
@@ -162,7 +167,7 @@ namespace EnterpriseServices.Controllers
             var pdfFileName = UrlToFileName(url, ".pdf");
             var converterPath = Server.MapPath("~") + "PdfCreator\\create_pdf_from_html.bat";
             var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
-            var arguments = url + " " + pdfFilePath;
+            var arguments = "\"" + url + "\" \"" + pdfFilePath + "\"";
 
             var startInfo = new ProcessStartInfo(converterPath, arguments)
             {

@@ -57,8 +57,11 @@ namespace PdfCreator
                 throw new ArgumentException(usageMessage);
             }
 
-            string inputFileNameOrUrl = args[0];
-            string outputFileName = args[1];
+            string inputFileNameOrUrl = args[0].Trim('"');
+            string outputFileName = args[1].Trim('"');
+
+            Console.WriteLine("Input file = " + inputFileNameOrUrl);
+            Console.WriteLine("Output file = " + outputFileName);
 
             return new HtmlToPdfConverter(inputFileNameOrUrl, outputFileName);
         }
