@@ -38,8 +38,7 @@ namespace AdobeSdkService
             app.UseFileServer(new FileServerOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory())),
-                EnableDirectoryBrowsing = true
+                    Path.Combine(Directory.GetCurrentDirectory()))
             });
 
             app.UseRouting();
