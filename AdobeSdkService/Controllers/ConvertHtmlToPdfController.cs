@@ -22,20 +22,32 @@ namespace AdobeSdkService.Controllers
         /// </summary>
         /// <param name="url">URL.</param>
         /// <param name="fileExtension">File extension including dot.</param>
-        /// <returns></returns>
+        /// <returns>File name.</returns>
         private string UrlToFileName(string url, string fileExtension)
         {
-            var fileName = url;
-            var prefixIndex = fileName.IndexOf("://");
-            if (prefixIndex != -1)
-                fileName = fileName.Substring(prefixIndex + 3);
+            if (url != null)
+            {
+                var fileName = url;
+                var prefixIndex = fileName.IndexOf("://");
+                if (prefixIndex != -1)
+                    fileName = fileName.Substring(prefixIndex + 3);
 
-            fileName = fileName.Replace('/', '_');
-            fileName = fileName.Replace('.', '_');
-            fileName = fileName.TrimEnd('_');
-            //  Adds file extension.
-            fileName += fileExtension;
-            return fileName;
+                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
+
+                foreach (char character in forbidden)
+                {
+                    fileName = fileName.Replace(character, '_');
+                }
+
+                fileName = fileName.Trim('_');
+                //  Adds file extension.
+                fileName += fileExtension;
+                return fileName;
+            }
+            else
+            {
+                return "";
+            }
         }
 
         private string GetBaseUrl()
