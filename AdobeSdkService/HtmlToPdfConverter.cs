@@ -12,6 +12,7 @@ using Adobe.DocumentCloud.Services.pdfops;
 using Adobe.DocumentCloud.Services.io;
 using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
+using System.Threading;
 
 namespace AdobeSdkService
 {
@@ -20,7 +21,7 @@ namespace AdobeSdkService
         private readonly ILog log = LogManager.GetLogger(typeof(HtmlToPdfConverter));
         private readonly string inputFileNameOrUrl;
         private readonly string outputFileName;
-        private string temporaryFileName;
+        private string temporaryZipFileName;
         private readonly bool urlIsProcessed;
 
         public HtmlToPdfConverter(string _inputFileNameOrUrl, string _outputFileName)
@@ -50,7 +51,7 @@ namespace AdobeSdkService
         /// </summary>
         /// <param name="content"></param>
         /// <returns>Filename of zip-archive.</returns>
-        private string CreateTemporaryFile(Stream content)
+        private string CreateTemporaryZipFile(Stream content)
         {
             string tempPath = Path.GetTempPath();
             string tempDirectoryName = tempPath + "/pdf_creator_page";
@@ -63,8 +64,7 @@ namespace AdobeSdkService
                 content.CopyTo(fileStream);
             }
 
-            string zipFileName = Path.Combine(tempPath, "pdf_creator_page.zip");
-            File.Delete(zipFileName);
+            string zipFileName = Path.Combine(tempPath, Path.GetRandomFileName() + ".zip");
             ZipFile.CreateFromDirectory(tempDirectoryName, zipFileName);
 
             File.Delete(tempFileName);
@@ -80,7 +80,7 @@ namespace AdobeSdkService
         {
             if (urlIsProcessed)
             {
-                File.Delete(temporaryFileName);
+                File.Delete(temporaryZipFileName);
             }
         }
 
@@ -93,8 +93,8 @@ namespace AdobeSdkService
             if (urlIsProcessed)
             {
                 var content = MakeRequest(inputFileNameOrUrl);
-                temporaryFileName = CreateTemporaryFile(content);
-                return FileRef.CreateFromLocalFile(temporaryFileName);
+                temporaryZipFileName = CreateTemporaryZipFile(content);
+                return FileRef.CreateFromLocalFile(temporaryZipFileName);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace AdobeSdkService
                                 .Build();
 
                 // Create an ExecutionContext using credentials and create a new operation instance.
-                ExecutionContext executionContext = ExecutionContext.Create(credentials);
+                Adobe.DocumentCloud.Services.ExecutionContext executionContext = Adobe.DocumentCloud.Services.ExecutionContext.Create(credentials);
                 CreatePDFOperation htmlToPDFOperation = CreatePDFOperation.CreateNew();
 
                 FileRef source = GetSource();
@@ -136,22 +136,27 @@ namespace AdobeSdkService
             catch (ServiceUsageException ex)
             {
                 log.Error("Exception encountered while executing operation", ex);
+                throw;
             }
             catch (ServiceApiException ex)
             {
                 log.Error("Exception encountered while executing operation", ex);
+                throw;
             }
             catch (SDKException ex)
             {
                 log.Error("Exception encountered while executing operation", ex);
+                throw;
             }
             catch (IOException ex)
             {
                 log.Error("Exception encountered while executing operation", ex);
+                throw;
             }
             catch (Exception ex)
             {
                 log.Error("Exception encountered while executing operation", ex);
+                throw;
             }
         }
 
