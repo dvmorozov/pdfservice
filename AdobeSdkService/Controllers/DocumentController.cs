@@ -7,47 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace AdobeSdkService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class PdfController : ControllerBase
+    [Route("pdf/[controller]")]
+    public class DocumentController : ControllerBase
     {
         private readonly IWebHostEnvironment _env;
 
-        public PdfController(IWebHostEnvironment env)
+        public DocumentController(IWebHostEnvironment env)
         {
             _env = env;
-        }
-
-        /// <summary>
-        /// Prepares file name from URL.
-        /// </summary>
-        /// <param name="url">URL.</param>
-        /// <param name="fileExtension">File extension including dot.</param>
-        /// <returns>File name.</returns>
-        private string UrlToFileName(string url, string fileExtension)
-        {
-            if (url != null)
-            {
-                var fileName = url;
-                var prefixIndex = fileName.IndexOf("://");
-                if (prefixIndex != -1)
-                    fileName = fileName.Substring(prefixIndex + 3);
-
-                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
-
-                foreach (char character in forbidden)
-                {
-                    fileName = fileName.Replace(character, '_');
-                }
-
-                fileName = fileName.Trim('_');
-                //  Adds file extension.
-                fileName += fileExtension;
-                return fileName;
-            }
-            else
-            {
-                return "";
-            }
         }
 
         private string GetBaseUrl()
@@ -71,7 +38,7 @@ namespace AdobeSdkService.Controllers
             {
                 if (url != null && url != "")
                 {
-                    var pdfFileName = UrlToFileName(url, ".pdf");
+                    var pdfFileName = FileNameController.UrlToFileName(url, ".pdf");
                     var pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
 
                     var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
@@ -93,7 +60,7 @@ namespace AdobeSdkService.Controllers
                 }
                 else
                 {
-                    return new HtmlToPdfResult { Message = "Provide URL for conversion via \"url\" parameter: https://<host>/converthtmltopdf/?url=<url>." };
+                    return new HtmlToPdfResult { Message = "Provide URL for conversion via \"url\" parameter: https://<host>/pdf/?url=<url>." };
                 }
             }
             catch (Exception e)

@@ -140,7 +140,7 @@ namespace EnterpriseServices.Controllers
                 Scheme = "https",
                 Host = "localhost", //  "adobesdk.azurewebsites.net"
                 Port = 44379,       //  443
-                Path = "converthtmltopdf",
+                Path = "pdf",
                 Query = "url=" + url
             };
 
