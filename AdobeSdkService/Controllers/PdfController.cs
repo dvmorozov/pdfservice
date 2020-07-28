@@ -8,11 +8,11 @@ namespace AdobeSdkService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ConvertHtmlToPdfController : ControllerBase
+    public class PdfController : ControllerBase
     {
         private readonly IWebHostEnvironment _env;
 
-        public ConvertHtmlToPdfController(IWebHostEnvironment env)
+        public PdfController(IWebHostEnvironment env)
         {
             _env = env;
         }
