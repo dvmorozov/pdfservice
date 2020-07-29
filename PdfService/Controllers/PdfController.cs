@@ -158,41 +158,6 @@ namespace EnterpriseServices.Controllers
         }
 
         /// <summary>
-        /// Executes local converting utility.
-        /// </summary>
-        /// <param name="url">Original URL.</param>
-        /// <returns>URL to PDF file.</returns>
-        private string ExecuteLocalConverter(string url)
-        {
-            var pdfFileName = UrlToFileName(url, ".pdf");
-            var converterPath = Server.MapPath("~") + "PdfCreator\\create_pdf_from_html.bat";
-            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
-            var arguments = "\"" + url + "\" \"" + pdfFilePath + "\"";
-
-            var startInfo = new ProcessStartInfo(converterPath, arguments)
-            {
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true,
-                WorkingDirectory = Server.MapPath("~") + "PdfCreator\\"
-            };
-
-            var process = Process.Start(startInfo);
-            process.WaitForExit();
-            if (0 != process.ExitCode)
-            {
-                throw new Exception(process.StandardOutput.ReadToEnd());
-            }
-
-            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
-            {
-                Path = Url.Content("~/Content/" + pdfFileName),
-                Query = null,
-            };
-            return urlBuilder.ToString();
-        }
-
-        /// <summary>
         /// Returns URL to PDF file.
         /// </summary>
         /// <param name="url">Original URL</param>
@@ -200,7 +165,6 @@ namespace EnterpriseServices.Controllers
         private string GetUrlToPdf(string url)
         {
             return RequestConvertingService(url);
-            //return ExecuteLocalConverter(url);
         }
 
         [AllowAnonymous]
