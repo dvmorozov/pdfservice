@@ -6,7 +6,6 @@ using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Diagnostics;
 
 namespace EnterpriseServices.Controllers
 {
@@ -67,22 +66,11 @@ namespace EnterpriseServices.Controllers
         }
 
         /// <summary>
-        /// Writes response data.
+        /// Cleans and converts URL to PDF.
         /// </summary>
-        /// <param name="dataStream">File data.</param>
-        /// <param name="contentType">MIME content type.</param>
-        /// <param name="fileName">Full file name including extension.</param>
-        private void SendFileResponse(MemoryStream dataStream, string contentType, string fileName)
-        {
-            Response.Clear();
-            Response.ContentType = contentType;
-            Response.AddHeader("Content-Disposition", "inline;filename=" + fileName);
-            Response.BinaryWrite(dataStream.ToArray());
-            Response.Flush();
-            Response.End();
-        }
-
-        private ActionResult SendPdfResponse(string url)
+        /// <param name="url">Original URL.</param>
+        /// <returns>URL to PDF file.</returns>
+        private string ConvertByCleaner(string url)
         {
             var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
             //  Creating cleaner instance based on URL.
@@ -91,7 +79,7 @@ namespace EnterpriseServices.Controllers
             //  Performs request.
             var s = HtmlCleanerApp.MakeRequest(url);
 
-            var output = processChain.Process(s);
+            processChain.Process(s);
 
             var formatter = processChain.GetFormatter();
 
@@ -99,12 +87,24 @@ namespace EnterpriseServices.Controllers
             formatter.CloseDocument();
             var dataStream = formatter.GetOutputStream();
 
+            var pdfFileName = UrlToFileName(url, ".pdf");
+            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
+
             if (dataStream != null)
             {
-                dataStream.Seek(0, SeekOrigin.Begin);
-                SendFileResponse(dataStream, "application/pdf", UrlToFileName(url, ".pdf"));
+                using (var fileStream = System.IO.File.Create(pdfFilePath))
+                {
+                    dataStream.Seek(0, SeekOrigin.Begin);
+                    dataStream.CopyTo(fileStream);
+                }
             }
-            return new EmptyResult();
+
+            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Path = Url.Content("~/Content/" + pdfFileName),
+                Query = null,
+            };
+            return urlBuilder.ToString();
         }
 
         [AllowAnonymous]
@@ -115,8 +115,8 @@ namespace EnterpriseServices.Controllers
                 var urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    urlToPdf = GetUrlToPdf(url);
-                    //return SendPdfResponse(url);
+                    //urlToPdf = ConvertByAdobeSdk(url);
+                    urlToPdf = ConvertByCleaner(url);
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
             }
@@ -161,8 +161,8 @@ namespace EnterpriseServices.Controllers
         /// Returns URL to PDF file.
         /// </summary>
         /// <param name="url">Original URL</param>
-        /// <returns></returns>
-        private string GetUrlToPdf(string url)
+        /// <returns>URL to PDF.</returns>
+        private string ConvertByAdobeSdk(string url)
         {
             return RequestConvertingService(url);
         }
