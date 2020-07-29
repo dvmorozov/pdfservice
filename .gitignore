@@ -25,3 +25,15 @@
 /HTML cleanup/HTMLCleanupDLL/bin/Release
 /HTML cleanup/HTMLCleanupDLL/obj/Release
 *.user
+/AdobeSdkService/bin
+/AdobeSdkService/obj
+/AdobeSdkService/Properties/PublishProfiles
+/AdobeSdkService/private.key
+/AdobeSdkService/dc-services-sdk-credentials.json
+/PdfCreator/bin
+/PdfCreator/obj
+/PdfCreator/private.key
+/PdfCreator/dc-services-sdk-credentials.json
+/PdfService/PdfCreator/private.key
+/PdfService/PdfCreator/dc-services-sdk-credentials.json
+/PdfService/Properties/PublishProfiles
