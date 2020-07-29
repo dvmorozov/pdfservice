@@ -135,18 +135,20 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF file.</returns>
         private string RequestConvertingService(string url)
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
+
             var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
-                Host = "localhost", //  "adobesdk.azurewebsites.net"
-                Port = 44379,       //  443
-                Path = "pdf",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/document",
                 Query = "url=" + url
             };
 
             var request = uriBuilder.ToString();
             var req = WebRequest.CreateHttp(request);
-            req.Timeout = 60000;
+            req.Timeout = 30000;
             req.ContentType = "application/json";
             req.Method = "GET";
 
@@ -199,7 +201,8 @@ namespace EnterpriseServices.Controllers
         /// <returns></returns>
         private string GetUrlToPdf(string url)
         {
-            return ExecuteLocalConverter(url);
+            return RequestConvertingService(url);
+            //return ExecuteLocalConverter(url);
         }
 
         [AllowAnonymous]
