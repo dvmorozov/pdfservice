@@ -43,29 +43,27 @@ namespace EnterpriseServices.Controllers
         /// <returns></returns>
         private string UrlToFileName(string url, string fileExtension)
         {
-            if (url != null)
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
+
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
-                var fileName = url;
-                var prefixIndex = fileName.IndexOf("://");
-                if (prefixIndex != -1)
-                    fileName = fileName.Substring(prefixIndex + 3);
+                Scheme = "https",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/filename",
+                Query = "url=" + url
+            };
 
-                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
+            var request = uriBuilder.ToString();
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 30000;
+            req.ContentType = "text/plain";
+            req.Method = "GET";
 
-                foreach (char character in forbidden)
-                {
-                    fileName = fileName.Replace(character, '_');
-                }
+            var res = req.GetResponse();
 
-                fileName = fileName.Trim('_');
-                //  Adds file extension.
-                fileName += fileExtension;
-                return fileName;
-            }
-            else
-            {
-                return "";
-            }
+            var streamReader = new StreamReader(res.GetResponseStream());
+            return streamReader.ReadToEnd();
         }
 
         /// <summary>
