@@ -17,7 +17,7 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
+                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
@@ -32,6 +32,7 @@ namespace EnterpriseServices.Controllers
             public string AdobeViewMode { get; set; }
             public string UrlToPdf { get; set; }
             public string FileName { get; set; }
+            public bool CleanHtml { get; set; }
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace EnterpriseServices.Controllers
         /// <param name="url">URL.</param>
         /// <param name="fileExtension">File extension including dot.</param>
         /// <returns></returns>
-        private string UrlToFileName(string url, string fileExtension)
+        private string UrlToFileName(string url)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
@@ -87,7 +88,7 @@ namespace EnterpriseServices.Controllers
             formatter.CloseDocument();
             var dataStream = formatter.GetOutputStream();
 
-            var pdfFileName = UrlToFileName(url, ".pdf");
+            var pdfFileName = UrlToFileName(url);
             var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
 
             if (dataStream != null)
@@ -118,7 +119,7 @@ namespace EnterpriseServices.Controllers
                     //urlToPdf = ConvertByAdobeSdk(url);
                     urlToPdf = ConvertByCleaner(url);
                 }
-                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url, ".pdf") });
+                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
