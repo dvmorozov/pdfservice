@@ -1,16 +1,12 @@
 body {
-  /*
-  The form fills entire page.
-  padding-top: 40px;
-  padding-bottom: 40px;
-  */
   background-color: #eee;
 }
+
 .form-url-input {
-  max-width: 990px;
-  padding: 15px;
+  padding-bottom: 15px;
   margin: 0 auto;
 }
+
 .form-url-input .form-control {
   position: relative;
   height: auto;
@@ -20,16 +16,29 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-url-input .form-control:focus {
   z-index: 2;
 }
+
 .form-url-input input[id="Url"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
+
 .form-url-input button[type="submit"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    margin-top: 16px;
+}
+
+.form-url-input input {
+    margin-top: 16px;
+}
+
+.form-url-input label {
+    margin-top: 16px;
+    margin-left: 8px;
 }

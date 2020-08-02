@@ -1,0 +1,74 @@
+﻿@model EnterpriseServices.Controllers.PdfController.UrlToPdfData
+
+<div id="adobe-dc-view" style="width: 100%; height: 400px;"></div>
+<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+<script type="text/javascript">
+	document.addEventListener("adobe_dc_view_sdk.ready", function () {
+		var adobeDCView = new AdobeDC.View({ clientId: "3c413cc3cba647c0a2619a13e96f7ad1", divId: "adobe-dc-view" });
+		adobeDCView.previewFile({
+			content: { location: { url: "@Model.UrlToPdf" } },
+			metaData: { fileName: "@Model.FileName" }
+		}, {
+				"defaultViewMode": "FIT_PAGE",
+				showLeftHandPanel: false,
+				enableFormFilling: false
+		});
+		adobeDCView.registerCallback(
+			/* Type of call back */
+			AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
+			/* call back function */
+			function (event) {
+				if (event.type == "DOCUMENT_OPEN") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'DOCUMENT_OPEN',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+
+				if (event.type == "PAGE_VIEW") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'PAGE_VIEW',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+
+				if (event.type == "DOCUMENT_DOWNLOAD") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'DOCUMENT_DOWNLOAD',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+
+				if (event.type == "TEXT_COPY") {
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'PDF',
+						eventAction: 'TEXT_COPY',
+						eventLabel: 'Adobe View SDK Demo',
+						nonInteraction: true
+					});
+					console.log(event);
+					return;
+				}
+			},
+			{
+				enablePDFAnalytics: true,
+			}
+		);
+	});
+</script>

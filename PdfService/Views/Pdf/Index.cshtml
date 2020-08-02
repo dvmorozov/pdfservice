@@ -2,20 +2,26 @@
 @{
 	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
 }
+
 @* ReSharper disable UnknownCssClass *@
 <div class="panel panel-primary full-height">
 	<div class="panel-body full-height">
-		<div class="row full-height" style="margin: 16px;">
-			<div class="container">
-				@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-url-input" }))
-				{
-					<label for="url" class="sr-only">URL</label>
-					@Html.TextBoxFor(model => model.Url, new { id = "Url", name = "Url", @class = "form-control", placeholder = "URL", required = "required" })
-					<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 16px;">Get PDF</button>
-				}
-			</div> <!-- /container -->
+		<div class="row full-height">
+			<div class="container full-height">
+				<div>
+					@using (Html.BeginForm("UrlToPdf", "Pdf", FormMethod.Post, new { id = "UrlToPdf", @class = "form-url-input" }))
+					{
+						@Html.HiddenFor(model => model.AdobeViewMode)
+						<label for="url" class="sr-only">URL</label>
+						@Html.TextBoxFor(model => model.Url, new { id = "Url", name = "Url", @class = "form-control", placeholder = "URL", required = "required" })
+						@Html.CheckBoxFor(model => model.CleanHtml)
+						@Html.LabelFor(model => model.CleanHtml, "Clean HTML")
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
+					}
+				</div>
+				@Html.Partial("_AdobeViewSDKDemo", Model)
+			</div>
 		</div>
 	</div>
-	@* Html.Partial("Tags") *@
 </div>
 @* ReSharper restore UnknownCssClass *@
