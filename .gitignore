@@ -34,3 +34,12 @@
 /PdfCreator/private.key
 /PdfCreator/createPDFFromStaticHtmlInput.zip
 /PdfCreator/bin/Release/netcoreapp2.1
+/PdfService/Properties/PublishProfiles
+/PdfService/PdfCreator/private.key
+/PdfService/PdfCreator/dc-services-sdk-credentials.json
+/AdobeSdkService/bin
+/AdobeSdkService/obj
+/AdobeSdkService/Properties/PublishProfiles
+/AdobeSdkService/private.key
+/AdobeSdkService/dc-services-sdk-credentials.json
+*.pdf

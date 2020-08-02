@@ -442,8 +442,6 @@
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="App_Data\WordPressHTMLCleanerConfig.xml" />
-    <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <Content Include="Scripts\jquery.highlight-4.closure.js" />
     <Content Include="Scripts\jquery.highlight-4.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -464,8 +462,18 @@
     <Content Include="Views\Pdf\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutMobile.cshtml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - ReadOnly - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xpnsstest - Web Deploy.pubxml" />
+    <Content Include="Views\Shared\_FullWindow.cshtml" />
+    <Content Include="Views\Shared\_SizedContainer.cshtml" />
+    <Content Include="Views\Shared\_Inline.cshtml" />
+    <Content Include="Views\Shared\_AdobeViewSDKDemo.cshtml" />
+    <Content Include="README.md" />
+    <Content Include="Views\Shared\_GoogleTagHead.cshtml" />
+    <Content Include="Views\Shared\_GoogleTagBody.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HTML cleanup\HTMLCleanupDLL\HTMLCleanupDLL.csproj">

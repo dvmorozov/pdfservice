@@ -2,7 +2,10 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Net;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace EnterpriseServices.Controllers
 {
@@ -10,11 +13,11 @@ namespace EnterpriseServices.Controllers
     public partial class PdfController : ErrorHandlingController
     {
         [AllowAnonymous]
-        public ActionResult Index(string url)
+        public ActionResult Index(string url, string urlToPdf, string adobeViewMode)
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url });
+                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
@@ -26,6 +29,10 @@ namespace EnterpriseServices.Controllers
         {
             [Required]
             public string Url { get; set; }
+            public string AdobeViewMode { get; set; }
+            public string UrlToPdf { get; set; }
+            public string FileName { get; set; }
+            public bool CleanHtml { get; set; }
         }
 
         /// <summary>
@@ -34,72 +41,137 @@ namespace EnterpriseServices.Controllers
         /// <param name="url">URL.</param>
         /// <param name="fileExtension">File extension including dot.</param>
         /// <returns></returns>
-        private string UrlToFileName(string url, string fileExtension)
+        private string UrlToFileName(string url)
         {
-            var fileName = url;
-            var prefixIndex = fileName.IndexOf("://");
-            if (prefixIndex != -1)
-                fileName = fileName.Substring(prefixIndex + 3);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
-            fileName = fileName.Replace('/', '_');
-            fileName = fileName.Replace('.', '_');
-            fileName = fileName.TrimEnd('_');
-            //  Adds file extension.
-            fileName += fileExtension;
-            return fileName;
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Scheme = "https",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/filename",
+                Query = "url=" + url
+            };
+
+            var request = uriBuilder.ToString();
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 30000;
+            req.ContentType = "text/plain";
+            req.Method = "GET";
+
+            var res = req.GetResponse();
+
+            var streamReader = new StreamReader(res.GetResponseStream());
+            return streamReader.ReadToEnd();
         }
 
         /// <summary>
-        /// Writes response data.
+        /// Cleans and converts URL to PDF.
         /// </summary>
-        /// <param name="dataStream">File data.</param>
-        /// <param name="contentType">MIME content type.</param>
-        /// <param name="fileName">Full file name including extension.</param>
-        private void SendFileResponse(MemoryStream dataStream, string contentType, string fileName)
+        /// <param name="url">Original URL.</param>
+        /// <returns>URL to PDF file.</returns>
+        private string ConvertByCleaner(string url)
         {
-            Response.Clear();
-            Response.ContentType = contentType;
-            Response.AddHeader("Content-Disposition", "inline;filename=" + fileName);
-            Response.BinaryWrite(dataStream.ToArray());
-            Response.Flush();
-            Response.End();
+            var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
+            //  Creating cleaner instance based on URL.
+            var processChain = injector.CreateHtmlCleaner(url);
+
+            //  Performs request.
+            var s = HtmlCleanerApp.MakeRequest(url);
+
+            processChain.Process(s);
+
+            var formatter = processChain.GetFormatter();
+
+            //  Finishes processing.
+            formatter.CloseDocument();
+            var dataStream = formatter.GetOutputStream();
+
+            var pdfFileName = UrlToFileName(url);
+            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
+
+            if (dataStream != null)
+            {
+                using (var fileStream = System.IO.File.Create(pdfFilePath))
+                {
+                    dataStream.Seek(0, SeekOrigin.Begin);
+                    dataStream.CopyTo(fileStream);
+                }
+            }
+
+            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Path = Url.Content("~/Content/" + pdfFileName),
+                Query = null,
+            };
+            return urlBuilder.ToString();
         }
 
         [AllowAnonymous]
-        public ActionResult UrlToPdf(string url)
+        public ActionResult UrlToPdf(string url, string adobeViewMode, bool CleanHtml)
         {
             try
             {
+                var urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
-                    //  Creating cleaner instance based on URL.
-                    var processChain = injector.CreateHtmlCleaner(url);
-
-                    //  Performs request.
-                    var s = HtmlCleanerApp.MakeRequest(url);
-
-                    var output = processChain.Process(s);
-
-                    var formatter = processChain.GetFormatter();
-
-                    //  Finishes processing.
-                    formatter.CloseDocument();
-                    var dataStream = formatter.GetOutputStream();
-
-                    if (dataStream != null)
+                    if (CleanHtml)
                     {
-                        dataStream.Seek(0, SeekOrigin.Begin);
-                        SendFileResponse(dataStream, "application/pdf", UrlToFileName(url, ".pdf"));
-                        return new EmptyResult();
+                        urlToPdf = ConvertByCleaner(url);
+                    }
+                    else
+                    {
+                        urlToPdf = ConvertByAdobeSdk(url);
                     }
                 }
-                return View("Index", new UrlToPdfData { Url = url });
+                return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
                 return View("Error", new HandleErrorInfo(e, "Pdf", "Index"));
             }
+        }
+
+        /// <summary>
+        /// Requests external service for conversion original URL to PDF.
+        /// </summary>
+        /// <param name="url">Original URL.</param>
+        /// <returns>URL to PDF file.</returns>
+        private string RequestConvertingService(string url)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
+
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Scheme = "https",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/document",
+                Query = "url=" + url
+            };
+
+            var request = uriBuilder.ToString();
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 30000;
+            req.ContentType = "application/json";
+            req.Method = "GET";
+
+            var res = req.GetResponse();
+
+            var streamReader = new StreamReader(res.GetResponseStream());
+            var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
+            return convertHtmlToPdf["urlToPdf"].ToString();
+        }
+
+        /// <summary>
+        /// Returns URL to PDF file.
+        /// </summary>
+        /// <param name="url">Original URL</param>
+        /// <returns>URL to PDF.</returns>
+        private string ConvertByAdobeSdk(string url)
+        {
+            return RequestConvertingService(url);
         }
 
         [AllowAnonymous]

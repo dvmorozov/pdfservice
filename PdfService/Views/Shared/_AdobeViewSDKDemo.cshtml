@@ -1,0 +1,40 @@
+﻿@model EnterpriseServices.Controllers.PdfController.UrlToPdfData
+@{
+	bool showFullWindow = Model.AdobeViewMode.IsEmpty() || Model.AdobeViewMode == "FULL_WINDOW";
+	bool showSizedContainer = Model.AdobeViewMode == "SIZED_CONTAINER";
+	bool showInLine = Model.AdobeViewMode == "IN_LINE";
+}
+
+<div class="panel panel-default">
+	<div class="panel-heading">Adobe View SDK Demo</div>
+	<div class="panel-body">
+		<ul class="nav nav-tabs">
+			<li @Html.Raw(showFullWindow ? "class=\"active\"" : "")><a href="#fullWindow" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "FULL_WINDOW" })';" data-toggle="tab">Full Window</a></li>
+			<li @Html.Raw(showSizedContainer ? "class=\"active\"" : "")><a href="#sizedContainer" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "SIZED_CONTAINER" })';" data-toggle="tab">Sized Container</a></li>
+			<li @Html.Raw(showInLine ? "class=\"active\"" : "")><a href="#inLine" onclick="window.location.href = '@Url.Action("Index", "Pdf", new { url = Model.Url, urlToPdf = Model.UrlToPdf, adobeViewMode = "IN_LINE" })';" data-toggle="tab">In-Line</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane fade @Html.Raw(showFullWindow ? "in active" : "")" id="fullWindow" style="margin-top: 8px;">
+				@if (showFullWindow)
+				{
+					@Html.Partial("_FullWindow", Model)
+				}
+			</div>
+
+			<div class="tab-pane fade @Html.Raw(showSizedContainer ? "in active" : "")" id="sizedContainer" style="margin-top: 8px;">
+				@if (showSizedContainer)
+				{
+					@Html.Partial("_SizedContainer", Model)
+				}
+			</div>
+
+			<div class="tab-pane fade @Html.Raw(showInLine ? "in active" : "")" id="inLine" style="margin-top: 8px;">
+				@if (showInLine)
+				{
+					@Html.Partial("_Inline", Model)
+				}
+			</div>
+		</div>
+	</div>
+</div>
