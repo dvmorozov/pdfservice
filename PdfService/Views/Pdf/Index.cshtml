@@ -14,7 +14,9 @@
 						@Html.HiddenFor(model => model.AdobeViewMode)
 						<label for="url" class="sr-only">URL</label>
 						@Html.TextBoxFor(model => model.Url, new { id = "Url", name = "Url", @class = "form-control", placeholder = "URL", required = "required" })
-						<button class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 16px;">Get PDF</button>
+						@Html.CheckBoxFor(model => model.CleanHtml)
+						@Html.LabelFor(model => model.CleanHtml, "Clean HTML")
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
 					}
 				</div>
 				@Html.Partial("_AdobeViewSDKDemo", Model)

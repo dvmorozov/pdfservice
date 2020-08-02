@@ -109,15 +109,21 @@ namespace EnterpriseServices.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult UrlToPdf(string url, string adobeViewMode)
+        public ActionResult UrlToPdf(string url, string adobeViewMode, bool CleanHtml)
         {
             try
             {
                 var urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    //urlToPdf = ConvertByAdobeSdk(url);
-                    urlToPdf = ConvertByCleaner(url);
+                    if (CleanHtml)
+                    {
+                        urlToPdf = ConvertByCleaner(url);
+                    }
+                    else
+                    {
+                        urlToPdf = ConvertByAdobeSdk(url);
+                    }
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
