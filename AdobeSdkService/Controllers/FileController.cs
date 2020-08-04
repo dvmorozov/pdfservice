@@ -30,12 +30,15 @@ namespace AdobeSdkService.Controllers
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
-            FileStream fileStream = new FileStream(filePath, FileMode.Open);
-            MemoryStream memoryStream = new MemoryStream();
-
-            fileStream.Seek(0, SeekOrigin.Begin);
-            fileStream.CopyTo(memoryStream);
-            SendFileResponseAsync(memoryStream, "application/pdf", fileName).Wait();
+            using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    fileStream.Seek(0, SeekOrigin.Begin);
+                    fileStream.CopyTo(memoryStream);
+                    SendFileResponseAsync(memoryStream, "application/pdf", fileName).Wait();
+                }
+            }
             return new EmptyResult();
         }
 
