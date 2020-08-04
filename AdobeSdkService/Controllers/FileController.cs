@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +42,11 @@ namespace AdobeSdkService.Controllers
         [HttpDelete("{fileName}")]
         public void Delete(string fileName)
         {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
         }
     }
 }
