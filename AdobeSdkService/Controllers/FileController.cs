@@ -26,7 +26,7 @@ namespace AdobeSdkService.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get(string fileName)
+        public ActionResult Get(string fileName, bool delete = false)
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
@@ -39,11 +39,21 @@ namespace AdobeSdkService.Controllers
                     SendFileResponseAsync(memoryStream, "application/pdf", fileName).Wait();
                 }
             }
+
+            if (delete)
+            {
+                DeleteFile(fileName);
+            }
             return new EmptyResult();
         }
 
         [HttpDelete("{fileName}")]
         public void Delete(string fileName)
+        {
+            DeleteFile(fileName);
+        }
+
+        private void DeleteFile(string fileName)
         {
             var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             if (System.IO.File.Exists(filePath))
