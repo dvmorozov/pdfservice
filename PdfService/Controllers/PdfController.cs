@@ -161,7 +161,46 @@ namespace EnterpriseServices.Controllers
 
             var streamReader = new StreamReader(res.GetResponseStream());
             var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
+
             return convertHtmlToPdf["urlToPdf"].ToString();
+        }
+
+        /// <summary>
+        /// Copies file from converting service to local folder and deletes it.
+        /// </summary>
+        /// <param name="fileName">Name of converted file.</param>
+        private void GetFileFromConvertingService(string fileName)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
+
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Scheme = "https",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/file",
+                Query = "fileName=" + fileName + "&delete=true"
+            };
+
+            var request = uriBuilder.ToString();
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 30000;
+            req.ContentType = "application/pdf";
+            req.Method = "GET";
+
+            var res = req.GetResponse();
+            var dataStream = res.GetResponseStream();
+
+            var pdfFilePath = Server.MapPath("~") + "Content\\" + fileName;
+
+            if (dataStream != null)
+            {
+                using (var fileStream = System.IO.File.Create(pdfFilePath))
+                {
+                    dataStream.Seek(0, SeekOrigin.Begin);
+                    dataStream.CopyTo(fileStream);
+                }
+            }
         }
 
         /// <summary>
