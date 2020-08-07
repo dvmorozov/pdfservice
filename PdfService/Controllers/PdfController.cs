@@ -67,6 +67,31 @@ namespace EnterpriseServices.Controllers
         }
 
         /// <summary>
+        /// Returns URL to local content file.
+        /// </summary>
+        /// <param name="fileName">Content file name.</param>
+        /// <returns>URL.</returns>
+        private string GetContentUri(string fileName)
+        {
+            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Path = Url.Content("~/Content/" + fileName),
+                Query = null,
+            };
+            return urlBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Returns full path to content file.
+        /// </summary>
+        /// <param name="fileName">File name.</param>
+        /// <returns>Path.</returns>
+        private string GetContentPath(string fileName)
+        {
+            return Server.MapPath("~") + "Content\\" + fileName;
+        }
+
+        /// <summary>
         /// Cleans and converts URL to PDF.
         /// </summary>
         /// <param name="url">Original URL.</param>
@@ -89,7 +114,7 @@ namespace EnterpriseServices.Controllers
             var dataStream = formatter.GetOutputStream();
 
             var pdfFileName = UrlToFileName(url);
-            var pdfFilePath = Server.MapPath("~") + "Content\\" + pdfFileName;
+            var pdfFilePath = GetContentPath(pdfFileName);
 
             if (dataStream != null)
             {
@@ -100,12 +125,7 @@ namespace EnterpriseServices.Controllers
                 }
             }
 
-            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
-            {
-                Path = Url.Content("~/Content/" + pdfFileName),
-                Query = null,
-            };
-            return urlBuilder.ToString();
+            return GetContentUri(pdfFileName);
         }
 
         [AllowAnonymous]
@@ -137,7 +157,7 @@ namespace EnterpriseServices.Controllers
         /// Requests external service for conversion original URL to PDF.
         /// </summary>
         /// <param name="url">Original URL.</param>
-        /// <returns>URL to PDF file.</returns>
+        /// <returns>File name.</returns>
         private string RequestConvertingService(string url)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
@@ -161,7 +181,53 @@ namespace EnterpriseServices.Controllers
 
             var streamReader = new StreamReader(res.GetResponseStream());
             var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
-            return convertHtmlToPdf["urlToPdf"].ToString();
+
+            return convertHtmlToPdf["fileName"].ToString();
+        }
+
+        /// <summary>
+        /// Copies data from stream to local file.
+        /// </summary>
+        /// <param name="dataStream">Data stream.</param>
+        /// <param name="filePath">Path to local file.</param>
+        private void CopyStreamToFile(Stream dataStream, string filePath)
+        {
+            if (dataStream != null)
+            {
+                using (var fileStream = System.IO.File.Create(filePath))
+                {
+                    dataStream.CopyTo(fileStream);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Copies file from converting service to local folder and deletes it.
+        /// </summary>
+        /// <param name="fileName">Name of converted file.</param>
+        private void GetFileFromConvertingService(string fileName)
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
+
+            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            {
+                Scheme = "https",
+                Host = "adobesdk.azurewebsites.net",    //  "localhost"
+                Port = 443,                             //  44379
+                Path = "pdf/file",
+                Query = "fileName=" + fileName + "&delete=true"
+            };
+
+            var request = uriBuilder.ToString();
+            var req = WebRequest.CreateHttp(request);
+            req.Timeout = 30000;
+            req.ContentType = "application/pdf";
+            req.Method = "GET";
+
+            var res = req.GetResponse();
+            var dataStream = res.GetResponseStream();
+            var pdfFilePath = GetContentPath(fileName);
+            CopyStreamToFile(dataStream, pdfFilePath);
         }
 
         /// <summary>
@@ -171,7 +237,9 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF.</returns>
         private string ConvertByAdobeSdk(string url)
         {
-            return RequestConvertingService(url);
+            var fileName = RequestConvertingService(url);
+            GetFileFromConvertingService(fileName);
+            return GetContentUri(fileName);
         }
 
         [AllowAnonymous]
