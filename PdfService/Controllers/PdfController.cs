@@ -182,7 +182,23 @@ namespace EnterpriseServices.Controllers
             var streamReader = new StreamReader(res.GetResponseStream());
             var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
 
-            return convertHtmlToPdf["FileName"].ToString();
+            return convertHtmlToPdf["fileName"].ToString();
+        }
+
+        /// <summary>
+        /// Copies data from stream to local file.
+        /// </summary>
+        /// <param name="dataStream">Data stream.</param>
+        /// <param name="filePath">Path to local file.</param>
+        private void CopyStreamToFile(Stream dataStream, string filePath)
+        {
+            if (dataStream != null)
+            {
+                using (var fileStream = System.IO.File.Create(filePath))
+                {
+                    dataStream.CopyTo(fileStream);
+                }
+            }
         }
 
         /// <summary>
@@ -210,17 +226,8 @@ namespace EnterpriseServices.Controllers
 
             var res = req.GetResponse();
             var dataStream = res.GetResponseStream();
-
             var pdfFilePath = GetContentPath(fileName);
-
-            if (dataStream != null)
-            {
-                using (var fileStream = System.IO.File.Create(pdfFilePath))
-                {
-                    dataStream.Seek(0, SeekOrigin.Begin);
-                    dataStream.CopyTo(fileStream);
-                }
-            }
+            CopyStreamToFile(dataStream, pdfFilePath);
         }
 
         /// <summary>
