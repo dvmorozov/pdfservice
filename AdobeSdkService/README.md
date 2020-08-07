@@ -1,7 +1,13 @@
 ﻿# Adobe Services SDK converting API
 
-Two API endpoints "document" and "filename" are available under "pdf" route. Only GET method has been implemented for endpoints.
-The first endpoint is responsible for conversion URLs into PDF documents, the second endpoint provides way of converting URL into file name.
+## API endpoints 
+
+|Endpoint     |Methods         |Purpose                                                                        |
+|-------------|----------------|-------------------------------------------------------------------------------|
+|pdf/document |GET             |Accepts URL to original page and returns URL to PDF file.                      |
+|pdf/filename |GET             |Accepts URL to original page and returns file name.                            |
+|pdf/file     |GET             |Accepts file name and returns content of the file as "application/pdf" content.|
+|pdf/file     |DELETE          |Deletes file.
 
 ## Building
 

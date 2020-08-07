@@ -1,7 +1,13 @@
 # Adobe Services SDK converting API
 
-Two API endpoints "document" and "filename" are available under "pdf" route. Only GET method has been implemented for endpoints.
-The first endpoint is responsible for conversion URLs into PDF documents, the second endpoint provides way of converting URL into file name.
+## API endpoints 
+
+|Endpoint     |Methods         |Purpose                                                                        |
+|-------------|----------------|-------------------------------------------------------------------------------|
+|pdf/document |GET             |Accepts URL to original page and returns URL to PDF file.                      |
+|pdf/filename |GET             |Accepts URL to original page and returns file name.                            |
+|pdf/file     |GET             |Accepts file name and returns content of the file as "application/pdf" content.|
+|pdf/file     |DELETE          |Deletes file.
 
 ## Building
 
@@ -28,6 +34,11 @@ https://localhost:44379/pdf/filename?url=https://auto.mail.ru/article/78150-vint
 
 The service is ready for deployment into Azure.
 Actually now it is available at https://adobesdk.azurewebsites.net/
+
+## Examples
+
+https://adobesdk.azurewebsites.net/pdf/document/?url=https://hi-tech.mail.ru/review/ne_perevodi/
+https://adobesdk.azurewebsites.net/pdf/filename/?url=https://hi-tech.mail.ru/review/ne_perevodi/
 
 # PdfCreator - Adobe Services SDK CLI application
 
