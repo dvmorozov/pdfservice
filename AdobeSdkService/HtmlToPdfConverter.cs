@@ -6,13 +6,11 @@ using log4net.Config;
 using System.IO.Compression;
 using System.Net;
 using System.Reflection;
-using Adobe.DocumentCloud.Services;
 using Adobe.DocumentCloud.Services.auth;
 using Adobe.DocumentCloud.Services.pdfops;
 using Adobe.DocumentCloud.Services.io;
 using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
-using System.Threading;
 
 namespace AdobeSdkService
 {
