@@ -17,7 +17,14 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
+                if (urlToPdf != null)
+                {
+                    return RedirectToAction("UrlToPdf", new { url, adobeViewMode, cleanHtml = false });
+                }
+                else
+                {
+                    return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
+                }
             }
             catch (Exception e)
             {
@@ -129,14 +136,14 @@ namespace EnterpriseServices.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult UrlToPdf(string url, string adobeViewMode, bool CleanHtml)
+        public ActionResult UrlToPdf(string url, string adobeViewMode, bool cleanHtml)
         {
             try
             {
                 var urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    if (CleanHtml)
+                    if (cleanHtml)
                     {
                         urlToPdf = ConvertByCleaner(url);
                     }
