@@ -17,9 +17,9 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                if (urlToPdf != null)
+                if (url != null && urlToPdf == null)
                 {
-                    return RedirectToAction("UrlToPdf", new { url, adobeViewMode, cleanHtml = false });
+                    return RedirectToAction("UrlToPdf", "Pdf", new { url, adobeViewMode, cleanHtml = false });
                 }
                 else
                 {
