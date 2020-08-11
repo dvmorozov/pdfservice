@@ -15,12 +15,6 @@ namespace HtmlCleanup
         /// </summary>
         public class HtmlTag
         {
-            private string _startTag;
-            private string _endTag;
-
-            //  Set of attributeNames whichi should be extracted for HTML elemement.
-            private string[] _attributeNames = new string[] { };
-
             public HtmlTag(string startTag, string endTag)
             {
                 StartTag = startTag;
@@ -34,24 +28,21 @@ namespace HtmlCleanup
                 AttributeNames = attributeNames;
             }
 
-            public string StartTag { get => _startTag; private set => _startTag = value; }
-            public string EndTag { get => _endTag; private set => _endTag = value; }
-            public string[] AttributeNames { get => _attributeNames; private set => _attributeNames = value; }
+            public string StartTag { get; private set; }
+            public string EndTag { get; private set; }
+            public string[] AttributeNames { get; private set; } = new string[] { };
         }
 
         public class HtmlElement
         {
-            private string _text;
             private int _startPos = 0;
-            private string _startTag;
-            private string _endTag;
             private bool _found;
             private int _pos1;      //  Start tag position.
             private int _pos2;      //  Start tag closing bracket position.
             private int _pos3;      //  End tag position.
 
             //  Set of attributeNames which should be extracted for HTML elemement.
-            private Dictionary<string, string> _attributes = new Dictionary<string, string>();
+            private readonly Dictionary<string, string> _attributes = new Dictionary<string, string>();
 
             public void AddAttribute(string name, string value)
             {
@@ -63,11 +54,11 @@ namespace HtmlCleanup
                 return _attributes.TryGetValue(name, out string value) ? value : "";
             }
 
-            public string Text { get => _text; private set => _text = value; }
-            public string StartTag { get => _startTag; private set => _startTag = value; }
-            public string EndTag { get => _endTag; private set => _endTag = value; }
+            public string Text { get; private set; }
+            public string StartTag { get; private set; }
+            public string EndTag { get; private set; }
 
-            private ITagFormatter _formatter;
+            private readonly ITagFormatter _formatter;
 
             public HtmlElement(string startTag /*Should not include closing >.*/, string endTag, string text, ITagFormatter formatter)
             {

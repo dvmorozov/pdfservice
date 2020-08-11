@@ -26,7 +26,6 @@ namespace HtmlCleanup
                 hasFileName = false;
             }
 
-            var baseURL = (lastSlashIndex == -1 || !hasFileName) ? url : url.Substring(0, lastSlashIndex);
             //  Gets base path.
             var path = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location) + "\\";
 
@@ -54,9 +53,8 @@ namespace HtmlCleanup
             else
                 if (res.ContentType.IndexOf("utf-8", 0, StringComparison.OrdinalIgnoreCase) != -1) charset = "utf-8";
 
-            StreamReader f = null;
             string text = String.Empty;
-
+            StreamReader f;
             //  If charset wasn't recognized UTF-8 is used by default.
             if (charset == "utf-8" || string.IsNullOrEmpty(charset))
             {

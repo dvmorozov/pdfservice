@@ -23,17 +23,17 @@ namespace HtmlCleanup
             Time
         }
 
-        private MemoryStream _content;
-        private Document _document;
-        private PdfFont _font;
+        private readonly MemoryStream _content;
+        private readonly Document _document;
+        private readonly PdfFont _font;
         private List _list;
         private bool _listItem;
         private bool _paragraph;
         private bool _hyperlink;        //  Hyperlink is a "state". All nested paragraph should be hyperlinked.
         private bool _preformatted;     //  Add "preformatted" style.
-        private PdfWriter _writer;
-        private float _defaultPadding = 10;
-        private float _defaultFontSize = 14;
+        private readonly PdfWriter _writer;
+        private readonly float _defaultPadding = 10;
+        private readonly float _defaultFontSize = 14;
         private ParagraphType _paragraphType = ParagraphType.Simple;
         private string _href;
 

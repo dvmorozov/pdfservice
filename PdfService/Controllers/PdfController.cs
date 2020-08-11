@@ -17,14 +17,9 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                if (url != null && urlToPdf == null)
-                {
-                    return RedirectToAction("UrlToPdf", "Pdf", new { url, adobeViewMode, cleanHtml = false });
-                }
-                else
-                {
-                    return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
-                }
+                return url != null && urlToPdf == null
+                    ? RedirectToAction("UrlToPdf", "Pdf", new { url, adobeViewMode, cleanHtml = false })
+                    : (ActionResult)View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
