@@ -14,7 +14,7 @@ using Adobe.DocumentCloud.Services.options.createpdf;
 
 namespace AdobeSdkService
 {
-    class HtmlToPdfConverter
+    internal class HtmlToPdfConverter
     {
         private readonly ILog log = LogManager.GetLogger(typeof(HtmlToPdfConverter));
         private readonly string inputFileNameOrUrl;
@@ -38,9 +38,8 @@ namespace AdobeSdkService
         private Stream MakeRequest(string url)
         {
             //  Defines code page and convert it to UTF-8.
-            var req = WebRequest.Create(url);
-            var res = req.GetResponse();
-
+            WebRequest req = WebRequest.Create(url);
+            using WebResponse res = req.GetResponse();
             return res.GetResponseStream();
         }
 
@@ -57,7 +56,7 @@ namespace AdobeSdkService
 
             //  File must be named as "index.html".
             string tempFileName = Path.Combine(tempDirectoryName, "index.html");
-            using (var fileStream = File.Create(tempFileName))
+            using (FileStream fileStream = File.Create(tempFileName))
             {
                 content.CopyTo(fileStream);
             }
@@ -90,8 +89,10 @@ namespace AdobeSdkService
         {
             if (urlIsProcessed)
             {
-                var content = MakeRequest(inputFileNameOrUrl);
-                temporaryZipFileName = CreateTemporaryZipFile(content);
+                using (Stream content = MakeRequest(inputFileNameOrUrl))
+                {
+                    temporaryZipFileName = CreateTemporaryZipFile(content);
+                }
                 return FileRef.CreateFromLocalFile(temporaryZipFileName);
             }
             else

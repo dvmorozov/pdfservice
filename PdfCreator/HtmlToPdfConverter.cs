@@ -18,10 +18,10 @@ namespace PdfCreator
     class HtmlToPdfConverter
     {
         private readonly ILog log = LogManager.GetLogger(typeof(Program));
-        private string inputFileNameOrUrl;
-        private string outputFileName;
+        private readonly string inputFileNameOrUrl;
+        private readonly string outputFileName;
         private string temporaryFileName;
-        private bool urlIsProcessed;
+        private readonly bool urlIsProcessed;
 
         public HtmlToPdfConverter(string _inputFileNameOrUrl, string _outputFileName)
         {
@@ -38,10 +38,11 @@ namespace PdfCreator
         /// <returns>Content stream.</returns>
         private Stream MakeRequest(string url)
         {
-            var req = WebRequest.Create(url);
-            var res = req.GetResponse();
-
-            return res.GetResponseStream();
+            WebRequest req = WebRequest.Create(url);
+            using (WebResponse res = req.GetResponse())
+            {
+                return res.GetResponseStream();
+            }
         }
 
         /// <summary>
@@ -57,7 +58,7 @@ namespace PdfCreator
 
             //  File must be named as "index.html".
             string tempFileName = Path.Combine(tempDirectoryName, "index.html");
-            using (var fileStream = File.Create(tempFileName))
+            using (FileStream fileStream = File.Create(tempFileName))
             {
                 content.CopyTo(fileStream);
             }
@@ -91,8 +92,10 @@ namespace PdfCreator
         {
             if (urlIsProcessed)
             {
-                var content = MakeRequest(inputFileNameOrUrl);
-                temporaryFileName = CreateTemporaryFile(content);
+                using (Stream content = MakeRequest(inputFileNameOrUrl))
+                {
+                    temporaryFileName = CreateTemporaryFile(content);
+                }
                 return FileRef.CreateFromLocalFile(temporaryFileName);
             }
             else

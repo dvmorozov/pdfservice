@@ -9,7 +9,7 @@ namespace HtmlCleanup
 
         protected override TagRemover GetTagRemover(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new TagRemover(next, formatter)
+            TagRemover result = new TagRemover(next, formatter)
             {
                 Tags = new List<HtmlTag>(new HtmlTag[] {
                     new HtmlTag( "<script", "</script>" ),
@@ -63,7 +63,7 @@ namespace HtmlCleanup
 
         protected override InnerTextProcessor GetInnerTextProcessor(TextProcessor next, ITagFormatter formatter)
         {
-            var result = new InnerTextProcessor(next, formatter)
+            InnerTextProcessor result = new InnerTextProcessor(next, formatter)
             {
                 Tags = new List<HtmlTag>(new HtmlTag[] {
                     new HtmlTag( "<ul", "</ul>" ),

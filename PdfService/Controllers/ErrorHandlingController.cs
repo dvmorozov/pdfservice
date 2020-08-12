@@ -9,7 +9,7 @@ namespace EnterpriseServices.Controllers
         //  https://www.evernote.com/shard/s132/nl/14501366/2ae0f902-4ecc-4792-ae8d-56f19d41bc91
         public static List<string> GetErrorMessage(Exception e)
         {
-            var mess = new List<string>();
+            List<string> mess = new List<string>();
             if (e != null)
             {
                 //mess.Add("Error Message :" + e.Message);                                //Get the error message
@@ -25,8 +25,8 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                var mess =   "Error in Path :" + Request.Path;                          //Get the path of the page
-                mess += "\n\n Error Raw Url :" + Request.RawUrl;                        //Get the QueryString along with the Virtual Path
+                string mess =   "Error in Path :" + Request.Path;                         //Get the path of the page
+                mess += "\n\n Error Raw Url :" + Request.RawUrl;                          //Get the QueryString along with the Virtual Path
                 mess += "\n\n " + string.Join("\n\n ", GetErrorMessage(e).ToArray());
                 //var myLog = new System.Diagnostics.EventLog { Source = "Expenses" };    //Create a new EventLog object
                 //myLog.WriteEntry(mess, System.Diagnostics.EventLogEntryType.Error);     //Write the log
