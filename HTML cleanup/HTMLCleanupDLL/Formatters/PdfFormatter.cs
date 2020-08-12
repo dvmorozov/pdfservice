@@ -1,5 +1,4 @@
-﻿using iText.IO.Font;
-using iText.Kernel.Colors;
+﻿using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Action;
@@ -23,17 +22,17 @@ namespace HtmlCleanup
             Time
         }
 
-        private MemoryStream _content;
-        private Document _document;
-        private PdfFont _font;
+        private readonly MemoryStream _content;
+        private readonly Document _document;
+        private readonly PdfFont _font;
         private List _list;
         private bool _listItem;
         private bool _paragraph;
         private bool _hyperlink;        //  Hyperlink is a "state". All nested paragraph should be hyperlinked.
         private bool _preformatted;     //  Add "preformatted" style.
-        private PdfWriter _writer;
-        private float _defaultPadding = 10;
-        private float _defaultFontSize = 14;
+        private readonly PdfWriter _writer;
+        private readonly float _defaultPadding = 10;
+        private readonly float _defaultFontSize = 14;
         private ParagraphType _paragraphType = ParagraphType.Simple;
         private string _href;
 
@@ -57,12 +56,12 @@ namespace HtmlCleanup
             // Allows subsequent access to content.
             _writer.SetCloseStream(false);
 
-            var pdf = new PdfDocument(_writer);
+            PdfDocument pdf = new PdfDocument(_writer);
             _document = new Document(pdf);
             _document.SetFontProvider(new BasicFontProvider());
 
             // Creates font object.
-            _font = PdfFontFactory.CreateFont(fontProgram: FontConstants.TIMES_ROMAN);
+            _font = PdfFontFactory.CreateFont(fontProgram: iText.IO.Font.Constants.StandardFonts.TIMES_ROMAN);
         }
 
         public string InitializeTagFormatting(BaseHtmlCleaner.HtmlElement htmlElement, string innerText, out bool callFinalize)
@@ -70,7 +69,7 @@ namespace HtmlCleanup
             callFinalize = false;
             switch (htmlElement.StartTag)
             {
-                case ("<ul"):
+                case "<ul":
                     //  Creates list object.
                     _list = new List()
                         .SetSymbolIndent(12)
@@ -80,51 +79,52 @@ namespace HtmlCleanup
                     callFinalize = true;
                     break;
 
-                case ("<li"):
+                case "<li":
                     //  Creates list item.
-                    if (_list != null) {
+                    if (_list != null)
+                    {
                         _listItem = true;
                         callFinalize = true;
                     }
                     break;
 
-                case ("<pre"):
+                case "<pre":
                     _preformatted = true;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<h1"):
+                case "<h1":
                     _paragraphType = ParagraphType.H1;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<h2"):
+                case "<h2":
                     _paragraphType = ParagraphType.H2;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<h3"):
+                case "<h3":
                     _paragraphType = ParagraphType.H3;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<h4"):
+                case "<h4":
                     _paragraphType = ParagraphType.H4;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<p"):
+                case "<p":
                     _paragraphType = ParagraphType.Simple;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<a"):
+                case "<a":
                     _href = htmlElement.GetAttribute("href");
                     _paragraphType = ParagraphType.Hyperlink;
                     _paragraph = true;
@@ -132,16 +132,19 @@ namespace HtmlCleanup
                     callFinalize = true;
                     break;
 
-                case ("<header"):
+                case "<header":
                     _paragraphType = ParagraphType.Header;
                     _paragraph = true;
                     callFinalize = true;
                     break;
 
-                case ("<time"):
+                case "<time":
                     _paragraphType = ParagraphType.Time;
                     _paragraph = true;
                     callFinalize = true;
+                    break;
+
+                default:
                     break;
             }
             //  Text is always returned as is for subsequent parsing.
@@ -170,40 +173,40 @@ namespace HtmlCleanup
 
             if (_paragraph)
             {
-                var paragraph = new Paragraph().SetFont(_font);
+                Paragraph paragraph = new Paragraph().SetFont(_font);
                 switch (_paragraphType)
                 {
-                    case (ParagraphType.Simple):
+                    case ParagraphType.Simple:
                         paragraph.SetFontSize(_defaultFontSize);
                         paragraph.Add(finalText);
                         break;
 
-                    case (ParagraphType.H1):
+                    case ParagraphType.H1:
                         paragraph.SetFontSize(_defaultFontSize + 8);
                         paragraph.Add(finalText);
                         break;
 
-                    case (ParagraphType.H2):
+                    case ParagraphType.H2:
                         paragraph.SetFontSize(_defaultFontSize + 6);
                         paragraph.Add(finalText);
                         break;
 
-                    case (ParagraphType.H3):
+                    case ParagraphType.H3:
                         paragraph.SetFontSize(_defaultFontSize + 4);
                         paragraph.Add(finalText);
                         break;
 
-                    case (ParagraphType.Header):
+                    case ParagraphType.Header:
                         paragraph.SetFontSize(_defaultFontSize + 10);
                         paragraph.Add(finalText);
                         break;
 
-                    case (ParagraphType.Hyperlink):
+                    case ParagraphType.Hyperlink:
                         //  Finalizes "simple" hyperlinked paragraph without nested paragraphs.
                         paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
                         break;
 
-                    case (ParagraphType.Time):
+                    case ParagraphType.Time:
                         if (_hyperlink)
                         {   //  Finalizes "nested" hyperlinked paragraph. The only single is possible now.
                             paragraph.Add(new Link(finalText, PdfAction.CreateURI(_href)));
@@ -212,19 +215,25 @@ namespace HtmlCleanup
                         else
                             paragraph.Add(finalText);
                         break;
+
+                    case ParagraphType.H4:
+                        break;
+
+                    default:
+                        break;
                 }
 
                 if (_preformatted)
                 {
-                    paragraph.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
-                    paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
-                    paragraph.SetFontSize(10);
-                    paragraph.SetPadding(_defaultPadding);
-                    paragraph.SetBorder(new iText.Layout.Borders.SolidBorder(ColorConstants.GRAY, 1));
+                    _ = paragraph.SetBackgroundColor(ColorConstants.LIGHT_GRAY);
+                    _ = paragraph.SetFontFamily(new string[] { iText.IO.Font.Constants.StandardFonts.COURIER });
+                    _ = paragraph.SetFontSize(10);
+                    _ = paragraph.SetPadding(_defaultPadding);
+                    _ = paragraph.SetBorder(new iText.Layout.Borders.SolidBorder(ColorConstants.GRAY, 1));
                     _preformatted = false;
                 }
 
-                _document.Add(paragraph);
+                _ = _document.Add(paragraph);
                 _paragraph = false;
             }
         }

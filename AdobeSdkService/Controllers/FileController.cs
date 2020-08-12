@@ -28,16 +28,14 @@ namespace AdobeSdkService.Controllers
         [HttpGet]
         public ActionResult Get(string fileName, bool delete = false)
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
             using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
             {
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    fileStream.Seek(0, SeekOrigin.Begin);
-                    fileStream.CopyTo(memoryStream);
-                    SendFileResponseAsync(memoryStream, "application/pdf", fileName).Wait();
-                }
+                using MemoryStream memoryStream = new MemoryStream();
+                fileStream.Seek(0, SeekOrigin.Begin);
+                fileStream.CopyTo(memoryStream);
+                SendFileResponseAsync(memoryStream, "application/pdf", fileName).Wait();
             }
 
             if (delete)
@@ -55,7 +53,7 @@ namespace AdobeSdkService.Controllers
 
         private void DeleteFile(string fileName)
         {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
             if (System.IO.File.Exists(filePath))
             {
                 System.IO.File.Delete(filePath);

@@ -10,25 +10,24 @@ namespace AdobeSdkService.Controllers
     [Route("pdf/[controller]")]
     public class DocumentController : ControllerBase
     {
-        private readonly IWebHostEnvironment _env;
+        public IWebHostEnvironment Env { get; }
 
         public DocumentController(IWebHostEnvironment env)
         {
-            _env = env;
+            Env = env;
         }
 
         private string GetBaseUrl()
         {
-            var request = this.Request;
-            var host = request.Host.ToUriComponent();
-            var pathBase = request.PathBase.ToUriComponent();
+            string host = Request.Host.ToUriComponent();
+            string pathBase = Request.PathBase.ToUriComponent();
 
-            return $"{request.Scheme}://{host}{pathBase}";
+            return $"{Request.Scheme}://{host}{pathBase}";
         }
 
         private string GetStaticUrl(string staticFileName)
         {
-            return GetBaseUrl() + (new PathString("/" + staticFileName)).ToUriComponent();
+            return GetBaseUrl() + new PathString("/" + staticFileName).ToUriComponent();
         }
 
         [HttpGet]
@@ -38,10 +37,10 @@ namespace AdobeSdkService.Controllers
             {
                 if (url != null && url != "")
                 {
-                    var pdfFileName = FileNameController.UrlToFileName(url, ".pdf");
-                    var pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
+                    string pdfFileName = FileNameController.UrlToFileName(url, ".pdf");
+                    string pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
 
-                    var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
+                    HtmlToPdfConverter htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
 
                     try
                     {

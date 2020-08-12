@@ -22,7 +22,7 @@ namespace PdfCreator
             try
             {
                 //  Read names of input and output files.
-                var htmlToPdfConverter = ParseArguments(args);
+                HtmlToPdfConverter htmlToPdfConverter = ParseArguments(args);
                 try
                 {
                     // Configure the logging.

@@ -17,14 +17,9 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                if (url != null && urlToPdf == null)
-                {
-                    return RedirectToAction("UrlToPdf", "Pdf", new { url, adobeViewMode, cleanHtml = false });
-                }
-                else
-                {
-                    return View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
-                }
+                return url != null && urlToPdf == null
+                    ? RedirectToAction("UrlToPdf", "Pdf", new { url, adobeViewMode, cleanHtml = false })
+                    : (ActionResult)View("Index", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
             catch (Exception e)
             {
@@ -52,7 +47,7 @@ namespace EnterpriseServices.Controllers
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
-            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
                 Host = "adobesdk.azurewebsites.net",    //  "localhost"
@@ -61,16 +56,19 @@ namespace EnterpriseServices.Controllers
                 Query = "url=" + url
             };
 
-            var request = uriBuilder.ToString();
-            var req = WebRequest.CreateHttp(request);
+            string request = uriBuilder.ToString();
+            HttpWebRequest req = WebRequest.CreateHttp(request);
             req.Timeout = 30000;
             req.ContentType = "text/plain";
             req.Method = "GET";
 
-            var res = req.GetResponse();
-
-            var streamReader = new StreamReader(res.GetResponseStream());
-            return streamReader.ReadToEnd();
+            using (WebResponse res = req.GetResponse())
+            {
+                using (StreamReader streamReader = new StreamReader(res.GetResponseStream()))
+                {
+                    return streamReader.ReadToEnd();
+                }
+            }
         }
 
         /// <summary>
@@ -80,7 +78,7 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL.</returns>
         private string GetContentUri(string fileName)
         {
-            var urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            UriBuilder urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Path = Url.Content("~/Content/" + fileName),
                 Query = null,
@@ -105,34 +103,35 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF file.</returns>
         private string ConvertByCleaner(string url)
         {
-            var injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
+            HtmlCleanerInjector injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
             //  Creating cleaner instance based on URL.
-            var processChain = injector.CreateHtmlCleaner(url);
+            IHtmlCleaner processChain = injector.CreateHtmlCleaner(url);
 
             //  Performs request.
-            var s = HtmlCleanerApp.MakeRequest(url);
+            string s = HtmlCleanerApp.MakeRequest(url);
 
-            processChain.Process(s);
+            _ = processChain.Process(s);
 
-            var formatter = processChain.GetFormatter();
+            ITagFormatter formatter = processChain.GetFormatter();
 
             //  Finishes processing.
             formatter.CloseDocument();
-            var dataStream = formatter.GetOutputStream();
-
-            var pdfFileName = UrlToFileName(url);
-            var pdfFilePath = GetContentPath(pdfFileName);
-
-            if (dataStream != null)
+            using (MemoryStream dataStream = formatter.GetOutputStream())
             {
-                using (var fileStream = System.IO.File.Create(pdfFilePath))
-                {
-                    dataStream.Seek(0, SeekOrigin.Begin);
-                    dataStream.CopyTo(fileStream);
-                }
-            }
+                string pdfFileName = UrlToFileName(url);
+                string pdfFilePath = GetContentPath(pdfFileName);
 
-            return GetContentUri(pdfFileName);
+                if (dataStream != null)
+                {
+                    using (FileStream fileStream = System.IO.File.Create(pdfFilePath))
+                    {
+                        dataStream.Seek(0, SeekOrigin.Begin);
+                        dataStream.CopyTo(fileStream);
+                    }
+                }
+
+                return GetContentUri(pdfFileName);
+            }
         }
 
         [AllowAnonymous]
@@ -140,17 +139,10 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
-                var urlToPdf = string.Empty;
+                string urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    if (cleanHtml)
-                    {
-                        urlToPdf = ConvertByCleaner(url);
-                    }
-                    else
-                    {
-                        urlToPdf = ConvertByAdobeSdk(url);
-                    }
+                    urlToPdf = cleanHtml ? ConvertByCleaner(url) : ConvertByAdobeSdk(url);
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
@@ -169,7 +161,7 @@ namespace EnterpriseServices.Controllers
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
-            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
                 Host = "adobesdk.azurewebsites.net",    //  "localhost"
@@ -178,18 +170,19 @@ namespace EnterpriseServices.Controllers
                 Query = "url=" + url
             };
 
-            var request = uriBuilder.ToString();
-            var req = WebRequest.CreateHttp(request);
+            string request = uriBuilder.ToString();
+            HttpWebRequest req = WebRequest.CreateHttp(request);
             req.Timeout = 30000;
             req.ContentType = "application/json";
             req.Method = "GET";
 
-            var res = req.GetResponse();
-
-            var streamReader = new StreamReader(res.GetResponseStream());
-            var convertHtmlToPdf = JObject.Parse(streamReader.ReadToEnd());
-
-            return convertHtmlToPdf["fileName"].ToString();
+            using (WebResponse res = req.GetResponse())
+            {
+                using (StreamReader streamReader = new StreamReader(res.GetResponseStream()))
+                {
+                    return JObject.Parse(streamReader.ReadToEnd())["fileName"].ToString();
+                }
+            }
         }
 
         /// <summary>
@@ -201,7 +194,7 @@ namespace EnterpriseServices.Controllers
         {
             if (dataStream != null)
             {
-                using (var fileStream = System.IO.File.Create(filePath))
+                using (FileStream fileStream = System.IO.File.Create(filePath))
                 {
                     dataStream.CopyTo(fileStream);
                 }
@@ -216,7 +209,7 @@ namespace EnterpriseServices.Controllers
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
-            var uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
+            UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
                 Host = "adobesdk.azurewebsites.net",    //  "localhost"
@@ -225,16 +218,20 @@ namespace EnterpriseServices.Controllers
                 Query = "fileName=" + fileName + "&delete=true"
             };
 
-            var request = uriBuilder.ToString();
-            var req = WebRequest.CreateHttp(request);
+            string request = uriBuilder.ToString();
+            HttpWebRequest req = WebRequest.CreateHttp(request);
             req.Timeout = 30000;
             req.ContentType = "application/pdf";
             req.Method = "GET";
 
-            var res = req.GetResponse();
-            var dataStream = res.GetResponseStream();
-            var pdfFilePath = GetContentPath(fileName);
-            CopyStreamToFile(dataStream, pdfFilePath);
+            using (WebResponse res = req.GetResponse())
+            {
+                using (Stream dataStream = res.GetResponseStream())
+                {
+                    string pdfFilePath = GetContentPath(fileName);
+                    CopyStreamToFile(dataStream, pdfFilePath);
+                }
+            }
         }
 
         /// <summary>
@@ -244,7 +241,7 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF.</returns>
         private string ConvertByAdobeSdk(string url)
         {
-            var fileName = RequestConvertingService(url);
+            string fileName = RequestConvertingService(url);
             GetFileFromConvertingService(fileName);
             return GetContentUri(fileName);
         }

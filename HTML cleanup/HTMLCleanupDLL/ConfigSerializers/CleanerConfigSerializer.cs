@@ -19,10 +19,10 @@ namespace HtmlCleanup
         public void Deserialize(string fileName, BaseHtmlCleaner.TextProcessor chain)
         {
             //  Reads settings from file.
-            var config = new HTMLCleanupConfig();
-            using (var reader = new StreamReader(fileName))
+            HTMLCleanupConfig config = new HTMLCleanupConfig();
+            using (StreamReader reader = new StreamReader(fileName))
             {
-                var serializer = new XmlSerializer(typeof(HTMLCleanupConfig));
+                XmlSerializer serializer = new XmlSerializer(typeof(HTMLCleanupConfig));
                 config = (HTMLCleanupConfig)serializer.Deserialize(reader);
             }
             //  Updates objects in the chain.
@@ -57,7 +57,7 @@ namespace HtmlCleanup
         /// <param name="chain">The first member of processing chain.</param>
         public void Serialize(string fileName, BaseHtmlCleaner.TextProcessor chain)
         {
-            var config = new HTMLCleanupConfig();
+            HTMLCleanupConfig config = new HTMLCleanupConfig();
             //  Fills the settings container.
             while (chain != null)
             {
@@ -82,9 +82,9 @@ namespace HtmlCleanup
                 chain = chain.Next;
             }
             //  Writes data to file.
-            using (var writer = new StreamWriter(fileName))
+            using (StreamWriter writer = new StreamWriter(fileName))
             {
-                var serializer = new XmlSerializer(typeof(HTMLCleanupConfig));
+                XmlSerializer serializer = new XmlSerializer(typeof(HTMLCleanupConfig));
                 serializer.Serialize(writer, config);
             }
         }

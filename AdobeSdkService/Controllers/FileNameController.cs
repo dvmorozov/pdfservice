@@ -18,10 +18,12 @@ namespace AdobeSdkService.Controllers
         {
             if (url != null)
             {
-                var fileName = url;
-                var prefixIndex = fileName.IndexOf("://");
+                int prefixIndex = url.IndexOf("://");
+                string fileName = url;
                 if (prefixIndex != -1)
-                    fileName = fileName.Substring(prefixIndex + 3);
+                {
+                    fileName = url.Substring(prefixIndex + 3);
+                }
 
                 char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
 
@@ -30,7 +32,7 @@ namespace AdobeSdkService.Controllers
                     fileName = fileName.Replace(character, '_');
                 }
 
-                fileName = fileName.Trim('_');
+                fileName = url.Trim('_');
                 //  Adds file extension.
                 fileName += fileExtension;
                 return fileName;
