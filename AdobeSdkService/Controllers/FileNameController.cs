@@ -25,9 +25,9 @@ namespace AdobeSdkService.Controllers
                     fileName = url.Substring(prefixIndex + 3);
                 }
 
-                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
+                char[] replacedCharacters = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=', '.', '-' };
 
-                foreach (char character in forbidden)
+                foreach (char character in replacedCharacters)
                 {
                     fileName = fileName.Replace(character, '_');
                 }
