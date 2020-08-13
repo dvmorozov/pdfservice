@@ -32,7 +32,7 @@ namespace AdobeSdkService.Controllers
                     fileName = fileName.Replace(character, '_');
                 }
 
-                fileName = url.Trim('_');
+                fileName = fileName.Trim('_');
                 //  Adds file extension.
                 fileName += fileExtension;
                 return fileName;
