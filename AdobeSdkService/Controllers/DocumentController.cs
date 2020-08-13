@@ -64,7 +64,7 @@ namespace AdobeSdkService.Controllers
             }
             catch (Exception e)
             {
-                return new HtmlToPdfResult { Message = "Exception: " + e.Message };
+                return new HtmlToPdfResult { Message = e.Message };
             }
         }
     }

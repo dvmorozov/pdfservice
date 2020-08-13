@@ -180,7 +180,22 @@ namespace EnterpriseServices.Controllers
             {
                 using (StreamReader streamReader = new StreamReader(res.GetResponseStream()))
                 {
-                    return JObject.Parse(streamReader.ReadToEnd())["fileName"].ToString();
+                    JObject jObject = JObject.Parse(streamReader.ReadToEnd());
+
+                    if (jObject["urlToPdf"].Type == JTokenType.Null)
+                    {
+                        if (jObject["message"].Type != JTokenType.Null)
+                        {
+                            //  Propagates an exception.
+                            throw new Exception(jObject["message"].ToString());
+                        }
+                        else 
+                        {
+                            throw new Exception("Converting service had returned empty URL to PDF.");
+                        }
+                    }
+
+                    return jObject["fileName"].ToString();
                 }
             }
         }
