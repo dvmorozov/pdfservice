@@ -11,6 +11,7 @@ using Adobe.DocumentCloud.Services.pdfops;
 using Adobe.DocumentCloud.Services.io;
 using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
+using System.Threading.Tasks;
 
 namespace AdobeSdkService
 {
@@ -51,7 +52,7 @@ namespace AdobeSdkService
         private string CreateTemporaryZipFile(Stream content)
         {
             string tempPath = Path.GetTempPath();
-            string tempDirectoryName = tempPath + "/pdf_creator_page";
+            string tempDirectoryName = Path.Combine(tempPath, "pdf_creator_page");
             Directory.CreateDirectory(tempDirectoryName);
 
             //  File must be named as "index.html".
@@ -75,7 +76,7 @@ namespace AdobeSdkService
         /// </summary>
         public void CleanUp()
         {
-            if (urlIsProcessed)
+            if (urlIsProcessed && temporaryZipFileName != null)
             {
                 File.Delete(temporaryZipFileName);
             }
@@ -104,7 +105,7 @@ namespace AdobeSdkService
         /// <summary>
         /// Converts zip-file or page located by provided URL to PDF.
         /// </summary>
-        public void ConvertFileToPdf()
+        public async Task ConvertFileToPdfAsync()
         {
             try
             {
@@ -128,6 +129,7 @@ namespace AdobeSdkService
                 // Execute the operation.
                 FileRef result = htmlToPDFOperation.Execute(executionContext);
 
+                await Task.Delay(2000);
                 // Save the result to the specified location.
                 File.Delete(outputFileName);
                 result.SaveAs(outputFileName);

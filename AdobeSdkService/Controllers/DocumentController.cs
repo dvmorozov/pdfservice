@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace AdobeSdkService.Controllers
         }
 
         [HttpGet]
-        public HtmlToPdfResult Get(string url)
+        public async System.Threading.Tasks.Task<HtmlToPdfResult> GetAsync(string url)
         {
             try
             {
@@ -44,15 +45,18 @@ namespace AdobeSdkService.Controllers
 
                     try
                     {
-                        // Configure the logging.
+                        // Configures the logging.
                         htmlToPdfConverter.ConfigureLogging();
 
-                        // Read HTML, convert and write PDF.
-                        htmlToPdfConverter.ConvertFileToPdf();
+                        // Reads HTML, converts and writes PDF.
+                        await htmlToPdfConverter.ConvertFileToPdfAsync();
+
+                        await Task.Delay(2000);
                     }
                     finally
                     {
-                        //htmlToPdfConverter.CleanUp();
+                        // Removes temporary files.
+                        htmlToPdfConverter.CleanUp();
                     }
 
                     return new HtmlToPdfResult { UrlToPdf = GetStaticUrl(pdfFileName), FileName = pdfFileName, Message = "Converted successfully." };
