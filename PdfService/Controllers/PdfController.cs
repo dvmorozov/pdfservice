@@ -164,8 +164,13 @@ namespace EnterpriseServices.Controllers
             UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
                 Scheme = "https",
-                Host = "adobesdk.azurewebsites.net",    //  "localhost"
-                Port = 443,                             //  44379
+#if DEBUG
+                Host = "localhost",
+                Port = 44379,
+#else
+                Host = "adobesdk.azurewebsites.net",
+                Port = 443,
+#endif
                 Path = "pdf/document",
                 Query = "url=" + url
             };
@@ -180,7 +185,22 @@ namespace EnterpriseServices.Controllers
             {
                 using (StreamReader streamReader = new StreamReader(res.GetResponseStream()))
                 {
-                    return JObject.Parse(streamReader.ReadToEnd())["fileName"].ToString();
+                    JObject jObject = JObject.Parse(streamReader.ReadToEnd());
+
+                    if (jObject["urlToPdf"].Type == JTokenType.Null)
+                    {
+                        if (jObject["message"].Type != JTokenType.Null)
+                        {
+                            //  Propagates an exception.
+                            throw new Exception(jObject["message"].ToString());
+                        }
+                        else 
+                        {
+                            throw new Exception("Converting service had returned empty URL to PDF.");
+                        }
+                    }
+
+                    return jObject["fileName"].ToString();
                 }
             }
         }
