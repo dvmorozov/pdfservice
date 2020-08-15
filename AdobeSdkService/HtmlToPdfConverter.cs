@@ -35,13 +35,12 @@ namespace AdobeSdkService
         /// Performs HTTP-request.
         /// </summary>
         /// <param name="url"></param>
-        /// <returns>Content stream.</returns>
-        private Stream MakeRequest(string url)
+        /// <returns>Response object.</returns>
+        private WebResponse MakeRequest(string url)
         {
             //  Defines code page and convert it to UTF-8.
             WebRequest req = WebRequest.Create(url);
-            using WebResponse res = req.GetResponse();
-            return res.GetResponseStream();
+            return req.GetResponse();
         }
 
         /// <summary>
@@ -52,8 +51,8 @@ namespace AdobeSdkService
         private string CreateTemporaryZipFile(Stream content)
         {
             string tempPath = Path.GetTempPath();
-            string tempDirectoryName = Path.Combine(tempPath, "pdf_creator_page");
-            Directory.CreateDirectory(tempDirectoryName);
+            string tempDirectoryName = Path.Combine(tempPath, ReplaceInvalidCharacters(Path.GetRandomFileName()));
+            _ = Directory.CreateDirectory(tempDirectoryName);
 
             //  File must be named as "index.html".
             string tempFileName = Path.Combine(tempDirectoryName, "index.html");
@@ -62,7 +61,7 @@ namespace AdobeSdkService
                 content.CopyTo(fileStream);
             }
 
-            string zipFileName = Path.Combine(tempPath, Path.GetRandomFileName() + ".zip");
+            string zipFileName = Path.Combine(tempPath, ReplaceInvalidCharacters(Path.GetRandomFileName()) + ".zip");
             ZipFile.CreateFromDirectory(tempDirectoryName, zipFileName);
 
             File.Delete(tempFileName);
@@ -90,9 +89,9 @@ namespace AdobeSdkService
         {
             if (urlIsProcessed)
             {
-                using (Stream content = MakeRequest(inputFileNameOrUrl))
+                using (WebResponse response = MakeRequest(inputFileNameOrUrl))
                 {
-                    temporaryZipFileName = CreateTemporaryZipFile(content);
+                    temporaryZipFileName = CreateTemporaryZipFile(response.GetResponseStream());
                 }
                 return FileRef.CreateFromLocalFile(temporaryZipFileName);
             }
@@ -183,6 +182,23 @@ namespace AdobeSdkService
         {
             ILoggerRepository logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
             XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
+        }
+
+        /// <summary>
+        /// Replaced inadmissible characters. Should necessarily replace '.' for proper naming of ZIP-files.
+        /// </summary>
+        /// <param name="fileName">Original file name.</param>
+        /// <returns>Transformed file name.</returns>
+        public static string ReplaceInvalidCharacters(string fileName)
+        {
+            char[] replacedCharacters = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=', '.', '-' };
+
+            foreach (char character in replacedCharacters)
+            {
+                fileName = fileName.Replace(character, '_');
+            }
+
+            return fileName.Trim('_');
         }
     }
 }
