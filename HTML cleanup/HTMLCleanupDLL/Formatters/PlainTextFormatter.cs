@@ -9,17 +9,20 @@ namespace HtmlCleanup
             callFinalize = false;
             switch (htmlElement.StartTag)
             {
-                case ("<ul"):
+                case "<ul":
                     //  Adds line break (line should not contain only white
                     //  spaces, otherwise it will be removed at next stages).
                     return "\\\n" + innerText + "\\\n";
 
-                case ("<li"):
+                case "<li":
                     return "  * " + innerText;
 
-                case ("<pre"):
+                case "<pre":
                     var indent = "\\  ";
                     return indent + innerText.Replace("\n", "\n" + indent);
+
+                default:
+                    break;
             }
             return innerText;
         }

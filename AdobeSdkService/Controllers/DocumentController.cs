@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,49 +11,49 @@ namespace AdobeSdkService.Controllers
     [Route("pdf/[controller]")]
     public class DocumentController : ControllerBase
     {
-        private readonly IWebHostEnvironment _env;
+        public IWebHostEnvironment Env { get; }
 
         public DocumentController(IWebHostEnvironment env)
         {
-            _env = env;
+            Env = env;
         }
 
         private string GetBaseUrl()
         {
-            var request = this.Request;
-            var host = request.Host.ToUriComponent();
-            var pathBase = request.PathBase.ToUriComponent();
+            string host = Request.Host.ToUriComponent();
+            string pathBase = Request.PathBase.ToUriComponent();
 
-            return $"{request.Scheme}://{host}{pathBase}";
+            return $"{Request.Scheme}://{host}{pathBase}";
         }
 
         private string GetStaticUrl(string staticFileName)
         {
-            return GetBaseUrl() + (new PathString("/" + staticFileName)).ToUriComponent();
+            return GetBaseUrl() + new PathString("/" + staticFileName).ToUriComponent();
         }
 
         [HttpGet]
-        public HtmlToPdfResult Get(string url)
+        public async System.Threading.Tasks.Task<HtmlToPdfResult> GetAsync(string url)
         {
             try
             {
                 if (url != null && url != "")
                 {
-                    var pdfFileName = FileNameController.UrlToFileName(url, ".pdf");
-                    var pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
+                    string pdfFileName = FileNameController.UrlToFileName(url, ".pdf");
+                    string pdfFilePath = Path.Combine(Directory.GetCurrentDirectory(), pdfFileName);
 
-                    var htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
+                    HtmlToPdfConverter htmlToPdfConverter = new HtmlToPdfConverter(url, pdfFilePath);
 
                     try
                     {
-                        // Configure the logging.
+                        // Configures the logging.
                         htmlToPdfConverter.ConfigureLogging();
 
-                        // Read HTML, convert and write PDF.
-                        htmlToPdfConverter.ConvertFileToPdf();
+                        // Reads HTML, converts and writes PDF.
+                        await htmlToPdfConverter.ConvertFileToPdfAsync();
                     }
                     finally
                     {
+                        // Removes temporary files.
                         //htmlToPdfConverter.CleanUp();
                     }
 
@@ -65,7 +66,7 @@ namespace AdobeSdkService.Controllers
             }
             catch (Exception e)
             {
-                return new HtmlToPdfResult { Message = "Exception: " + e.Message };
+                return new HtmlToPdfResult { Message = e.Message };
             }
         }
     }

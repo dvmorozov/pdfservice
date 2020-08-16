@@ -8,6 +8,7 @@ namespace AdobeSdkService.Controllers
     [ApiController]
     public class FileNameController : ControllerBase
     {
+
         /// <summary>
         /// Prepares file name from URL.
         /// </summary>
@@ -18,19 +19,15 @@ namespace AdobeSdkService.Controllers
         {
             if (url != null)
             {
-                var fileName = url;
-                var prefixIndex = fileName.IndexOf("://");
+                int prefixIndex = url.IndexOf("://");
+                string fileName = url;
                 if (prefixIndex != -1)
-                    fileName = fileName.Substring(prefixIndex + 3);
-
-                char[] forbidden = { '<', '>', ':', '"', '/', '\\', '|', '?', '*', '&', '#', '=' };
-
-                foreach (char character in forbidden)
                 {
-                    fileName = fileName.Replace(character, '_');
+                    fileName = url.Substring(prefixIndex + 3);
                 }
 
-                fileName = fileName.Trim('_');
+                fileName = HtmlToPdfConverter.ReplaceInvalidCharacters(fileName);
+
                 //  Adds file extension.
                 fileName += fileExtension;
                 return fileName;
