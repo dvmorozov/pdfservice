@@ -56,7 +56,7 @@ namespace AdobeSdkService.Controllers
                     finally
                     {
                         // Removes temporary files.
-                        htmlToPdfConverter.CleanUp();
+                        //htmlToPdfConverter.CleanUp();
                     }
 
                     return new HtmlToPdfResult { UrlToPdf = GetStaticUrl(pdfFileName), FileName = pdfFileName, Message = "Converted successfully." };
