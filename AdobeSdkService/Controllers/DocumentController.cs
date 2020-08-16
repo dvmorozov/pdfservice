@@ -50,8 +50,6 @@ namespace AdobeSdkService.Controllers
 
                         // Reads HTML, converts and writes PDF.
                         await htmlToPdfConverter.ConvertFileToPdfAsync();
-
-                        await Task.Delay(2000);
                     }
                     finally
                     {
