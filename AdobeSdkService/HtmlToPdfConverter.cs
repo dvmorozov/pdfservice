@@ -128,7 +128,6 @@ namespace AdobeSdkService
                 // Execute the operation.
                 FileRef result = htmlToPDFOperation.Execute(executionContext);
 
-                await Task.Delay(2000);
                 // Save the result to the specified location.
                 File.Delete(outputFileName);
                 result.SaveAs(outputFileName);
