@@ -17,7 +17,7 @@
 						<div id="labelContainer">
 							@Html.CheckBoxFor(model => model.CleanHtml)
 							@Html.LabelFor(model => model.CleanHtml, "Clean HTML")
-							@Html.Image("/Content/GitHub_Logo.png", "GitHub logo", "32px")
+							<a href="https://github.com/dvmorozov/pdfservice">@Html.Image("/Content/GitHub_Logo.png", "GitHub logo", "32px")</a>
 						</div>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
 					}
