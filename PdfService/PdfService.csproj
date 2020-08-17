@@ -424,6 +424,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageHelper.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -437,6 +438,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AppMenu.css" />
+    <Content Include="Content\GitHub_Logo.png" />
     <Content Include="Content\UrlInput.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
