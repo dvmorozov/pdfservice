@@ -14,9 +14,11 @@
 						@Html.HiddenFor(model => model.AdobeViewMode)
 						<label for="url" class="sr-only">URL</label>
 						@Html.TextBoxFor(model => model.Url, new { id = "Url", name = "Url", @class = "form-control", placeholder = "URL", required = "required" })
-						@Html.CheckBoxFor(model => model.CleanHtml)
-						@Html.LabelFor(model => model.CleanHtml, "Clean HTML")
-						@Html.Image("/Content/GitHub_Logo.png", "", "")
+						<div id="labelContainer">
+							@Html.CheckBoxFor(model => model.CleanHtml)
+							@Html.LabelFor(model => model.CleanHtml, "Clean HTML")
+							@Html.Image("/Content/GitHub_Logo.png", "GitHub logo", "32px")
+						</div>
 						<button class="btn btn-lg btn-primary btn-block" type="submit">Get PDF</button>
 					}
 				</div>

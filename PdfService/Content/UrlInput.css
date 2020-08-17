@@ -42,3 +42,13 @@ body {
     margin-top: 16px;
     margin-left: 8px;
 }
+
+.form-url-input img {
+    position: absolute;
+    right: 0px;
+    margin-top: 16px;
+}
+
+.form-url-input #labelContainer {
+    position: relative;
+}
