@@ -13,9 +13,9 @@ using Adobe.DocumentCloud.Services.exception;
 using Adobe.DocumentCloud.Services.options.createpdf;
 using System.Threading.Tasks;
 
-namespace AdobeSdkService
+namespace HTMLToPDFConvertingDLL
 {
-    internal class HtmlToPdfConverter
+    public class HtmlToPdfConverter
     {
         private readonly ILog log = LogManager.GetLogger(typeof(HtmlToPdfConverter));
         private readonly string inputFileNameOrUrl;
@@ -104,7 +104,7 @@ namespace AdobeSdkService
         /// <summary>
         /// Converts zip-file or page located by provided URL to PDF.
         /// </summary>
-        public async Task ConvertFileToPdfAsync()
+        public void ConvertFileToPdf()
         {
             try
             {
