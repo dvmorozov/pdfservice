@@ -43,3 +43,5 @@
 /AdobeSdkService/private.key
 /AdobeSdkService/dc-services-sdk-credentials.json
 *.pdf
+/HTMLToPDFConvertingDLL/bin/Debug/netcoreapp3.1
+/HTMLToPDFConvertingDLL/obj
