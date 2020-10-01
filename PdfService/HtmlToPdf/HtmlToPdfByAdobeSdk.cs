@@ -6,7 +6,7 @@ using System.Net;
 
 namespace EnterpriseServices.HtmlToPdf
 {
-    public class HtmlToPdfByAdobeSdk : HtmlToPdf
+    public class HtmlToPdfByAdobeSdk : IHtmlToPdf
     {
         private readonly PdfController _pdfController;
 

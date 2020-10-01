@@ -1,11 +1,9 @@
-﻿using HtmlCleanup;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using EnterpriseServices.HtmlToPdf;
 
 namespace EnterpriseServices.Controllers
@@ -44,7 +42,7 @@ namespace EnterpriseServices.Controllers
         /// <param name="url">URL.</param>
         /// <param name="fileExtension">File extension including dot.</param>
         /// <returns></returns>
-        private string UrlToFileName(string url)
+        public string UrlToFileName(string url)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
@@ -109,35 +107,8 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF file.</returns>
         private string ConvertByCleaner(string url)
         {
-            HtmlCleanerInjector injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
-            //  Creating cleaner instance based on URL.
-            IHtmlCleaner processChain = injector.CreateHtmlCleaner(url);
-
-            //  Performs request.
-            string s = HtmlCleanerApp.MakeRequest(url);
-
-            _ = processChain.Process(s);
-
-            ITagFormatter formatter = processChain.GetFormatter();
-
-            //  Finishes processing.
-            formatter.CloseDocument();
-            using (MemoryStream dataStream = formatter.GetOutputStream())
-            {
-                string pdfFileName = UrlToFileName(url);
-                string pdfFilePath = GetContentPath(pdfFileName);
-
-                if (dataStream != null)
-                {
-                    using (FileStream fileStream = System.IO.File.Create(pdfFilePath))
-                    {
-                        dataStream.Seek(0, SeekOrigin.Begin);
-                        dataStream.CopyTo(fileStream);
-                    }
-                }
-
-                return GetContentUri(pdfFileName);
-            }
+            HtmlToPdfByITextCleaner converter = new HtmlToPdfByITextCleaner(this);
+            return converter.GetUrlToPdf(url);
         }
 
         [AllowAnonymous]

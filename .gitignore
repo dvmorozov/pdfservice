@@ -45,3 +45,5 @@
 *.pdf
 /HTMLToPDFConvertingDLL/bin/Debug/netcoreapp3.1
 /HTMLToPDFConvertingDLL/obj
+/HTMLToPDFConvertingDLL/bin/Release/netcoreapp3.1
+/PdfCreator/bin/Release/netcoreapp3.1

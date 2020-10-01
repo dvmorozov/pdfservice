@@ -426,6 +426,7 @@
   <ItemGroup>
     <Compile Include="HtmlToPdf\HtmlToPdfByAdobeSdk.cs" />
     <Compile Include="HtmlToPdf\HtmlToPdf.cs" />
+    <Compile Include="HtmlToPdf\HtmlToPdfByITextCleaner.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
