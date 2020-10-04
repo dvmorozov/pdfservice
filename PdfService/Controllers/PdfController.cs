@@ -105,7 +105,7 @@ namespace EnterpriseServices.Controllers
         /// </summary>
         /// <param name="url">Original URL.</param>
         /// <returns>URL to PDF file.</returns>
-        private string ConvertByCleaner(string url)
+        private string ConvertByITextCleaner(string url)
         {
             HtmlToPdfByITextCleaner converter = new HtmlToPdfByITextCleaner(this);
             return converter.GetUrlToPdf(url);
@@ -119,7 +119,7 @@ namespace EnterpriseServices.Controllers
                 string urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    urlToPdf = cleanHtml ? ConvertByCleaner(url) : ConvertByAdobeSdk(url);
+                    urlToPdf = cleanHtml ? ConvertByITextCleaner(url) : ConvertByLocalApp(url);
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
@@ -129,7 +129,7 @@ namespace EnterpriseServices.Controllers
             }
         }
 
-                /// <summary>
+        /// <summary>
         /// Returns URL to PDF file.
         /// </summary>
         /// <param name="url">Original URL</param>
@@ -139,6 +139,18 @@ namespace EnterpriseServices.Controllers
             HtmlToPdfByAdobeSdk converter = new HtmlToPdfByAdobeSdk(this);
             return converter.GetUrlToPdf(url);
         }
+
+        /// <summary>
+        /// Returns URL to PDF file.
+        /// </summary>
+        /// <param name="url">Original URL</param>
+        /// <returns>URL to PDF.</returns>
+        private string ConvertByLocalApp(string url)
+        {
+            HtmlToPdfByLocalApp converter = new HtmlToPdfByLocalApp(this, "Wkhtmltopdf");
+            return converter.GetUrlToPdf(url);
+        }
+
 
         [AllowAnonymous]
         public ActionResult Error()
