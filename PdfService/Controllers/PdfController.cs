@@ -5,6 +5,8 @@ using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using EnterpriseServices.HtmlToPdf;
+using System.Configuration;
+using System.Web.WebPages;
 
 namespace EnterpriseServices.Controllers
 {
@@ -116,10 +118,16 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
+                bool convertByAdobeSdk = false;
+#if DEBUG
+                bool.TryParse(ConfigurationManager.AppSettings["ConvertByAdobeSdk"], out convertByAdobeSdk);
+#else
+                bool.TryParse(CloudConfigurationManager.GetSetting("ConvertByAdobeSdk"), out convertByAdobeSdk);
+#endif
                 string urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    urlToPdf = cleanHtml ? ConvertByITextCleaner(url) : ConvertByLocalApp(url);
+                    urlToPdf = cleanHtml ? ConvertByITextCleaner(url) : (convertByAdobeSdk ? ConvertByAdobeSdk(url) : ConvertByLocalApp(url));
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
@@ -147,10 +155,18 @@ namespace EnterpriseServices.Controllers
         /// <returns>URL to PDF.</returns>
         private string ConvertByLocalApp(string url)
         {
-            HtmlToPdfByLocalApp converter = new HtmlToPdfByLocalApp(this, "Wkhtmltopdf");
+#if DEBUG
+            string localConvertingApp = ConfigurationManager.AppSettings["LocalConvertingApp"];
+#else
+            string localConvertingApp = CloudConfigurationManager.GetSetting("LocalConvertingApp");
+#endif
+            if (localConvertingApp.IsEmpty())
+            {
+                localConvertingApp = "Wkhtmltopdf";
+            }
+            HtmlToPdfByLocalApp converter = new HtmlToPdfByLocalApp(this, localConvertingApp);
             return converter.GetUrlToPdf(url);
         }
-
 
         [AllowAnonymous]
         public ActionResult Error()
