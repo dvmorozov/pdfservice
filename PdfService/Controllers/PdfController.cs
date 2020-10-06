@@ -1,11 +1,12 @@
-﻿using HtmlCleanup;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using EnterpriseServices.HtmlToPdf;
+using System.Configuration;
+using System.Web.WebPages;
 
 namespace EnterpriseServices.Controllers
 {
@@ -43,7 +44,7 @@ namespace EnterpriseServices.Controllers
         /// <param name="url">URL.</param>
         /// <param name="fileExtension">File extension including dot.</param>
         /// <returns></returns>
-        private string UrlToFileName(string url)
+        public string UrlToFileName(string url)
         {
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
 
@@ -81,7 +82,7 @@ namespace EnterpriseServices.Controllers
         /// </summary>
         /// <param name="fileName">Content file name.</param>
         /// <returns>URL.</returns>
-        private string GetContentUri(string fileName)
+        public string GetContentUri(string fileName)
         {
             UriBuilder urlBuilder = new UriBuilder(Request.Url.AbsoluteUri)
             {
@@ -96,7 +97,7 @@ namespace EnterpriseServices.Controllers
         /// </summary>
         /// <param name="fileName">File name.</param>
         /// <returns>Path.</returns>
-        private string GetContentPath(string fileName)
+        public string GetContentPath(string fileName)
         {
             return Path.Combine(Server.MapPath("~"), "Content", fileName);
         }
@@ -106,37 +107,10 @@ namespace EnterpriseServices.Controllers
         /// </summary>
         /// <param name="url">Original URL.</param>
         /// <returns>URL to PDF file.</returns>
-        private string ConvertByCleaner(string url)
+        private string ConvertByITextCleaner(string url)
         {
-            HtmlCleanerInjector injector = new HtmlCleanerInjector(new BaseInjectorConfig(), new WebCleanerConfigSerializer(Server));
-            //  Creating cleaner instance based on URL.
-            IHtmlCleaner processChain = injector.CreateHtmlCleaner(url);
-
-            //  Performs request.
-            string s = HtmlCleanerApp.MakeRequest(url);
-
-            _ = processChain.Process(s);
-
-            ITagFormatter formatter = processChain.GetFormatter();
-
-            //  Finishes processing.
-            formatter.CloseDocument();
-            using (MemoryStream dataStream = formatter.GetOutputStream())
-            {
-                string pdfFileName = UrlToFileName(url);
-                string pdfFilePath = GetContentPath(pdfFileName);
-
-                if (dataStream != null)
-                {
-                    using (FileStream fileStream = System.IO.File.Create(pdfFilePath))
-                    {
-                        dataStream.Seek(0, SeekOrigin.Begin);
-                        dataStream.CopyTo(fileStream);
-                    }
-                }
-
-                return GetContentUri(pdfFileName);
-            }
+            HtmlToPdfByITextCleaner converter = new HtmlToPdfByITextCleaner(this);
+            return converter.GetUrlToPdf(url);
         }
 
         [AllowAnonymous]
@@ -144,10 +118,16 @@ namespace EnterpriseServices.Controllers
         {
             try
             {
+                bool convertByAdobeSdk = false;
+#if DEBUG
+                bool.TryParse(ConfigurationManager.AppSettings["ConvertByAdobeSdk"], out convertByAdobeSdk);
+#else
+                bool.TryParse(CloudConfigurationManager.GetSetting("ConvertByAdobeSdk"), out convertByAdobeSdk);
+#endif
                 string urlToPdf = string.Empty;
                 if (url != null)
                 {
-                    urlToPdf = cleanHtml ? ConvertByCleaner(url) : ConvertByAdobeSdk(url);
+                    urlToPdf = cleanHtml ? ConvertByITextCleaner(url) : (convertByAdobeSdk ? ConvertByAdobeSdk(url) : ConvertByLocalApp(url));
                 }
                 return RedirectToAction("Index", "Pdf", new UrlToPdfData { Url = url, UrlToPdf = urlToPdf, AdobeViewMode = adobeViewMode, FileName = UrlToFileName(url) });
             }
@@ -158,110 +138,14 @@ namespace EnterpriseServices.Controllers
         }
 
         /// <summary>
-        /// Requests external service for conversion original URL to PDF.
+        /// Returns URL to PDF file.
         /// </summary>
-        /// <param name="url">Original URL.</param>
-        /// <returns>File name.</returns>
-        private string RequestConvertingService(string url)
+        /// <param name="url">Original URL</param>
+        /// <returns>URL to PDF.</returns>
+        private string ConvertByAdobeSdk(string url)
         {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
-
-            UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
-            {
-                Scheme = "https",
-#if DEBUG
-                Host = "localhost",
-                Port = 44379,
-#else
-                Host = "adobesdk.azurewebsites.net",
-                Port = 443,
-#endif
-                Path = "pdf/document",
-                Query = "url=" + url
-            };
-
-            string request = uriBuilder.ToString();
-            HttpWebRequest req = WebRequest.CreateHttp(request);
-            req.Timeout = 30000;
-            req.ContentType = "application/json";
-            req.Method = "GET";
-
-            using (WebResponse res = req.GetResponse())
-            {
-                using (StreamReader streamReader = new StreamReader(res.GetResponseStream()))
-                {
-                    JObject jObject = JObject.Parse(streamReader.ReadToEnd());
-
-                    if (jObject["urlToPdf"].Type == JTokenType.Null)
-                    {
-                        if (jObject["message"].Type != JTokenType.Null)
-                        {
-                            //  Propagates an exception.
-                            throw new Exception(jObject["message"].ToString());
-                        }
-                        else 
-                        {
-                            throw new Exception("Converting service had returned empty URL to PDF.");
-                        }
-                    }
-
-                    return jObject["fileName"].ToString();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Copies data from stream to local file.
-        /// </summary>
-        /// <param name="dataStream">Data stream.</param>
-        /// <param name="filePath">Path to local file.</param>
-        private void CopyStreamToFile(Stream dataStream, string filePath)
-        {
-            if (dataStream != null)
-            {
-                using (FileStream fileStream = System.IO.File.Create(filePath))
-                {
-                    dataStream.CopyTo(fileStream);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Copies file from converting service to local folder and deletes it.
-        /// </summary>
-        /// <param name="fileName">Name of converted file.</param>
-        private void GetFileFromConvertingService(string fileName)
-        {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls | SecurityProtocolType.Ssl3;
-
-            UriBuilder uriBuilder = new UriBuilder(Request.Url.AbsoluteUri)
-            {
-                Scheme = "https",
-#if DEBUG
-                Host = "localhost",
-                Port = 44379,
-#else
-                Host = "adobesdk.azurewebsites.net",
-                Port = 443,
-#endif
-                Path = "pdf/file",
-                Query = "fileName=" + fileName + "&delete=true"
-            };
-
-            string request = uriBuilder.ToString();
-            HttpWebRequest req = WebRequest.CreateHttp(request);
-            req.Timeout = 30000;
-            req.ContentType = "application/pdf";
-            req.Method = "GET";
-
-            using (WebResponse res = req.GetResponse())
-            {
-                using (Stream dataStream = res.GetResponseStream())
-                {
-                    string pdfFilePath = GetContentPath(fileName);
-                    CopyStreamToFile(dataStream, pdfFilePath);
-                }
-            }
+            HtmlToPdfByAdobeSdk converter = new HtmlToPdfByAdobeSdk(this);
+            return converter.GetUrlToPdf(url);
         }
 
         /// <summary>
@@ -269,11 +153,19 @@ namespace EnterpriseServices.Controllers
         /// </summary>
         /// <param name="url">Original URL</param>
         /// <returns>URL to PDF.</returns>
-        private string ConvertByAdobeSdk(string url)
+        private string ConvertByLocalApp(string url)
         {
-            string fileName = RequestConvertingService(url);
-            GetFileFromConvertingService(fileName);
-            return GetContentUri(fileName);
+#if DEBUG
+            string localConvertingApp = ConfigurationManager.AppSettings["LocalConvertingApp"];
+#else
+            string localConvertingApp = CloudConfigurationManager.GetSetting("LocalConvertingApp");
+#endif
+            if (localConvertingApp.IsEmpty())
+            {
+                localConvertingApp = "Wkhtmltopdf";
+            }
+            HtmlToPdfByLocalApp converter = new HtmlToPdfByLocalApp(this, localConvertingApp);
+            return converter.GetUrlToPdf(url);
         }
 
         [AllowAnonymous]

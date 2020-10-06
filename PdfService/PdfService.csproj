@@ -424,6 +424,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlToPdf\HtmlToPdfByAdobeSdk.cs" />
+    <Compile Include="HtmlToPdf\HtmlToPdf.cs" />
+    <Compile Include="HtmlToPdf\HtmlToPdfByITextCleaner.cs" />
+    <Compile Include="HtmlToPdf\HtmlToPdfByLocalApp.cs" />
     <Compile Include="ImageHelper.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -464,6 +468,7 @@
     <Content Include="Views\Pdf\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutMobile.cshtml" />
+    <Content Include="Wkhtmltopdf\wkhtmltopdf.exe" />
     <None Include="Properties\PublishProfiles\pdfsrvc - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\pdfsrvc - Web Deploy.pubxml" />
