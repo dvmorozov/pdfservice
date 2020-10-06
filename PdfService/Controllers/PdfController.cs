@@ -5,8 +5,12 @@ using System.Net;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using EnterpriseServices.HtmlToPdf;
-using System.Configuration;
 using System.Web.WebPages;
+#if DEBUG
+using System.Configuration;
+#else
+using Microsoft.Azure;
+#endif
 
 namespace EnterpriseServices.Controllers
 {
