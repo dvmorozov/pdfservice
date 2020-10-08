@@ -1,4 +1,6 @@
-# Adobe Services SDK converting API
+# AdobeSdkService 
+
+Implements REST API providing access to Adobe Services SDK functionality for conversion HTML-pages into PDF-documents.
 
 ## API endpoints 
 
@@ -11,15 +13,15 @@
 
 ## Building
 
-Open the solution by Microsoft Visual Studio Community 2019 and build AdobeSdkService project.
+Open the solution by Microsoft Visual Studio Community 2019 and build __AdobeSdkService__ project.
 
 ## Usage
 
-Run application by means of Visual Studio. The application will be opened in local browser at https://localhost:44379/pdf.
+Run application by means of Visual Studio. The application is opened in local browser at https://localhost:44379/pdf.
 
 To get PDF document from given URL use "url" request parameter.
 
-## Examples
+### Examples
 
 To get PDF document from URL use
 https://localhost:44379/pdf/document?url=https://auto.mail.ru/article/78150-vintazhnyi_pikap_dodge_v_bezumnoi_raskraske_vystavili_na_prodazhu/
@@ -32,15 +34,22 @@ https://localhost:44379/pdf/filename?url=https://auto.mail.ru/article/78150-vint
 
 ## Deployment
 
-The service is ready for deployment into Azure.
-Actually now it is available at https://adobesdk.azurewebsites.net/
+The API has been deployed into Azure infrastructure.
+You can try it at https://adobesdk.azurewebsites.net/
 
-## Examples
+### Examples
 
 https://adobesdk.azurewebsites.net/pdf/document/?url=https://hi-tech.mail.ru/review/ne_perevodi/
 https://adobesdk.azurewebsites.net/pdf/filename/?url=https://hi-tech.mail.ru/review/ne_perevodi/
 
-# PdfCreator - Adobe Services SDK CLI application
+# HTMLCleanupDLL
+
+Implements extracting of informative text from HTML-pages (cleaning up from advertising banners and so on).
+Converts cleaned content into PDF by means of iText library.
+
+# PdfCreator
+
+Implements CLI application converting HTML-pages into PDF-documents by means of Adobe Services SDK.
 
 ## Building
 
@@ -57,13 +66,19 @@ Open the directory containing published binaries in terminal and execute
 
 You could use URL or path to ZIP file containing compressed HTML page as the first parameter.
 
-## Examples
+### Examples
 
 > pdf_creator "https://www.adobe.io/apis/documentcloud/dcsdk/pdf-embed.html" pdf-embed.pdf
 
 > pdf_creator example_page.zip example_page.pdf
 
-# PdfService - Adobe View SDK demo application
+# HTMLToPDFConvertingDLL
+
+Contains class providing access to Adobe SDK functionality common for AdobeSdkService and PdfCreator projects.
+
+# PdfService
+
+Implements Web UI for conversion HTML-pages into PDF-documents.
 
 ## Building
 
